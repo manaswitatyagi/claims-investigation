@@ -10,7 +10,7 @@ import pytest
 
 from src.evaluation.freeze import FreezeViolation, digest, load_manifest, verify
 from src.evaluation.report import (CapturingClient, classify, credit_split,
-                                   match_detail)
+                                   match_detail, rescore_open_questions)
 from src.ingestion.loader import load_claim
 from src.pipeline import run_pipeline
 
@@ -179,3 +179,93 @@ def test_match_detail_returns_objects_not_id_lists():
     assert d["one_to_one_matches"], "the clean recording matches"
     first = d["one_to_one_matches"][0]
     assert "assertion" in first["gold"] and "fact_id" in first["output"]
+
+
+# ---------------------------------------------------------------------------
+# Open-question re-scoring. The frozen metric matches on one-directional token
+# overlap, which every expected_document_absent question clears on its shared
+# template alone. These tests pin the corrected behaviour.
+# ---------------------------------------------------------------------------
+
+def _oq(qid, kind, question, expected_source):
+    return {"question_id": qid, "kind": kind, "question": question,
+            "expected_source": expected_source}
+
+
+def test_the_frozen_matcher_credits_the_wrong_question():
+    """Documents the defect the re-scorer exists to correct.
+
+    If this ever fails, the frozen metric has been changed and the re-scorer's
+    justification needs rewriting rather than quietly keeping.
+    """
+    from src.evaluation.metrics import _overlaps
+    produced = "The file does not contain adjuster notes. Has it been requested or received?"
+    wrong_gold = "The file does not contain a police report."
+    assert _overlaps(wrong_gold, produced) is True, (
+        "the frozen metric is expected to mis-credit here; see rescore_open_questions")
+
+
+def test_rescore_pairs_each_question_with_its_own_document():
+    gold = {"expected_open_questions": [
+        {"match_key": "oq.police", "kind": "expected_document_absent",
+         "question": "The file does not contain a police report.",
+         "expected_source": "a police report"},
+        {"match_key": "oq.notes", "kind": "expected_document_absent",
+         "question": "The file does not contain adjuster notes.",
+         "expected_source": "adjuster notes"},
+    ]}
+    result = {"open_questions": [
+        _oq("oq_001", "expected_document_absent",
+            "The file does not contain adjuster notes. Has it been requested or received?",
+            "adjuster notes"),
+    ]}
+    r = rescore_open_questions(gold, result)
+    assert r["open_question_recall"] == 0.5
+    assert r["missed"] == ["oq.police"], "the absent police report must NOT be credited"
+    assert r["matched"][0]["gold"] == "oq.notes"
+
+
+def test_rescore_does_not_credit_a_question_of_another_kind():
+    gold = {"expected_open_questions": [
+        {"match_key": "oq.chased", "kind": "requested_never_received",
+         "question": "An estimate was requested and never arrived.",
+         "expected_source": "a repair estimate"},
+    ]}
+    result = {"open_questions": [
+        _oq("oq_001", "expected_document_absent",
+            "The file does not contain a repair estimate.", "a repair estimate"),
+    ]}
+    r = rescore_open_questions(gold, result)
+    assert r["open_question_recall"] == 0.0, "kind must match even when the source does"
+
+
+def test_rescore_prose_fallback_is_symmetric():
+    """With no expected_source, a short produced question must not match a long
+    gold one on shared template words alone."""
+    gold = {"expected_open_questions": [
+        {"match_key": "oq.long", "kind": "unresolved_by_file",
+         "question": ("Whether the second vehicle was stationary or reversing at the "
+                      "time of contact is not resolved by any document in the file."),
+         "expected_source": None},
+    ]}
+    result = {"open_questions": [
+        _oq("oq_001", "unresolved_by_file", "Not resolved by any document.", None),
+    ]}
+    assert rescore_open_questions(gold, result)["open_question_recall"] == 0.0
+
+
+def test_one_produced_question_is_not_counted_twice():
+    gold = {"expected_open_questions": [
+        {"match_key": "oq.a", "kind": "expected_document_absent",
+         "question": "The file does not contain adjuster notes.",
+         "expected_source": "adjuster notes"},
+        {"match_key": "oq.b", "kind": "expected_document_absent",
+         "question": "The file does not contain adjuster notes.",
+         "expected_source": "adjuster notes"},
+    ]}
+    result = {"open_questions": [
+        _oq("oq_001", "expected_document_absent",
+            "The file does not contain adjuster notes.", "adjuster notes"),
+    ]}
+    r = rescore_open_questions(gold, result)
+    assert r["open_question_recall"] == 0.5, "a single output satisfies one gold row only"

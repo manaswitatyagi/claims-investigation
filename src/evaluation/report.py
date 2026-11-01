@@ -549,3 +549,79 @@ def rescore_differences(gold: Dict[str, Any], result: Dict[str, Any]) -> Dict[st
         "matched": matched, "missed": missed,
         "spurious": [d["difference_id"] for d in remaining],
     }
+
+
+def rescore_open_questions(gold: Dict[str, Any],
+                           result: Dict[str, Any]) -> Dict[str, Any]:
+    """Re-score `open_question_recall` on a discriminating key.
+
+    WHY THIS EXISTS. The frozen metric matches a gold question to a produced one
+    by token overlap: at least half of the gold question's words longer than
+    three characters must appear in the produced question, measured in one
+    direction only. Every `expected_document_absent` question is generated from
+    one template — "The file does not contain X. Has it been requested or
+    received?" — so the shared scaffolding alone clears the threshold and the
+    discriminating word is outvoted. Demonstrated on claim_001: every gold
+    question matches every produced question, so a reported recall of 1.0 would
+    survive a system that asked about adjuster notes twice and never mentioned
+    the independent account. It happens to be correct there because both
+    expected questions were in fact produced; it is not correct *because* the
+    metric worked.
+
+    This is the same defect, in the same shape, as the one already fixed in the
+    forbidden-fact detector, where one-directional containment let shared
+    scaffolding outvote the one word that carried the meaning. That fix moved to
+    symmetric Jaccard. This one does better than a threshold: `expected_source`
+    is a discriminating key both sides already carry, so the match needs no
+    fuzzy comparison at all. Prose similarity is the fallback, not the rule.
+
+    `src/evaluation/metrics.py` is frozen, so nothing here edits it. Both the
+    as-run and the re-scored figures belong in any report, exactly as D-037 was
+    handled.
+    """
+    produced = list(result.get("open_questions", []))
+    expected = gold.get("expected_open_questions", [])
+
+    matched, missed, remaining = [], [], list(produced)
+    for g in expected:
+        found = None
+        for o in remaining:
+            if o.get("kind") != g.get("kind"):
+                continue
+            gs, os_ = g.get("expected_source"), o.get("expected_source")
+            if gs is not None and os_ is not None:
+                # Exact on the discriminating key. No thresholds to tune.
+                if _norm(gs) == _norm(os_):
+                    found = o
+                    break
+                continue
+            # Only when a side carries no source does prose decide, and then
+            # symmetrically, so a long gold question cannot be matched by a
+            # short produced one that merely shares the template.
+            if _symmetric_overlap(g.get("question", ""), o.get("question", "")) >= 0.65:
+                found = o
+                break
+        if found is not None:
+            remaining.remove(found)
+            matched.append({"gold": g["match_key"],
+                            "output": found.get("question_id")})
+        else:
+            missed.append(g["match_key"])
+
+    return {
+        "open_question_recall": round(len(matched) / len(expected), 4) if expected else None,
+        "open_question_spurious": len(remaining),
+        "matched": matched,
+        "missed": missed,
+        "method": "expected_source exact, prose fallback at symmetric 0.65",
+    }
+
+
+def _symmetric_overlap(a: str, b: str) -> float:
+    """Jaccard over content words. Symmetric, so neither side can be matched
+    merely by being shorter than the other."""
+    ta = {w for w in _norm(a).split() if len(w) > 3}
+    tb = {w for w in _norm(b).split() if len(w) > 3}
+    if not ta or not tb:
+        return 0.0
+    return len(ta & tb) / len(ta | tb)
