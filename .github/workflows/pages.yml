@@ -68,6 +68,11 @@ jobs:
           test -s web/dist/claim-view.json
 
       - uses: actions/configure-pages@v5
+        with:
+          # Turns Pages on for the repo if it is not already, so publishing
+          # needs no manual switch in Settings. Harmless when already enabled.
+          enablement: true
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: web/dist
