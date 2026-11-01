@@ -1,0 +1,14 @@
+# Matches the React app's palette, so the two hosted demos look like one product.
+[theme]
+base = "dark"
+primaryColor = "#58a6ff"
+backgroundColor = "#0f1216"
+secondaryBackgroundColor = "#161b22"
+textColor = "#e6edf3"
+
+[server]
+# Ingestion is capped in the app itself (40 KB); this is the outer bound.
+maxUploadSize = 1
+
+[browser]
+gatherUsageStats = false

@@ -45,6 +45,15 @@ OpenRouter adapter used for the live runs is stdlib `urllib` and adds nothing.
 
 ## The demo
 
+Two hosted versions, because they can do different things.
+
+| | GitHub Pages | Streamlit |
+| --- | --- | --- |
+| Read the claim, graph, timeline, spans | yes | yes |
+| **Add a document and watch it reconcile** | no | **yes** |
+| Needs an API key | no | yes |
+| Cost per visit | zero | a model call per ingest |
+
 **Hosted, read-only:** https://manaswitatyagi.github.io/claims-investigation/
 
 Same app, built with `VITE_STATIC=1` so it reads a baked snapshot of the
@@ -55,7 +64,33 @@ survives. Adding a document is disabled there: ingestion runs the real
 extraction and quote-location pipeline, and mocking it would mean showing
 assertions whose spans were never resolved.
 
-**Locally, with ingestion:**
+**Hosted, with live ingestion — Streamlit.** `streamlit_app.py` is a Python view
+over the same `src/runtime/ingest.process_document` the local server calls, so a
+visitor can drop a `.md` or `.txt` file and watch the real pipeline run:
+extraction, quote location in code, ontology normalisation, neighbourhood
+recompute. Assertions whose quote cannot be found in the uploaded text are
+really dropped.
+
+```bash
+./.venv/bin/streamlit run streamlit_app.py           # http://localhost:8501
+```
+
+To deploy on [share.streamlit.io](https://share.streamlit.io): point it at this
+repo, main branch, `streamlit_app.py`, Python 3.9+, then **App settings →
+Secrets**:
+
+```toml
+OPENROUTER_API_KEY = "sk-or-v1-..."
+```
+
+Without the secret the app still runs and only ingestion is disabled, with the
+reason on screen. Two things worth knowing before sharing that link: anyone who
+opens it can spend the key, so the app allows **one upload per session** and
+caps files at **40 KB**; and each session gets its own claim id, hence its own
+runtime directory, lock and event bus — Streamlit Cloud shares one filesystem
+across viewers, so without that a stranger's upload would appear in your session.
+
+**Locally, with ingestion and the React UI:**
 
 ```bash
 cd web && npm install && npm run build && cd ..     # emits src/presentation/static

@@ -1,4 +1,10 @@
-# E1 experiment scaffold. Python 3.9+.
+# E1 experiment scaffold + the hosted Streamlit demo. Python 3.9+.
+#
+# streamlit is here because Streamlit Community Cloud installs from this
+# file; the experiments themselves do not import it. anthropic is likewise
+# unused at runtime (client.py imports it lazily) and is kept so a clone can
+# run the original Anthropic path without editing deps.
 jsonschema==4.25.1
 pytest==8.4.2
 anthropic==0.125.0
+streamlit==1.50.0
