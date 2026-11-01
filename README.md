@@ -1,15 +1,21 @@
-# Claims Handoff Copilot — E1 scaffold
+# Claims Handoff Copilot
 
 > "Inherit a claim without inheriting the guesswork."
 
-Experiment scaffolding for **E1**, the first technical experiment. **This is not
-an application.** There is no UI, no server, no database, and no writeback to any
-claim system — see `docs/experiments/E1.md` for what E1 tests and, more
-importantly, what it does not.
+An adjuster inheriting a contested, long-lived personal auto claim should be able
+to reach a defensible account of it without re-reading the file from scratch.
+This repository holds the research, the domain model, three technical
+experiments, and a small demo UI that reads their output.
+
+**This is not a product, and the decision to build one has not been made.**
+D-014's gate is closed: no application code ships until the practitioner study in
+`research/claims-synthesis-research.md` §12 has run. The demo exists to make the
+experiment output inspectable by a human, not to be used on a real claim.
 
 Product definition is `product/v1-prd.md`. Output contract and domain model are
-`data/schema.md`. Decisions are `docs/decision_log.md`. Those documents are the
-source of truth; this code implements them and does not extend them.
+`data/schema.md`. Decisions and their reasoning are `docs/decision_log.md`. Those
+documents are the source of truth; this code implements them and does not extend
+them.
 
 ## Setup
 
@@ -18,12 +24,13 @@ python3 -m venv .venv
 ./.venv/bin/pip install -r requirements.txt
 ```
 
-Python 3.9+. Three dependencies: `jsonschema`, `pytest`, `anthropic`.
+Python 3.9+. Three dependencies: `jsonschema`, `pytest`, `anthropic`. The
+OpenRouter adapter used for the live runs is stdlib `urllib` and adds nothing.
 
-## Run
+## Run the experiments
 
 ```bash
-./.venv/bin/python -m pytest tests/ -q                                    # 100 tests, no network
+./.venv/bin/python -m pytest tests/ -q                                    # 211 tests, no network
 
 # the deterministic path alone — seven of the nine stages, no model
 ./.venv/bin/python -m src.evaluation.runner --fixture claim_000_smoke --client null
@@ -31,9 +38,30 @@ Python 3.9+. Three dependencies: `jsonschema`, `pytest`, `anthropic`.
 # full path against hand-authored recordings — exercises the plumbing
 ./.venv/bin/python -m src.evaluation.runner --all --client recorded
 
-# the actual experiment (requires ANTHROPIC_API_KEY or `ant auth login`)
-./.venv/bin/python -m src.evaluation.runner --all --client live --runs 3
+# live. needs OPENROUTER_API_KEY in .env (see .env.example)
+./.venv/bin/python tools/run_e1_live.py --client openrouter --runs 3
+./.venv/bin/python tools/run_e2_ab.py   --client openrouter --runs 3
 ```
+
+## Run the demo
+
+```bash
+cd web && npm install && npm run build && cd ..     # emits src/presentation/static
+./.venv/bin/python -m src.presentation.server        # http://127.0.0.1:8000
+```
+
+Sources, an evidence map grouped by assertion neighbourhood, an inspector showing
+each assertion against its exact source span, and a two-axis timeline. Dropping a
+`.md` or `.txt` file in re-runs the affected neighbourhoods and streams the
+updated view over SSE.
+
+State lives in `data/runtime/` (gitignored). On first run it self-seeds from the
+committed E2 run at `data/generated/e2_ontology/run_1`, so a fresh clone works
+with no experiment re-run. Delete the directory to reset.
+
+**"Evidence verified" is the strongest thing the UI says, and it means the quoted
+text was found at that offset in that document — not that the assertion is true.**
+A verified citation on a false statement by a claimant is a correct output.
 
 ## Layout
 
@@ -43,28 +71,57 @@ schemas/          7 JSON Schemas: claim, fact, citation, difference,
 src/
   claim_model.py  canonical types
   pipeline.py     the nine stages, in order, once
-  llm/            the ONLY non-deterministic code — client, prompts, recordings
+  llm/            the ONLY non-deterministic code — clients, prompts, recordings
+  ontology/       26 controlled predicates, value normalisation (E2)
+  runtime/        live ingestion, claim state, SSE event stream
+  presentation/   the claim-view/1 DTO and the view server
   ingestion/ normalization/ extraction/ timeline/ differences/ questions/ evaluation/
+web/              React + Vite UI; consumes the DTO and derives nothing from it
 data/
-  raw/chicago/    anchor data for claim_001 — TODO, not yet supplied
-  fixtures/       claim_000_smoke, claim_000_zero_conflict, claim_001 (skeleton)
+  fixtures/       claim_000_smoke, claim_000_zero_conflict, claim_001
   gold/           authored expected answers
-  generated/      run outputs (gitignored)
-tests/            9 files
-docs/experiments/E1.md
+  generated/      run outputs and freeze manifests — COMMITTED, deliberately
+tests/            16 files, 211 tests
+docs/experiments/ E1.md, E1b.md, E2.md
 ```
+
+`data/generated/` is committed because the freeze manifests are what make "E1b
+changed exactly one thing" checkable, and the decision log cites run artifacts as
+evidence. Ignoring them would leave every experiment claim unverifiable.
+
+## What the experiments found
+
+**E1 — grounding, with the model reporting character offsets.** Fact recall
+0.52–0.69, and 33 of ~40 extracted facts discarded. Every single drop was
+`offset_drift`; `text_absent_from_passage` was zero across all three runs. The
+model was quoting faithfully and counting characters badly. The failure was
+clerical, not cognitive.
+
+**E1b — the model returns the quote, code computes the offsets.** One rule in one
+prompt changed. Fact recall 0.52–0.69 → **1.000 ×3**, facts dropped 6/11/16 →
+**0**, surviving facts 2/6/1 → **17/18/17**, planted-difference recall 1-of-3
+runs → **3-of-3**, cost $0.223 → $0.085. Grounding stopped being the bottleneck.
+
+**E2 — does an evidence graph earn its complexity? No.** A controlled
+`(entity, event, predicate, value)` ontology was tested against a flat baseline.
+The neighbourhood arm used 8–9 model calls against 1 and more total input, for
+**identical** difference recall (1.00 ×3) and zero false positives in both arms.
+Recommendation recorded: **do not build the graph layer.** What the ontology did
+buy was stable grouping keys (32/32 across runs), corroboration becoming
+expressible at all (0 → 7–9 per run), and three category errors prevented
+structurally rather than by prompt instruction.
 
 ## The four properties this code exists to enforce
 
 Everything else is plumbing. These are the reasons the scaffold is shaped the way
 it is, and each is a test, not a comment.
 
-**1. The LLM's surface area is small, and bounded by code.** Four model calls per
-run: one extraction per narrative passage, one difference proposal. Date
-arithmetic, timeline ordering, counts, structured field reads, coverage checks,
-and the completeness checklist are all code — `product/v1-prd.md` §10.4 lists
-what a model must never do, and `ingestion/passages.py` raises rather than warns
-when a structured document tries to reach one.
+**1. The LLM's surface area is small, and bounded by code.** Two call sites, and
+seven of the nine pipeline stages never reach them. Date arithmetic, timeline
+ordering, counts, structured field reads, coverage checks, and the completeness
+checklist are all code — `product/v1-prd.md` §10.4 lists what a model must never
+do, and `ingestion/passages.py` raises rather than warns when a structured
+document tries to reach one.
 
 **2. Uncitable content is dropped, never hedged.** Every citation must verify
 exactly against its source. Failures are removed and recorded in an audit trail;
@@ -89,9 +146,19 @@ authored ourselves would measure our own consistency and read as performance.
 are not evidence of real-world performance. Each fixture and each evaluation
 output states this in the artifact itself.
 
-**No model has been run yet.** There is no E1 result. `--client recorded` uses
-hand-authored responses and measures the plumbing.
+**The live runs are not an Anthropic baseline.** They routed through OpenRouter to
+`google/gemini-3.8-flash`. The original freeze pinned a different provider and
+model, so these runs change two variables at once and are reported as a separate
+experiment, never as that baseline.
 
-**D-014's gate is still closed.** E1 asks whether the machine can do it. The §12
-human study asks whether what it does is worth doing, and no technical result
-substitutes for that.
+**No claims professional has been consulted.** Zero. The primary user, the claim
+segment, and the premise that experienced adjusters agree on what counts as a
+material difference are all untested assumptions.
+
+**The time-savings premise is unmeasured.** No public study measures how personal
+auto adjusters allocate their time. The figure that dominates this space traces
+to an unattributed vendor blog and is barred from this project (D-021).
+
+**D-014's gate is still closed.** The experiments ask whether the machine can do
+it. The §12 human study asks whether what it does is worth doing, and no
+technical result substitutes for that.

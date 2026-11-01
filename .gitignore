@@ -25,3 +25,5 @@ data/runtime/
 # what make the E1/E1b/E2 baselines reproducible, and the decision log cites the
 # run artifacts as evidence. Ignoring them would leave every experiment claim in
 # docs/ unverifiable. 3.1 MB, no file over 200 KB.
+web/tsconfig.tsbuildinfo
+web/dist/
