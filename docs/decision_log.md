@@ -468,6 +468,74 @@ Relationship edges between assertions (`CORROBORATES`, `COMPATIBLE_WITH`, `CONTR
 
 ---
 
+## D-040 — Build the evidence graph as a view; the graph layer stays unbuilt
+
+**Date:** 2026-11-01
+**Status:** Accepted
+
+**Context.** The instruction was "build the graph layer." E2 had recommended against it on evidence: the neighbourhood arm cost 8–9 model calls against 1 for identical difference recall and zero false positives in both arms, and its two revisit conditions — a fixture needing multi-hop reasoning, or relationships needing lifecycle independent of their assertions — had not fired.
+
+**Decision.** Separate the picture from the machinery. The `claim-view/1` DTO already carries the adjacency (`entities[].neighborhood_ids`, `neighborhoods[].source_ids`), so a tripartite entity → property → source graph is a presentation change with **zero** backend change. Built as `web/src/graph/layout.ts` plus one component. No node registry, no edge objects, no Python `src/graph/`, no graph database. Layout is deterministic — x is the node's kind, y is its position in the DTO's own order — not force-directed, because a physics layout places the same claim differently on every render, making two readings non-comparable while encoding nothing.
+
+**Alternatives.** An in-memory graph abstraction with a traversal API — rejected: stored edges are a second source of truth for relationships that are currently derived, which is the mistake `TimelineEvent` was cut to avoid ("storing it creates two sources of truth for one date"), and a stale edge in an evidence product renders as a contradiction no document supports. A graph database — rejected; at 46 assertions traversal is a filter.
+
+**Consequences.** The graph shows what the cards cannot: fan-in, which source is load-bearing, and which contradiction sits on a thinly-sourced property. Tests assert the DTO carries no geometry and no edge objects, because the way this erodes is one coordinate field at a time. One bug was found and fixed in the first version: sources were filtered to those reaching a visible property, so the document ingested during the demo — zero verified assertions, nothing survived grounding — vanished from a screen about provenance. Every source now gets a node, and the marking distinguishes "no assertion survived grounding" from "none about the entities shown".
+
+**Revisit if.** Any condition in `docs/experiments/E3.md` §7 is met.
+
+---
+
+## D-041 — A multi-hop conflict cannot be authored in data; the reachable gap is cross-predicate
+
+**Date:** 2026-11-01
+**Status:** Accepted
+
+**Context.** E2's first revisit condition is a fixture requiring multi-hop reasoning across entities. `claim_002` was authored to supply one.
+
+**Decision.** It cannot be supplied, and the fixture tests the reachable gap instead. **None of the 26 predicates takes another entity as its value** — every one is `(entity, attribute, scalar)`. The claimant → vehicle_1 link exists only as English prose in a roster `description` (`claim_mapping.py:72`), so it is not data and nothing can traverse it. A multi-hop conflict therefore needs relation predicates first, and a relation with its own identity is the first brick of the layer E2 rejected. `claim_002` plants two flat controls, one **cross-predicate** treatment (`maneuver` *reversing* vs `unit_type` *parked*, both on vehicle_2, no shared grouping key), and six traps.
+
+**Alternatives.** Add a relation predicate to make the hop expressible — deferred: it changes the live E2 prompts, and E2 has no freeze manifest to change them against (see D-043). Use a cross-entity conflict available today — rejected: the candidates (two rear impacts in one collision; speed above a posted limit) need physical or conduct inference, and V1 has no `Inference` type by decision.
+
+**Consequences.** E2's recommendation is **strengthened**: the graph layer is not waiting on a fixture, it is waiting on a reason. The treatment and all six traps are the same shape — two verified assertions on one entity under different predicates — so what separates "report" from "must not report" is whether two predicates describe one property of the world. Authoring that table would be us deciding which conflicts matter, which is gated on the §12 study (D-014). E2's condition should be restated as "a fixture requires relation predicates to express a conflict the product is permitted to report."
+
+**Revisit if.** The §12 study shows practitioners agree on which predicate pairs describe one property.
+
+---
+
+## D-042 — `open_question_recall` is re-scored on a discriminating key, in the non-frozen layer
+
+**Date:** 2026-11-01
+**Status:** Accepted
+
+**Context.** Authoring `claim_002`'s gold surfaced a defect in the frozen metric. `_overlaps` requires half of the gold question's words longer than three characters to appear in the produced question, measured in one direction. Every `expected_document_absent` question comes from one template, so the shared scaffolding clears the threshold alone.
+
+**Decision.** Correct it in `report.rescore_open_questions`, matching on `expected_source` — a discriminating key both sides already carry — with a symmetric-Jaccard prose fallback only when a side has no source. `src/evaluation/metrics.py` is frozen and is not edited, per the D-037 precedent; both as-run and re-scored figures are reported.
+
+**Alternatives.** Edit the frozen metric — rejected, it would break E1/E1b digests. Tune the threshold — rejected: thresholds are what failed, and an exact key needs no tuning.
+
+**Consequences.** Demonstrated: the produced *adjuster notes* question matched the gold *police report* question while failing a correctly-worded *adjuster notes* gold. On `claim_001` **every** gold question matches **every** produced question, so its reported 1.0 is correct only because both expected questions were produced — not because the metric distinguished them. This is the same defect in the same shape as the forbidden-fact detector bug already fixed with symmetric Jaccard; it survived in a second place because the fix was applied to the site rather than to the pattern. Five tests pin the correction, one of which asserts the frozen metric *still* mis-credits, so changing the freeze forces the justification to be rewritten rather than quietly kept.
+
+**Revisit if.** The frozen set is ever re-cut, at which point the corrected matcher should replace `_overlaps` rather than sit beside it.
+
+---
+
+## D-043 — Two contract gaps recorded, not filled
+
+**Date:** 2026-11-01
+**Status:** Accepted
+
+**Context.** Both surfaced while authoring `claim_002` and neither is fixed, so they are recorded rather than left implicit.
+
+**Decision.** (1) **`unresolved_by_file` is declared in `open_question.schema.json` and the gold schema, and no code emits it.** It is removed from `claim_002`'s gold, because expecting an output no stage can produce caps the metric below 1.0 forever with no path to improvement — measuring a gap in the contract rather than the system. Noted in E3 §6.2 that it is precisely the right output for the cross-predicate treatment case: not a difference between two sources, but an unresolved state of the file. (2) **E2 has no freeze manifest.** `e2_ontology/ab_summary.json` records runs, model, arms and stage counts but no file digests, and `vocabulary.py` is not among E1's 22 frozen files, so the ontology could change with nothing recording that E2's numbers came from a different one.
+
+**Alternatives.** Implement an `unresolved_by_file` producer now — rejected: deciding when the file "does not resolve" a difference is materiality-adjacent and gated on D-014. Write an E2 freeze manifest now — deferred, and it must be labelled retroactive: it would record today's state, not a verified-at-run-time digest.
+
+**Consequences.** An empty container exists in the contract, which is the smell the domain model warned about when it declined to create an `Inference` type: "an empty container gets filled by convenience." E2's reproducibility is weaker than E1's and E1b's, and that asymmetry is now written down rather than assumed away.
+
+**Revisit if.** Any change is proposed to `src/ontology/vocabulary.py` — pin the digests first.
+
+---
+
 # Open decisions
 
 Remaining after Day 2. See `research/claims-synthesis-research.md` §11 and `product/v1-prd.md` §14 for the uncertainties behind them. **These three lists must stay synchronised.**
