@@ -260,3 +260,33 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   text-align: center; border-radius: 3px; background: var(--corrob); color: #0b1710;
   font-size: 10px; font-weight: 700;
 }
+
+/* Evidence graph. The existing .rel-* classes already carry `color`, so every
+   stroke and fill below inherits via currentColor rather than restating the
+   palette — one place to change a relationship colour, not two. */
+.view-switch { display: flex; gap: 2px; background: var(--panel-2); border: 1px solid var(--line); border-radius: 7px; padding: 2px; }
+.view-switch button { font-size: 12px; padding: 5px 11px; border-radius: 5px; color: var(--ink-3); }
+.view-switch button.is-active { background: var(--panel); color: var(--ink); }
+.graph-panel { overflow: hidden; }
+.graph-scroll { overflow-x: auto; margin: 0 -16px; padding: 0 16px; }
+.graph-svg { display: block; }
+.graph-col-label { font-size: 9.5px; text-transform: uppercase; letter-spacing: 1px; fill: var(--ink-3); text-anchor: middle; }
+.gedge { fill: none; stroke: currentColor; stroke-width: 1.1; opacity: .34; transition: opacity .12s; }
+.gedge.is-lit { opacity: .95; stroke-width: 1.7; }
+.gedge.is-dim { opacity: .07; }
+.gnode { cursor: pointer; }
+.gnode-dot { fill: currentColor; stroke: var(--bg); stroke-width: 1.5; }
+.gnode-ring { fill: none; stroke: currentColor; stroke-width: 1.2; opacity: .55; }
+.gnode-label { font-size: 11.5px; fill: var(--ink-2); }
+.gnode-entity .gnode-dot, .gnode-source .gnode-dot { fill: var(--ink-3); }
+.gnode-entity .gnode-label, .gnode-source .gnode-label { fill: var(--ink); font-weight: 600; }
+.gnode.is-dim { opacity: .22; }
+.gnode.is-active .gnode-dot { fill: var(--compat); }
+.gnode.is-active .gnode-label { fill: var(--compat); }
+.gnode.is-changed .gnode-ring { stroke: var(--contra); opacity: 1; }
+.gnode:focus-visible { outline: none; }
+.gnode:focus-visible .gnode-dot { stroke: var(--focus); stroke-width: 2.5; }
+.gnode:hover .gnode-label { fill: var(--ink); }
+.graph-foot { margin: 12px 0 0; padding-top: 11px; border-top: 1px solid var(--line); font-size: 12px; color: var(--ink-3); }
+.gnode-orphan { font-size: 10px; fill: var(--contra); }
+.gnode[data-orphan="true"] .gnode-dot { fill: none; stroke: var(--contra); stroke-dasharray: 2 2; }

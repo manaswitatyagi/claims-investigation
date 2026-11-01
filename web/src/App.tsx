@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { fetchClaimView } from "./api";
 import type { ClaimView, Neighborhood } from "./types";
 import { AddEvidence } from "./components/AddEvidence";
+import { EvidenceGraph } from "./components/EvidenceGraph";
 import { EvidenceMap } from "./components/EvidenceMap";
 import { EvidenceInspector } from "./components/EvidenceInspector";
 import { SourcesPanel } from "./components/SourcesPanel";
@@ -16,6 +17,10 @@ export default function App() {
   const [selectedNeighborhood, setSelectedNeighborhood] = useState<string | null>(null);
   const [showSingletons, setShowSingletons] = useState(false);
   const [focusNeighborhood, setFocusNeighborhood] = useState<string | null>(null);
+  // Cards and graph answer different questions — "what is asserted about this
+  // entity" versus "what shape does the evidence have" — so neither replaces
+  // the other. Cards stay the default: that is where the quotes are.
+  const [mode, setMode] = useState<"cards" | "graph">("cards");
 
   const reload = useCallback(() => {
     fetchClaimView("claim_001").then(setView).catch((e) => setError(String(e)));
@@ -119,6 +124,22 @@ export default function App() {
 
         <div className="col-main">
           <div className="map-controls">
+            <div className="view-switch" role="group" aria-label="View">
+              <button
+                className={mode === "cards" ? "is-active" : ""}
+                onClick={() => setMode("cards")}
+                aria-pressed={mode === "cards"}
+              >
+                Cards
+              </button>
+              <button
+                className={mode === "graph" ? "is-active" : ""}
+                onClick={() => setMode("graph")}
+                aria-pressed={mode === "graph"}
+              >
+                Graph
+              </button>
+            </div>
             <label className="toggle">
               <input
                 type="checkbox"
@@ -128,19 +149,32 @@ export default function App() {
               Show single-source properties ({tally.single})
             </label>
           </div>
-          <EvidenceMap
-            entities={view.entities}
-            neighborhoods={nbById}
-            assertions={view.assertions}
-            sourceFilter={sourceFilter}
-            selectedAssertion={selectedAssertion}
-            onSelectAssertion={(id) => { setSelectedAssertion(id); setSelectedNeighborhood(null); }}
-            onSelectNeighborhood={(id) => { setSelectedNeighborhood(id); setSelectedAssertion(null); }}
-            showSingletons={showSingletons}
-            newAssertionIds={session.newAssertionIds}
-            changedNeighborhoodIds={new Set(session.relationshipChanges.map((c) => c.neighborhood_id))}
-            focusNeighborhood={focusNeighborhood}
-          />
+          {mode === "cards" ? (
+            <EvidenceMap
+              entities={view.entities}
+              neighborhoods={nbById}
+              assertions={view.assertions}
+              sourceFilter={sourceFilter}
+              selectedAssertion={selectedAssertion}
+              onSelectAssertion={(id) => { setSelectedAssertion(id); setSelectedNeighborhood(null); }}
+              onSelectNeighborhood={(id) => { setSelectedNeighborhood(id); setSelectedAssertion(null); }}
+              showSingletons={showSingletons}
+              newAssertionIds={session.newAssertionIds}
+              changedNeighborhoodIds={new Set(session.relationshipChanges.map((c) => c.neighborhood_id))}
+              focusNeighborhood={focusNeighborhood}
+            />
+          ) : (
+            <EvidenceGraph
+              entities={view.entities}
+              neighborhoods={nbById}
+              sources={view.sources}
+              showSingletons={showSingletons}
+              onSelectNeighborhood={(id) => { setSelectedNeighborhood(id); setSelectedAssertion(null); }}
+              changedNeighborhoodIds={new Set(session.relationshipChanges.map((c) => c.neighborhood_id))}
+              sourceFilter={sourceFilter}
+              onSelectSource={setSourceFilter}
+            />
+          )}
           <TimelinePanel occurred={view.timeline.occurred} becameKnown={view.timeline.became_known} />
         </div>
       </div>
