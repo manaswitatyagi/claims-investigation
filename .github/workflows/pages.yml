@@ -67,11 +67,12 @@ jobs:
           fi
           test -s web/dist/claim-view.json
 
+      # NOTE: this step needs Pages already enabled, with Settings -> Pages ->
+      # Source set to "GitHub Actions". `enablement: true` was tried and the
+      # step still failed, so GITHUB_TOKEN cannot write Pages settings on this
+      # repo; enabling it is a one-time manual action. Plain configure-pages
+      # only READS the config, which is why this form works once it exists.
       - uses: actions/configure-pages@v5
-        with:
-          # Turns Pages on for the repo if it is not already, so publishing
-          # needs no manual switch in Settings. Harmless when already enabled.
-          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:
