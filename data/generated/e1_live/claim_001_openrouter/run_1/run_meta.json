@@ -1,0 +1,115 @@
+{
+  "run": 1,
+  "fixture": "claim_001",
+  "client": "openrouter",
+  "model_id": "google/gemini-3.8-flash",
+  "prompt_version": "e1-v2",
+  "synthesis_id": "syn_20c001fb9935",
+  "started_at": "2026-09-07T20:12:49.197564+00:00",
+  "finished_at": "2026-09-07T20:14:50.878681+00:00",
+  "wall_seconds": 121.68,
+  "model_calls": 3,
+  "transport_retries": 0,
+  "parse_failures": [
+    {
+      "tag": "extract__statement.body",
+      "error": "Unterminated string starting at: line 53 column 24 (char 2068)",
+      "raw_text": "{\n  \"facts\": [\n    {\n      \"assertion\": \"The claimant was driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.\",\n      \"asserter_kind\": \"claimant\",\n      \"asserter_name\": null,\n      \"subject\": \"vehicle_movement\",\n      \"quoted_text\": \"The claimant says they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.\",\n      \"char_start\": 0,\n      \"char_end\": 122,\n      \"raw_time_expression\": \"approximately 9:40 PM\",\n      \"revised\": null,\n      \"superseded_text\": null\n    },\n    {\n      \"assertion\": \"The claimant recalls that it had been raining earlier and that the pavement was wet.\",\n      \"asserter_kind\": \"claimant\",\n      \"asserter_name\": null,\n      \"subject\": \"weather_and_road_conditions\",\n      \"quoted_text\": \"The claimant recalls that it had been raining earlier and that the pavement was wet.\",\n      \"char_start\": 124,\n      \"char_end\": 208,\n      \"raw_time_expression\": \"earlier\",\n      \"revised\": null,\n      \"superseded_text\": null\n    },\n    {\n      \"assertion\": \"The claimant was driving \\\"around 25 to 30 mph\\\" before beginning the turn.\",\n      \"asserter_kind\": \"claimant\",\n      \"asserter_name\": null,\n      \"subject\": \"vehicle_speed\",\n      \"quoted_text\": \"They say they were driving \\\"around 25 to 30 mph\\\" before beginning the turn.\",\n      \"char_start\": 209,\n      \"char_end\": 284,\n      \"raw_time_expression\": null,\n      \"revised\": null,\n      \"superseded_text\": null\n    },\n    {\n      \"assertion\": \"The turn was normal until the vehicle suddenly slid.\",\n      \"asserter_kind\": \"claimant\",\n      \"asserter_name\": null,\n      \"subject\": \"vehicle_control\",\n      \"quoted_text\": \"According to the claimant, the turn was normal until the vehicle suddenly slid.\",\n      \"char_start\": 286,\n      \"char_end\": 365,\n      \"raw_time_expression\": null,\n      \"revised\": null,\n      \"superseded_text\": null\n    },\n    {\n      \"assertion\": \"The claimant tried to correct the vehicle, but the front of the Mercedes contacted a parked SUV.\",\n      \"asserter_kind\": \"claimant"
+    }
+  ],
+  "provider_meta": [
+    {
+      "provider": "Google",
+      "id": "gen-1788811969-9DkYCoMyErV4ItMpTUyc",
+      "model": "google/gemini-3.8-flash",
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP"
+    },
+    {
+      "provider": "Google",
+      "id": "gen-1788812011-3KFgckKvANvFWa5DO9tl",
+      "model": "google/gemini-3.8-flash",
+      "finish_reason": "length",
+      "native_finish_reason": "MAX_TOKENS"
+    },
+    {
+      "provider": "Google",
+      "id": "gen-1788812085-Y0Ep01ZKMQiKS4eUXP3m",
+      "model": "google/gemini-3.8-flash",
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP"
+    }
+  ],
+  "usage": [
+    {
+      "prompt_tokens": 1336,
+      "completion_tokens": 8354,
+      "total_tokens": 9690,
+      "cost": 0.0323295,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0323295,
+        "upstream_inference_prompt_cost": 0.001002,
+        "upstream_inference_completions_cost": 0.0313275
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 7308,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 1408,
+      "completion_tokens": 15986,
+      "total_tokens": 17394,
+      "cost": 0.0610035,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0610035,
+        "upstream_inference_prompt_cost": 0.001056,
+        "upstream_inference_completions_cost": 0.0599475
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 15361,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 2161,
+      "completion_tokens": 792,
+      "total_tokens": 2953,
+      "cost": 0.00459075,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00459075,
+        "upstream_inference_prompt_cost": 0.00162075,
+        "upstream_inference_completions_cost": 0.00297
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 786,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  ],
+  "disclaimer": "Scored against an authored synthetic gold answer. Measures what we planted, not real-world performance (D-003)."
+}

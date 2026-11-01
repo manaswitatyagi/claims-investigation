@@ -1,0 +1,12 @@
+{
+  "gold_total": 29,
+  "output_total": 28,
+  "recall_total": 0.9655,
+  "recall_via_one_to_one": 0.9655,
+  "recall_via_containment": 0.0,
+  "precision_total": 1.0,
+  "precision_via_one_to_one": 1.0,
+  "precision_via_containment": 0.0,
+  "co_extraction_pairs": [],
+  "note": "Containment credit (D-034) treats a sub-assertion or a covering assertion as a match. It is a deliberate loosening: a spurious fact whose span happens to fall inside a gold span is credited by it."
+}

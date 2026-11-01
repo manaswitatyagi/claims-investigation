@@ -1,0 +1,200 @@
+{
+  "gold_total": 52,
+  "output_total": 42,
+  "recall_total": 1.0,
+  "recall_via_one_to_one": 0.7885,
+  "recall_via_containment": 0.2115,
+  "precision_total": 1.0,
+  "precision_via_one_to_one": 0.9762,
+  "precision_via_containment": 0.0238,
+  "co_extraction_pairs": [
+    {
+      "gold": "stmt.direction",
+      "output": "ex_009",
+      "relation": "output_within_gold",
+      "asserter_correct": true,
+      "gold_span": {
+        "char_start": 62,
+        "char_end": 72,
+        "quoted_text": "southbound"
+      },
+      "output_span": {
+        "passage_id": "statement.body",
+        "char_start": 0,
+        "char_end": 122,
+        "quoted_text": "The claimant says they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM."
+      }
+    },
+    {
+      "gold": "fnol.night",
+      "output": "ex_001",
+      "relation": "gold_within_output",
+      "asserter_correct": true,
+      "gold_span": {
+        "char_start": 82,
+        "char_end": 90,
+        "quoted_text": "at night"
+      },
+      "output_span": {
+        "passage_id": "fnol.description_of_accident",
+        "char_start": 26,
+        "char_end": 91,
+        "quoted_text": "their vehicle was traveling northbound on Karlov Avenue at night."
+      }
+    },
+    {
+      "gold": "fnol.contact_object",
+      "output": "ex_004",
+      "relation": "gold_within_output",
+      "asserter_correct": true,
+      "gold_span": {
+        "char_start": 270,
+        "char_end": 309,
+        "quoted_text": "came into contact with a parked vehicle"
+      },
+      "output_span": {
+        "passage_id": "fnol.description_of_accident",
+        "char_start": 232,
+        "char_end": 310,
+        "quoted_text": "the vehicle was turning right when it came into contact with a parked vehicle."
+      }
+    },
+    {
+      "gold": "fnol.reason_left",
+      "output": "ex_006",
+      "relation": "gold_within_output",
+      "asserter_correct": true,
+      "gold_span": {
+        "char_start": 479,
+        "char_end": 541,
+        "quoted_text": "because they were concerned about being stranded late at night"
+      },
+      "output_span": {
+        "passage_id": "fnol.description_of_accident",
+        "char_start": 419,
+        "char_end": 542,
+        "quoted_text": "they stopped briefly, looked at the vehicles, and then left because they were concerned about being stranded late at night."
+      }
+    },
+    {
+      "gold": "stmt.vehicle",
+      "output": "ex_009",
+      "relation": "gold_within_output",
+      "asserter_correct": true,
+      "gold_span": {
+        "char_start": 28,
+        "char_end": 61,
+        "quoted_text": "driving the Mercedes-Benz G-Class"
+      },
+      "output_span": {
+        "passage_id": "statement.body",
+        "char_start": 0,
+        "char_end": 122,
+        "quoted_text": "The claimant says they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM."
+      }
+    },
+    {
+      "gold": "stmt.maneuver",
+      "output": "ex_009",
+      "relation": "gold_within_output",
+      "asserter_correct": true,
+      "gold_span": {
+        "char_start": 77,
+        "char_end": 96,
+        "quoted_text": "making a right turn"
+      },
+      "output_span": {
+        "passage_id": "statement.body",
+        "char_start": 0,
+        "char_end": 122,
+        "quoted_text": "The claimant says they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM."
+      }
+    },
+    {
+      "gold": "stmt.time",
+      "output": "ex_009",
+      "relation": "gold_within_output",
+      "asserter_correct": true,
+      "gold_span": {
+        "char_start": 97,
+        "char_end": 121,
+        "quoted_text": "at approximately 9:40 PM"
+      },
+      "output_span": {
+        "passage_id": "statement.body",
+        "char_start": 0,
+        "char_end": 122,
+        "quoted_text": "The claimant says they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM."
+      }
+    },
+    {
+      "gold": "stmt.pavement_wet",
+      "output": "ex_010",
+      "relation": "gold_within_output",
+      "asserter_correct": true,
+      "gold_span": {
+        "char_start": 187,
+        "char_end": 207,
+        "quoted_text": "the pavement was wet"
+      },
+      "output_span": {
+        "passage_id": "statement.body",
+        "char_start": 124,
+        "char_end": 208,
+        "quoted_text": "The claimant recalls that it had been raining earlier and that the pavement was wet."
+      }
+    },
+    {
+      "gold": "stmt.contact",
+      "output": "ex_013",
+      "relation": "gold_within_output",
+      "asserter_correct": true,
+      "gold_span": {
+        "char_start": 422,
+        "char_end": 470,
+        "quoted_text": "the front of the Mercedes contacted a parked SUV"
+      },
+      "output_span": {
+        "passage_id": "statement.body",
+        "char_start": 366,
+        "char_end": 471,
+        "quoted_text": "The claimant says they tried to correct the vehicle but the front of the Mercedes contacted a parked SUV."
+      }
+    },
+    {
+      "gold": "stmt.injury_belief",
+      "output": "ex_014",
+      "relation": "gold_within_output",
+      "asserter_correct": true,
+      "gold_span": {
+        "char_start": 541,
+        "char_end": 575,
+        "quoted_text": "did not believe anyone was injured"
+      },
+      "output_span": {
+        "passage_id": "statement.body",
+        "char_start": 473,
+        "char_end": 576,
+        "quoted_text": "The claimant says they did not see anyone inside the parked SUV and did not believe anyone was injured."
+      }
+    },
+    {
+      "gold": "stmt.reason_left",
+      "output": "ex_015",
+      "relation": "gold_within_output",
+      "asserter_correct": true,
+      "gold_span": {
+        "char_start": 668,
+        "char_end": 730,
+        "quoted_text": "because they were concerned about being stranded late at night"
+      },
+      "output_span": {
+        "passage_id": "statement.body",
+        "char_start": 578,
+        "char_end": 731,
+        "quoted_text": "The claimant says they stopped after the collision, looked at the vehicles, and then left because they were concerned about being stranded late at night."
+      }
+    }
+  ],
+  "note": "Containment credit (D-034) treats a sub-assertion or a covering assertion as a match. It is a deliberate loosening: a spurious fact whose span happens to fall inside a gold span is credited by it."
+}

@@ -1,0 +1,1133 @@
+{
+  "by_stage": {
+    "extraction": [
+      {
+        "stage": "extraction",
+        "kind": "omitted_gold_fact_caused_upstream",
+        "confidence": "confirmed",
+        "why": "Gold fact absent from the result, but the model produced it and the drop rule removed it. ROOT CAUSE IS GROUNDING, not extraction \u2014 see the linked grounding failure. The system behaved correctly here: an uncitable fact is dropped, never hedged.",
+        "evidence": {
+          "gold_match_key": "fnol.visibility",
+          "assertion": "The claimant says visibility was limited by darkness although the roadway was illuminated.",
+          "provenance": "extracted",
+          "root_cause_stage": "grounding",
+          "dropped_fact_id": "ex_003",
+          "dropped_reason": "unresolved_citation",
+          "dropped_notes": [
+            "offset_drift"
+          ]
+        }
+      },
+      {
+        "stage": "extraction",
+        "kind": "omitted_gold_fact",
+        "confidence": "suspected",
+        "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+        "evidence": {
+          "gold_match_key": "fnol.maneuver",
+          "assertion": "The claimant reports the vehicle was turning right at the time of contact.",
+          "provenance": "extracted",
+          "expected_asserter": "claimant",
+          "gold_span": {
+            "char_start": 232,
+            "char_end": 261,
+            "quoted_text": "the vehicle was turning right"
+          },
+          "gold_span_text": "the vehicle was turning right"
+        }
+      },
+      {
+        "stage": "extraction",
+        "kind": "omitted_gold_fact_caused_upstream",
+        "confidence": "confirmed",
+        "why": "Gold fact absent from the result, but the model produced it and the drop rule removed it. ROOT CAUSE IS GROUNDING, not extraction \u2014 see the linked grounding failure. The system behaved correctly here: an uncitable fact is dropped, never hedged.",
+        "evidence": {
+          "gold_match_key": "fnol.contact_object",
+          "assertion": "The claimant reports the vehicle came into contact with a parked vehicle.",
+          "provenance": "extracted",
+          "root_cause_stage": "grounding",
+          "dropped_fact_id": "ex_004",
+          "dropped_reason": "unresolved_citation",
+          "dropped_notes": [
+            "offset_drift"
+          ]
+        }
+      },
+      {
+        "stage": "extraction",
+        "kind": "omitted_gold_fact_caused_upstream",
+        "confidence": "confirmed",
+        "why": "Gold fact absent from the result, but the model produced it and the drop rule removed it. ROOT CAUSE IS GROUNDING, not extraction \u2014 see the linked grounding failure. The system behaved correctly here: an uncitable fact is dropped, never hedged.",
+        "evidence": {
+          "gold_match_key": "fnol.awareness",
+          "assertion": "The claimant says they did not initially realise how significant the contact was.",
+          "provenance": "extracted",
+          "root_cause_stage": "grounding",
+          "dropped_fact_id": "ex_005",
+          "dropped_reason": "unresolved_citation",
+          "dropped_notes": [
+            "offset_drift"
+          ]
+        }
+      },
+      {
+        "stage": "extraction",
+        "kind": "omitted_gold_fact",
+        "confidence": "suspected",
+        "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+        "evidence": {
+          "gold_match_key": "fnol.actions",
+          "assertion": "The claimant states they stopped briefly, looked at the vehicles, and then left.",
+          "provenance": "extracted",
+          "expected_asserter": "claimant",
+          "gold_span": {
+            "char_start": 419,
+            "char_end": 478,
+            "quoted_text": "they stopped briefly, looked at the vehicles, and then left"
+          },
+          "gold_span_text": "they stopped briefly, looked at the vehicles, and then left"
+        }
+      },
+      {
+        "stage": "extraction",
+        "kind": "omitted_gold_fact",
+        "confidence": "suspected",
+        "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+        "evidence": {
+          "gold_match_key": "fnol.reason_left",
+          "assertion": "The claimant states they left because they were concerned about being stranded late at night.",
+          "provenance": "extracted",
+          "expected_asserter": "claimant",
+          "gold_span": {
+            "char_start": 479,
+            "char_end": 541,
+            "quoted_text": "because they were concerned about being stranded late at night"
+          },
+          "gold_span_text": "because they were concerned about being stranded late at night"
+        }
+      },
+      {
+        "stage": "extraction",
+        "kind": "omitted_gold_fact",
+        "confidence": "suspected",
+        "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+        "evidence": {
+          "gold_match_key": "fnol.no_one_seen",
+          "assertion": "The claimant says they did not see anyone inside the parked vehicle.",
+          "provenance": "extracted",
+          "expected_asserter": "claimant",
+          "gold_span": {
+            "char_start": 561,
+            "char_end": 610,
+            "quoted_text": "they did not see anyone inside the parked vehicle"
+          },
+          "gold_span_text": "they did not see anyone inside the parked vehicle"
+        }
+      },
+      {
+        "stage": "extraction",
+        "kind": "omitted_gold_fact",
+        "confidence": "suspected",
+        "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+        "evidence": {
+          "gold_match_key": "fnol.injury_belief",
+          "assertion": "The claimant says they did not believe anyone was injured.",
+          "provenance": "extracted",
+          "expected_asserter": "claimant",
+          "gold_span": {
+            "char_start": 615,
+            "char_end": 649,
+            "quoted_text": "did not believe anyone was injured"
+          },
+          "gold_span_text": "did not believe anyone was injured"
+        }
+      },
+      {
+        "stage": "extraction",
+        "kind": "omitted_gold_fact",
+        "confidence": "suspected",
+        "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+        "evidence": {
+          "gold_match_key": "stmt.direction",
+          "assertion": "The claimant says they were driving southbound.",
+          "provenance": "extracted",
+          "expected_asserter": "claimant",
+          "gold_span": {
+            "char_start": 62,
+            "char_end": 72,
+            "quoted_text": "southbound"
+          },
+          "gold_span_text": "southbound"
+        }
+      },
+      {
+        "stage": "extraction",
+        "kind": "omitted_gold_fact",
+        "confidence": "suspected",
+        "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+        "evidence": {
+          "gold_match_key": "stmt.vehicle",
+          "assertion": "The claimant says they were driving the Mercedes-Benz G-Class.",
+          "provenance": "extracted",
+          "expected_asserter": "claimant",
+          "gold_span": {
+            "char_start": 28,
+            "char_end": 61,
+            "quoted_text": "driving the Mercedes-Benz G-Class"
+          },
+          "gold_span_text": "driving the Mercedes-Benz G-Class"
+        }
+      },
+      {
+        "stage": "extraction",
+        "kind": "omitted_gold_fact",
+        "confidence": "suspected",
+        "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+        "evidence": {
+          "gold_match_key": "stmt.maneuver",
+          "assertion": "The claimant says they were making a right turn.",
+          "provenance": "extracted",
+          "expected_asserter": "claimant",
+          "gold_span": {
+            "char_start": 77,
+            "char_end": 96,
+            "quoted_text": "making a right turn"
+          },
+          "gold_span_text": "making a right turn"
+        }
+      },
+      {
+        "stage": "extraction",
+        "kind": "omitted_gold_fact",
+        "confidence": "suspected",
+        "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+        "evidence": {
+          "gold_match_key": "stmt.time",
+          "assertion": "The claimant says the loss occurred at approximately 9:40 PM.",
+          "provenance": "extracted",
+          "expected_asserter": "claimant",
+          "gold_span": {
+            "char_start": 97,
+            "char_end": 121,
+            "quoted_text": "at approximately 9:40 PM"
+          },
+          "gold_span_text": "at approximately 9:40 PM"
+        }
+      },
+      {
+        "stage": "extraction",
+        "kind": "omitted_gold_fact",
+        "confidence": "suspected",
+        "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+        "evidence": {
+          "gold_match_key": "stmt.rain",
+          "assertion": "The claimant recalls that it had been raining earlier.",
+          "provenance": "extracted",
+          "expected_asserter": "claimant",
+          "gold_span": {
+            "char_start": 150,
+            "char_end": 177,
+            "quoted_text": "it had been raining earlier"
+          },
+          "gold_span_text": "it had been raining earlier"
+        }
+      },
+      {
+        "stage": "extraction",
+        "kind": "omitted_gold_fact",
+        "confidence": "suspected",
+        "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+        "evidence": {
+          "gold_match_key": "stmt.pavement_wet",
+          "assertion": "The claimant recalls that the pavement was wet.",
+          "provenance": "extracted",
+          "expected_asserter": "claimant",
+          "gold_span": {
+            "char_start": 187,
+            "char_end": 207,
+            "quoted_text": "the pavement was wet"
+          },
+          "gold_span_text": "the pavement was wet"
+        }
+      },
+      {
+        "stage": "extraction",
+        "kind": "omitted_gold_fact",
+        "confidence": "suspected",
+        "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+        "evidence": {
+          "gold_match_key": "stmt.speed",
+          "assertion": "The claimant says they were driving around 25 to 30 mph before beginning the turn.",
+          "provenance": "extracted",
+          "expected_asserter": "claimant",
+          "gold_span": {
+            "char_start": 218,
+            "char_end": 283,
+            "quoted_text": "they were driving \"around 25 to 30 mph\" before beginning the turn"
+          },
+          "gold_span_text": "they were driving \"around 25 to 30 mph\" before beginning the turn"
+        }
+      },
+      {
+        "stage": "extraction",
+        "kind": "omitted_gold_fact",
+        "confidence": "suspected",
+        "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+        "evidence": {
+          "gold_match_key": "stmt.slid",
+          "assertion": "The claimant says the turn was normal until the vehicle suddenly slid.",
+          "provenance": "extracted",
+          "expected_asserter": "claimant",
+          "gold_span": {
+            "char_start": 313,
+            "char_end": 364,
+            "quoted_text": "the turn was normal until the vehicle suddenly slid"
+          },
+          "gold_span_text": "the turn was normal until the vehicle suddenly slid"
+        }
+      },
+      {
+        "stage": "extraction",
+        "kind": "omitted_gold_fact",
+        "confidence": "suspected",
+        "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+        "evidence": {
+          "gold_match_key": "stmt.correction",
+          "assertion": "The claimant says they tried to correct the vehicle.",
+          "provenance": "extracted",
+          "expected_asserter": "claimant",
+          "gold_span": {
+            "char_start": 384,
+            "char_end": 417,
+            "quoted_text": "they tried to correct the vehicle"
+          },
+          "gold_span_text": "they tried to correct the vehicle"
+        }
+      },
+      {
+        "stage": "extraction",
+        "kind": "omitted_gold_fact",
+        "confidence": "suspected",
+        "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+        "evidence": {
+          "gold_match_key": "stmt.contact",
+          "assertion": "The claimant says the front of the Mercedes contacted a parked SUV.",
+          "provenance": "extracted",
+          "expected_asserter": "claimant",
+          "gold_span": {
+            "char_start": 422,
+            "char_end": 470,
+            "quoted_text": "the front of the Mercedes contacted a parked SUV"
+          },
+          "gold_span_text": "the front of the Mercedes contacted a parked SUV"
+        }
+      },
+      {
+        "stage": "extraction",
+        "kind": "omitted_gold_fact_caused_upstream",
+        "confidence": "confirmed",
+        "why": "Gold fact absent from the result, but the model produced it and the drop rule removed it. ROOT CAUSE IS GROUNDING, not extraction \u2014 see the linked grounding failure. The system behaved correctly here: an uncitable fact is dropped, never hedged.",
+        "evidence": {
+          "gold_match_key": "stmt.no_one_seen",
+          "assertion": "The claimant says they did not see anyone inside the parked SUV.",
+          "provenance": "extracted",
+          "root_cause_stage": "grounding",
+          "dropped_fact_id": "ex_007",
+          "dropped_reason": "unresolved_citation",
+          "dropped_notes": [
+            "offset_drift"
+          ]
+        }
+      },
+      {
+        "stage": "extraction",
+        "kind": "omitted_gold_fact",
+        "confidence": "suspected",
+        "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+        "evidence": {
+          "gold_match_key": "stmt.injury_belief",
+          "assertion": "The claimant says they did not believe anyone was injured.",
+          "provenance": "extracted",
+          "expected_asserter": "claimant",
+          "gold_span": {
+            "char_start": 541,
+            "char_end": 575,
+            "quoted_text": "did not believe anyone was injured"
+          },
+          "gold_span_text": "did not believe anyone was injured"
+        }
+      },
+      {
+        "stage": "extraction",
+        "kind": "omitted_gold_fact",
+        "confidence": "suspected",
+        "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+        "evidence": {
+          "gold_match_key": "stmt.actions",
+          "assertion": "The claimant says they stopped after the collision, looked at the vehicles, and then left.",
+          "provenance": "extracted",
+          "expected_asserter": "claimant",
+          "gold_span": {
+            "char_start": 596,
+            "char_end": 667,
+            "quoted_text": "they stopped after the collision, looked at the vehicles, and then left"
+          },
+          "gold_span_text": "they stopped after the collision, looked at the vehicles, and then left"
+        }
+      },
+      {
+        "stage": "extraction",
+        "kind": "omitted_gold_fact",
+        "confidence": "suspected",
+        "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+        "evidence": {
+          "gold_match_key": "stmt.reason_left",
+          "assertion": "The claimant says they left because they were concerned about being stranded late at night.",
+          "provenance": "extracted",
+          "expected_asserter": "claimant",
+          "gold_span": {
+            "char_start": 668,
+            "char_end": 730,
+            "quoted_text": "because they were concerned about being stranded late at night"
+          },
+          "gold_span_text": "because they were concerned about being stranded late at night"
+        }
+      },
+      {
+        "stage": "extraction",
+        "kind": "omitted_gold_fact",
+        "confidence": "suspected",
+        "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+        "evidence": {
+          "gold_match_key": "stmt.intent_to_report",
+          "assertion": "The claimant says they intended to report the incident.",
+          "provenance": "extracted",
+          "expected_asserter": "claimant",
+          "gold_span": {
+            "char_start": 741,
+            "char_end": 777,
+            "quoted_text": "they intended to report the incident"
+          },
+          "gold_span_text": "they intended to report the incident"
+        }
+      },
+      {
+        "stage": "extraction",
+        "kind": "omitted_gold_fact",
+        "confidence": "suspected",
+        "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+        "evidence": {
+          "gold_match_key": "stmt.non_recall",
+          "assertion": "The claimant says they do not recall the exact distance travelled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.",
+          "provenance": "extracted",
+          "expected_asserter": "claimant",
+          "gold_span": {
+            "char_start": 780,
+            "char_end": 967,
+            "quoted_text": "The claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location"
+          },
+          "gold_span_text": "The claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location"
+        }
+      }
+    ],
+    "grounding": [
+      {
+        "stage": "grounding",
+        "kind": "unresolved_citation",
+        "detail": "offset_drift",
+        "confidence": "confirmed",
+        "why": "The quoted text is present but the offsets point elsewhere. The model can nearly cite \u2014 a different problem from inventing.",
+        "evidence": {
+          "fact_id": "ex_003",
+          "assertion": "Visibility was limited by darkness, although the roadway was illuminated.",
+          "all_notes": [
+            "offset_drift"
+          ],
+          "outcome": "dropped before assembly; absent from the result"
+        }
+      },
+      {
+        "stage": "grounding",
+        "kind": "unresolved_citation",
+        "detail": "offset_drift",
+        "confidence": "confirmed",
+        "why": "The quoted text is present but the offsets point elsewhere. The model can nearly cite \u2014 a different problem from inventing.",
+        "evidence": {
+          "fact_id": "ex_004",
+          "assertion": "The vehicle was turning right when it came into contact with a parked vehicle.",
+          "all_notes": [
+            "offset_drift"
+          ],
+          "outcome": "dropped before assembly; absent from the result"
+        }
+      },
+      {
+        "stage": "grounding",
+        "kind": "unresolved_citation",
+        "detail": "offset_drift",
+        "confidence": "confirmed",
+        "why": "The quoted text is present but the offsets point elsewhere. The model can nearly cite \u2014 a different problem from inventing.",
+        "evidence": {
+          "fact_id": "ex_005",
+          "assertion": "The claimant did not initially realize how significant the contact was.",
+          "all_notes": [
+            "offset_drift"
+          ],
+          "outcome": "dropped before assembly; absent from the result"
+        }
+      },
+      {
+        "stage": "grounding",
+        "kind": "unresolved_citation",
+        "detail": "offset_drift",
+        "confidence": "confirmed",
+        "why": "The quoted text is present but the offsets point elsewhere. The model can nearly cite \u2014 a different problem from inventing.",
+        "evidence": {
+          "fact_id": "ex_006",
+          "assertion": "The claimant stopped briefly, looked at the vehicles, and then left because they were concerned about being stranded late at night.",
+          "all_notes": [
+            "offset_drift"
+          ],
+          "outcome": "dropped before assembly; absent from the result"
+        }
+      },
+      {
+        "stage": "grounding",
+        "kind": "unresolved_citation",
+        "detail": "offset_drift",
+        "confidence": "confirmed",
+        "why": "The quoted text is present but the offsets point elsewhere. The model can nearly cite \u2014 a different problem from inventing.",
+        "evidence": {
+          "fact_id": "ex_007",
+          "assertion": "The claimant did not see anyone inside the parked vehicle.",
+          "all_notes": [
+            "offset_drift"
+          ],
+          "outcome": "dropped before assembly; absent from the result"
+        }
+      },
+      {
+        "stage": "grounding",
+        "kind": "unresolved_citation",
+        "detail": "offset_drift",
+        "confidence": "confirmed",
+        "why": "The quoted text is present but the offsets point elsewhere. The model can nearly cite \u2014 a different problem from inventing.",
+        "evidence": {
+          "fact_id": "ex_008",
+          "assertion": "The claimant did not believe anyone was injured.",
+          "all_notes": [
+            "offset_drift"
+          ],
+          "outcome": "dropped before assembly; absent from the result"
+        }
+      },
+      {
+        "stage": "grounding",
+        "kind": "span_offsets_differ_from_gold",
+        "confidence": "confirmed",
+        "why": "The citation resolved, so the fact is verifiable, but it does not quote the region gold names. A correct fact on the wrong span still reads as verified.",
+        "evidence": {
+          "fact_id": "ex_001",
+          "assertion": "Their vehicle was traveling northbound on Karlov Avenue at night.",
+          "gold_match_key": "fnol.direction",
+          "gold_span": {
+            "char_start": 26,
+            "char_end": 81,
+            "quoted_text": "their vehicle was traveling northbound on Karlov Avenue"
+          },
+          "output_span": {
+            "passage_id": "fnol.description_of_accident",
+            "char_start": 26,
+            "char_end": 90,
+            "quoted_text": "their vehicle was traveling northbound on Karlov Avenue at night"
+          },
+          "passage_text_at_output_span": "their vehicle was traveling northbound on Karlov Avenue at night"
+        }
+      }
+    ],
+    "attribution": [],
+    "normalization": [],
+    "difference_proposal": [
+      {
+        "stage": "difference_proposal",
+        "kind": "missed_planted_difference",
+        "confidence": "confirmed",
+        "why": "A planted difference was not reported.",
+        "evidence": {
+          "gold_difference_id": "gold_d_001",
+          "subject": "direction_of_travel",
+          "expected_position_match_keys": [
+            "fnol.direction",
+            "stmt.direction"
+          ],
+          "conflict_pair": 1
+        }
+      }
+    ]
+  },
+  "totals": {
+    "extraction": 24,
+    "grounding": 7,
+    "attribution": 0,
+    "normalization": 0,
+    "difference_proposal": 1
+  },
+  "all": [
+    {
+      "stage": "grounding",
+      "kind": "unresolved_citation",
+      "detail": "offset_drift",
+      "confidence": "confirmed",
+      "why": "The quoted text is present but the offsets point elsewhere. The model can nearly cite \u2014 a different problem from inventing.",
+      "evidence": {
+        "fact_id": "ex_003",
+        "assertion": "Visibility was limited by darkness, although the roadway was illuminated.",
+        "all_notes": [
+          "offset_drift"
+        ],
+        "outcome": "dropped before assembly; absent from the result"
+      }
+    },
+    {
+      "stage": "grounding",
+      "kind": "unresolved_citation",
+      "detail": "offset_drift",
+      "confidence": "confirmed",
+      "why": "The quoted text is present but the offsets point elsewhere. The model can nearly cite \u2014 a different problem from inventing.",
+      "evidence": {
+        "fact_id": "ex_004",
+        "assertion": "The vehicle was turning right when it came into contact with a parked vehicle.",
+        "all_notes": [
+          "offset_drift"
+        ],
+        "outcome": "dropped before assembly; absent from the result"
+      }
+    },
+    {
+      "stage": "grounding",
+      "kind": "unresolved_citation",
+      "detail": "offset_drift",
+      "confidence": "confirmed",
+      "why": "The quoted text is present but the offsets point elsewhere. The model can nearly cite \u2014 a different problem from inventing.",
+      "evidence": {
+        "fact_id": "ex_005",
+        "assertion": "The claimant did not initially realize how significant the contact was.",
+        "all_notes": [
+          "offset_drift"
+        ],
+        "outcome": "dropped before assembly; absent from the result"
+      }
+    },
+    {
+      "stage": "grounding",
+      "kind": "unresolved_citation",
+      "detail": "offset_drift",
+      "confidence": "confirmed",
+      "why": "The quoted text is present but the offsets point elsewhere. The model can nearly cite \u2014 a different problem from inventing.",
+      "evidence": {
+        "fact_id": "ex_006",
+        "assertion": "The claimant stopped briefly, looked at the vehicles, and then left because they were concerned about being stranded late at night.",
+        "all_notes": [
+          "offset_drift"
+        ],
+        "outcome": "dropped before assembly; absent from the result"
+      }
+    },
+    {
+      "stage": "grounding",
+      "kind": "unresolved_citation",
+      "detail": "offset_drift",
+      "confidence": "confirmed",
+      "why": "The quoted text is present but the offsets point elsewhere. The model can nearly cite \u2014 a different problem from inventing.",
+      "evidence": {
+        "fact_id": "ex_007",
+        "assertion": "The claimant did not see anyone inside the parked vehicle.",
+        "all_notes": [
+          "offset_drift"
+        ],
+        "outcome": "dropped before assembly; absent from the result"
+      }
+    },
+    {
+      "stage": "grounding",
+      "kind": "unresolved_citation",
+      "detail": "offset_drift",
+      "confidence": "confirmed",
+      "why": "The quoted text is present but the offsets point elsewhere. The model can nearly cite \u2014 a different problem from inventing.",
+      "evidence": {
+        "fact_id": "ex_008",
+        "assertion": "The claimant did not believe anyone was injured.",
+        "all_notes": [
+          "offset_drift"
+        ],
+        "outcome": "dropped before assembly; absent from the result"
+      }
+    },
+    {
+      "stage": "grounding",
+      "kind": "span_offsets_differ_from_gold",
+      "confidence": "confirmed",
+      "why": "The citation resolved, so the fact is verifiable, but it does not quote the region gold names. A correct fact on the wrong span still reads as verified.",
+      "evidence": {
+        "fact_id": "ex_001",
+        "assertion": "Their vehicle was traveling northbound on Karlov Avenue at night.",
+        "gold_match_key": "fnol.direction",
+        "gold_span": {
+          "char_start": 26,
+          "char_end": 81,
+          "quoted_text": "their vehicle was traveling northbound on Karlov Avenue"
+        },
+        "output_span": {
+          "passage_id": "fnol.description_of_accident",
+          "char_start": 26,
+          "char_end": 90,
+          "quoted_text": "their vehicle was traveling northbound on Karlov Avenue at night"
+        },
+        "passage_text_at_output_span": "their vehicle was traveling northbound on Karlov Avenue at night"
+      }
+    },
+    {
+      "stage": "extraction",
+      "kind": "omitted_gold_fact_caused_upstream",
+      "confidence": "confirmed",
+      "why": "Gold fact absent from the result, but the model produced it and the drop rule removed it. ROOT CAUSE IS GROUNDING, not extraction \u2014 see the linked grounding failure. The system behaved correctly here: an uncitable fact is dropped, never hedged.",
+      "evidence": {
+        "gold_match_key": "fnol.visibility",
+        "assertion": "The claimant says visibility was limited by darkness although the roadway was illuminated.",
+        "provenance": "extracted",
+        "root_cause_stage": "grounding",
+        "dropped_fact_id": "ex_003",
+        "dropped_reason": "unresolved_citation",
+        "dropped_notes": [
+          "offset_drift"
+        ]
+      }
+    },
+    {
+      "stage": "extraction",
+      "kind": "omitted_gold_fact",
+      "confidence": "suspected",
+      "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+      "evidence": {
+        "gold_match_key": "fnol.maneuver",
+        "assertion": "The claimant reports the vehicle was turning right at the time of contact.",
+        "provenance": "extracted",
+        "expected_asserter": "claimant",
+        "gold_span": {
+          "char_start": 232,
+          "char_end": 261,
+          "quoted_text": "the vehicle was turning right"
+        },
+        "gold_span_text": "the vehicle was turning right"
+      }
+    },
+    {
+      "stage": "extraction",
+      "kind": "omitted_gold_fact_caused_upstream",
+      "confidence": "confirmed",
+      "why": "Gold fact absent from the result, but the model produced it and the drop rule removed it. ROOT CAUSE IS GROUNDING, not extraction \u2014 see the linked grounding failure. The system behaved correctly here: an uncitable fact is dropped, never hedged.",
+      "evidence": {
+        "gold_match_key": "fnol.contact_object",
+        "assertion": "The claimant reports the vehicle came into contact with a parked vehicle.",
+        "provenance": "extracted",
+        "root_cause_stage": "grounding",
+        "dropped_fact_id": "ex_004",
+        "dropped_reason": "unresolved_citation",
+        "dropped_notes": [
+          "offset_drift"
+        ]
+      }
+    },
+    {
+      "stage": "extraction",
+      "kind": "omitted_gold_fact_caused_upstream",
+      "confidence": "confirmed",
+      "why": "Gold fact absent from the result, but the model produced it and the drop rule removed it. ROOT CAUSE IS GROUNDING, not extraction \u2014 see the linked grounding failure. The system behaved correctly here: an uncitable fact is dropped, never hedged.",
+      "evidence": {
+        "gold_match_key": "fnol.awareness",
+        "assertion": "The claimant says they did not initially realise how significant the contact was.",
+        "provenance": "extracted",
+        "root_cause_stage": "grounding",
+        "dropped_fact_id": "ex_005",
+        "dropped_reason": "unresolved_citation",
+        "dropped_notes": [
+          "offset_drift"
+        ]
+      }
+    },
+    {
+      "stage": "extraction",
+      "kind": "omitted_gold_fact",
+      "confidence": "suspected",
+      "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+      "evidence": {
+        "gold_match_key": "fnol.actions",
+        "assertion": "The claimant states they stopped briefly, looked at the vehicles, and then left.",
+        "provenance": "extracted",
+        "expected_asserter": "claimant",
+        "gold_span": {
+          "char_start": 419,
+          "char_end": 478,
+          "quoted_text": "they stopped briefly, looked at the vehicles, and then left"
+        },
+        "gold_span_text": "they stopped briefly, looked at the vehicles, and then left"
+      }
+    },
+    {
+      "stage": "extraction",
+      "kind": "omitted_gold_fact",
+      "confidence": "suspected",
+      "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+      "evidence": {
+        "gold_match_key": "fnol.reason_left",
+        "assertion": "The claimant states they left because they were concerned about being stranded late at night.",
+        "provenance": "extracted",
+        "expected_asserter": "claimant",
+        "gold_span": {
+          "char_start": 479,
+          "char_end": 541,
+          "quoted_text": "because they were concerned about being stranded late at night"
+        },
+        "gold_span_text": "because they were concerned about being stranded late at night"
+      }
+    },
+    {
+      "stage": "extraction",
+      "kind": "omitted_gold_fact",
+      "confidence": "suspected",
+      "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+      "evidence": {
+        "gold_match_key": "fnol.no_one_seen",
+        "assertion": "The claimant says they did not see anyone inside the parked vehicle.",
+        "provenance": "extracted",
+        "expected_asserter": "claimant",
+        "gold_span": {
+          "char_start": 561,
+          "char_end": 610,
+          "quoted_text": "they did not see anyone inside the parked vehicle"
+        },
+        "gold_span_text": "they did not see anyone inside the parked vehicle"
+      }
+    },
+    {
+      "stage": "extraction",
+      "kind": "omitted_gold_fact",
+      "confidence": "suspected",
+      "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+      "evidence": {
+        "gold_match_key": "fnol.injury_belief",
+        "assertion": "The claimant says they did not believe anyone was injured.",
+        "provenance": "extracted",
+        "expected_asserter": "claimant",
+        "gold_span": {
+          "char_start": 615,
+          "char_end": 649,
+          "quoted_text": "did not believe anyone was injured"
+        },
+        "gold_span_text": "did not believe anyone was injured"
+      }
+    },
+    {
+      "stage": "extraction",
+      "kind": "omitted_gold_fact",
+      "confidence": "suspected",
+      "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+      "evidence": {
+        "gold_match_key": "stmt.direction",
+        "assertion": "The claimant says they were driving southbound.",
+        "provenance": "extracted",
+        "expected_asserter": "claimant",
+        "gold_span": {
+          "char_start": 62,
+          "char_end": 72,
+          "quoted_text": "southbound"
+        },
+        "gold_span_text": "southbound"
+      }
+    },
+    {
+      "stage": "extraction",
+      "kind": "omitted_gold_fact",
+      "confidence": "suspected",
+      "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+      "evidence": {
+        "gold_match_key": "stmt.vehicle",
+        "assertion": "The claimant says they were driving the Mercedes-Benz G-Class.",
+        "provenance": "extracted",
+        "expected_asserter": "claimant",
+        "gold_span": {
+          "char_start": 28,
+          "char_end": 61,
+          "quoted_text": "driving the Mercedes-Benz G-Class"
+        },
+        "gold_span_text": "driving the Mercedes-Benz G-Class"
+      }
+    },
+    {
+      "stage": "extraction",
+      "kind": "omitted_gold_fact",
+      "confidence": "suspected",
+      "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+      "evidence": {
+        "gold_match_key": "stmt.maneuver",
+        "assertion": "The claimant says they were making a right turn.",
+        "provenance": "extracted",
+        "expected_asserter": "claimant",
+        "gold_span": {
+          "char_start": 77,
+          "char_end": 96,
+          "quoted_text": "making a right turn"
+        },
+        "gold_span_text": "making a right turn"
+      }
+    },
+    {
+      "stage": "extraction",
+      "kind": "omitted_gold_fact",
+      "confidence": "suspected",
+      "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+      "evidence": {
+        "gold_match_key": "stmt.time",
+        "assertion": "The claimant says the loss occurred at approximately 9:40 PM.",
+        "provenance": "extracted",
+        "expected_asserter": "claimant",
+        "gold_span": {
+          "char_start": 97,
+          "char_end": 121,
+          "quoted_text": "at approximately 9:40 PM"
+        },
+        "gold_span_text": "at approximately 9:40 PM"
+      }
+    },
+    {
+      "stage": "extraction",
+      "kind": "omitted_gold_fact",
+      "confidence": "suspected",
+      "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+      "evidence": {
+        "gold_match_key": "stmt.rain",
+        "assertion": "The claimant recalls that it had been raining earlier.",
+        "provenance": "extracted",
+        "expected_asserter": "claimant",
+        "gold_span": {
+          "char_start": 150,
+          "char_end": 177,
+          "quoted_text": "it had been raining earlier"
+        },
+        "gold_span_text": "it had been raining earlier"
+      }
+    },
+    {
+      "stage": "extraction",
+      "kind": "omitted_gold_fact",
+      "confidence": "suspected",
+      "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+      "evidence": {
+        "gold_match_key": "stmt.pavement_wet",
+        "assertion": "The claimant recalls that the pavement was wet.",
+        "provenance": "extracted",
+        "expected_asserter": "claimant",
+        "gold_span": {
+          "char_start": 187,
+          "char_end": 207,
+          "quoted_text": "the pavement was wet"
+        },
+        "gold_span_text": "the pavement was wet"
+      }
+    },
+    {
+      "stage": "extraction",
+      "kind": "omitted_gold_fact",
+      "confidence": "suspected",
+      "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+      "evidence": {
+        "gold_match_key": "stmt.speed",
+        "assertion": "The claimant says they were driving around 25 to 30 mph before beginning the turn.",
+        "provenance": "extracted",
+        "expected_asserter": "claimant",
+        "gold_span": {
+          "char_start": 218,
+          "char_end": 283,
+          "quoted_text": "they were driving \"around 25 to 30 mph\" before beginning the turn"
+        },
+        "gold_span_text": "they were driving \"around 25 to 30 mph\" before beginning the turn"
+      }
+    },
+    {
+      "stage": "extraction",
+      "kind": "omitted_gold_fact",
+      "confidence": "suspected",
+      "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+      "evidence": {
+        "gold_match_key": "stmt.slid",
+        "assertion": "The claimant says the turn was normal until the vehicle suddenly slid.",
+        "provenance": "extracted",
+        "expected_asserter": "claimant",
+        "gold_span": {
+          "char_start": 313,
+          "char_end": 364,
+          "quoted_text": "the turn was normal until the vehicle suddenly slid"
+        },
+        "gold_span_text": "the turn was normal until the vehicle suddenly slid"
+      }
+    },
+    {
+      "stage": "extraction",
+      "kind": "omitted_gold_fact",
+      "confidence": "suspected",
+      "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+      "evidence": {
+        "gold_match_key": "stmt.correction",
+        "assertion": "The claimant says they tried to correct the vehicle.",
+        "provenance": "extracted",
+        "expected_asserter": "claimant",
+        "gold_span": {
+          "char_start": 384,
+          "char_end": 417,
+          "quoted_text": "they tried to correct the vehicle"
+        },
+        "gold_span_text": "they tried to correct the vehicle"
+      }
+    },
+    {
+      "stage": "extraction",
+      "kind": "omitted_gold_fact",
+      "confidence": "suspected",
+      "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+      "evidence": {
+        "gold_match_key": "stmt.contact",
+        "assertion": "The claimant says the front of the Mercedes contacted a parked SUV.",
+        "provenance": "extracted",
+        "expected_asserter": "claimant",
+        "gold_span": {
+          "char_start": 422,
+          "char_end": 470,
+          "quoted_text": "the front of the Mercedes contacted a parked SUV"
+        },
+        "gold_span_text": "the front of the Mercedes contacted a parked SUV"
+      }
+    },
+    {
+      "stage": "extraction",
+      "kind": "omitted_gold_fact_caused_upstream",
+      "confidence": "confirmed",
+      "why": "Gold fact absent from the result, but the model produced it and the drop rule removed it. ROOT CAUSE IS GROUNDING, not extraction \u2014 see the linked grounding failure. The system behaved correctly here: an uncitable fact is dropped, never hedged.",
+      "evidence": {
+        "gold_match_key": "stmt.no_one_seen",
+        "assertion": "The claimant says they did not see anyone inside the parked SUV.",
+        "provenance": "extracted",
+        "root_cause_stage": "grounding",
+        "dropped_fact_id": "ex_007",
+        "dropped_reason": "unresolved_citation",
+        "dropped_notes": [
+          "offset_drift"
+        ]
+      }
+    },
+    {
+      "stage": "extraction",
+      "kind": "omitted_gold_fact",
+      "confidence": "suspected",
+      "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+      "evidence": {
+        "gold_match_key": "stmt.injury_belief",
+        "assertion": "The claimant says they did not believe anyone was injured.",
+        "provenance": "extracted",
+        "expected_asserter": "claimant",
+        "gold_span": {
+          "char_start": 541,
+          "char_end": 575,
+          "quoted_text": "did not believe anyone was injured"
+        },
+        "gold_span_text": "did not believe anyone was injured"
+      }
+    },
+    {
+      "stage": "extraction",
+      "kind": "omitted_gold_fact",
+      "confidence": "suspected",
+      "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+      "evidence": {
+        "gold_match_key": "stmt.actions",
+        "assertion": "The claimant says they stopped after the collision, looked at the vehicles, and then left.",
+        "provenance": "extracted",
+        "expected_asserter": "claimant",
+        "gold_span": {
+          "char_start": 596,
+          "char_end": 667,
+          "quoted_text": "they stopped after the collision, looked at the vehicles, and then left"
+        },
+        "gold_span_text": "they stopped after the collision, looked at the vehicles, and then left"
+      }
+    },
+    {
+      "stage": "extraction",
+      "kind": "omitted_gold_fact",
+      "confidence": "suspected",
+      "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+      "evidence": {
+        "gold_match_key": "stmt.reason_left",
+        "assertion": "The claimant says they left because they were concerned about being stranded late at night.",
+        "provenance": "extracted",
+        "expected_asserter": "claimant",
+        "gold_span": {
+          "char_start": 668,
+          "char_end": 730,
+          "quoted_text": "because they were concerned about being stranded late at night"
+        },
+        "gold_span_text": "because they were concerned about being stranded late at night"
+      }
+    },
+    {
+      "stage": "extraction",
+      "kind": "omitted_gold_fact",
+      "confidence": "suspected",
+      "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+      "evidence": {
+        "gold_match_key": "stmt.intent_to_report",
+        "assertion": "The claimant says they intended to report the incident.",
+        "provenance": "extracted",
+        "expected_asserter": "claimant",
+        "gold_span": {
+          "char_start": 741,
+          "char_end": 777,
+          "quoted_text": "they intended to report the incident"
+        },
+        "gold_span_text": "they intended to report the incident"
+      }
+    },
+    {
+      "stage": "extraction",
+      "kind": "omitted_gold_fact",
+      "confidence": "suspected",
+      "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+      "evidence": {
+        "gold_match_key": "stmt.non_recall",
+        "assertion": "The claimant says they do not recall the exact distance travelled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.",
+        "provenance": "extracted",
+        "expected_asserter": "claimant",
+        "gold_span": {
+          "char_start": 780,
+          "char_end": 967,
+          "quoted_text": "The claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location"
+        },
+        "gold_span_text": "The claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location"
+      }
+    },
+    {
+      "stage": "difference_proposal",
+      "kind": "missed_planted_difference",
+      "confidence": "confirmed",
+      "why": "A planted difference was not reported.",
+      "evidence": {
+        "gold_difference_id": "gold_d_001",
+        "subject": "direction_of_travel",
+        "expected_position_match_keys": [
+          "fnol.direction",
+          "stmt.direction"
+        ],
+        "conflict_pair": 1
+      }
+    }
+  ]
+}

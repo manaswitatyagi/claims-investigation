@@ -1,0 +1,76 @@
+{
+  "facts": [
+    {
+      "assertion": "The claimant was heading north towards the junction.",
+      "asserter_kind": "claimant",
+      "asserter_name": "Dana Whitfield",
+      "subject": "direction_of_travel",
+      "quoted_text": "I was heading north, back towards the junction",
+      "char_start": 162,
+      "char_end": 208,
+      "raw_time_expression": null,
+      "revised": null,
+      "superseded_text": null
+    },
+    {
+      "assertion": "The claimant was travelling at twenty to twenty-five.",
+      "asserter_kind": "claimant",
+      "asserter_name": "Dana Whitfield",
+      "subject": "speed_at_impact",
+      "quoted_text": "Twenty, twenty-five",
+      "char_start": 295,
+      "char_end": 314,
+      "raw_time_expression": null,
+      "revised": null,
+      "superseded_text": null
+    },
+    {
+      "assertion": "The vehicle was still moving at the time of the impact.",
+      "asserter_kind": "claimant",
+      "asserter_name": "Dana Whitfield",
+      "subject": "vehicle_state_at_impact",
+      "quoted_text": "No, I was still moving",
+      "char_start": 488,
+      "char_end": 510,
+      "raw_time_expression": null,
+      "revised": null,
+      "superseded_text": null
+    },
+    {
+      "assertion": "The loss occurred that evening, after the claimant had eaten.",
+      "asserter_kind": "claimant",
+      "asserter_name": "Dana Whitfield",
+      "subject": "time_of_loss",
+      "quoted_text": "That evening, after I had my tea",
+      "char_start": 623,
+      "char_end": 655,
+      "raw_time_expression": "That evening, after I had my tea",
+      "revised": null,
+      "superseded_text": null
+    },
+    {
+      "assertion": "The claimant delayed reporting to see whether the other driver would resolve it.",
+      "asserter_kind": "claimant",
+      "asserter_name": "Dana Whitfield",
+      "subject": "reporting_delay_reason",
+      "quoted_text": "I wanted to see if the other driver would sort it first",
+      "char_start": 792,
+      "char_end": 847,
+      "raw_time_expression": null,
+      "revised": null,
+      "superseded_text": null
+    },
+    {
+      "assertion": "The claimant stated the vehicle was stopped at a traffic light.",
+      "asserter_kind": "claimant",
+      "asserter_name": "Dana Whitfield",
+      "subject": "vehicle_state_at_impact",
+      "quoted_text": "I was stopped at the light waiting to turn",
+      "char_start": 383,
+      "char_end": 425,
+      "raw_time_expression": null,
+      "revised": null,
+      "superseded_text": null
+    }
+  ]
+}

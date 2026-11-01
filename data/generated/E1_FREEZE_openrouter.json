@@ -1,0 +1,53 @@
+{
+  "frozen_at": "2026-09-07T20:12:43.104566+00:00",
+  "experiment": "E1 \u2014 OpenRouter variant",
+  "purpose": "A SEPARATE experiment from the Anthropic baseline in E1_FREEZE.json. Provider AND model both differ, so results from this manifest must never be reported as the claude-opus-5 result. Held constant: both system prompts byte-identical, both JSON schemas, passage text, fact set, pipeline, and gold answer.",
+  "provider": "openrouter",
+  "endpoint": "https://openrouter.ai/api/v1/chat/completions",
+  "model_id": "google/gemini-3.8-flash",
+  "prompt_version": "e1-v2",
+  "max_tokens": 16000,
+  "reasoning": {
+    "enabled": true
+  },
+  "structured_output": "response_format.json_schema (strict) \u2014 OpenAI-compatible",
+  "deviations_from_anthropic_baseline": [
+    "provider: Anthropic API -> OpenRouter",
+    "model: claude-opus-5 -> google/gemini-3.8-flash",
+    "system prompt: top-level `system` -> messages[0] role=system",
+    "structured output: output_config.format -> response_format.json_schema",
+    "thinking={'type':'adaptive'} -> reasoning={'enabled':true} (analogue, not equivalent)"
+  ],
+  "not_done": [
+    "no prompt rewording for the model",
+    "no correctness retries",
+    "no voting or best-of",
+    "no per-run configuration change"
+  ],
+  "extract_system_sha256_16": "db346bd5eb5192d4",
+  "difference_system_sha256_16": "dc13c9ccc8fd503c",
+  "files": {
+    "src/llm/prompts.py": "f6e9d508e6df4480",
+    "src/llm/client.py": "c71c6ace08993098",
+    "src/pipeline.py": "28293e55f8afbcce",
+    "src/extraction/llm_extract.py": "e2044a1e92a3511a",
+    "src/extraction/spans.py": "f511d5f3f7c43749",
+    "src/extraction/structured.py": "6364db536e7904a6",
+    "src/differences/llm_propose.py": "7a2a864f0f961133",
+    "src/differences/deterministic.py": "0c740017aaef8e90",
+    "src/timeline/build.py": "a366715cec2c5fbc",
+    "src/normalization/dates.py": "37baaaa109ac3859",
+    "src/normalization/values.py": "15f229eee66781f7",
+    "src/questions/checklist.py": "48e899d5cd780c2c",
+    "src/synthesis_assembly.py": "e3a726f8ba197db6",
+    "src/ingestion/loader.py": "6f2fd9961708c03a",
+    "src/ingestion/passages.py": "b83138b4be0d1059",
+    "src/evaluation/matching.py": "06a6d9105c436884",
+    "src/evaluation/metrics.py": "e336de36190a6542",
+    "src/evaluation/runner.py": "742b26b037b6f9cb",
+    "data/fixtures/claim_001/claim.json": "34b160a0bf1c797d",
+    "data/fixtures/claim_001/documents/fnol.json": "1cd5b355842bfaae",
+    "data/fixtures/claim_001/documents/recorded_statement.json": "d8e4d6f71c3e715b",
+    "data/gold/claim_001.gold.json": "fe88f58978d0513d"
+  }
+}

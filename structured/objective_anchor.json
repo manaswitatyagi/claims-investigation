@@ -1,0 +1,111 @@
+{
+  "claim_id": "CLAIM-001",
+  "source_kind": "user_supplied_chicago_crash_export",
+  "provenance_note": "Fields below were transcribed from the Chicago crash/unit data supplied by the user. No source URL, license, or retrieval date is asserted here.",
+  "usage_constraint": "Use only crash geometry, timing, roadway, vehicle, and crash-status attributes as an anchor. Do not attach synthetic narrative statements to real crash participants.",
+  "facts": [
+    {
+      "fact_id": "A001",
+      "field": "CRASH_DATE",
+      "value": "2026-08-11T21:43:00"
+    },
+    {
+      "fact_id": "A002",
+      "field": "LOCATION_TEXT",
+      "value": "4655 S Karlov Ave, Chicago, IL"
+    },
+    {
+      "fact_id": "A003",
+      "field": "ROADWAY_SURFACE_COND",
+      "value": "WET"
+    },
+    {
+      "fact_id": "A004",
+      "field": "LIGHTING_CONDITION",
+      "value": "DARKNESS, LIGHTED ROAD"
+    },
+    {
+      "fact_id": "A005",
+      "field": "FIRST_CRASH_TYPE",
+      "value": "PARKED MOTOR VEHICLE"
+    },
+    {
+      "fact_id": "A006",
+      "field": "HIT_AND_RUN_I",
+      "value": "Y"
+    },
+    {
+      "fact_id": "A007",
+      "field": "PRIM_CONTRIBUTORY_CAUSE",
+      "value": "FAILING TO REDUCE SPEED TO AVOID CRASH"
+    },
+    {
+      "fact_id": "A008",
+      "field": "POSTED_SPEED_LIMIT",
+      "value": 30
+    },
+    {
+      "fact_id": "A009",
+      "field": "UNIT_1_VEHICLE",
+      "value": {
+        "year": 2015,
+        "make": "MERCEDES-BENZ",
+        "model": "G-CLASS"
+      }
+    },
+    {
+      "fact_id": "A010",
+      "field": "UNIT_1_TRAVEL_DIRECTION",
+      "value": "N"
+    },
+    {
+      "fact_id": "A011",
+      "field": "UNIT_1_MANEUVER",
+      "value": "TURNING RIGHT"
+    },
+    {
+      "fact_id": "A012",
+      "field": "UNIT_1_OCCUPANT_CNT",
+      "value": 1
+    },
+    {
+      "fact_id": "A013",
+      "field": "UNIT_2_VEHICLE",
+      "value": {
+        "year": 2005,
+        "make": "CHEVROLET",
+        "model": "SUBURBAN"
+      }
+    },
+    {
+      "fact_id": "A014",
+      "field": "UNIT_2_UNIT_TYPE",
+      "value": "PARKED"
+    },
+    {
+      "fact_id": "A015",
+      "field": "UNIT_2_OCCUPANT_CNT",
+      "value": 0
+    },
+    {
+      "fact_id": "A016",
+      "field": "UNIT_2_FIRST_CONTACT_POINT",
+      "value": "REAR-RIGHT-CORNER"
+    },
+    {
+      "fact_id": "A017",
+      "field": "MOST_SEVERE_INJURY",
+      "value": "NO INDICATION OF INJURY"
+    },
+    {
+      "fact_id": "A018",
+      "field": "INJURIES_TOTAL",
+      "value": 0
+    },
+    {
+      "fact_id": "A019",
+      "field": "DAMAGE",
+      "value": "OVER $1,500"
+    }
+  ]
+}

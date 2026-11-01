@@ -1,0 +1,31 @@
+{
+  "document_id": "doc_fnol",
+  "type": "fnol",
+  "version": "v1",
+  "received_date": "2026-02-21",
+  "checkpoint_available": "C1",
+  "structure_class": "structured_with_narrative",
+  "structured_fields": {
+    "loss_date": "2026-02-14",
+    "loss_time_reported": "about 18:30",
+    "loss_location": "Willow Street at Beckett Road",
+    "driver_name": "Dana Whitfield",
+    "vehicle_vin": "1HGCM82633A004352",
+    "vehicle_year": 2019,
+    "vehicle_make": "Honda",
+    "vehicle_model": "Civic",
+    "police_contacted": false,
+    "police_report_number": null,
+    "injuries_alleged": false,
+    "witnesses": [
+      "Elaine Torrance"
+    ]
+  },
+  "passages": [
+    {
+      "passage_id": "fnol.description_of_accident",
+      "label": "Description of Accident",
+      "text": "I had been at my sister's house on Willow Street and was driving back north towards the junction when the silver saloon came out and struck the front nearside of my car. I was not going fast, maybe twenty or so. My car was moving at the time of the impact."
+    }
+  ]
+}

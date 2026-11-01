@@ -1,0 +1,17 @@
+{
+  "differences": [
+    {
+      "subject": "vehicle_state_at_impact",
+      "positions": [
+        {
+          "fact_id": "ex_001",
+          "stance": "The vehicle was parked at the kerb and unoccupied."
+        },
+        {
+          "fact_id": "ex_007",
+          "stance": "The vehicle was still moving at the time of the impact."
+        }
+      ]
+    }
+  ]
+}

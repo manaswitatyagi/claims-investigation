@@ -1,0 +1,50 @@
+{
+  "claim_id": "claim_000_smoke",
+  "synthesis_id": "syn_be174f29fca5",
+  "model_id": "recorded",
+  "prompt_version": "e1-v2",
+  "is_zero_conflict_control": false,
+  "fact_recall": 0.9655,
+  "fact_precision": 1.0,
+  "span_exactness": 1.0,
+  "asserter_accuracy": 0.9167,
+  "hallucination_rate": 0.0357,
+  "omission_rate": 0.0345,
+  "timeline_ordering_accuracy": 1.0,
+  "invented_precision_count": 0,
+  "invented_precision_items": [],
+  "difference_recall": 1.0,
+  "difference_precision": 1.0,
+  "false_differences_on_zero_conflict_control": null,
+  "open_question_recall": 1.0,
+  "open_question_spurious": 0,
+  "specificity": "requires_human_rating",
+  "open_question_usefulness": "requires_human_rating",
+  "counts": {
+    "gold_facts": 29,
+    "output_facts": 28,
+    "matched_facts": 28,
+    "matched_one_to_one": 28,
+    "co_extractions": 0,
+    "span_exactness_denominator": 12,
+    "unmatched_gold": 1,
+    "unmatched_output": 0,
+    "facts_dropped_by_span_rule": 2,
+    "dropped_as_fabricated_span": 1,
+    "dropped_as_offset_drift": 1,
+    "forbidden_facts_emitted": 0,
+    "differences_output": 2,
+    "differences_planted": 2,
+    "differences_spurious": 0
+  },
+  "detail": {
+    "missed_gold_facts": [
+      "ind.road"
+    ],
+    "co_extraction_pairs": [],
+    "unmatched_output_facts": [],
+    "forbidden_hits": [],
+    "missed_differences": [],
+    "spurious_differences": []
+  }
+}

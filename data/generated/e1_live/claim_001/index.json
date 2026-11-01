@@ -1,0 +1,23 @@
+{
+  "fixture": "claim_001",
+  "client": "recorded",
+  "runs": 3,
+  "artifacts_per_run": [
+    "credit_split.json",
+    "dropped.json",
+    "exchanges.json",
+    "failures.json",
+    "matches.json",
+    "metrics.json",
+    "passages.json",
+    "result.json",
+    "run_meta.json",
+    "stage_counts.json",
+    "summary.md"
+  ],
+  "cross_run": [
+    "freeze_check.json",
+    "variance.json",
+    "index.json"
+  ]
+}

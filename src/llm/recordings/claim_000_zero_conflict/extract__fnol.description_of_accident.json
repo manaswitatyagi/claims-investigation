@@ -1,0 +1,52 @@
+{
+  "facts": [
+    {
+      "assertion": "The vehicle was moving at the time of the impact.",
+      "asserter_kind": "claimant",
+      "asserter_name": "Dana Whitfield",
+      "subject": "vehicle_state_at_impact",
+      "quoted_text": "My car was moving at the time of the impact",
+      "char_start": 212,
+      "char_end": 255,
+      "raw_time_expression": null,
+      "revised": null,
+      "superseded_text": null
+    },
+    {
+      "assertion": "The claimant was driving back north towards the junction.",
+      "asserter_kind": "claimant",
+      "asserter_name": "Dana Whitfield",
+      "subject": "direction_of_travel",
+      "quoted_text": "was driving back north towards the junction",
+      "char_start": 53,
+      "char_end": 96,
+      "raw_time_expression": null,
+      "revised": null,
+      "superseded_text": null
+    },
+    {
+      "assertion": "The claimant was not going fast, maybe twenty.",
+      "asserter_kind": "claimant",
+      "asserter_name": "Dana Whitfield",
+      "subject": "speed_at_impact",
+      "quoted_text": "I was not going fast, maybe twenty or so",
+      "char_start": 170,
+      "char_end": 210,
+      "raw_time_expression": null,
+      "revised": null,
+      "superseded_text": null
+    },
+    {
+      "assertion": "A silver saloon came out and struck the front nearside.",
+      "asserter_kind": "claimant",
+      "asserter_name": "Dana Whitfield",
+      "subject": "other_vehicle",
+      "quoted_text": "the silver saloon came out and struck the front nearside of my car",
+      "char_start": 102,
+      "char_end": 168,
+      "raw_time_expression": null,
+      "revised": null,
+      "superseded_text": null
+    }
+  ]
+}

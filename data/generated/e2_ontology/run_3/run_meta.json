@@ -1,0 +1,287 @@
+{
+  "run": 3,
+  "model": "google/gemini-3.8-flash",
+  "wall_seconds": 100.07,
+  "model_calls": 12,
+  "usage": [
+    {
+      "prompt_tokens": 2601,
+      "completion_tokens": 6106,
+      "total_tokens": 8707,
+      "cost": 0.02484825,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.02484825,
+        "upstream_inference_prompt_cost": 0.00195075,
+        "upstream_inference_completions_cost": 0.0228975
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 4417,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 2673,
+      "completion_tokens": 4694,
+      "total_tokens": 7367,
+      "cost": 0.01960725,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.01960725,
+        "upstream_inference_prompt_cost": 0.00200475,
+        "upstream_inference_completions_cost": 0.0176025
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 2522,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 3368,
+      "completion_tokens": 2052,
+      "total_tokens": 5420,
+      "cost": 0.010221,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.010221,
+        "upstream_inference_prompt_cost": 0.002526,
+        "upstream_inference_completions_cost": 0.007695
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1910,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 616,
+      "completion_tokens": 137,
+      "total_tokens": 753,
+      "cost": 0.00097575,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00097575,
+        "upstream_inference_prompt_cost": 0.000462,
+        "upstream_inference_completions_cost": 0.00051375
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 108,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 630,
+      "completion_tokens": 1309,
+      "total_tokens": 1939,
+      "cost": 0.00538125,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00538125,
+        "upstream_inference_prompt_cost": 0.0004725,
+        "upstream_inference_completions_cost": 0.00490875
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1266,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 642,
+      "completion_tokens": 77,
+      "total_tokens": 719,
+      "cost": 0.00077025,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00077025,
+        "upstream_inference_prompt_cost": 0.0004815,
+        "upstream_inference_completions_cost": 0.00028875
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 45,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 648,
+      "completion_tokens": 130,
+      "total_tokens": 778,
+      "cost": 0.0009735,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0009735,
+        "upstream_inference_prompt_cost": 0.000486,
+        "upstream_inference_completions_cost": 0.0004875
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 97,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 669,
+      "completion_tokens": 281,
+      "total_tokens": 950,
+      "cost": 0.0015555,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0015555,
+        "upstream_inference_prompt_cost": 0.00050175,
+        "upstream_inference_completions_cost": 0.00105375
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 238,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 626,
+      "completion_tokens": 313,
+      "total_tokens": 939,
+      "cost": 0.00164325,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00164325,
+        "upstream_inference_prompt_cost": 0.0004695,
+        "upstream_inference_completions_cost": 0.00117375
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 271,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 668,
+      "completion_tokens": 104,
+      "total_tokens": 772,
+      "cost": 0.000891,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000891,
+        "upstream_inference_prompt_cost": 0.000501,
+        "upstream_inference_completions_cost": 0.00039
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 76,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 661,
+      "completion_tokens": 184,
+      "total_tokens": 845,
+      "cost": 0.00118575,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00118575,
+        "upstream_inference_prompt_cost": 0.00049575,
+        "upstream_inference_completions_cost": 0.00069
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 149,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 620,
+      "completion_tokens": 127,
+      "total_tokens": 747,
+      "cost": 0.00094125,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00094125,
+        "upstream_inference_prompt_cost": 0.000465,
+        "upstream_inference_completions_cost": 0.00047625
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 100,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  ],
+  "parse_failures": [],
+  "cost": 0.068994,
+  "disclaimer": "Synthetic gold. Measures what we planted (D-003)."
+}

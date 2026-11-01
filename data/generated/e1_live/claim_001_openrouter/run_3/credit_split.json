@@ -1,0 +1,30 @@
+{
+  "gold_total": 52,
+  "output_total": 26,
+  "recall_total": 0.5192,
+  "recall_via_one_to_one": 0.5,
+  "recall_via_containment": 0.0192,
+  "precision_total": 1.0,
+  "precision_via_one_to_one": 1.0,
+  "precision_via_containment": 0.0,
+  "co_extraction_pairs": [
+    {
+      "gold": "fnol.night",
+      "output": "ex_001",
+      "relation": "gold_within_output",
+      "asserter_correct": true,
+      "gold_span": {
+        "char_start": 82,
+        "char_end": 90,
+        "quoted_text": "at night"
+      },
+      "output_span": {
+        "passage_id": "fnol.description_of_accident",
+        "char_start": 26,
+        "char_end": 90,
+        "quoted_text": "their vehicle was traveling northbound on Karlov Avenue at night"
+      }
+    }
+  ],
+  "note": "Containment credit (D-034) treats a sub-assertion or a covering assertion as a match. It is a deliberate loosening: a spurious fact whose span happens to fall inside a gold span is credited by it."
+}

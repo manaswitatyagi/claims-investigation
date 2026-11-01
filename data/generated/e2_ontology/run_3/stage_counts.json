@@ -1,0 +1,11 @@
+{
+  "passages": 2,
+  "facts_deterministic": 31,
+  "facts_extracted": 27,
+  "facts_unlocatable": 0,
+  "facts_final": 58,
+  "neighborhoods": 32,
+  "neighborhoods_compared": 12,
+  "ungrouped_facts": 11,
+  "open_questions": 2
+}

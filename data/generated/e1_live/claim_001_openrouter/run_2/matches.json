@@ -1,0 +1,2306 @@
+{
+  "one_to_one_matches": [
+    {
+      "gold": {
+        "match_key": "det.loss_date",
+        "assertion": "The reported date of loss is 2026-08-11.",
+        "subject": "loss_date",
+        "asserter_kind": "system_record",
+        "asserter_name": null,
+        "provenance": "deterministic",
+        "document_id": "rec_claim",
+        "passage_id": null,
+        "span": null,
+        "field_path": "loss_date",
+        "normalised_value": {
+          "Date": {
+            "value": "2026-08-11",
+            "precision": "day",
+            "raw_expression": "2026-08-11"
+          }
+        },
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "sf_001",
+        "assertion": "The reported date of loss is 2026-08-11.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "claim_record",
+                "field_path": "loss_date"
+              }
+            },
+            "quoted_text": "2026-08-11",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "loss_date",
+        "normalised_value": {
+          "Date": {
+            "value": "2026-08-11",
+            "precision": "day",
+            "raw_expression": "2026-08-11"
+          }
+        },
+        "review": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "det.loss_location",
+        "assertion": "The loss location of record is 4655 S Karlov Ave, Chicago, IL.",
+        "subject": "loss_location",
+        "asserter_kind": "system_record",
+        "asserter_name": null,
+        "provenance": "deterministic",
+        "document_id": "rec_claim",
+        "passage_id": null,
+        "span": null,
+        "field_path": "loss_location",
+        "normalised_value": null,
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "sf_002",
+        "assertion": "The loss location of record is 4655 S Karlov Ave, Chicago, IL.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "claim_record",
+                "field_path": "loss_location"
+              }
+            },
+            "quoted_text": "4655 S Karlov Ave, Chicago, IL",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "loss_location",
+        "normalised_value": null,
+        "review": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "det.policy_term",
+        "assertion": "The policy incepted on 2026-01-01 and expires on 2027-01-01.",
+        "subject": "policy_term",
+        "asserter_kind": "system_record",
+        "asserter_name": null,
+        "provenance": "deterministic",
+        "document_id": "rec_policy",
+        "passage_id": null,
+        "span": null,
+        "field_path": "inception_date",
+        "normalised_value": null,
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "sf_003",
+        "assertion": "The policy incepted on 2026-01-01 and expires on 2027-01-01.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_policy",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "policy_record",
+                "field_path": "inception_date"
+              }
+            },
+            "quoted_text": "2026-01-01",
+            "resolved": true,
+            "resolution_note": null
+          },
+          {
+            "document_id": "rec_policy",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "policy_record",
+                "field_path": "expiry_date"
+              }
+            },
+            "quoted_text": "2027-01-01",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "policy_term",
+        "normalised_value": null,
+        "review": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "det.anchor:CRASH_DATE",
+        "assertion": "The structured crash record codes CRASH_DATE as 2026-08-11T21:43:00.",
+        "subject": "anchor:CRASH_DATE",
+        "asserter_kind": "system_record",
+        "asserter_name": null,
+        "provenance": "deterministic",
+        "document_id": "rec_anchor",
+        "passage_id": null,
+        "span": null,
+        "field_path": "A001.value",
+        "normalised_value": {
+          "Date": {
+            "value": "2026-08-11",
+            "precision": "day",
+            "raw_expression": "2026-08-11"
+          }
+        },
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "an_001",
+        "assertion": "The structured crash record codes CRASH_DATE as 2026-08-11T21:43:00.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_anchor",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "anchor_record",
+                "field_path": "A001.value"
+              }
+            },
+            "quoted_text": "2026-08-11T21:43:00",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "anchor:CRASH_DATE",
+        "normalised_value": {
+          "Date": {
+            "value": "2026-08-11",
+            "precision": "day",
+            "raw_expression": "2026-08-11"
+          }
+        },
+        "review": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "det.anchor:LOCATION_TEXT",
+        "assertion": "The structured crash record codes LOCATION_TEXT as 4655 S Karlov Ave, Chicago, IL.",
+        "subject": "anchor:LOCATION_TEXT",
+        "asserter_kind": "system_record",
+        "asserter_name": null,
+        "provenance": "deterministic",
+        "document_id": "rec_anchor",
+        "passage_id": null,
+        "span": null,
+        "field_path": "A002.value",
+        "normalised_value": null,
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "an_002",
+        "assertion": "The structured crash record codes LOCATION_TEXT as 4655 S Karlov Ave, Chicago, IL.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_anchor",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "anchor_record",
+                "field_path": "A002.value"
+              }
+            },
+            "quoted_text": "4655 S Karlov Ave, Chicago, IL",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "anchor:LOCATION_TEXT",
+        "normalised_value": null,
+        "review": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "det.anchor:ROADWAY_SURFACE_COND",
+        "assertion": "The structured crash record codes ROADWAY_SURFACE_COND as WET.",
+        "subject": "anchor:ROADWAY_SURFACE_COND",
+        "asserter_kind": "system_record",
+        "asserter_name": null,
+        "provenance": "deterministic",
+        "document_id": "rec_anchor",
+        "passage_id": null,
+        "span": null,
+        "field_path": "A003.value",
+        "normalised_value": null,
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "an_003",
+        "assertion": "The structured crash record codes ROADWAY_SURFACE_COND as WET.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_anchor",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "anchor_record",
+                "field_path": "A003.value"
+              }
+            },
+            "quoted_text": "WET",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "anchor:ROADWAY_SURFACE_COND",
+        "normalised_value": null,
+        "review": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "det.anchor:LIGHTING_CONDITION",
+        "assertion": "The structured crash record codes LIGHTING_CONDITION as DARKNESS, LIGHTED ROAD.",
+        "subject": "anchor:LIGHTING_CONDITION",
+        "asserter_kind": "system_record",
+        "asserter_name": null,
+        "provenance": "deterministic",
+        "document_id": "rec_anchor",
+        "passage_id": null,
+        "span": null,
+        "field_path": "A004.value",
+        "normalised_value": null,
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "an_004",
+        "assertion": "The structured crash record codes LIGHTING_CONDITION as DARKNESS, LIGHTED ROAD.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_anchor",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "anchor_record",
+                "field_path": "A004.value"
+              }
+            },
+            "quoted_text": "DARKNESS, LIGHTED ROAD",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "anchor:LIGHTING_CONDITION",
+        "normalised_value": null,
+        "review": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "det.anchor:FIRST_CRASH_TYPE",
+        "assertion": "The structured crash record codes FIRST_CRASH_TYPE as PARKED MOTOR VEHICLE.",
+        "subject": "anchor:FIRST_CRASH_TYPE",
+        "asserter_kind": "system_record",
+        "asserter_name": null,
+        "provenance": "deterministic",
+        "document_id": "rec_anchor",
+        "passage_id": null,
+        "span": null,
+        "field_path": "A005.value",
+        "normalised_value": null,
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "an_005",
+        "assertion": "The structured crash record codes FIRST_CRASH_TYPE as PARKED MOTOR VEHICLE.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_anchor",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "anchor_record",
+                "field_path": "A005.value"
+              }
+            },
+            "quoted_text": "PARKED MOTOR VEHICLE",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "anchor:FIRST_CRASH_TYPE",
+        "normalised_value": null,
+        "review": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "det.anchor:POSTED_SPEED_LIMIT",
+        "assertion": "The structured crash record codes POSTED_SPEED_LIMIT as 30.",
+        "subject": "anchor:POSTED_SPEED_LIMIT",
+        "asserter_kind": "system_record",
+        "asserter_name": null,
+        "provenance": "deterministic",
+        "document_id": "rec_anchor",
+        "passage_id": null,
+        "span": null,
+        "field_path": "A008.value",
+        "normalised_value": {
+          "Quantity": {
+            "value": 30,
+            "unit": "posted_speed_limit"
+          }
+        },
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "an_006",
+        "assertion": "The structured crash record codes POSTED_SPEED_LIMIT as 30.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_anchor",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "anchor_record",
+                "field_path": "A008.value"
+              }
+            },
+            "quoted_text": "30",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "anchor:POSTED_SPEED_LIMIT",
+        "normalised_value": {
+          "Quantity": {
+            "value": 30,
+            "unit": "posted_speed_limit"
+          }
+        },
+        "review": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "det.anchor:UNIT_1_VEHICLE",
+        "assertion": "The structured crash record codes UNIT_1_VEHICLE as {'year': 2015, 'make': 'MERCEDES-BENZ', 'model': 'G-CLASS'}.",
+        "subject": "anchor:UNIT_1_VEHICLE",
+        "asserter_kind": "system_record",
+        "asserter_name": null,
+        "provenance": "deterministic",
+        "document_id": "rec_anchor",
+        "passage_id": null,
+        "span": null,
+        "field_path": "A009.value",
+        "normalised_value": null,
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "an_007",
+        "assertion": "The structured crash record codes UNIT_1_VEHICLE as {'year': 2015, 'make': 'MERCEDES-BENZ', 'model': 'G-CLASS'}.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_anchor",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "anchor_record",
+                "field_path": "A009.value"
+              }
+            },
+            "quoted_text": "{'year': 2015, 'make': 'MERCEDES-BENZ', 'model': 'G-CLASS'}",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "anchor:UNIT_1_VEHICLE",
+        "normalised_value": null,
+        "review": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "det.anchor:UNIT_1_TRAVEL_DIRECTION",
+        "assertion": "The structured crash record codes UNIT_1_TRAVEL_DIRECTION as N.",
+        "subject": "anchor:UNIT_1_TRAVEL_DIRECTION",
+        "asserter_kind": "system_record",
+        "asserter_name": null,
+        "provenance": "deterministic",
+        "document_id": "rec_anchor",
+        "passage_id": null,
+        "span": null,
+        "field_path": "A010.value",
+        "normalised_value": null,
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "an_008",
+        "assertion": "The structured crash record codes UNIT_1_TRAVEL_DIRECTION as N.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_anchor",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "anchor_record",
+                "field_path": "A010.value"
+              }
+            },
+            "quoted_text": "N",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "anchor:UNIT_1_TRAVEL_DIRECTION",
+        "normalised_value": null,
+        "review": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "det.anchor:UNIT_1_MANEUVER",
+        "assertion": "The structured crash record codes UNIT_1_MANEUVER as TURNING RIGHT.",
+        "subject": "anchor:UNIT_1_MANEUVER",
+        "asserter_kind": "system_record",
+        "asserter_name": null,
+        "provenance": "deterministic",
+        "document_id": "rec_anchor",
+        "passage_id": null,
+        "span": null,
+        "field_path": "A011.value",
+        "normalised_value": null,
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "an_009",
+        "assertion": "The structured crash record codes UNIT_1_MANEUVER as TURNING RIGHT.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_anchor",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "anchor_record",
+                "field_path": "A011.value"
+              }
+            },
+            "quoted_text": "TURNING RIGHT",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "anchor:UNIT_1_MANEUVER",
+        "normalised_value": null,
+        "review": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "det.anchor:UNIT_1_OCCUPANT_CNT",
+        "assertion": "The structured crash record codes UNIT_1_OCCUPANT_CNT as 1.",
+        "subject": "anchor:UNIT_1_OCCUPANT_CNT",
+        "asserter_kind": "system_record",
+        "asserter_name": null,
+        "provenance": "deterministic",
+        "document_id": "rec_anchor",
+        "passage_id": null,
+        "span": null,
+        "field_path": "A012.value",
+        "normalised_value": {
+          "Quantity": {
+            "value": 1,
+            "unit": "unit_1_occupant_cnt"
+          }
+        },
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "an_010",
+        "assertion": "The structured crash record codes UNIT_1_OCCUPANT_CNT as 1.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_anchor",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "anchor_record",
+                "field_path": "A012.value"
+              }
+            },
+            "quoted_text": "1",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "anchor:UNIT_1_OCCUPANT_CNT",
+        "normalised_value": {
+          "Quantity": {
+            "value": 1,
+            "unit": "unit_1_occupant_cnt"
+          }
+        },
+        "review": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "det.anchor:UNIT_2_VEHICLE",
+        "assertion": "The structured crash record codes UNIT_2_VEHICLE as {'year': 2005, 'make': 'CHEVROLET', 'model': 'SUBURBAN'}.",
+        "subject": "anchor:UNIT_2_VEHICLE",
+        "asserter_kind": "system_record",
+        "asserter_name": null,
+        "provenance": "deterministic",
+        "document_id": "rec_anchor",
+        "passage_id": null,
+        "span": null,
+        "field_path": "A013.value",
+        "normalised_value": null,
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "an_011",
+        "assertion": "The structured crash record codes UNIT_2_VEHICLE as {'year': 2005, 'make': 'CHEVROLET', 'model': 'SUBURBAN'}.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_anchor",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "anchor_record",
+                "field_path": "A013.value"
+              }
+            },
+            "quoted_text": "{'year': 2005, 'make': 'CHEVROLET', 'model': 'SUBURBAN'}",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "anchor:UNIT_2_VEHICLE",
+        "normalised_value": null,
+        "review": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "det.anchor:UNIT_2_UNIT_TYPE",
+        "assertion": "The structured crash record codes UNIT_2_UNIT_TYPE as PARKED.",
+        "subject": "anchor:UNIT_2_UNIT_TYPE",
+        "asserter_kind": "system_record",
+        "asserter_name": null,
+        "provenance": "deterministic",
+        "document_id": "rec_anchor",
+        "passage_id": null,
+        "span": null,
+        "field_path": "A014.value",
+        "normalised_value": null,
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "an_012",
+        "assertion": "The structured crash record codes UNIT_2_UNIT_TYPE as PARKED.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_anchor",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "anchor_record",
+                "field_path": "A014.value"
+              }
+            },
+            "quoted_text": "PARKED",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "anchor:UNIT_2_UNIT_TYPE",
+        "normalised_value": null,
+        "review": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "det.anchor:UNIT_2_OCCUPANT_CNT",
+        "assertion": "The structured crash record codes UNIT_2_OCCUPANT_CNT as 0.",
+        "subject": "anchor:UNIT_2_OCCUPANT_CNT",
+        "asserter_kind": "system_record",
+        "asserter_name": null,
+        "provenance": "deterministic",
+        "document_id": "rec_anchor",
+        "passage_id": null,
+        "span": null,
+        "field_path": "A015.value",
+        "normalised_value": {
+          "Quantity": {
+            "value": 0,
+            "unit": "unit_2_occupant_cnt"
+          }
+        },
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "an_013",
+        "assertion": "The structured crash record codes UNIT_2_OCCUPANT_CNT as 0.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_anchor",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "anchor_record",
+                "field_path": "A015.value"
+              }
+            },
+            "quoted_text": "0",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "anchor:UNIT_2_OCCUPANT_CNT",
+        "normalised_value": {
+          "Quantity": {
+            "value": 0,
+            "unit": "unit_2_occupant_cnt"
+          }
+        },
+        "review": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "det.anchor:UNIT_2_FIRST_CONTACT_POINT",
+        "assertion": "The structured crash record codes UNIT_2_FIRST_CONTACT_POINT as REAR-RIGHT-CORNER.",
+        "subject": "anchor:UNIT_2_FIRST_CONTACT_POINT",
+        "asserter_kind": "system_record",
+        "asserter_name": null,
+        "provenance": "deterministic",
+        "document_id": "rec_anchor",
+        "passage_id": null,
+        "span": null,
+        "field_path": "A016.value",
+        "normalised_value": null,
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "an_014",
+        "assertion": "The structured crash record codes UNIT_2_FIRST_CONTACT_POINT as REAR-RIGHT-CORNER.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_anchor",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "anchor_record",
+                "field_path": "A016.value"
+              }
+            },
+            "quoted_text": "REAR-RIGHT-CORNER",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "anchor:UNIT_2_FIRST_CONTACT_POINT",
+        "normalised_value": null,
+        "review": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "det.anchor:MOST_SEVERE_INJURY",
+        "assertion": "The structured crash record codes MOST_SEVERE_INJURY as NO INDICATION OF INJURY.",
+        "subject": "anchor:MOST_SEVERE_INJURY",
+        "asserter_kind": "system_record",
+        "asserter_name": null,
+        "provenance": "deterministic",
+        "document_id": "rec_anchor",
+        "passage_id": null,
+        "span": null,
+        "field_path": "A017.value",
+        "normalised_value": null,
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "an_015",
+        "assertion": "The structured crash record codes MOST_SEVERE_INJURY as NO INDICATION OF INJURY.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_anchor",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "anchor_record",
+                "field_path": "A017.value"
+              }
+            },
+            "quoted_text": "NO INDICATION OF INJURY",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "anchor:MOST_SEVERE_INJURY",
+        "normalised_value": null,
+        "review": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "det.anchor:INJURIES_TOTAL",
+        "assertion": "The structured crash record codes INJURIES_TOTAL as 0.",
+        "subject": "anchor:INJURIES_TOTAL",
+        "asserter_kind": "system_record",
+        "asserter_name": null,
+        "provenance": "deterministic",
+        "document_id": "rec_anchor",
+        "passage_id": null,
+        "span": null,
+        "field_path": "A018.value",
+        "normalised_value": {
+          "Quantity": {
+            "value": 0,
+            "unit": "injuries_total"
+          }
+        },
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "an_016",
+        "assertion": "The structured crash record codes INJURIES_TOTAL as 0.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_anchor",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "anchor_record",
+                "field_path": "A018.value"
+              }
+            },
+            "quoted_text": "0",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "anchor:INJURIES_TOTAL",
+        "normalised_value": {
+          "Quantity": {
+            "value": 0,
+            "unit": "injuries_total"
+          }
+        },
+        "review": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "det.anchor:DAMAGE",
+        "assertion": "The structured crash record codes DAMAGE as OVER $1,500.",
+        "subject": "anchor:DAMAGE",
+        "asserter_kind": "system_record",
+        "asserter_name": null,
+        "provenance": "deterministic",
+        "document_id": "rec_anchor",
+        "passage_id": null,
+        "span": null,
+        "field_path": "A019.value",
+        "normalised_value": null,
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "an_017",
+        "assertion": "The structured crash record codes DAMAGE as OVER $1,500.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_anchor",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "anchor_record",
+                "field_path": "A019.value"
+              }
+            },
+            "quoted_text": "OVER $1,500",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "anchor:DAMAGE",
+        "normalised_value": null,
+        "review": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "det.policy_age_at_loss_days",
+        "assertion": "The policy had been in force 222 days at the date of loss.",
+        "subject": "policy_age_at_loss_days",
+        "asserter_kind": "system_record",
+        "asserter_name": null,
+        "provenance": "deterministic",
+        "document_id": "rec_policy",
+        "passage_id": null,
+        "span": null,
+        "field_path": "inception_date",
+        "normalised_value": {
+          "Quantity": {
+            "value": 222,
+            "unit": "days"
+          }
+        },
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "df_001",
+        "assertion": "The policy had been in force 222 days at the date of loss.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_policy",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "policy_record",
+                "field_path": "inception_date"
+              }
+            },
+            "quoted_text": "2026-01-01",
+            "resolved": true,
+            "resolution_note": null
+          },
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "claim_record",
+                "field_path": "loss_date"
+              }
+            },
+            "quoted_text": "2026-08-11",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "policy_age_at_loss_days",
+        "normalised_value": {
+          "Quantity": {
+            "value": 222,
+            "unit": "days"
+          }
+        },
+        "review": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "det.policy_in_force_at_loss",
+        "assertion": "The policy was in force on the reported date of loss.",
+        "subject": "policy_in_force_at_loss",
+        "asserter_kind": "system_record",
+        "asserter_name": null,
+        "provenance": "deterministic",
+        "document_id": "rec_policy",
+        "passage_id": null,
+        "span": null,
+        "field_path": "inception_date",
+        "normalised_value": {
+          "Boolean": {
+            "value": true
+          }
+        },
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "df_002",
+        "assertion": "The policy was in force on the reported date of loss.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_policy",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "policy_record",
+                "field_path": "inception_date"
+              }
+            },
+            "quoted_text": "2026-01-01",
+            "resolved": true,
+            "resolution_note": null
+          },
+          {
+            "document_id": "rec_policy",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "policy_record",
+                "field_path": "expiry_date"
+              }
+            },
+            "quoted_text": "2027-01-01",
+            "resolved": true,
+            "resolution_note": null
+          },
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "claim_record",
+                "field_path": "loss_date"
+              }
+            },
+            "quoted_text": "2026-08-11",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "policy_in_force_at_loss",
+        "normalised_value": {
+          "Boolean": {
+            "value": true
+          }
+        },
+        "review": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "det.prior_claim_count",
+        "assertion": "The file records 0 prior claim(s).",
+        "subject": "prior_claim_count",
+        "asserter_kind": "system_record",
+        "asserter_name": null,
+        "provenance": "deterministic",
+        "document_id": "rec_claim",
+        "passage_id": null,
+        "span": null,
+        "field_path": "claim_number",
+        "normalised_value": {
+          "Quantity": {
+            "value": 0,
+            "unit": "claims"
+          }
+        },
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "df_003",
+        "assertion": "The file records 0 prior claim(s).",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "claim_record",
+                "field_path": "claim_number"
+              }
+            },
+            "quoted_text": "CLAIM-001",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "prior_claim_count",
+        "normalised_value": {
+          "Quantity": {
+            "value": 0,
+            "unit": "claims"
+          }
+        },
+        "review": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "det.handler_count",
+        "assertion": "The claim has been handled by 1 handler(s).",
+        "subject": "handler_count",
+        "asserter_kind": "system_record",
+        "asserter_name": null,
+        "provenance": "deterministic",
+        "document_id": "rec_claim",
+        "passage_id": null,
+        "span": null,
+        "field_path": "handler_history.0.handler",
+        "normalised_value": {
+          "Quantity": {
+            "value": 1,
+            "unit": "handlers"
+          }
+        },
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "df_004",
+        "assertion": "The claim has been handled by 1 handler(s).",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "claim_record",
+                "field_path": "handler_history.0.handler"
+              }
+            },
+            "quoted_text": "Handler A",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "handler_count",
+        "normalised_value": {
+          "Quantity": {
+            "value": 1,
+            "unit": "handlers"
+          }
+        },
+        "review": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "det.document_received:doc_statement",
+        "assertion": "The recorded statement was received into the file on 2026-08-13.",
+        "subject": "document_received:doc_statement",
+        "asserter_kind": "system_record",
+        "asserter_name": null,
+        "provenance": "deterministic",
+        "document_id": "doc_statement",
+        "passage_id": null,
+        "span": null,
+        "field_path": "doc_statement.received_date",
+        "normalised_value": {
+          "Date": {
+            "value": "2026-08-13",
+            "precision": "day",
+            "raw_expression": "2026-08-13"
+          }
+        },
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "bk_001",
+        "assertion": "The recorded statement was received into the file on 2026-08-13.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "doc_statement",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "document_metadata",
+                "field_path": "doc_statement.received_date"
+              }
+            },
+            "quoted_text": "2026-08-13",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "document_received:doc_statement",
+        "normalised_value": {
+          "Date": {
+            "value": "2026-08-13",
+            "precision": "day",
+            "raw_expression": "2026-08-13"
+          }
+        },
+        "review": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "fnol.direction",
+        "assertion": "The claimant reports the vehicle was travelling northbound on Karlov Avenue.",
+        "subject": "direction_of_travel",
+        "asserter_kind": "claimant",
+        "asserter_name": null,
+        "provenance": "extracted",
+        "document_id": "doc_fnol",
+        "passage_id": "fnol.description_of_accident",
+        "span": {
+          "char_start": 26,
+          "char_end": 81,
+          "quoted_text": "their vehicle was traveling northbound on Karlov Avenue"
+        },
+        "field_path": null,
+        "normalised_value": null,
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "ex_001",
+        "assertion": "Their vehicle was traveling northbound on Karlov Avenue at night",
+        "asserter": {
+          "kind": "claimant",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "extracted",
+        "citations": [
+          {
+            "document_id": "doc_fnol",
+            "document_version": "v1",
+            "locator": {
+              "TextSpan": {
+                "passage_id": "fnol.description_of_accident",
+                "char_start": 26,
+                "char_end": 90
+              }
+            },
+            "quoted_text": "their vehicle was traveling northbound on Karlov Avenue at night",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "direction_of_travel",
+        "normalised_value": {
+          "Date": {
+            "value": null,
+            "precision": "vague",
+            "raw_expression": "at night"
+          }
+        },
+        "review": null,
+        "extraction_confidence": null
+      },
+      "score": 1.359375,
+      "span_exact": false,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "fnol.road_wet",
+        "assertion": "The claimant says the road was wet.",
+        "subject": "road_surface",
+        "asserter_kind": "claimant",
+        "asserter_name": null,
+        "provenance": "extracted",
+        "document_id": "doc_fnol",
+        "passage_id": "fnol.description_of_accident",
+        "span": {
+          "char_start": 110,
+          "char_end": 126,
+          "quoted_text": "the road was wet"
+        },
+        "field_path": null,
+        "normalised_value": null,
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "ex_002",
+        "assertion": "The road was wet",
+        "asserter": {
+          "kind": "claimant",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "extracted",
+        "citations": [
+          {
+            "document_id": "doc_fnol",
+            "document_version": "v1",
+            "locator": {
+              "TextSpan": {
+                "passage_id": "fnol.description_of_accident",
+                "char_start": 110,
+                "char_end": 126
+              }
+            },
+            "quoted_text": "the road was wet",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "road_conditions",
+        "normalised_value": null,
+        "review": null,
+        "extraction_confidence": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "fnol.visibility",
+        "assertion": "The claimant says visibility was limited by darkness although the roadway was illuminated.",
+        "subject": "visibility",
+        "asserter_kind": "claimant",
+        "asserter_name": null,
+        "provenance": "extracted",
+        "document_id": "doc_fnol",
+        "passage_id": "fnol.description_of_accident",
+        "span": {
+          "char_start": 131,
+          "char_end": 203,
+          "quoted_text": "visibility was limited by darkness, although the roadway was illuminated"
+        },
+        "field_path": null,
+        "normalised_value": null,
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "ex_003",
+        "assertion": "Visibility was limited by darkness, although the roadway was illuminated",
+        "asserter": {
+          "kind": "claimant",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "extracted",
+        "citations": [
+          {
+            "document_id": "doc_fnol",
+            "document_version": "v1",
+            "locator": {
+              "TextSpan": {
+                "passage_id": "fnol.description_of_accident",
+                "char_start": 131,
+                "char_end": 203
+              }
+            },
+            "quoted_text": "visibility was limited by darkness, although the roadway was illuminated",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "visibility_conditions",
+        "normalised_value": null,
+        "review": null,
+        "extraction_confidence": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "fnol.maneuver",
+        "assertion": "The claimant reports the vehicle was turning right at the time of contact.",
+        "subject": "vehicle_maneuver",
+        "asserter_kind": "claimant",
+        "asserter_name": null,
+        "provenance": "extracted",
+        "document_id": "doc_fnol",
+        "passage_id": "fnol.description_of_accident",
+        "span": {
+          "char_start": 232,
+          "char_end": 261,
+          "quoted_text": "the vehicle was turning right"
+        },
+        "field_path": null,
+        "normalised_value": null,
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "ex_004",
+        "assertion": "The vehicle was turning right when it came into contact with a parked vehicle",
+        "asserter": {
+          "kind": "claimant",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "extracted",
+        "citations": [
+          {
+            "document_id": "doc_fnol",
+            "document_version": "v1",
+            "locator": {
+              "TextSpan": {
+                "passage_id": "fnol.description_of_accident",
+                "char_start": 232,
+                "char_end": 309
+              }
+            },
+            "quoted_text": "the vehicle was turning right when it came into contact with a parked vehicle",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "collision_description",
+        "normalised_value": null,
+        "review": null,
+        "extraction_confidence": null
+      },
+      "score": 0.37662337662337664,
+      "span_exact": false,
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "fnol.awareness",
+        "assertion": "The claimant says they did not initially realise how significant the contact was.",
+        "subject": "claimant_awareness_of_severity",
+        "asserter_kind": "claimant",
+        "asserter_name": null,
+        "provenance": "extracted",
+        "document_id": "doc_fnol",
+        "passage_id": "fnol.description_of_accident",
+        "span": {
+          "char_start": 329,
+          "char_end": 391,
+          "quoted_text": "they did not initially realize how significant the contact was"
+        },
+        "field_path": null,
+        "normalised_value": null,
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "ex_005",
+        "assertion": "The claimant did not initially realize how significant the contact was",
+        "asserter": {
+          "kind": "claimant",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "extracted",
+        "citations": [
+          {
+            "document_id": "doc_fnol",
+            "document_version": "v1",
+            "locator": {
+              "TextSpan": {
+                "passage_id": "fnol.description_of_accident",
+                "char_start": 329,
+                "char_end": 391
+              }
+            },
+            "quoted_text": "they did not initially realize how significant the contact was",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "impact_perception",
+        "normalised_value": null,
+        "review": null,
+        "extraction_confidence": null
+      },
+      "score": 1.0,
+      "span_exact": true,
+      "asserter_correct": true
+    }
+  ],
+  "co_extractions": [
+    {
+      "gold": {
+        "match_key": "stmt.direction",
+        "assertion": "The claimant says they were driving southbound.",
+        "subject": "direction_of_travel",
+        "asserter_kind": "claimant",
+        "asserter_name": null,
+        "provenance": "extracted",
+        "document_id": "doc_statement",
+        "passage_id": "statement.body",
+        "span": {
+          "char_start": 62,
+          "char_end": 72,
+          "quoted_text": "southbound"
+        },
+        "field_path": null,
+        "normalised_value": null,
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "ex_009",
+        "assertion": "The claimant states they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.",
+        "asserter": {
+          "kind": "claimant",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "extracted",
+        "citations": [
+          {
+            "document_id": "doc_statement",
+            "document_version": "v1",
+            "locator": {
+              "TextSpan": {
+                "passage_id": "statement.body",
+                "char_start": 0,
+                "char_end": 122
+              }
+            },
+            "quoted_text": "The claimant says they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "vehicle_operation",
+        "normalised_value": {
+          "Date": {
+            "value": null,
+            "precision": "vague",
+            "raw_expression": "approximately 9:40 PM"
+          }
+        },
+        "review": null,
+        "extraction_confidence": null
+      },
+      "relation": "output_within_gold",
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "fnol.night",
+        "assertion": "The claimant reports the loss occurred at night.",
+        "subject": "time_of_day",
+        "asserter_kind": "claimant",
+        "asserter_name": null,
+        "provenance": "extracted",
+        "document_id": "doc_fnol",
+        "passage_id": "fnol.description_of_accident",
+        "span": {
+          "char_start": 82,
+          "char_end": 90,
+          "quoted_text": "at night"
+        },
+        "field_path": null,
+        "normalised_value": {
+          "Date": {
+            "value": null,
+            "precision": "vague",
+            "raw_expression": "at night"
+          }
+        },
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "ex_001",
+        "assertion": "Their vehicle was traveling northbound on Karlov Avenue at night",
+        "asserter": {
+          "kind": "claimant",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "extracted",
+        "citations": [
+          {
+            "document_id": "doc_fnol",
+            "document_version": "v1",
+            "locator": {
+              "TextSpan": {
+                "passage_id": "fnol.description_of_accident",
+                "char_start": 26,
+                "char_end": 90
+              }
+            },
+            "quoted_text": "their vehicle was traveling northbound on Karlov Avenue at night",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "direction_of_travel",
+        "normalised_value": {
+          "Date": {
+            "value": null,
+            "precision": "vague",
+            "raw_expression": "at night"
+          }
+        },
+        "review": null,
+        "extraction_confidence": null
+      },
+      "relation": "gold_within_output",
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "fnol.contact_object",
+        "assertion": "The claimant reports the vehicle came into contact with a parked vehicle.",
+        "subject": "contact_object",
+        "asserter_kind": "claimant",
+        "asserter_name": null,
+        "provenance": "extracted",
+        "document_id": "doc_fnol",
+        "passage_id": "fnol.description_of_accident",
+        "span": {
+          "char_start": 270,
+          "char_end": 309,
+          "quoted_text": "came into contact with a parked vehicle"
+        },
+        "field_path": null,
+        "normalised_value": null,
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "ex_004",
+        "assertion": "The vehicle was turning right when it came into contact with a parked vehicle",
+        "asserter": {
+          "kind": "claimant",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "extracted",
+        "citations": [
+          {
+            "document_id": "doc_fnol",
+            "document_version": "v1",
+            "locator": {
+              "TextSpan": {
+                "passage_id": "fnol.description_of_accident",
+                "char_start": 232,
+                "char_end": 309
+              }
+            },
+            "quoted_text": "the vehicle was turning right when it came into contact with a parked vehicle",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "collision_description",
+        "normalised_value": null,
+        "review": null,
+        "extraction_confidence": null
+      },
+      "relation": "gold_within_output",
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "stmt.vehicle",
+        "assertion": "The claimant says they were driving the Mercedes-Benz G-Class.",
+        "subject": "vehicle_identity",
+        "asserter_kind": "claimant",
+        "asserter_name": null,
+        "provenance": "extracted",
+        "document_id": "doc_statement",
+        "passage_id": "statement.body",
+        "span": {
+          "char_start": 28,
+          "char_end": 61,
+          "quoted_text": "driving the Mercedes-Benz G-Class"
+        },
+        "field_path": null,
+        "normalised_value": null,
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "ex_009",
+        "assertion": "The claimant states they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.",
+        "asserter": {
+          "kind": "claimant",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "extracted",
+        "citations": [
+          {
+            "document_id": "doc_statement",
+            "document_version": "v1",
+            "locator": {
+              "TextSpan": {
+                "passage_id": "statement.body",
+                "char_start": 0,
+                "char_end": 122
+              }
+            },
+            "quoted_text": "The claimant says they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "vehicle_operation",
+        "normalised_value": {
+          "Date": {
+            "value": null,
+            "precision": "vague",
+            "raw_expression": "approximately 9:40 PM"
+          }
+        },
+        "review": null,
+        "extraction_confidence": null
+      },
+      "relation": "gold_within_output",
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "stmt.maneuver",
+        "assertion": "The claimant says they were making a right turn.",
+        "subject": "vehicle_maneuver",
+        "asserter_kind": "claimant",
+        "asserter_name": null,
+        "provenance": "extracted",
+        "document_id": "doc_statement",
+        "passage_id": "statement.body",
+        "span": {
+          "char_start": 77,
+          "char_end": 96,
+          "quoted_text": "making a right turn"
+        },
+        "field_path": null,
+        "normalised_value": null,
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "ex_009",
+        "assertion": "The claimant states they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.",
+        "asserter": {
+          "kind": "claimant",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "extracted",
+        "citations": [
+          {
+            "document_id": "doc_statement",
+            "document_version": "v1",
+            "locator": {
+              "TextSpan": {
+                "passage_id": "statement.body",
+                "char_start": 0,
+                "char_end": 122
+              }
+            },
+            "quoted_text": "The claimant says they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "vehicle_operation",
+        "normalised_value": {
+          "Date": {
+            "value": null,
+            "precision": "vague",
+            "raw_expression": "approximately 9:40 PM"
+          }
+        },
+        "review": null,
+        "extraction_confidence": null
+      },
+      "relation": "gold_within_output",
+      "asserter_correct": true
+    },
+    {
+      "gold": {
+        "match_key": "stmt.time",
+        "assertion": "The claimant says the loss occurred at approximately 9:40 PM.",
+        "subject": "time_of_loss",
+        "asserter_kind": "claimant",
+        "asserter_name": null,
+        "provenance": "extracted",
+        "document_id": "doc_statement",
+        "passage_id": "statement.body",
+        "span": {
+          "char_start": 97,
+          "char_end": 121,
+          "quoted_text": "at approximately 9:40 PM"
+        },
+        "field_path": null,
+        "normalised_value": {
+          "Date": {
+            "value": null,
+            "precision": "vague",
+            "raw_expression": "approximately 9:40 PM"
+          }
+        },
+        "materiality_intent": null
+      },
+      "output": {
+        "fact_id": "ex_009",
+        "assertion": "The claimant states they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.",
+        "asserter": {
+          "kind": "claimant",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "extracted",
+        "citations": [
+          {
+            "document_id": "doc_statement",
+            "document_version": "v1",
+            "locator": {
+              "TextSpan": {
+                "passage_id": "statement.body",
+                "char_start": 0,
+                "char_end": 122
+              }
+            },
+            "quoted_text": "The claimant says they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "vehicle_operation",
+        "normalised_value": {
+          "Date": {
+            "value": null,
+            "precision": "vague",
+            "raw_expression": "approximately 9:40 PM"
+          }
+        },
+        "review": null,
+        "extraction_confidence": null
+      },
+      "relation": "gold_within_output",
+      "asserter_correct": true
+    }
+  ],
+  "unmatched_gold": [
+    {
+      "match_key": "fnol.actions",
+      "assertion": "The claimant states they stopped briefly, looked at the vehicles, and then left.",
+      "subject": "post_collision_actions",
+      "asserter_kind": "claimant",
+      "asserter_name": null,
+      "provenance": "extracted",
+      "document_id": "doc_fnol",
+      "passage_id": "fnol.description_of_accident",
+      "span": {
+        "char_start": 419,
+        "char_end": 478,
+        "quoted_text": "they stopped briefly, looked at the vehicles, and then left"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "fnol.reason_left",
+      "assertion": "The claimant states they left because they were concerned about being stranded late at night.",
+      "subject": "reason_for_leaving",
+      "asserter_kind": "claimant",
+      "asserter_name": null,
+      "provenance": "extracted",
+      "document_id": "doc_fnol",
+      "passage_id": "fnol.description_of_accident",
+      "span": {
+        "char_start": 479,
+        "char_end": 541,
+        "quoted_text": "because they were concerned about being stranded late at night"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "fnol.no_one_seen",
+      "assertion": "The claimant says they did not see anyone inside the parked vehicle.",
+      "subject": "occupancy_observation",
+      "asserter_kind": "claimant",
+      "asserter_name": null,
+      "provenance": "extracted",
+      "document_id": "doc_fnol",
+      "passage_id": "fnol.description_of_accident",
+      "span": {
+        "char_start": 561,
+        "char_end": 610,
+        "quoted_text": "they did not see anyone inside the parked vehicle"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "fnol.injury_belief",
+      "assertion": "The claimant says they did not believe anyone was injured.",
+      "subject": "injury_belief",
+      "asserter_kind": "claimant",
+      "asserter_name": null,
+      "provenance": "extracted",
+      "document_id": "doc_fnol",
+      "passage_id": "fnol.description_of_accident",
+      "span": {
+        "char_start": 615,
+        "char_end": 649,
+        "quoted_text": "did not believe anyone was injured"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "stmt.rain",
+      "assertion": "The claimant recalls that it had been raining earlier.",
+      "subject": "weather_before_loss",
+      "asserter_kind": "claimant",
+      "asserter_name": null,
+      "provenance": "extracted",
+      "document_id": "doc_statement",
+      "passage_id": "statement.body",
+      "span": {
+        "char_start": 150,
+        "char_end": 177,
+        "quoted_text": "it had been raining earlier"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "stmt.pavement_wet",
+      "assertion": "The claimant recalls that the pavement was wet.",
+      "subject": "road_surface",
+      "asserter_kind": "claimant",
+      "asserter_name": null,
+      "provenance": "extracted",
+      "document_id": "doc_statement",
+      "passage_id": "statement.body",
+      "span": {
+        "char_start": 187,
+        "char_end": 207,
+        "quoted_text": "the pavement was wet"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "stmt.speed",
+      "assertion": "The claimant says they were driving around 25 to 30 mph before beginning the turn.",
+      "subject": "speed_before_turn",
+      "asserter_kind": "claimant",
+      "asserter_name": null,
+      "provenance": "extracted",
+      "document_id": "doc_statement",
+      "passage_id": "statement.body",
+      "span": {
+        "char_start": 218,
+        "char_end": 283,
+        "quoted_text": "they were driving \"around 25 to 30 mph\" before beginning the turn"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "stmt.slid",
+      "assertion": "The claimant says the turn was normal until the vehicle suddenly slid.",
+      "subject": "vehicle_slid",
+      "asserter_kind": "claimant",
+      "asserter_name": null,
+      "provenance": "extracted",
+      "document_id": "doc_statement",
+      "passage_id": "statement.body",
+      "span": {
+        "char_start": 313,
+        "char_end": 364,
+        "quoted_text": "the turn was normal until the vehicle suddenly slid"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "stmt.correction",
+      "assertion": "The claimant says they tried to correct the vehicle.",
+      "subject": "correction_attempt",
+      "asserter_kind": "claimant",
+      "asserter_name": null,
+      "provenance": "extracted",
+      "document_id": "doc_statement",
+      "passage_id": "statement.body",
+      "span": {
+        "char_start": 384,
+        "char_end": 417,
+        "quoted_text": "they tried to correct the vehicle"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "stmt.contact",
+      "assertion": "The claimant says the front of the Mercedes contacted a parked SUV.",
+      "subject": "contact_configuration",
+      "asserter_kind": "claimant",
+      "asserter_name": null,
+      "provenance": "extracted",
+      "document_id": "doc_statement",
+      "passage_id": "statement.body",
+      "span": {
+        "char_start": 422,
+        "char_end": 470,
+        "quoted_text": "the front of the Mercedes contacted a parked SUV"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "stmt.no_one_seen",
+      "assertion": "The claimant says they did not see anyone inside the parked SUV.",
+      "subject": "occupancy_observation",
+      "asserter_kind": "claimant",
+      "asserter_name": null,
+      "provenance": "extracted",
+      "document_id": "doc_statement",
+      "passage_id": "statement.body",
+      "span": {
+        "char_start": 491,
+        "char_end": 536,
+        "quoted_text": "they did not see anyone inside the parked SUV"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "stmt.injury_belief",
+      "assertion": "The claimant says they did not believe anyone was injured.",
+      "subject": "injury_belief",
+      "asserter_kind": "claimant",
+      "asserter_name": null,
+      "provenance": "extracted",
+      "document_id": "doc_statement",
+      "passage_id": "statement.body",
+      "span": {
+        "char_start": 541,
+        "char_end": 575,
+        "quoted_text": "did not believe anyone was injured"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "stmt.actions",
+      "assertion": "The claimant says they stopped after the collision, looked at the vehicles, and then left.",
+      "subject": "post_collision_actions",
+      "asserter_kind": "claimant",
+      "asserter_name": null,
+      "provenance": "extracted",
+      "document_id": "doc_statement",
+      "passage_id": "statement.body",
+      "span": {
+        "char_start": 596,
+        "char_end": 667,
+        "quoted_text": "they stopped after the collision, looked at the vehicles, and then left"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "stmt.reason_left",
+      "assertion": "The claimant says they left because they were concerned about being stranded late at night.",
+      "subject": "reason_for_leaving",
+      "asserter_kind": "claimant",
+      "asserter_name": null,
+      "provenance": "extracted",
+      "document_id": "doc_statement",
+      "passage_id": "statement.body",
+      "span": {
+        "char_start": 668,
+        "char_end": 730,
+        "quoted_text": "because they were concerned about being stranded late at night"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "stmt.intent_to_report",
+      "assertion": "The claimant says they intended to report the incident.",
+      "subject": "reporting_intention",
+      "asserter_kind": "claimant",
+      "asserter_name": null,
+      "provenance": "extracted",
+      "document_id": "doc_statement",
+      "passage_id": "statement.body",
+      "span": {
+        "char_start": 741,
+        "char_end": 777,
+        "quoted_text": "they intended to report the incident"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "stmt.non_recall",
+      "assertion": "The claimant says they do not recall the exact distance travelled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.",
+      "subject": "claimant_non_recall",
+      "asserter_kind": "claimant",
+      "asserter_name": null,
+      "provenance": "extracted",
+      "document_id": "doc_statement",
+      "passage_id": "statement.body",
+      "span": {
+        "char_start": 780,
+        "char_end": 967,
+        "quoted_text": "The claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    }
+  ],
+  "unmatched_output": [],
+  "differences_matched": [
+    {
+      "gold": {
+        "difference_id": "gold_d_001",
+        "subject": "direction_of_travel",
+        "position_match_keys": [
+          "fnol.direction",
+          "stmt.direction"
+        ],
+        "detection_method": "extracted",
+        "conflict_pair": 1,
+        "materiality_intent": null
+      },
+      "output": {
+        "difference_id": "d_001",
+        "subject": "direction_of_travel",
+        "positions": [
+          {
+            "fact_id": "an_008",
+            "stance": "The vehicle was traveling northbound."
+          },
+          {
+            "fact_id": "ex_001",
+            "stance": "The vehicle was traveling northbound on Karlov Avenue."
+          },
+          {
+            "fact_id": "ex_009",
+            "stance": "The vehicle was being driven southbound."
+          }
+        ],
+        "detection_method": "extracted",
+        "already_noted": {
+          "value": false,
+          "fact_id": null
+        },
+        "review": null,
+        "materiality": null,
+        "materiality_rationale": null
+      }
+    }
+  ],
+  "differences_missed": [],
+  "differences_spurious": []
+}

@@ -1,0 +1,109 @@
+{
+  "run": 3,
+  "fixture": "claim_001",
+  "client": "openrouter",
+  "model_id": "google/gemini-3.8-flash",
+  "prompt_version": "e1-v2",
+  "synthesis_id": "syn_20c001fb9935",
+  "started_at": "2026-09-07T20:16:31.463053+00:00",
+  "finished_at": "2026-09-07T20:17:30.237162+00:00",
+  "wall_seconds": 58.77,
+  "model_calls": 3,
+  "transport_retries": 0,
+  "parse_failures": [],
+  "provider_meta": [
+    {
+      "provider": "Google",
+      "id": "gen-1788812191-E8EVnAkaalgEy0X8q9XK",
+      "model": "google/gemini-3.8-flash",
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP"
+    },
+    {
+      "provider": "Google",
+      "id": "gen-1788812201-ihcWDGh6UvpviBpyKtXh",
+      "model": "google/gemini-3.8-flash",
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP"
+    },
+    {
+      "provider": "Google",
+      "id": "gen-1788812244-4suo4t439WKUf91UM8fA",
+      "model": "google/gemini-3.8-flash",
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP"
+    }
+  ],
+  "usage": [
+    {
+      "prompt_tokens": 1336,
+      "completion_tokens": 2008,
+      "total_tokens": 3344,
+      "cost": 0.008532,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.008532,
+        "upstream_inference_prompt_cost": 0.001002,
+        "upstream_inference_completions_cost": 0.00753
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 956,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 1408,
+      "completion_tokens": 10149,
+      "total_tokens": 11557,
+      "cost": 0.03911475,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.03911475,
+        "upstream_inference_prompt_cost": 0.001056,
+        "upstream_inference_completions_cost": 0.03805875
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 8812,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 2132,
+      "completion_tokens": 920,
+      "total_tokens": 3052,
+      "cost": 0.005049,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.005049,
+        "upstream_inference_prompt_cost": 0.001599,
+        "upstream_inference_completions_cost": 0.00345
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 910,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  ],
+  "disclaimer": "Scored against an authored synthetic gold answer. Measures what we planted, not real-world performance (D-003)."
+}

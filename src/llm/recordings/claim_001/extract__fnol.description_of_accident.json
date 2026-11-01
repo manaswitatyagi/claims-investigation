@@ -1,0 +1,136 @@
+{
+  "facts": [
+    {
+      "assertion": "The claimant reports the vehicle was travelling northbound on Karlov Avenue.",
+      "asserter_kind": "claimant",
+      "asserter_name": null,
+      "subject": "direction_of_travel",
+      "quoted_text": "their vehicle was traveling northbound on Karlov Avenue",
+      "char_start": 26,
+      "char_end": 81,
+      "raw_time_expression": null,
+      "revised": null,
+      "superseded_text": null
+    },
+    {
+      "assertion": "The claimant reports the loss occurred at night.",
+      "asserter_kind": "claimant",
+      "asserter_name": null,
+      "subject": "time_of_day",
+      "quoted_text": "at night",
+      "char_start": 82,
+      "char_end": 90,
+      "raw_time_expression": "at night",
+      "revised": null,
+      "superseded_text": null
+    },
+    {
+      "assertion": "The claimant says the road was wet.",
+      "asserter_kind": "claimant",
+      "asserter_name": null,
+      "subject": "road_surface",
+      "quoted_text": "the road was wet",
+      "char_start": 110,
+      "char_end": 126,
+      "raw_time_expression": null,
+      "revised": null,
+      "superseded_text": null
+    },
+    {
+      "assertion": "The claimant says visibility was limited by darkness although the roadway was illuminated.",
+      "asserter_kind": "claimant",
+      "asserter_name": null,
+      "subject": "visibility",
+      "quoted_text": "visibility was limited by darkness, although the roadway was illuminated",
+      "char_start": 131,
+      "char_end": 203,
+      "raw_time_expression": null,
+      "revised": null,
+      "superseded_text": null
+    },
+    {
+      "assertion": "The claimant reports the vehicle was turning right at the time of contact.",
+      "asserter_kind": "claimant",
+      "asserter_name": null,
+      "subject": "vehicle_maneuver",
+      "quoted_text": "the vehicle was turning right",
+      "char_start": 232,
+      "char_end": 261,
+      "raw_time_expression": null,
+      "revised": null,
+      "superseded_text": null
+    },
+    {
+      "assertion": "The claimant reports the vehicle came into contact with a parked vehicle.",
+      "asserter_kind": "claimant",
+      "asserter_name": null,
+      "subject": "contact_object",
+      "quoted_text": "came into contact with a parked vehicle",
+      "char_start": 270,
+      "char_end": 309,
+      "raw_time_expression": null,
+      "revised": null,
+      "superseded_text": null
+    },
+    {
+      "assertion": "The claimant says they did not initially realise how significant the contact was.",
+      "asserter_kind": "claimant",
+      "asserter_name": null,
+      "subject": "claimant_awareness_of_severity",
+      "quoted_text": "they did not initially realize how significant the contact was",
+      "char_start": 329,
+      "char_end": 391,
+      "raw_time_expression": null,
+      "revised": null,
+      "superseded_text": null
+    },
+    {
+      "assertion": "The claimant states they stopped briefly, looked at the vehicles, and then left.",
+      "asserter_kind": "claimant",
+      "asserter_name": null,
+      "subject": "post_collision_actions",
+      "quoted_text": "they stopped briefly, looked at the vehicles, and then left",
+      "char_start": 419,
+      "char_end": 478,
+      "raw_time_expression": null,
+      "revised": null,
+      "superseded_text": null
+    },
+    {
+      "assertion": "The claimant states they left because they were concerned about being stranded late at night.",
+      "asserter_kind": "claimant",
+      "asserter_name": null,
+      "subject": "reason_for_leaving",
+      "quoted_text": "because they were concerned about being stranded late at night",
+      "char_start": 479,
+      "char_end": 541,
+      "raw_time_expression": null,
+      "revised": null,
+      "superseded_text": null
+    },
+    {
+      "assertion": "The claimant says they did not see anyone inside the parked vehicle.",
+      "asserter_kind": "claimant",
+      "asserter_name": null,
+      "subject": "occupancy_observation",
+      "quoted_text": "they did not see anyone inside the parked vehicle",
+      "char_start": 561,
+      "char_end": 610,
+      "raw_time_expression": null,
+      "revised": null,
+      "superseded_text": null
+    },
+    {
+      "assertion": "The claimant says they did not believe anyone was injured.",
+      "asserter_kind": "claimant",
+      "asserter_name": null,
+      "subject": "injury_belief",
+      "quoted_text": "did not believe anyone was injured",
+      "char_start": 615,
+      "char_end": 649,
+      "raw_time_expression": null,
+      "revised": null,
+      "superseded_text": null
+    }
+  ]
+}

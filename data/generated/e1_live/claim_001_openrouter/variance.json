@@ -1,0 +1,176 @@
+{
+  "fact_recall": {
+    "per_run": [
+      0.5385,
+      0.6923,
+      0.5192
+    ],
+    "mean": 0.5833,
+    "min": 0.5192,
+    "max": 0.6923,
+    "stdev": 0.0775,
+    "identical_across_runs": false
+  },
+  "fact_precision": {
+    "per_run": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "stdev": 0.0,
+    "identical_across_runs": true
+  },
+  "span_exactness": {
+    "per_run": [
+      0.5,
+      0.6,
+      0.0
+    ],
+    "mean": 0.3667,
+    "min": 0.0,
+    "max": 0.6,
+    "stdev": 0.2625,
+    "identical_across_runs": false
+  },
+  "asserter_accuracy": {
+    "per_run": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "stdev": 0.0,
+    "identical_across_runs": true
+  },
+  "hallucination_rate": {
+    "per_run": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "stdev": 0.0,
+    "identical_across_runs": true
+  },
+  "omission_rate": {
+    "per_run": [
+      0.4615,
+      0.3077,
+      0.4808
+    ],
+    "mean": 0.4167,
+    "min": 0.3077,
+    "max": 0.4808,
+    "stdev": 0.0775,
+    "identical_across_runs": false
+  },
+  "timeline_ordering_accuracy": {
+    "per_run": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "stdev": 0.0,
+    "identical_across_runs": true
+  },
+  "difference_recall": {
+    "per_run": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "mean": 0.3333,
+    "min": 0.0,
+    "max": 1.0,
+    "stdev": 0.4714,
+    "identical_across_runs": false
+  },
+  "difference_precision": {
+    "per_run": [
+      null,
+      1.0,
+      null
+    ],
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "stdev": 0.0,
+    "identical_across_runs": true
+  },
+  "open_question_recall": {
+    "per_run": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "stdev": 0.0,
+    "identical_across_runs": true
+  },
+  "invented_precision_count": {
+    "per_run": [
+      0,
+      0,
+      0
+    ],
+    "mean": 0.0,
+    "min": 0,
+    "max": 0,
+    "stdev": 0.0,
+    "identical_across_runs": true
+  },
+  "failures_by_stage_per_run": {
+    "extraction": [
+      24,
+      16,
+      25
+    ],
+    "grounding": [
+      7,
+      13,
+      17
+    ],
+    "attribution": [
+      0,
+      0,
+      0
+    ],
+    "normalization": [
+      0,
+      0,
+      0
+    ],
+    "difference_proposal": [
+      1,
+      0,
+      1
+    ]
+  },
+  "extracted_fact_count_per_run": [
+    2,
+    6,
+    1
+  ],
+  "difference_count_per_run": [
+    0,
+    1,
+    0
+  ],
+  "dropped_count_per_run": [
+    6,
+    11,
+    16
+  ]
+}

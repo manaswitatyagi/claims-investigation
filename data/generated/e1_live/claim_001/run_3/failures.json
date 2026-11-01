@@ -1,0 +1,17 @@
+{
+  "by_stage": {
+    "extraction": [],
+    "grounding": [],
+    "attribution": [],
+    "normalization": [],
+    "difference_proposal": []
+  },
+  "totals": {
+    "extraction": 0,
+    "grounding": 0,
+    "attribution": 0,
+    "normalization": 0,
+    "difference_proposal": 0
+  },
+  "all": []
+}

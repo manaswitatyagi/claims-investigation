@@ -1,0 +1,18 @@
+[
+  {
+    "fact_id": "ex_010",
+    "assertion": "The claimant stated the vehicle was stopped at a traffic light.",
+    "reason": "unresolved_citation",
+    "notes": [
+      "text_absent_from_passage"
+    ]
+  },
+  {
+    "fact_id": "ex_013",
+    "assertion": "The road was wet and it had been raining on and off all day.",
+    "reason": "unresolved_citation",
+    "notes": [
+      "offset_drift"
+    ]
+  }
+]

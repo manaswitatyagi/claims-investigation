@@ -1,0 +1,138 @@
+{
+  "fact_recall": {
+    "per_run": [
+      0.9655
+    ],
+    "mean": 0.9655,
+    "min": 0.9655,
+    "max": 0.9655,
+    "stdev": 0.0,
+    "identical_across_runs": true
+  },
+  "fact_precision": {
+    "per_run": [
+      1.0
+    ],
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "stdev": 0.0,
+    "identical_across_runs": true
+  },
+  "span_exactness": {
+    "per_run": [
+      1.0
+    ],
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "stdev": 0.0,
+    "identical_across_runs": true
+  },
+  "asserter_accuracy": {
+    "per_run": [
+      0.9167
+    ],
+    "mean": 0.9167,
+    "min": 0.9167,
+    "max": 0.9167,
+    "stdev": 0.0,
+    "identical_across_runs": true
+  },
+  "hallucination_rate": {
+    "per_run": [
+      0.0357
+    ],
+    "mean": 0.0357,
+    "min": 0.0357,
+    "max": 0.0357,
+    "stdev": 0.0,
+    "identical_across_runs": true
+  },
+  "omission_rate": {
+    "per_run": [
+      0.0345
+    ],
+    "mean": 0.0345,
+    "min": 0.0345,
+    "max": 0.0345,
+    "stdev": 0.0,
+    "identical_across_runs": true
+  },
+  "timeline_ordering_accuracy": {
+    "per_run": [
+      1.0
+    ],
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "stdev": 0.0,
+    "identical_across_runs": true
+  },
+  "difference_recall": {
+    "per_run": [
+      1.0
+    ],
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "stdev": 0.0,
+    "identical_across_runs": true
+  },
+  "difference_precision": {
+    "per_run": [
+      1.0
+    ],
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "stdev": 0.0,
+    "identical_across_runs": true
+  },
+  "open_question_recall": {
+    "per_run": [
+      1.0
+    ],
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "stdev": 0.0,
+    "identical_across_runs": true
+  },
+  "invented_precision_count": {
+    "per_run": [
+      0
+    ],
+    "mean": 0.0,
+    "min": 0,
+    "max": 0,
+    "stdev": 0.0,
+    "identical_across_runs": true
+  },
+  "failures_by_stage_per_run": {
+    "extraction": [
+      1
+    ],
+    "grounding": [
+      2
+    ],
+    "attribution": [
+      1
+    ],
+    "normalization": [
+      0
+    ],
+    "difference_proposal": [
+      0
+    ]
+  },
+  "extracted_fact_count_per_run": [
+    12
+  ],
+  "difference_count_per_run": [
+    2
+  ],
+  "dropped_count_per_run": [
+    2
+  ]
+}

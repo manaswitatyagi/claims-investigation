@@ -1,0 +1,16 @@
+{
+  "claim_id": "CLAIM-001",
+  "fixture_type": "synthetic_evaluation_fixture",
+  "checkpoint": "C3",
+  "loss": {
+    "occurred_at": "2026-08-11T21:43:00",
+    "location": "4655 S Karlov Ave, Chicago, IL",
+    "damage_band": "OVER $1,500",
+    "injury_status": "NO INDICATION OF INJURY"
+  },
+  "documents_present": [
+    "01_fnol",
+    "02_recorded_statement"
+  ],
+  "note": "Wrapper record for E1. Real-world anchor fields are separated in objective_anchor.json."
+}

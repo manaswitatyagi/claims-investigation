@@ -1,0 +1,463 @@
+[
+  {
+    "stage": "grounding",
+    "kind": "span_offsets_differ_from_gold",
+    "confidence": "confirmed",
+    "why": "The citation resolved, so the fact is verifiable, but it does not quote the region gold names. A correct fact on the wrong span still reads as verified.",
+    "evidence": {
+      "fact_id": "ex_001",
+      "assertion": "The claimant's vehicle was traveling northbound.",
+      "gold_match_key": "fnol.direction",
+      "gold_span": {
+        "char_start": 26,
+        "char_end": 81,
+        "quoted_text": "their vehicle was traveling northbound on Karlov Avenue"
+      },
+      "output_span": {
+        "passage_id": "fnol.description_of_accident",
+        "char_start": 26,
+        "char_end": 64,
+        "quoted_text": "their vehicle was traveling northbound"
+      },
+      "passage_text_at_output_span": "their vehicle was traveling northbound"
+    }
+  },
+  {
+    "stage": "grounding",
+    "kind": "span_offsets_differ_from_gold",
+    "confidence": "confirmed",
+    "why": "The citation resolved, so the fact is verifiable, but it does not quote the region gold names. A correct fact on the wrong span still reads as verified.",
+    "evidence": {
+      "fact_id": "ex_005",
+      "assertion": "The other vehicle was parked.",
+      "gold_match_key": "fnol.contact_object",
+      "gold_span": {
+        "char_start": 270,
+        "char_end": 309,
+        "quoted_text": "came into contact with a parked vehicle"
+      },
+      "output_span": {
+        "passage_id": "fnol.description_of_accident",
+        "char_start": 293,
+        "char_end": 309,
+        "quoted_text": "a parked vehicle"
+      },
+      "passage_text_at_output_span": "a parked vehicle"
+    }
+  },
+  {
+    "stage": "grounding",
+    "kind": "span_offsets_differ_from_gold",
+    "confidence": "confirmed",
+    "why": "The citation resolved, so the fact is verifiable, but it does not quote the region gold names. A correct fact on the wrong span still reads as verified.",
+    "evidence": {
+      "fact_id": "ex_007",
+      "assertion": "The claimant did not initially realize how significant the contact was.",
+      "gold_match_key": "fnol.awareness",
+      "gold_span": {
+        "char_start": 329,
+        "char_end": 391,
+        "quoted_text": "they did not initially realize how significant the contact was"
+      },
+      "output_span": {
+        "passage_id": "fnol.description_of_accident",
+        "char_start": 334,
+        "char_end": 391,
+        "quoted_text": "did not initially realize how significant the contact was"
+      },
+      "passage_text_at_output_span": "did not initially realize how significant the contact was"
+    }
+  },
+  {
+    "stage": "grounding",
+    "kind": "span_offsets_differ_from_gold",
+    "confidence": "confirmed",
+    "why": "The citation resolved, so the fact is verifiable, but it does not quote the region gold names. A correct fact on the wrong span still reads as verified.",
+    "evidence": {
+      "fact_id": "ex_008",
+      "assertion": "The claimant stopped briefly, looked at the vehicles, and then left.",
+      "gold_match_key": "fnol.actions",
+      "gold_span": {
+        "char_start": 419,
+        "char_end": 478,
+        "quoted_text": "they stopped briefly, looked at the vehicles, and then left"
+      },
+      "output_span": {
+        "passage_id": "fnol.description_of_accident",
+        "char_start": 424,
+        "char_end": 478,
+        "quoted_text": "stopped briefly, looked at the vehicles, and then left"
+      },
+      "passage_text_at_output_span": "stopped briefly, looked at the vehicles, and then left"
+    }
+  },
+  {
+    "stage": "grounding",
+    "kind": "span_offsets_differ_from_gold",
+    "confidence": "confirmed",
+    "why": "The citation resolved, so the fact is verifiable, but it does not quote the region gold names. A correct fact on the wrong span still reads as verified.",
+    "evidence": {
+      "fact_id": "ex_009",
+      "assertion": "The claimant left because they were concerned about being stranded late at night.",
+      "gold_match_key": "fnol.reason_left",
+      "gold_span": {
+        "char_start": 479,
+        "char_end": 541,
+        "quoted_text": "because they were concerned about being stranded late at night"
+      },
+      "output_span": {
+        "passage_id": "fnol.description_of_accident",
+        "char_start": 497,
+        "char_end": 541,
+        "quoted_text": "concerned about being stranded late at night"
+      },
+      "passage_text_at_output_span": "concerned about being stranded late at night"
+    }
+  },
+  {
+    "stage": "grounding",
+    "kind": "span_offsets_differ_from_gold",
+    "confidence": "confirmed",
+    "why": "The citation resolved, so the fact is verifiable, but it does not quote the region gold names. A correct fact on the wrong span still reads as verified.",
+    "evidence": {
+      "fact_id": "ex_010",
+      "assertion": "The claimant did not see anyone inside the parked vehicle.",
+      "gold_match_key": "fnol.no_one_seen",
+      "gold_span": {
+        "char_start": 561,
+        "char_end": 610,
+        "quoted_text": "they did not see anyone inside the parked vehicle"
+      },
+      "output_span": {
+        "passage_id": "fnol.description_of_accident",
+        "char_start": 566,
+        "char_end": 610,
+        "quoted_text": "did not see anyone inside the parked vehicle"
+      },
+      "passage_text_at_output_span": "did not see anyone inside the parked vehicle"
+    }
+  },
+  {
+    "stage": "grounding",
+    "kind": "span_offsets_differ_from_gold",
+    "confidence": "confirmed",
+    "why": "The citation resolved, so the fact is verifiable, but it does not quote the region gold names. A correct fact on the wrong span still reads as verified.",
+    "evidence": {
+      "fact_id": "ex_012",
+      "assertion": "The claimant states they were driving southbound.",
+      "gold_match_key": "stmt.vehicle",
+      "gold_span": {
+        "char_start": 28,
+        "char_end": 61,
+        "quoted_text": "driving the Mercedes-Benz G-Class"
+      },
+      "output_span": {
+        "passage_id": "statement.body",
+        "char_start": 28,
+        "char_end": 72,
+        "quoted_text": "driving the Mercedes-Benz G-Class southbound"
+      },
+      "passage_text_at_output_span": "driving the Mercedes-Benz G-Class southbound"
+    }
+  },
+  {
+    "stage": "grounding",
+    "kind": "span_offsets_differ_from_gold",
+    "confidence": "confirmed",
+    "why": "The citation resolved, so the fact is verifiable, but it does not quote the region gold names. A correct fact on the wrong span still reads as verified.",
+    "evidence": {
+      "fact_id": "ex_015",
+      "assertion": "The claimant recalls that it had been raining earlier.",
+      "gold_match_key": "stmt.rain",
+      "gold_span": {
+        "char_start": 150,
+        "char_end": 177,
+        "quoted_text": "it had been raining earlier"
+      },
+      "output_span": {
+        "passage_id": "statement.body",
+        "char_start": 153,
+        "char_end": 177,
+        "quoted_text": "had been raining earlier"
+      },
+      "passage_text_at_output_span": "had been raining earlier"
+    }
+  },
+  {
+    "stage": "grounding",
+    "kind": "span_offsets_differ_from_gold",
+    "confidence": "confirmed",
+    "why": "The citation resolved, so the fact is verifiable, but it does not quote the region gold names. A correct fact on the wrong span still reads as verified.",
+    "evidence": {
+      "fact_id": "ex_016",
+      "assertion": "The claimant recalls that the pavement was wet.",
+      "gold_match_key": "stmt.pavement_wet",
+      "gold_span": {
+        "char_start": 187,
+        "char_end": 207,
+        "quoted_text": "the pavement was wet"
+      },
+      "output_span": {
+        "passage_id": "statement.body",
+        "char_start": 191,
+        "char_end": 207,
+        "quoted_text": "pavement was wet"
+      },
+      "passage_text_at_output_span": "pavement was wet"
+    }
+  },
+  {
+    "stage": "grounding",
+    "kind": "span_offsets_differ_from_gold",
+    "confidence": "confirmed",
+    "why": "The citation resolved, so the fact is verifiable, but it does not quote the region gold names. A correct fact on the wrong span still reads as verified.",
+    "evidence": {
+      "fact_id": "ex_018",
+      "assertion": "According to the claimant, the vehicle suddenly slid.",
+      "gold_match_key": "stmt.slid",
+      "gold_span": {
+        "char_start": 313,
+        "char_end": 364,
+        "quoted_text": "the turn was normal until the vehicle suddenly slid"
+      },
+      "output_span": {
+        "passage_id": "statement.body",
+        "char_start": 343,
+        "char_end": 364,
+        "quoted_text": "vehicle suddenly slid"
+      },
+      "passage_text_at_output_span": "vehicle suddenly slid"
+    }
+  },
+  {
+    "stage": "grounding",
+    "kind": "span_offsets_differ_from_gold",
+    "confidence": "confirmed",
+    "why": "The citation resolved, so the fact is verifiable, but it does not quote the region gold names. A correct fact on the wrong span still reads as verified.",
+    "evidence": {
+      "fact_id": "ex_019",
+      "assertion": "The claimant states the front of the Mercedes made contact.",
+      "gold_match_key": "stmt.contact",
+      "gold_span": {
+        "char_start": 422,
+        "char_end": 470,
+        "quoted_text": "the front of the Mercedes contacted a parked SUV"
+      },
+      "output_span": {
+        "passage_id": "statement.body",
+        "char_start": 426,
+        "char_end": 470,
+        "quoted_text": "front of the Mercedes contacted a parked SUV"
+      },
+      "passage_text_at_output_span": "front of the Mercedes contacted a parked SUV"
+    }
+  },
+  {
+    "stage": "grounding",
+    "kind": "span_offsets_differ_from_gold",
+    "confidence": "confirmed",
+    "why": "The citation resolved, so the fact is verifiable, but it does not quote the region gold names. A correct fact on the wrong span still reads as verified.",
+    "evidence": {
+      "fact_id": "ex_021",
+      "assertion": "The claimant did not see anyone inside the parked SUV.",
+      "gold_match_key": "stmt.no_one_seen",
+      "gold_span": {
+        "char_start": 491,
+        "char_end": 536,
+        "quoted_text": "they did not see anyone inside the parked SUV"
+      },
+      "output_span": {
+        "passage_id": "statement.body",
+        "char_start": 496,
+        "char_end": 536,
+        "quoted_text": "did not see anyone inside the parked SUV"
+      },
+      "passage_text_at_output_span": "did not see anyone inside the parked SUV"
+    }
+  },
+  {
+    "stage": "grounding",
+    "kind": "span_offsets_differ_from_gold",
+    "confidence": "confirmed",
+    "why": "The citation resolved, so the fact is verifiable, but it does not quote the region gold names. A correct fact on the wrong span still reads as verified.",
+    "evidence": {
+      "fact_id": "ex_023",
+      "assertion": "The claimant states they stopped after the collision, looked at the vehicles, and then left.",
+      "gold_match_key": "stmt.actions",
+      "gold_span": {
+        "char_start": 596,
+        "char_end": 667,
+        "quoted_text": "they stopped after the collision, looked at the vehicles, and then left"
+      },
+      "output_span": {
+        "passage_id": "statement.body",
+        "char_start": 601,
+        "char_end": 667,
+        "quoted_text": "stopped after the collision, looked at the vehicles, and then left"
+      },
+      "passage_text_at_output_span": "stopped after the collision, looked at the vehicles, and then left"
+    }
+  },
+  {
+    "stage": "grounding",
+    "kind": "span_offsets_differ_from_gold",
+    "confidence": "confirmed",
+    "why": "The citation resolved, so the fact is verifiable, but it does not quote the region gold names. A correct fact on the wrong span still reads as verified.",
+    "evidence": {
+      "fact_id": "ex_024",
+      "assertion": "The claimant states they left because they were concerned about being stranded late at night.",
+      "gold_match_key": "stmt.reason_left",
+      "gold_span": {
+        "char_start": 668,
+        "char_end": 730,
+        "quoted_text": "because they were concerned about being stranded late at night"
+      },
+      "output_span": {
+        "passage_id": "statement.body",
+        "char_start": 686,
+        "char_end": 730,
+        "quoted_text": "concerned about being stranded late at night"
+      },
+      "passage_text_at_output_span": "concerned about being stranded late at night"
+    }
+  },
+  {
+    "stage": "grounding",
+    "kind": "span_offsets_differ_from_gold",
+    "confidence": "confirmed",
+    "why": "The citation resolved, so the fact is verifiable, but it does not quote the region gold names. A correct fact on the wrong span still reads as verified.",
+    "evidence": {
+      "fact_id": "ex_025",
+      "assertion": "The claimant states they intended to report the incident.",
+      "gold_match_key": "stmt.intent_to_report",
+      "gold_span": {
+        "char_start": 741,
+        "char_end": 777,
+        "quoted_text": "they intended to report the incident"
+      },
+      "output_span": {
+        "passage_id": "statement.body",
+        "char_start": 746,
+        "char_end": 777,
+        "quoted_text": "intended to report the incident"
+      },
+      "passage_text_at_output_span": "intended to report the incident"
+    }
+  },
+  {
+    "stage": "grounding",
+    "kind": "span_offsets_differ_from_gold",
+    "confidence": "confirmed",
+    "why": "The citation resolved, so the fact is verifiable, but it does not quote the region gold names. A correct fact on the wrong span still reads as verified.",
+    "evidence": {
+      "fact_id": "ex_026",
+      "assertion": "The claimant states they do not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.",
+      "gold_match_key": "stmt.non_recall",
+      "gold_span": {
+        "char_start": 780,
+        "char_end": 967,
+        "quoted_text": "The claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location"
+      },
+      "output_span": {
+        "passage_id": "statement.body",
+        "char_start": 793,
+        "char_end": 967,
+        "quoted_text": "does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location"
+      },
+      "passage_text_at_output_span": "does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location"
+    }
+  },
+  {
+    "stage": "extraction",
+    "kind": "omitted_gold_fact",
+    "confidence": "suspected",
+    "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+    "evidence": {
+      "gold_match_key": "fnol.night",
+      "assertion": "The claimant reports the loss occurred at night.",
+      "provenance": "extracted",
+      "expected_asserter": "claimant",
+      "gold_span": {
+        "char_start": 82,
+        "char_end": 90,
+        "quoted_text": "at night"
+      },
+      "gold_span_text": "at night"
+    }
+  },
+  {
+    "stage": "extraction",
+    "kind": "omitted_gold_fact",
+    "confidence": "suspected",
+    "why": "A gold fact has no counterpart at any granularity, and nothing was dropped that carried it.",
+    "evidence": {
+      "gold_match_key": "stmt.correction",
+      "assertion": "The claimant says they tried to correct the vehicle.",
+      "provenance": "extracted",
+      "expected_asserter": "claimant",
+      "gold_span": {
+        "char_start": 384,
+        "char_end": 417,
+        "quoted_text": "they tried to correct the vehicle"
+      },
+      "gold_span_text": "they tried to correct the vehicle"
+    }
+  },
+  {
+    "stage": "difference_proposal",
+    "kind": "missed_planted_difference",
+    "confidence": "confirmed",
+    "why": "A planted difference was not reported.",
+    "evidence": {
+      "gold_difference_id": "gold_d_001",
+      "subject": "direction_of_travel",
+      "expected_position_match_keys": [
+        "fnol.direction",
+        "stmt.direction"
+      ],
+      "conflict_pair": 1
+    }
+  },
+  {
+    "stage": "difference_proposal",
+    "kind": "spurious_difference_reported",
+    "confidence": "suspected",
+    "why": "Reported a difference gold does not plant. Either a false positive or a real difference gold does not account for.",
+    "evidence": {
+      "difference_id": "nd_001",
+      "subject": "travel_direction",
+      "detection_method": "extracted",
+      "matched_must_not_subject": null,
+      "positions": [
+        {
+          "fact_id": "an_008",
+          "stance": "The structured crash record codes UNIT_1_TRAVEL_DIRECTION as N.",
+          "asserter": "system_record",
+          "span": null
+        },
+        {
+          "fact_id": "ex_001",
+          "stance": "The claimant's vehicle was traveling northbound.",
+          "asserter": "claimant",
+          "span": {
+            "passage_id": "fnol.description_of_accident",
+            "char_start": 26,
+            "char_end": 64,
+            "quoted_text": "their vehicle was traveling northbound"
+          }
+        },
+        {
+          "fact_id": "ex_012",
+          "stance": "The claimant states they were driving southbound.",
+          "asserter": "claimant",
+          "span": {
+            "passage_id": "statement.body",
+            "char_start": 28,
+            "char_end": 72,
+            "quoted_text": "driving the Mercedes-Benz G-Class southbound"
+          }
+        }
+      ]
+    }
+  }
+]

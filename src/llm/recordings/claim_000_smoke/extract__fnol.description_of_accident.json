@@ -1,0 +1,52 @@
+{
+  "facts": [
+    {
+      "assertion": "The vehicle was parked at the kerb and unoccupied.",
+      "asserter_kind": "claimant",
+      "asserter_name": "Dana Whitfield",
+      "subject": "vehicle_state_at_impact",
+      "quoted_text": "My car was parked at the kerb and nobody was in it",
+      "char_start": 213,
+      "char_end": 263,
+      "raw_time_expression": null,
+      "revised": null,
+      "superseded_text": null
+    },
+    {
+      "assertion": "The vehicle was parked outside the claimant's sister's house on Willow Street.",
+      "asserter_kind": "claimant",
+      "asserter_name": "Dana Whitfield",
+      "subject": "loss_location_narrative",
+      "quoted_text": "I had parked outside my sister's house on Willow Street",
+      "char_start": 0,
+      "char_end": 55,
+      "raw_time_expression": null,
+      "revised": null,
+      "superseded_text": null
+    },
+    {
+      "assertion": "The front nearside of the vehicle was pushed in.",
+      "asserter_kind": "claimant",
+      "asserter_name": "Dana Whitfield",
+      "subject": "damage_location",
+      "quoted_text": "the front nearside of my car was pushed in",
+      "char_start": 111,
+      "char_end": 153,
+      "raw_time_expression": null,
+      "revised": null,
+      "superseded_text": null
+    },
+    {
+      "assertion": "A silver saloon was stopped further up the road.",
+      "asserter_kind": "claimant",
+      "asserter_name": "Dana Whitfield",
+      "subject": "other_vehicle",
+      "quoted_text": "there was a silver saloon stopped further up the road",
+      "char_start": 158,
+      "char_end": 211,
+      "raw_time_expression": null,
+      "revised": null,
+      "superseded_text": null
+    }
+  ]
+}

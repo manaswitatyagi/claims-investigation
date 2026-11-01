@@ -1,0 +1,104 @@
+{
+  "claim_id": "claim_001",
+  "synthesis_id": "syn_20c001fb9935",
+  "model_id": "google/gemini-3.8-flash",
+  "prompt_version": "e1-v2",
+  "is_zero_conflict_control": false,
+  "fact_recall": 1.0,
+  "fact_precision": 1.0,
+  "span_exactness": 0.3125,
+  "asserter_accuracy": 1.0,
+  "hallucination_rate": 0.0,
+  "omission_rate": 0.0,
+  "timeline_ordering_accuracy": 1.0,
+  "invented_precision_count": 0,
+  "invented_precision_items": [],
+  "difference_recall": 1.0,
+  "difference_precision": 1.0,
+  "false_differences_on_zero_conflict_control": null,
+  "open_question_recall": 1.0,
+  "open_question_spurious": 0,
+  "specificity": "requires_human_rating",
+  "open_question_usefulness": "requires_human_rating",
+  "counts": {
+    "gold_facts": 52,
+    "output_facts": 42,
+    "matched_facts": 52,
+    "matched_one_to_one": 41,
+    "co_extractions": 11,
+    "span_exactness_denominator": 16,
+    "unmatched_gold": 0,
+    "unmatched_output": 0,
+    "facts_dropped_by_span_rule": 0,
+    "dropped_as_fabricated_span": 0,
+    "dropped_as_offset_drift": 0,
+    "forbidden_facts_emitted": 0,
+    "differences_output": 1,
+    "differences_planted": 1,
+    "differences_spurious": 0
+  },
+  "detail": {
+    "missed_gold_facts": [],
+    "co_extraction_pairs": [
+      {
+        "gold": "stmt.direction",
+        "output": "ex_009",
+        "relation": "output_within_gold"
+      },
+      {
+        "gold": "fnol.night",
+        "output": "ex_001",
+        "relation": "gold_within_output"
+      },
+      {
+        "gold": "fnol.contact_object",
+        "output": "ex_004",
+        "relation": "gold_within_output"
+      },
+      {
+        "gold": "fnol.reason_left",
+        "output": "ex_006",
+        "relation": "gold_within_output"
+      },
+      {
+        "gold": "stmt.vehicle",
+        "output": "ex_009",
+        "relation": "gold_within_output"
+      },
+      {
+        "gold": "stmt.maneuver",
+        "output": "ex_009",
+        "relation": "gold_within_output"
+      },
+      {
+        "gold": "stmt.time",
+        "output": "ex_009",
+        "relation": "gold_within_output"
+      },
+      {
+        "gold": "stmt.pavement_wet",
+        "output": "ex_010",
+        "relation": "gold_within_output"
+      },
+      {
+        "gold": "stmt.contact",
+        "output": "ex_013",
+        "relation": "gold_within_output"
+      },
+      {
+        "gold": "stmt.injury_belief",
+        "output": "ex_014",
+        "relation": "gold_within_output"
+      },
+      {
+        "gold": "stmt.reason_left",
+        "output": "ex_015",
+        "relation": "gold_within_output"
+      }
+    ],
+    "unmatched_output_facts": [],
+    "forbidden_hits": [],
+    "missed_differences": [],
+    "spurious_differences": []
+  }
+}

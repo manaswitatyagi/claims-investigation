@@ -1,0 +1,457 @@
+[
+  {
+    "tag": "extract__fnol.description_of_accident",
+    "request": {
+      "system": "You extract facts from a single passage of a US personal auto insurance claim file.\n\nYou return only what the passage states. You never infer, summarise, or add context from general knowledge.\n\nRULES\n\n1. SPAN REQUIRED. Every fact must quote an exact, contiguous substring of the passage and give its character offsets. If you cannot locate an exact span, do not return the fact. A fact without a resolvable span is discarded downstream, so returning one is wasted output rather than a partial success.\n\n2. ATTRIBUTE TO THE SPEAKER, NOT THE QUESTIONER. In a transcript, a fact stated inside an interviewer's question is the interviewer's, not the subject's. If an adjuster asks \"so you were stopped at the light?\" and the subject answers \"yes\", the assertion belongs to the subject and the span must cover the subject's answer. Getting this wrong is the highest-consequence error you can make here.\n\n3. SELF-CORRECTION. If a speaker revises within the passage, return the final version as the assertion and set `revised` to true with the superseded text. A revision is NOT a disagreement \u2014 do not report it as one.\n\n4. DO NOT NORMALISE VAGUE TIME EXPRESSIONS. \"That evening\", \"a few minutes later\", \"around lunchtime\" must be returned exactly as written in `raw_time_expression`. Never convert them to a date or a clock time. Inventing a timestamp is a chronology error, not a normalisation.\n\n5. PRESERVE APPROXIMATION AND UNCERTAINTY EVERYWHERE, NOT ONLY IN TIMES. If the source hedges, the assertion must carry the same hedge with the same strength. \"Around 25 to 30\" stays a range; it does not become 27, or 30, or \"approximately 30\". \"Roughly\", \"about\", \"I think\", \"I am not sure\", \"I do not recall\" are part of what was asserted. A stated inability to recall something IS an assertion and may be extracted as one \u2014 but as an assertion about recall, not about the underlying fact.\n\n6. NEVER STRENGTHEN A CLAIM. Report the exact epistemic status the source gives it, and never upgrade it:\n   - A belief is not a fact. \"They did not believe anyone was injured\" must NOT become \"nobody was injured\".\n   - A failure to observe is not an absence. \"They did not see anyone in the vehicle\" must NOT become \"the vehicle was empty\".\n   - A perception is not a measurement. \"It felt like it slid\" must NOT become \"the vehicle slid\".\n   - An intention is not an act. \"They intended to report it\" must NOT become \"they reported it\".\n   - A partial statement is not a general one. Do not widen scope, drop qualifiers, or merge two hedged statements into one confident one.\n\n7. NEUTRAL FRAMING. Write the assertion as what the source states, without judgement. Not \"the claimant falsely claimed X\" \u2014 just \"X\". Never characterise anyone as truthful, untruthful, mistaken, or evasive.\n\n8. NO MATERIALITY, NO SUSPICION. Do not assess importance, credibility, fault, liability, coverage, or whether anything looks unusual. That is not your task and no downstream stage wants it.\n\n9. IF THE PASSAGE ASSERTS NOTHING EXTRACTABLE, RETURN AN EMPTY LIST. An empty list is a correct answer. Do not manufacture facts to fill the response.",
+      "user": "PASSAGE ID: fnol.description_of_accident\nDOCUMENT: fnol (doc_fnol)\nLABEL: First Notice of Loss narrative\n\nThe passage text follows between the markers. Character offsets are measured from the first character after the opening marker line, starting at 0.\n\n<<<PASSAGE_BEGIN>>>\nThe claimant reports that their vehicle was traveling northbound on Karlov Avenue at night. The claimant says the road was wet and visibility was limited by darkness, although the roadway was illuminated.\n\nThe claimant reports that the vehicle was turning right when it came into contact with a parked vehicle. The claimant says they did not initially realize how significant the contact was.\n\nThe claimant states that they stopped briefly, looked at the vehicles, and then left because they were concerned about being stranded late at night. The claimant says they did not see anyone inside the parked vehicle and did not believe anyone was injured.\n<<<PASSAGE_END>>>\n\nExtract the facts this passage asserts.",
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "facts"
+        ],
+        "properties": {
+          "facts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "assertion",
+                "asserter_kind",
+                "quoted_text",
+                "char_start",
+                "char_end",
+                "subject"
+              ],
+              "properties": {
+                "assertion": {
+                  "type": "string"
+                },
+                "asserter_kind": {
+                  "enum": [
+                    "claimant",
+                    "insured",
+                    "witness",
+                    "police_officer",
+                    "adjuster",
+                    "provider",
+                    "system_record",
+                    "attorney"
+                  ]
+                },
+                "asserter_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "subject": {
+                  "type": "string",
+                  "description": "Short snake_case key for what this fact is about, e.g. vehicle_state_at_impact, direction_of_travel. Facts about the same thing must share a subject."
+                },
+                "quoted_text": {
+                  "type": "string"
+                },
+                "char_start": {
+                  "type": "integer"
+                },
+                "char_end": {
+                  "type": "integer"
+                },
+                "raw_time_expression": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "revised": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "superseded_text": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "response": {
+      "facts": [
+        {
+          "assertion": "Their vehicle was traveling northbound on Karlov Avenue at night",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "direction_of_travel",
+          "quoted_text": "their vehicle was traveling northbound on Karlov Avenue at night",
+          "char_start": 26,
+          "char_end": 90,
+          "raw_time_expression": "at night",
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The road was wet",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "road_conditions",
+          "quoted_text": "the road was wet",
+          "char_start": 110,
+          "char_end": 126,
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "Visibility was limited by darkness, although the roadway was illuminated",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "visibility_conditions",
+          "quoted_text": "visibility was limited by darkness, although the roadway was illuminated",
+          "char_start": 131,
+          "char_end": 203,
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The vehicle was turning right when it came into contact with a parked vehicle",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "collision_description",
+          "quoted_text": "the vehicle was turning right when it came into contact with a parked vehicle",
+          "char_start": 232,
+          "char_end": 309,
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant did not initially realize how significant the contact was",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "impact_perception",
+          "quoted_text": "they did not initially realize how significant the contact was",
+          "char_start": 329,
+          "char_end": 391,
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant stopped briefly, looked at the vehicles, and then left because they were concerned about being stranded late at night",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "post_collision_actions",
+          "quoted_text": "they stopped briefly, looked at the vehicles, and then left because they were concerned about being stranded late at night",
+          "char_start": 419,
+          "char_end": 540,
+          "raw_time_expression": "late at night",
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant did not see anyone inside the parked vehicle",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "parked_vehicle_occupancy",
+          "quoted_text": "they did not see anyone inside the parked vehicle",
+          "char_start": 560,
+          "char_end": 609,
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant did not believe anyone was injured",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "injuries",
+          "quoted_text": "did not believe anyone was injured",
+          "char_start": 614,
+          "char_end": 648,
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        }
+      ]
+    }
+  },
+  {
+    "tag": "extract__statement.body",
+    "request": {
+      "system": "You extract facts from a single passage of a US personal auto insurance claim file.\n\nYou return only what the passage states. You never infer, summarise, or add context from general knowledge.\n\nRULES\n\n1. SPAN REQUIRED. Every fact must quote an exact, contiguous substring of the passage and give its character offsets. If you cannot locate an exact span, do not return the fact. A fact without a resolvable span is discarded downstream, so returning one is wasted output rather than a partial success.\n\n2. ATTRIBUTE TO THE SPEAKER, NOT THE QUESTIONER. In a transcript, a fact stated inside an interviewer's question is the interviewer's, not the subject's. If an adjuster asks \"so you were stopped at the light?\" and the subject answers \"yes\", the assertion belongs to the subject and the span must cover the subject's answer. Getting this wrong is the highest-consequence error you can make here.\n\n3. SELF-CORRECTION. If a speaker revises within the passage, return the final version as the assertion and set `revised` to true with the superseded text. A revision is NOT a disagreement \u2014 do not report it as one.\n\n4. DO NOT NORMALISE VAGUE TIME EXPRESSIONS. \"That evening\", \"a few minutes later\", \"around lunchtime\" must be returned exactly as written in `raw_time_expression`. Never convert them to a date or a clock time. Inventing a timestamp is a chronology error, not a normalisation.\n\n5. PRESERVE APPROXIMATION AND UNCERTAINTY EVERYWHERE, NOT ONLY IN TIMES. If the source hedges, the assertion must carry the same hedge with the same strength. \"Around 25 to 30\" stays a range; it does not become 27, or 30, or \"approximately 30\". \"Roughly\", \"about\", \"I think\", \"I am not sure\", \"I do not recall\" are part of what was asserted. A stated inability to recall something IS an assertion and may be extracted as one \u2014 but as an assertion about recall, not about the underlying fact.\n\n6. NEVER STRENGTHEN A CLAIM. Report the exact epistemic status the source gives it, and never upgrade it:\n   - A belief is not a fact. \"They did not believe anyone was injured\" must NOT become \"nobody was injured\".\n   - A failure to observe is not an absence. \"They did not see anyone in the vehicle\" must NOT become \"the vehicle was empty\".\n   - A perception is not a measurement. \"It felt like it slid\" must NOT become \"the vehicle slid\".\n   - An intention is not an act. \"They intended to report it\" must NOT become \"they reported it\".\n   - A partial statement is not a general one. Do not widen scope, drop qualifiers, or merge two hedged statements into one confident one.\n\n7. NEUTRAL FRAMING. Write the assertion as what the source states, without judgement. Not \"the claimant falsely claimed X\" \u2014 just \"X\". Never characterise anyone as truthful, untruthful, mistaken, or evasive.\n\n8. NO MATERIALITY, NO SUSPICION. Do not assess importance, credibility, fault, liability, coverage, or whether anything looks unusual. That is not your task and no downstream stage wants it.\n\n9. IF THE PASSAGE ASSERTS NOTHING EXTRACTABLE, RETURN AN EMPTY LIST. An empty list is a correct answer. Do not manufacture facts to fill the response.",
+      "user": "PASSAGE ID: statement.body\nDOCUMENT: recorded_statement (doc_statement)\nLABEL: Recorded statement of the claimant\n\nThe passage text follows between the markers. Character offsets are measured from the first character after the opening marker line, starting at 0.\n\n<<<PASSAGE_BEGIN>>>\nThe claimant says they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.\n\nThe claimant recalls that it had been raining earlier and that the pavement was wet. They say they were driving \"around 25 to 30 mph\" before beginning the turn.\n\nAccording to the claimant, the turn was normal until the vehicle suddenly slid. The claimant says they tried to correct the vehicle but the front of the Mercedes contacted a parked SUV.\n\nThe claimant says they did not see anyone inside the parked SUV and did not believe anyone was injured.\n\nThe claimant says they stopped after the collision, looked at the vehicles, and then left because they were concerned about being stranded late at night. They say they intended to report the incident.\n\nThe claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.\n<<<PASSAGE_END>>>\n\nExtract the facts this passage asserts.",
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "facts"
+        ],
+        "properties": {
+          "facts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "assertion",
+                "asserter_kind",
+                "quoted_text",
+                "char_start",
+                "char_end",
+                "subject"
+              ],
+              "properties": {
+                "assertion": {
+                  "type": "string"
+                },
+                "asserter_kind": {
+                  "enum": [
+                    "claimant",
+                    "insured",
+                    "witness",
+                    "police_officer",
+                    "adjuster",
+                    "provider",
+                    "system_record",
+                    "attorney"
+                  ]
+                },
+                "asserter_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "subject": {
+                  "type": "string",
+                  "description": "Short snake_case key for what this fact is about, e.g. vehicle_state_at_impact, direction_of_travel. Facts about the same thing must share a subject."
+                },
+                "quoted_text": {
+                  "type": "string"
+                },
+                "char_start": {
+                  "type": "integer"
+                },
+                "char_end": {
+                  "type": "integer"
+                },
+                "raw_time_expression": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "revised": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "superseded_text": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "response": {
+      "facts": [
+        {
+          "assertion": "The claimant states they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "vehicle_operation",
+          "quoted_text": "The claimant says they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.",
+          "char_start": 0,
+          "char_end": 122,
+          "raw_time_expression": "approximately 9:40 PM",
+          "revised": false,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant recalls that it had been raining earlier and that the pavement was wet.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "weather_and_road_conditions",
+          "quoted_text": "The claimant recalls that it had been raining earlier and that the pavement was wet.",
+          "char_start": 124,
+          "char_end": 210,
+          "raw_time_expression": "earlier",
+          "revised": false,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant states they were driving around 25 to 30 mph before beginning the turn.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "speed",
+          "quoted_text": "They say they were driving \"around 25 to 30 mph\" before beginning the turn.",
+          "char_start": 211,
+          "char_end": 281,
+          "raw_time_expression": null,
+          "revised": false,
+          "superseded_text": null
+        },
+        {
+          "assertion": "According to the claimant, the turn was normal until the vehicle suddenly slid.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "vehicle_movement",
+          "quoted_text": "According to the claimant, the turn was normal until the vehicle suddenly slid.",
+          "char_start": 283,
+          "char_end": 361,
+          "raw_time_expression": null,
+          "revised": false,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant states they tried to correct the vehicle but the front of the Mercedes contacted a parked SUV.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "collision_details",
+          "quoted_text": "The claimant says they tried to correct the vehicle but the front of the Mercedes contacted a parked SUV.",
+          "char_start": 362,
+          "char_end": 456,
+          "raw_time_expression": null,
+          "revised": false,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant states they did not see anyone inside the parked SUV and did not believe anyone was injured.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "injuries_and_occupants",
+          "quoted_text": "The claimant says they did not see anyone inside the parked SUV and did not believe anyone was injured.",
+          "char_start": 458,
+          "char_end": 558,
+          "raw_time_expression": null,
+          "revised": false,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant states they stopped after the collision, looked at the vehicles, and then left because they were concerned about being stranded late at night.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "post_collision_actions",
+          "quoted_text": "The claimant says they stopped after the collision, looked at the vehicles, and then left because they were concerned about being stranded late at night.",
+          "char_start": 560,
+          "char_end": 706,
+          "raw_time_expression": "late at night",
+          "revised": false,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant states they intended to report the incident.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "incident_reporting",
+          "quoted_text": "They say they intended to report the incident.",
+          "char_start": 707,
+          "char_end": 752,
+          "raw_time_expression": null,
+          "revised": false,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "recollection_limits",
+          "quoted_text": "The claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.",
+          "char_start": 754,
+          "char_end": 939,
+          "raw_time_expression": null,
+          "revised": false,
+          "superseded_text": null
+        }
+      ]
+    }
+  },
+  {
+    "tag": "differences",
+    "request": {
+      "system": "You compare facts already extracted from a US personal auto insurance claim file and identify where sources assert DIFFERENT things about the SAME thing.\n\nYou are given facts only. You do not have the source documents, and you must not reason about anything the facts do not state.\n\nRULES\n\n1. SAME SUBJECT, DIFFERENT SUBSTANCE. A difference exists when two or more facts address the same subject and cannot both be describing the same state of affairs. Group by what is being asserted, not by wording. The `subject` key on each fact is a HINT from an earlier stage, not a constraint: facts with different subject keys may well be about the same thing, and facts sharing a key may not be. Read the assertions.\n\n2. RETURN A SET OF POSITIONS, NOT A PAIR. If three sources disagree about one thing, that is ONE difference with three positions, not three differences.\n\n3. NORMAL VARIATION IS NOT A DIFFERENCE. People recounting a stressful event are routinely inconsistent in detail. Rounded times, approximate distances, different wording for the same event, and a speaker's own self-correction are NOT differences. Report a difference only where the substance is incompatible.\n\n4. SILENCE IS NOT A POSITION. If one source asserts something and another simply does not mention it, that is MISSING CORROBORATION, not a difference. A source that says nothing about a topic \u2014 or that explicitly says it does not establish, does not recall, or did not observe something \u2014 takes NO position on it and cannot disagree. A difference requires at least two sources that each assert something, and whose assertions are incompatible.\n\n5. COMPATIBLE APPROXIMATIONS ARE NOT DIFFERENCES. Two values that could describe the same reality agree, even if they are not identical. An approximation that overlaps or contains another value is compatible: \"approximately 9:40 PM\" and \"9:43 PM\" are the same event; \"around 25 to 30\" and \"under 30\" are compatible; a general description and a more specific one are compatible unless the specific one falls outside the general one. Report a difference only where no single state of affairs could satisfy both assertions.\n\n6. DO NOT ASSESS MATERIALITY. Do not say which differences matter, or rank them, or explain their significance. A human makes that judgement. Any field about importance will be discarded.\n\n7. DO NOT DECIDE WHICH SOURCE IS CORRECT. You report that sources differ. You never resolve the difference, rank the sources by reliability, say which account is more likely, or note that one source is official, independent, or objective. A structured record and a person's recollection are two positions, presented alike.\n\n8. DO NOT CHARACTERISE ANYONE. Never state or imply that a party is lying, mistaken, exaggerating, evasive, impaired, distracted, or suspicious. Never infer motive, intent, or state of mind. Report positions, not people.\n\n9. IF THERE ARE NO DIFFERENCES, RETURN AN EMPTY LIST. This is a correct and expected answer. A claim file with consistent accounts is normal. Do not lower your threshold to find something to report.",
+      "user": "The extracted fact set follows. Each fact has an id, a subject, who asserted it, and what it asserts.\n\n- id=sf_001 | subject=loss_date | asserted_by=system_record | The reported date of loss is 2026-08-11.\n- id=sf_002 | subject=loss_location | asserted_by=system_record | The loss location of record is 4655 S Karlov Ave, Chicago, IL.\n- id=sf_003 | subject=policy_term | asserted_by=system_record | The policy incepted on 2026-01-01 and expires on 2027-01-01.\n- id=an_001 | subject=anchor:CRASH_DATE | asserted_by=system_record | The structured crash record codes CRASH_DATE as 2026-08-11T21:43:00.\n- id=an_002 | subject=anchor:LOCATION_TEXT | asserted_by=system_record | The structured crash record codes LOCATION_TEXT as 4655 S Karlov Ave, Chicago, IL.\n- id=an_003 | subject=anchor:ROADWAY_SURFACE_COND | asserted_by=system_record | The structured crash record codes ROADWAY_SURFACE_COND as WET.\n- id=an_004 | subject=anchor:LIGHTING_CONDITION | asserted_by=system_record | The structured crash record codes LIGHTING_CONDITION as DARKNESS, LIGHTED ROAD.\n- id=an_005 | subject=anchor:FIRST_CRASH_TYPE | asserted_by=system_record | The structured crash record codes FIRST_CRASH_TYPE as PARKED MOTOR VEHICLE.\n- id=an_006 | subject=anchor:POSTED_SPEED_LIMIT | asserted_by=system_record | The structured crash record codes POSTED_SPEED_LIMIT as 30.\n- id=an_007 | subject=anchor:UNIT_1_VEHICLE | asserted_by=system_record | The structured crash record codes UNIT_1_VEHICLE as {'year': 2015, 'make': 'MERCEDES-BENZ', 'model': 'G-CLASS'}.\n- id=an_008 | subject=anchor:UNIT_1_TRAVEL_DIRECTION | asserted_by=system_record | The structured crash record codes UNIT_1_TRAVEL_DIRECTION as N.\n- id=an_009 | subject=anchor:UNIT_1_MANEUVER | asserted_by=system_record | The structured crash record codes UNIT_1_MANEUVER as TURNING RIGHT.\n- id=an_010 | subject=anchor:UNIT_1_OCCUPANT_CNT | asserted_by=system_record | The structured crash record codes UNIT_1_OCCUPANT_CNT as 1.\n- id=an_011 | subject=anchor:UNIT_2_VEHICLE | asserted_by=system_record | The structured crash record codes UNIT_2_VEHICLE as {'year': 2005, 'make': 'CHEVROLET', 'model': 'SUBURBAN'}.\n- id=an_012 | subject=anchor:UNIT_2_UNIT_TYPE | asserted_by=system_record | The structured crash record codes UNIT_2_UNIT_TYPE as PARKED.\n- id=an_013 | subject=anchor:UNIT_2_OCCUPANT_CNT | asserted_by=system_record | The structured crash record codes UNIT_2_OCCUPANT_CNT as 0.\n- id=an_014 | subject=anchor:UNIT_2_FIRST_CONTACT_POINT | asserted_by=system_record | The structured crash record codes UNIT_2_FIRST_CONTACT_POINT as REAR-RIGHT-CORNER.\n- id=an_015 | subject=anchor:MOST_SEVERE_INJURY | asserted_by=system_record | The structured crash record codes MOST_SEVERE_INJURY as NO INDICATION OF INJURY.\n- id=an_016 | subject=anchor:INJURIES_TOTAL | asserted_by=system_record | The structured crash record codes INJURIES_TOTAL as 0.\n- id=an_017 | subject=anchor:DAMAGE | asserted_by=system_record | The structured crash record codes DAMAGE as OVER $1,500.\n- id=df_001 | subject=policy_age_at_loss_days | asserted_by=system_record | The policy had been in force 222 days at the date of loss.\n- id=df_002 | subject=policy_in_force_at_loss | asserted_by=system_record | The policy was in force on the reported date of loss.\n- id=df_003 | subject=prior_claim_count | asserted_by=system_record | The file records 0 prior claim(s).\n- id=df_004 | subject=handler_count | asserted_by=system_record | The claim has been handled by 1 handler(s).\n- id=bk_001 | subject=document_received:doc_statement | asserted_by=system_record | The recorded statement was received into the file on 2026-08-13.\n- id=ex_001 | subject=direction_of_travel | asserted_by=claimant | Their vehicle was traveling northbound on Karlov Avenue at night\n- id=ex_002 | subject=road_conditions | asserted_by=claimant | The road was wet\n- id=ex_003 | subject=visibility_conditions | asserted_by=claimant | Visibility was limited by darkness, although the roadway was illuminated\n- id=ex_004 | subject=collision_description | asserted_by=claimant | The vehicle was turning right when it came into contact with a parked vehicle\n- id=ex_005 | subject=impact_perception | asserted_by=claimant | The claimant did not initially realize how significant the contact was\n- id=ex_009 | subject=vehicle_operation | asserted_by=claimant | The claimant states they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.\n\nIdentify differences between these facts.",
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "differences"
+        ],
+        "properties": {
+          "differences": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "subject",
+                "positions"
+              ],
+              "properties": {
+                "subject": {
+                  "type": "string"
+                },
+                "positions": {
+                  "type": "array",
+                  "minItems": 2,
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "fact_id",
+                      "stance"
+                    ],
+                    "properties": {
+                      "fact_id": {
+                        "type": "string"
+                      },
+                      "stance": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "response": {
+      "differences": [
+        {
+          "subject": "direction_of_travel",
+          "positions": [
+            {
+              "fact_id": "an_008",
+              "stance": "The vehicle was traveling northbound."
+            },
+            {
+              "fact_id": "ex_001",
+              "stance": "The vehicle was traveling northbound on Karlov Avenue."
+            },
+            {
+              "fact_id": "ex_009",
+              "stance": "The vehicle was being driven southbound."
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

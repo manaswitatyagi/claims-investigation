@@ -1,0 +1,10 @@
+{
+  "passages": 3,
+  "facts_deterministic": 14,
+  "facts_extracted": 14,
+  "facts_dropped": 2,
+  "facts_final": 28,
+  "differences_deterministic": 1,
+  "differences_extracted": 1,
+  "open_questions": 1
+}

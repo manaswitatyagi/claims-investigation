@@ -1,0 +1,88 @@
+{
+  "document_id": "doc_statement",
+  "type": "recorded_statement",
+  "version": "v1",
+  "received_date": "2026-02-25",
+  "checkpoint_available": "C3",
+  "structure_class": "unstructured",
+  "structured_fields": null,
+  "passages": [
+    {
+      "passage_id": "statement.body",
+      "label": "Recorded statement of Dana Whitfield",
+      "text": "[00:00:12] ADJUSTER: Can you take me through what happened on the fourteenth?\n[00:00:18] MS WHITFIELD: I'd been at my sister's on Willow Street. I left there and I was heading north, back towards the junction.\n[00:00:31] ADJUSTER: And roughly what speed were you doing?\n[00:00:34] MS WHITFIELD: Twenty, twenty-five. It is a narrow road, you cannot do much more.\n[00:00:41] ADJUSTER: So you were stopped at the light when the other vehicle hit you, is that right?\n[00:00:47] MS WHITFIELD: No, I was still moving. I had not got to the lights yet.\n[00:00:53] ADJUSTER: What time would this have been?\n[00:00:56] MS WHITFIELD: That evening, after I had my tea. I could not tell you exactly.\n[00:01:04] ADJUSTER: And you reported it to us on the twentieth?\n[00:01:08] MS WHITFIELD: That is right. I wanted to see if the other driver would sort it first.",
+      "speaker_turns": [
+        {
+          "speaker": "ADJUSTER",
+          "speaker_kind": "adjuster",
+          "char_start": 0,
+          "char_end": 77,
+          "timestamp": "00:00:12"
+        },
+        {
+          "speaker": "MS WHITFIELD",
+          "speaker_kind": "claimant",
+          "char_start": 78,
+          "char_end": 209,
+          "timestamp": "00:00:18"
+        },
+        {
+          "speaker": "ADJUSTER",
+          "speaker_kind": "adjuster",
+          "char_start": 210,
+          "char_end": 269,
+          "timestamp": "00:00:31"
+        },
+        {
+          "speaker": "MS WHITFIELD",
+          "speaker_kind": "claimant",
+          "char_start": 270,
+          "char_end": 361,
+          "timestamp": "00:00:34"
+        },
+        {
+          "speaker": "ADJUSTER",
+          "speaker_kind": "adjuster",
+          "char_start": 362,
+          "char_end": 462,
+          "timestamp": "00:00:41"
+        },
+        {
+          "speaker": "MS WHITFIELD",
+          "speaker_kind": "claimant",
+          "char_start": 463,
+          "char_end": 544,
+          "timestamp": "00:00:47"
+        },
+        {
+          "speaker": "ADJUSTER",
+          "speaker_kind": "adjuster",
+          "char_start": 545,
+          "char_end": 597,
+          "timestamp": "00:00:53"
+        },
+        {
+          "speaker": "MS WHITFIELD",
+          "speaker_kind": "claimant",
+          "char_start": 598,
+          "char_end": 686,
+          "timestamp": "00:00:56"
+        },
+        {
+          "speaker": "ADJUSTER",
+          "speaker_kind": "adjuster",
+          "char_start": 687,
+          "char_end": 751,
+          "timestamp": "00:01:04"
+        },
+        {
+          "speaker": "MS WHITFIELD",
+          "speaker_kind": "claimant",
+          "char_start": 752,
+          "char_end": 848,
+          "timestamp": "00:01:08"
+        }
+      ]
+    }
+  ]
+}

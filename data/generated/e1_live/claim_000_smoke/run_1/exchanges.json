@@ -1,0 +1,506 @@
+[
+  {
+    "tag": "extract__fnol.description_of_accident",
+    "request": {
+      "system": "You extract facts from a single passage of a US personal auto insurance claim file.\n\nYou return only what the passage states. You never infer, summarise, or add context from general knowledge.\n\nRULES\n\n1. SPAN REQUIRED. Every fact must quote an exact, contiguous substring of the passage and give its character offsets. If you cannot locate an exact span, do not return the fact. A fact without a resolvable span is discarded downstream, so returning one is wasted output rather than a partial success.\n\n2. ATTRIBUTE TO THE SPEAKER, NOT THE QUESTIONER. In a transcript, a fact stated inside an interviewer's question is the interviewer's, not the subject's. If an adjuster asks \"so you were stopped at the light?\" and the subject answers \"yes\", the assertion belongs to the subject and the span must cover the subject's answer. Getting this wrong is the highest-consequence error you can make here.\n\n3. SELF-CORRECTION. If a speaker revises within the passage, return the final version as the assertion and set `revised` to true with the superseded text. A revision is NOT a disagreement \u2014 do not report it as one.\n\n4. DO NOT NORMALISE VAGUE TIME EXPRESSIONS. \"That evening\", \"a few minutes later\", \"around lunchtime\" must be returned exactly as written in `raw_time_expression`. Never convert them to a date or a clock time. Inventing a timestamp is a chronology error, not a normalisation.\n\n5. PRESERVE APPROXIMATION AND UNCERTAINTY EVERYWHERE, NOT ONLY IN TIMES. If the source hedges, the assertion must carry the same hedge with the same strength. \"Around 25 to 30\" stays a range; it does not become 27, or 30, or \"approximately 30\". \"Roughly\", \"about\", \"I think\", \"I am not sure\", \"I do not recall\" are part of what was asserted. A stated inability to recall something IS an assertion and may be extracted as one \u2014 but as an assertion about recall, not about the underlying fact.\n\n6. NEVER STRENGTHEN A CLAIM. Report the exact epistemic status the source gives it, and never upgrade it:\n   - A belief is not a fact. \"They did not believe anyone was injured\" must NOT become \"nobody was injured\".\n   - A failure to observe is not an absence. \"They did not see anyone in the vehicle\" must NOT become \"the vehicle was empty\".\n   - A perception is not a measurement. \"It felt like it slid\" must NOT become \"the vehicle slid\".\n   - An intention is not an act. \"They intended to report it\" must NOT become \"they reported it\".\n   - A partial statement is not a general one. Do not widen scope, drop qualifiers, or merge two hedged statements into one confident one.\n\n7. NEUTRAL FRAMING. Write the assertion as what the source states, without judgement. Not \"the claimant falsely claimed X\" \u2014 just \"X\". Never characterise anyone as truthful, untruthful, mistaken, or evasive.\n\n8. NO MATERIALITY, NO SUSPICION. Do not assess importance, credibility, fault, liability, coverage, or whether anything looks unusual. That is not your task and no downstream stage wants it.\n\n9. IF THE PASSAGE ASSERTS NOTHING EXTRACTABLE, RETURN AN EMPTY LIST. An empty list is a correct answer. Do not manufacture facts to fill the response.",
+      "user": "PASSAGE ID: fnol.description_of_accident\nDOCUMENT: fnol (doc_fnol)\nLABEL: Description of Accident\n\nThe passage text follows between the markers. Character offsets are measured from the first character after the opening marker line, starting at 0.\n\n<<<PASSAGE_BEGIN>>>\nI had parked outside my sister's house on Willow Street and gone inside to collect a box. When I came back out the front nearside of my car was pushed in and there was a silver saloon stopped further up the road. My car was parked at the kerb and nobody was in it.\n<<<PASSAGE_END>>>\n\nExtract the facts this passage asserts.",
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "facts"
+        ],
+        "properties": {
+          "facts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "assertion",
+                "asserter_kind",
+                "quoted_text",
+                "char_start",
+                "char_end",
+                "subject"
+              ],
+              "properties": {
+                "assertion": {
+                  "type": "string"
+                },
+                "asserter_kind": {
+                  "enum": [
+                    "claimant",
+                    "insured",
+                    "witness",
+                    "police_officer",
+                    "adjuster",
+                    "provider",
+                    "system_record",
+                    "attorney"
+                  ]
+                },
+                "asserter_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "subject": {
+                  "type": "string",
+                  "description": "Short snake_case key for what this fact is about, e.g. vehicle_state_at_impact, direction_of_travel. Facts about the same thing must share a subject."
+                },
+                "quoted_text": {
+                  "type": "string"
+                },
+                "char_start": {
+                  "type": "integer"
+                },
+                "char_end": {
+                  "type": "integer"
+                },
+                "raw_time_expression": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "revised": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "superseded_text": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "response": {
+      "facts": [
+        {
+          "assertion": "The vehicle was parked at the kerb and unoccupied.",
+          "asserter_kind": "claimant",
+          "asserter_name": "Dana Whitfield",
+          "subject": "vehicle_state_at_impact",
+          "quoted_text": "My car was parked at the kerb and nobody was in it",
+          "char_start": 213,
+          "char_end": 263,
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The vehicle was parked outside the claimant's sister's house on Willow Street.",
+          "asserter_kind": "claimant",
+          "asserter_name": "Dana Whitfield",
+          "subject": "loss_location_narrative",
+          "quoted_text": "I had parked outside my sister's house on Willow Street",
+          "char_start": 0,
+          "char_end": 55,
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The front nearside of the vehicle was pushed in.",
+          "asserter_kind": "claimant",
+          "asserter_name": "Dana Whitfield",
+          "subject": "damage_location",
+          "quoted_text": "the front nearside of my car was pushed in",
+          "char_start": 111,
+          "char_end": 153,
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "A silver saloon was stopped further up the road.",
+          "asserter_kind": "claimant",
+          "asserter_name": "Dana Whitfield",
+          "subject": "other_vehicle",
+          "quoted_text": "there was a silver saloon stopped further up the road",
+          "char_start": 158,
+          "char_end": 211,
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        }
+      ]
+    }
+  },
+  {
+    "tag": "extract__statement.body",
+    "request": {
+      "system": "You extract facts from a single passage of a US personal auto insurance claim file.\n\nYou return only what the passage states. You never infer, summarise, or add context from general knowledge.\n\nRULES\n\n1. SPAN REQUIRED. Every fact must quote an exact, contiguous substring of the passage and give its character offsets. If you cannot locate an exact span, do not return the fact. A fact without a resolvable span is discarded downstream, so returning one is wasted output rather than a partial success.\n\n2. ATTRIBUTE TO THE SPEAKER, NOT THE QUESTIONER. In a transcript, a fact stated inside an interviewer's question is the interviewer's, not the subject's. If an adjuster asks \"so you were stopped at the light?\" and the subject answers \"yes\", the assertion belongs to the subject and the span must cover the subject's answer. Getting this wrong is the highest-consequence error you can make here.\n\n3. SELF-CORRECTION. If a speaker revises within the passage, return the final version as the assertion and set `revised` to true with the superseded text. A revision is NOT a disagreement \u2014 do not report it as one.\n\n4. DO NOT NORMALISE VAGUE TIME EXPRESSIONS. \"That evening\", \"a few minutes later\", \"around lunchtime\" must be returned exactly as written in `raw_time_expression`. Never convert them to a date or a clock time. Inventing a timestamp is a chronology error, not a normalisation.\n\n5. PRESERVE APPROXIMATION AND UNCERTAINTY EVERYWHERE, NOT ONLY IN TIMES. If the source hedges, the assertion must carry the same hedge with the same strength. \"Around 25 to 30\" stays a range; it does not become 27, or 30, or \"approximately 30\". \"Roughly\", \"about\", \"I think\", \"I am not sure\", \"I do not recall\" are part of what was asserted. A stated inability to recall something IS an assertion and may be extracted as one \u2014 but as an assertion about recall, not about the underlying fact.\n\n6. NEVER STRENGTHEN A CLAIM. Report the exact epistemic status the source gives it, and never upgrade it:\n   - A belief is not a fact. \"They did not believe anyone was injured\" must NOT become \"nobody was injured\".\n   - A failure to observe is not an absence. \"They did not see anyone in the vehicle\" must NOT become \"the vehicle was empty\".\n   - A perception is not a measurement. \"It felt like it slid\" must NOT become \"the vehicle slid\".\n   - An intention is not an act. \"They intended to report it\" must NOT become \"they reported it\".\n   - A partial statement is not a general one. Do not widen scope, drop qualifiers, or merge two hedged statements into one confident one.\n\n7. NEUTRAL FRAMING. Write the assertion as what the source states, without judgement. Not \"the claimant falsely claimed X\" \u2014 just \"X\". Never characterise anyone as truthful, untruthful, mistaken, or evasive.\n\n8. NO MATERIALITY, NO SUSPICION. Do not assess importance, credibility, fault, liability, coverage, or whether anything looks unusual. That is not your task and no downstream stage wants it.\n\n9. IF THE PASSAGE ASSERTS NOTHING EXTRACTABLE, RETURN AN EMPTY LIST. An empty list is a correct answer. Do not manufacture facts to fill the response.",
+      "user": "PASSAGE ID: statement.body\nDOCUMENT: recorded_statement (doc_statement)\nLABEL: Recorded statement of Dana Whitfield\n\nSPEAKERS IN THIS TRANSCRIPT: ADJUSTER (adjuster); MS WHITFIELD (claimant)\nAttribute each fact to the speaker whose turn contains the span.\n\nThe passage text follows between the markers. Character offsets are measured from the first character after the opening marker line, starting at 0.\n\n<<<PASSAGE_BEGIN>>>\n[00:00:12] ADJUSTER: Can you take me through what happened on the fourteenth?\n[00:00:18] MS WHITFIELD: I'd been at my sister's on Willow Street. I left there and I was heading north, back towards the junction.\n[00:00:31] ADJUSTER: And roughly what speed were you doing?\n[00:00:34] MS WHITFIELD: Twenty, twenty-five. It is a narrow road, you cannot do much more.\n[00:00:41] ADJUSTER: So you were stopped at the light when the other vehicle hit you, is that right?\n[00:00:47] MS WHITFIELD: No, I was still moving. I had not got to the lights yet.\n[00:00:53] ADJUSTER: What time would this have been?\n[00:00:56] MS WHITFIELD: That evening, after I had my tea. I could not tell you exactly.\n[00:01:04] ADJUSTER: And you reported it to us on the twentieth?\n[00:01:08] MS WHITFIELD: That is right. I wanted to see if the other driver would sort it first.\n<<<PASSAGE_END>>>\n\nExtract the facts this passage asserts.",
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "facts"
+        ],
+        "properties": {
+          "facts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "assertion",
+                "asserter_kind",
+                "quoted_text",
+                "char_start",
+                "char_end",
+                "subject"
+              ],
+              "properties": {
+                "assertion": {
+                  "type": "string"
+                },
+                "asserter_kind": {
+                  "enum": [
+                    "claimant",
+                    "insured",
+                    "witness",
+                    "police_officer",
+                    "adjuster",
+                    "provider",
+                    "system_record",
+                    "attorney"
+                  ]
+                },
+                "asserter_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "subject": {
+                  "type": "string",
+                  "description": "Short snake_case key for what this fact is about, e.g. vehicle_state_at_impact, direction_of_travel. Facts about the same thing must share a subject."
+                },
+                "quoted_text": {
+                  "type": "string"
+                },
+                "char_start": {
+                  "type": "integer"
+                },
+                "char_end": {
+                  "type": "integer"
+                },
+                "raw_time_expression": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "revised": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "superseded_text": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "response": {
+      "facts": [
+        {
+          "assertion": "The claimant was heading north towards the junction.",
+          "asserter_kind": "claimant",
+          "asserter_name": "Dana Whitfield",
+          "subject": "direction_of_travel",
+          "quoted_text": "I was heading north, back towards the junction",
+          "char_start": 162,
+          "char_end": 208,
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant was travelling at twenty to twenty-five.",
+          "asserter_kind": "claimant",
+          "asserter_name": "Dana Whitfield",
+          "subject": "speed_at_impact",
+          "quoted_text": "Twenty, twenty-five",
+          "char_start": 295,
+          "char_end": 314,
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The vehicle was still moving at the time of the impact.",
+          "asserter_kind": "claimant",
+          "asserter_name": "Dana Whitfield",
+          "subject": "vehicle_state_at_impact",
+          "quoted_text": "No, I was still moving",
+          "char_start": 488,
+          "char_end": 510,
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The loss occurred that evening, after the claimant had eaten.",
+          "asserter_kind": "claimant",
+          "asserter_name": "Dana Whitfield",
+          "subject": "time_of_loss",
+          "quoted_text": "That evening, after I had my tea",
+          "char_start": 623,
+          "char_end": 655,
+          "raw_time_expression": "That evening, after I had my tea",
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant delayed reporting to see whether the other driver would resolve it.",
+          "asserter_kind": "claimant",
+          "asserter_name": "Dana Whitfield",
+          "subject": "reporting_delay_reason",
+          "quoted_text": "I wanted to see if the other driver would sort it first",
+          "char_start": 792,
+          "char_end": 847,
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant stated the vehicle was stopped at a traffic light.",
+          "asserter_kind": "claimant",
+          "asserter_name": "Dana Whitfield",
+          "subject": "vehicle_state_at_impact",
+          "quoted_text": "I was stopped at the light waiting to turn",
+          "char_start": 383,
+          "char_end": 425,
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        }
+      ]
+    }
+  },
+  {
+    "tag": "extract__independent.body",
+    "request": {
+      "system": "You extract facts from a single passage of a US personal auto insurance claim file.\n\nYou return only what the passage states. You never infer, summarise, or add context from general knowledge.\n\nRULES\n\n1. SPAN REQUIRED. Every fact must quote an exact, contiguous substring of the passage and give its character offsets. If you cannot locate an exact span, do not return the fact. A fact without a resolvable span is discarded downstream, so returning one is wasted output rather than a partial success.\n\n2. ATTRIBUTE TO THE SPEAKER, NOT THE QUESTIONER. In a transcript, a fact stated inside an interviewer's question is the interviewer's, not the subject's. If an adjuster asks \"so you were stopped at the light?\" and the subject answers \"yes\", the assertion belongs to the subject and the span must cover the subject's answer. Getting this wrong is the highest-consequence error you can make here.\n\n3. SELF-CORRECTION. If a speaker revises within the passage, return the final version as the assertion and set `revised` to true with the superseded text. A revision is NOT a disagreement \u2014 do not report it as one.\n\n4. DO NOT NORMALISE VAGUE TIME EXPRESSIONS. \"That evening\", \"a few minutes later\", \"around lunchtime\" must be returned exactly as written in `raw_time_expression`. Never convert them to a date or a clock time. Inventing a timestamp is a chronology error, not a normalisation.\n\n5. PRESERVE APPROXIMATION AND UNCERTAINTY EVERYWHERE, NOT ONLY IN TIMES. If the source hedges, the assertion must carry the same hedge with the same strength. \"Around 25 to 30\" stays a range; it does not become 27, or 30, or \"approximately 30\". \"Roughly\", \"about\", \"I think\", \"I am not sure\", \"I do not recall\" are part of what was asserted. A stated inability to recall something IS an assertion and may be extracted as one \u2014 but as an assertion about recall, not about the underlying fact.\n\n6. NEVER STRENGTHEN A CLAIM. Report the exact epistemic status the source gives it, and never upgrade it:\n   - A belief is not a fact. \"They did not believe anyone was injured\" must NOT become \"nobody was injured\".\n   - A failure to observe is not an absence. \"They did not see anyone in the vehicle\" must NOT become \"the vehicle was empty\".\n   - A perception is not a measurement. \"It felt like it slid\" must NOT become \"the vehicle slid\".\n   - An intention is not an act. \"They intended to report it\" must NOT become \"they reported it\".\n   - A partial statement is not a general one. Do not widen scope, drop qualifiers, or merge two hedged statements into one confident one.\n\n7. NEUTRAL FRAMING. Write the assertion as what the source states, without judgement. Not \"the claimant falsely claimed X\" \u2014 just \"X\". Never characterise anyone as truthful, untruthful, mistaken, or evasive.\n\n8. NO MATERIALITY, NO SUSPICION. Do not assess importance, credibility, fault, liability, coverage, or whether anything looks unusual. That is not your task and no downstream stage wants it.\n\n9. IF THE PASSAGE ASSERTS NOTHING EXTRACTABLE, RETURN AN EMPTY LIST. An empty list is a correct answer. Do not manufacture facts to fill the response.",
+      "user": "PASSAGE ID: independent.body\nDOCUMENT: independent_account (doc_independent)\nLABEL: Written account of Elaine Torrance\n\nThe passage text follows between the markers. Character offsets are measured from the first character after the opening marker line, starting at 0.\n\n<<<PASSAGE_BEGIN>>>\nI was in my front room at number 41 when I heard the bang. I came out and there was a dark blue hatchback across the middle of the road with its front end damaged, and a silver car further up with its hazards on. The road was wet; it had been raining on and off all day. I did not see the collision itself, only what was there afterwards.\n<<<PASSAGE_END>>>\n\nExtract the facts this passage asserts.",
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "facts"
+        ],
+        "properties": {
+          "facts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "assertion",
+                "asserter_kind",
+                "quoted_text",
+                "char_start",
+                "char_end",
+                "subject"
+              ],
+              "properties": {
+                "assertion": {
+                  "type": "string"
+                },
+                "asserter_kind": {
+                  "enum": [
+                    "claimant",
+                    "insured",
+                    "witness",
+                    "police_officer",
+                    "adjuster",
+                    "provider",
+                    "system_record",
+                    "attorney"
+                  ]
+                },
+                "asserter_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "subject": {
+                  "type": "string",
+                  "description": "Short snake_case key for what this fact is about, e.g. vehicle_state_at_impact, direction_of_travel. Facts about the same thing must share a subject."
+                },
+                "quoted_text": {
+                  "type": "string"
+                },
+                "char_start": {
+                  "type": "integer"
+                },
+                "char_end": {
+                  "type": "integer"
+                },
+                "raw_time_expression": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "revised": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "superseded_text": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "response": {
+      "facts": [
+        {
+          "assertion": "The witness heard the collision from inside number 41.",
+          "asserter_kind": "claimant",
+          "asserter_name": "Elaine Torrance",
+          "subject": "witness_observation",
+          "quoted_text": "I was in my front room at number 41 when I heard the bang",
+          "char_start": 0,
+          "char_end": 57,
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "A dark blue hatchback was across the middle of the road with front-end damage.",
+          "asserter_kind": "witness",
+          "asserter_name": "Elaine Torrance",
+          "subject": "post_impact_position",
+          "quoted_text": "a dark blue hatchback across the middle of the road with its front end damaged",
+          "char_start": 84,
+          "char_end": 162,
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The road was wet and it had been raining on and off all day.",
+          "asserter_kind": "witness",
+          "asserter_name": "Elaine Torrance",
+          "subject": "road_conditions",
+          "quoted_text": "The road was wet; it had been raining on and off all day",
+          "char_start": 220,
+          "char_end": 276,
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The witness did not see the collision itself, only the aftermath.",
+          "asserter_kind": "witness",
+          "asserter_name": "Elaine Torrance",
+          "subject": "witness_observation_limit",
+          "quoted_text": "I did not see the collision itself, only what was there afterwards",
+          "char_start": 271,
+          "char_end": 337,
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        }
+      ]
+    }
+  },
+  {
+    "tag": "differences",
+    "request": {
+      "system": "You compare facts already extracted from a US personal auto insurance claim file and identify where sources assert DIFFERENT things about the SAME thing.\n\nYou are given facts only. You do not have the source documents, and you must not reason about anything the facts do not state.\n\nRULES\n\n1. SAME SUBJECT, DIFFERENT SUBSTANCE. A difference exists when two or more facts address the same subject and cannot both be describing the same state of affairs. Group by what is being asserted, not by wording. The `subject` key on each fact is a HINT from an earlier stage, not a constraint: facts with different subject keys may well be about the same thing, and facts sharing a key may not be. Read the assertions.\n\n2. RETURN A SET OF POSITIONS, NOT A PAIR. If three sources disagree about one thing, that is ONE difference with three positions, not three differences.\n\n3. NORMAL VARIATION IS NOT A DIFFERENCE. People recounting a stressful event are routinely inconsistent in detail. Rounded times, approximate distances, different wording for the same event, and a speaker's own self-correction are NOT differences. Report a difference only where the substance is incompatible.\n\n4. SILENCE IS NOT A POSITION. If one source asserts something and another simply does not mention it, that is MISSING CORROBORATION, not a difference. A source that says nothing about a topic \u2014 or that explicitly says it does not establish, does not recall, or did not observe something \u2014 takes NO position on it and cannot disagree. A difference requires at least two sources that each assert something, and whose assertions are incompatible.\n\n5. COMPATIBLE APPROXIMATIONS ARE NOT DIFFERENCES. Two values that could describe the same reality agree, even if they are not identical. An approximation that overlaps or contains another value is compatible: \"approximately 9:40 PM\" and \"9:43 PM\" are the same event; \"around 25 to 30\" and \"under 30\" are compatible; a general description and a more specific one are compatible unless the specific one falls outside the general one. Report a difference only where no single state of affairs could satisfy both assertions.\n\n6. DO NOT ASSESS MATERIALITY. Do not say which differences matter, or rank them, or explain their significance. A human makes that judgement. Any field about importance will be discarded.\n\n7. DO NOT DECIDE WHICH SOURCE IS CORRECT. You report that sources differ. You never resolve the difference, rank the sources by reliability, say which account is more likely, or note that one source is official, independent, or objective. A structured record and a person's recollection are two positions, presented alike.\n\n8. DO NOT CHARACTERISE ANYONE. Never state or imply that a party is lying, mistaken, exaggerating, evasive, impaired, distracted, or suspicious. Never infer motive, intent, or state of mind. Report positions, not people.\n\n9. IF THERE ARE NO DIFFERENCES, RETURN AN EMPTY LIST. This is a correct and expected answer. A claim file with consistent accounts is normal. Do not lower your threshold to find something to report.",
+      "user": "The extracted fact set follows. Each fact has an id, a subject, who asserted it, and what it asserts.\n\n- id=sf_001 | subject=loss_date | asserted_by=system_record | The reported date of loss is 2026-02-14.\n- id=sf_002 | subject=reported_date | asserted_by=system_record | The loss was reported to the carrier on 2026-02-20.\n- id=sf_003 | subject=loss_location | asserted_by=system_record | The loss location of record is Willow Street at Beckett Road.\n- id=sf_004 | subject=policy_term | asserted_by=system_record | The policy incepted on 2026-01-04 and expires on 2027-01-03.\n- id=df_001 | subject=reporting_delay_days | asserted_by=system_record | The loss was reported 6 days after the reported date of loss.\n- id=df_002 | subject=policy_age_at_loss_days | asserted_by=system_record | The policy had been in force 41 days at the date of loss.\n- id=df_003 | subject=policy_in_force_at_loss | asserted_by=system_record | The policy was in force on the reported date of loss.\n- id=df_004 | subject=prior_claim_count | asserted_by=system_record | The file records 0 prior claim(s).\n- id=df_005 | subject=handler_count | asserted_by=system_record | The claim has been handled by 2 handler(s).\n- id=bk_001 | subject=document_received:doc_fnol | asserted_by=system_record | The FNOL was received into the file on 2026-02-21.\n- id=bk_002 | subject=document_received:doc_statement | asserted_by=system_record | The recorded statement was received into the file on 2026-02-25.\n- id=bk_003 | subject=document_received:doc_independent | asserted_by=system_record | The independent account was received into the file on 2026-03-02.\n- id=bk_004 | subject=reserve_change:0 | asserted_by=system_record | The reserve was set to 4000 on 2026-02-21 by J. Osei.\n- id=bk_005 | subject=reserve_change:1 | asserted_by=system_record | The reserve was set to 11500 on 2026-03-11 by P. Raghunathan.\n- id=ex_001 | subject=vehicle_state_at_impact | asserted_by=Dana Whitfield (claimant) | The vehicle was parked at the kerb and unoccupied.\n- id=ex_002 | subject=loss_location_narrative | asserted_by=Dana Whitfield (claimant) | The vehicle was parked outside the claimant's sister's house on Willow Street.\n- id=ex_003 | subject=damage_location | asserted_by=Dana Whitfield (claimant) | The front nearside of the vehicle was pushed in.\n- id=ex_004 | subject=other_vehicle | asserted_by=Dana Whitfield (claimant) | A silver saloon was stopped further up the road.\n- id=ex_005 | subject=direction_of_travel | asserted_by=Dana Whitfield (claimant) | The claimant was heading north towards the junction.\n- id=ex_006 | subject=speed_at_impact | asserted_by=Dana Whitfield (claimant) | The claimant was travelling at twenty to twenty-five.\n- id=ex_007 | subject=vehicle_state_at_impact | asserted_by=Dana Whitfield (claimant) | The vehicle was still moving at the time of the impact.\n- id=ex_008 | subject=time_of_loss | asserted_by=Dana Whitfield (claimant) | The loss occurred that evening, after the claimant had eaten.\n- id=ex_009 | subject=reporting_delay_reason | asserted_by=Dana Whitfield (claimant) | The claimant delayed reporting to see whether the other driver would resolve it.\n- id=ex_011 | subject=witness_observation | asserted_by=Elaine Torrance (claimant) | The witness heard the collision from inside number 41.\n- id=ex_012 | subject=post_impact_position | asserted_by=Elaine Torrance (witness) | A dark blue hatchback was across the middle of the road with front-end damage.\n- id=ex_014 | subject=witness_observation_limit | asserted_by=Elaine Torrance (witness) | The witness did not see the collision itself, only the aftermath.\n- id=dd_001 | subject=driver_identity | asserted_by=system_record | The driver of record for this loss is Dana Whitfield.\n- id=dd_002 | subject=driver_identity | asserted_by=system_record | The policy lists Marcus Whitfield as driver(s).\n\nIdentify differences between these facts.",
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "differences"
+        ],
+        "properties": {
+          "differences": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "subject",
+                "positions"
+              ],
+              "properties": {
+                "subject": {
+                  "type": "string"
+                },
+                "positions": {
+                  "type": "array",
+                  "minItems": 2,
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "fact_id",
+                      "stance"
+                    ],
+                    "properties": {
+                      "fact_id": {
+                        "type": "string"
+                      },
+                      "stance": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "response": {
+      "differences": [
+        {
+          "subject": "vehicle_state_at_impact",
+          "positions": [
+            {
+              "fact_id": "ex_001",
+              "stance": "The vehicle was parked at the kerb and unoccupied."
+            },
+            {
+              "fact_id": "ex_007",
+              "stance": "The vehicle was still moving at the time of the impact."
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

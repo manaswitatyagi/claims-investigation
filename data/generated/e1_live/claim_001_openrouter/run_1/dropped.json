@@ -1,0 +1,50 @@
+[
+  {
+    "fact_id": "ex_003",
+    "assertion": "Visibility was limited by darkness, although the roadway was illuminated.",
+    "reason": "unresolved_citation",
+    "notes": [
+      "offset_drift"
+    ]
+  },
+  {
+    "fact_id": "ex_004",
+    "assertion": "The vehicle was turning right when it came into contact with a parked vehicle.",
+    "reason": "unresolved_citation",
+    "notes": [
+      "offset_drift"
+    ]
+  },
+  {
+    "fact_id": "ex_005",
+    "assertion": "The claimant did not initially realize how significant the contact was.",
+    "reason": "unresolved_citation",
+    "notes": [
+      "offset_drift"
+    ]
+  },
+  {
+    "fact_id": "ex_006",
+    "assertion": "The claimant stopped briefly, looked at the vehicles, and then left because they were concerned about being stranded late at night.",
+    "reason": "unresolved_citation",
+    "notes": [
+      "offset_drift"
+    ]
+  },
+  {
+    "fact_id": "ex_007",
+    "assertion": "The claimant did not see anyone inside the parked vehicle.",
+    "reason": "unresolved_citation",
+    "notes": [
+      "offset_drift"
+    ]
+  },
+  {
+    "fact_id": "ex_008",
+    "assertion": "The claimant did not believe anyone was injured.",
+    "reason": "unresolved_citation",
+    "notes": [
+      "offset_drift"
+    ]
+  }
+]

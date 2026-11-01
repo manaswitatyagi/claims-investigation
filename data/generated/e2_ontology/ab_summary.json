@@ -1,0 +1,337 @@
+{
+  "runs": 3,
+  "model": "google/gemini-3.8-flash",
+  "arm_a": [
+    {
+      "strategy": "flat_all_facts_one_call",
+      "facts_considered": 57,
+      "model_calls": 1,
+      "input_chars": 11000,
+      "differences": [
+        {
+          "difference_id": "d_001",
+          "subject": "vehicle_travel_direction",
+          "positions": [
+            {
+              "fact_id": "an_008",
+              "stance": "The claimant vehicle was traveling northbound."
+            },
+            {
+              "fact_id": "ex_001",
+              "stance": "The claimant vehicle was traveling northbound."
+            },
+            {
+              "fact_id": "ex_012",
+              "stance": "The claimant vehicle was traveling southbound."
+            }
+          ],
+          "detection_method": "extracted",
+          "already_noted": {
+            "value": false,
+            "fact_id": null
+          },
+          "review": null,
+          "materiality": null,
+          "materiality_rationale": null
+        }
+      ],
+      "scored": {
+        "difference_recall": 1.0,
+        "difference_precision": 1.0,
+        "matched": [
+          {
+            "gold": "gold_d_001",
+            "output": "d_001"
+          }
+        ],
+        "missed": [],
+        "spurious": []
+      }
+    },
+    {
+      "strategy": "flat_all_facts_one_call",
+      "facts_considered": 57,
+      "model_calls": 1,
+      "input_chars": 11137,
+      "differences": [
+        {
+          "difference_id": "d_001",
+          "subject": "vehicle_1_travel_direction",
+          "positions": [
+            {
+              "fact_id": "an_008",
+              "stance": "The structured crash record indicates Unit 1 was traveling north."
+            },
+            {
+              "fact_id": "ex_001",
+              "stance": "The claimant states their vehicle was traveling northbound."
+            },
+            {
+              "fact_id": "ex_012",
+              "stance": "The claimant states vehicle 1 was traveling southbound."
+            }
+          ],
+          "detection_method": "extracted",
+          "already_noted": {
+            "value": false,
+            "fact_id": null
+          },
+          "review": null,
+          "materiality": null,
+          "materiality_rationale": null
+        }
+      ],
+      "scored": {
+        "difference_recall": 1.0,
+        "difference_precision": 1.0,
+        "matched": [
+          {
+            "gold": "gold_d_001",
+            "output": "d_001"
+          }
+        ],
+        "missed": [],
+        "spurious": []
+      }
+    },
+    {
+      "strategy": "flat_all_facts_one_call",
+      "facts_considered": 58,
+      "model_calls": 1,
+      "input_chars": 10898,
+      "differences": [
+        {
+          "difference_id": "d_001",
+          "subject": "vehicle_1_travel_direction",
+          "positions": [
+            {
+              "fact_id": "an_008",
+              "stance": "Unit 1 was traveling north."
+            },
+            {
+              "fact_id": "ex_001",
+              "stance": "The claimant's vehicle was traveling northbound."
+            },
+            {
+              "fact_id": "ex_013",
+              "stance": "The claimant was driving southbound."
+            }
+          ],
+          "detection_method": "extracted",
+          "already_noted": {
+            "value": false,
+            "fact_id": null
+          },
+          "review": null,
+          "materiality": null,
+          "materiality_rationale": null
+        }
+      ],
+      "scored": {
+        "difference_recall": 1.0,
+        "difference_precision": 1.0,
+        "matched": [
+          {
+            "gold": "gold_d_001",
+            "output": "d_001"
+          }
+        ],
+        "missed": [],
+        "spurious": []
+      }
+    }
+  ],
+  "arm_b": [
+    {
+      "strategy": "deterministic_neighborhoods",
+      "facts_considered": 57,
+      "neighborhoods_total": 32,
+      "model_calls": 8,
+      "input_chars": 18613,
+      "relationship_counts": {
+        "CORROBORATING": 9,
+        "COMPATIBLE": 1,
+        "CONTRADICTORY": 1
+      },
+      "differences": [
+        {
+          "difference_id": "nd_001",
+          "subject": "travel_direction",
+          "positions": [
+            {
+              "fact_id": "an_008",
+              "stance": "The structured crash record codes UNIT_1_TRAVEL_DIRECTION as N."
+            },
+            {
+              "fact_id": "ex_001",
+              "stance": "The claimant's vehicle was traveling northbound."
+            },
+            {
+              "fact_id": "ex_012",
+              "stance": "The claimant states they were driving southbound."
+            }
+          ],
+          "detection_method": "extracted",
+          "already_noted": {
+            "value": false,
+            "fact_id": null
+          },
+          "review": null,
+          "materiality": null,
+          "materiality_rationale": null
+        }
+      ],
+      "scored": {
+        "difference_recall": 1.0,
+        "difference_precision": 1.0,
+        "matched": [
+          {
+            "gold": "gold_d_001",
+            "output": "nd_001"
+          }
+        ],
+        "missed": [],
+        "spurious": []
+      }
+    },
+    {
+      "strategy": "deterministic_neighborhoods",
+      "facts_considered": 57,
+      "neighborhoods_total": 32,
+      "model_calls": 8,
+      "input_chars": 18607,
+      "relationship_counts": {
+        "CORROBORATING": 8,
+        "COMPATIBLE": 2,
+        "CONTRADICTORY": 1
+      },
+      "differences": [
+        {
+          "difference_id": "nd_001",
+          "subject": "travel_direction",
+          "positions": [
+            {
+              "fact_id": "an_008",
+              "stance": "The structured crash record codes UNIT_1_TRAVEL_DIRECTION as N."
+            },
+            {
+              "fact_id": "ex_001",
+              "stance": "The claimant's vehicle was traveling northbound."
+            },
+            {
+              "fact_id": "ex_012",
+              "stance": "The claimant states vehicle 1 was traveling southbound."
+            }
+          ],
+          "detection_method": "extracted",
+          "already_noted": {
+            "value": false,
+            "fact_id": null
+          },
+          "review": null,
+          "materiality": null,
+          "materiality_rationale": null
+        }
+      ],
+      "scored": {
+        "difference_recall": 1.0,
+        "difference_precision": 1.0,
+        "matched": [
+          {
+            "gold": "gold_d_001",
+            "output": "nd_001"
+          }
+        ],
+        "missed": [],
+        "spurious": []
+      }
+    },
+    {
+      "strategy": "deterministic_neighborhoods",
+      "facts_considered": 58,
+      "neighborhoods_total": 32,
+      "model_calls": 9,
+      "input_chars": 20832,
+      "relationship_counts": {
+        "CORROBORATING": 7,
+        "COMPATIBLE": 4,
+        "CONTRADICTORY": 1
+      },
+      "differences": [
+        {
+          "difference_id": "nd_001",
+          "subject": "travel_direction",
+          "positions": [
+            {
+              "fact_id": "an_008",
+              "stance": "The structured crash record codes UNIT_1_TRAVEL_DIRECTION as N."
+            },
+            {
+              "fact_id": "ex_001",
+              "stance": "The claimant reports their vehicle was traveling northbound."
+            },
+            {
+              "fact_id": "ex_013",
+              "stance": "The claimant was driving southbound."
+            }
+          ],
+          "detection_method": "extracted",
+          "already_noted": {
+            "value": false,
+            "fact_id": null
+          },
+          "review": null,
+          "materiality": null,
+          "materiality_rationale": null
+        }
+      ],
+      "scored": {
+        "difference_recall": 1.0,
+        "difference_precision": 1.0,
+        "matched": [
+          {
+            "gold": "gold_d_001",
+            "output": "nd_001"
+          }
+        ],
+        "missed": [],
+        "spurious": []
+      }
+    }
+  ],
+  "stage_counts": [
+    {
+      "passages": 2,
+      "facts_deterministic": 31,
+      "facts_extracted": 26,
+      "facts_unlocatable": 0,
+      "facts_final": 57,
+      "neighborhoods": 32,
+      "neighborhoods_compared": 11,
+      "ungrouped_facts": 11,
+      "open_questions": 2
+    },
+    {
+      "passages": 2,
+      "facts_deterministic": 31,
+      "facts_extracted": 26,
+      "facts_unlocatable": 0,
+      "facts_final": 57,
+      "neighborhoods": 32,
+      "neighborhoods_compared": 11,
+      "ungrouped_facts": 11,
+      "open_questions": 2
+    },
+    {
+      "passages": 2,
+      "facts_deterministic": 31,
+      "facts_extracted": 27,
+      "facts_unlocatable": 0,
+      "facts_final": 58,
+      "neighborhoods": 32,
+      "neighborhoods_compared": 12,
+      "ungrouped_facts": 11,
+      "open_questions": 2
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "difference_recall": 1.0,
+  "difference_precision": 1.0,
+  "matched": [
+    {
+      "gold": "gold_d_001",
+      "output": "d_001"
+    }
+  ],
+  "missed": [],
+  "spurious": []
+}

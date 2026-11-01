@@ -1,0 +1,175 @@
+{
+  "claim_id": "claim_001",
+  "checkpoint": "C3",
+  "provenance": {
+    "fixture_kind": "real_anchor_synthetic_documents",
+    "documents_are_synthetic": true,
+    "disclaimer": "HYBRID PROVENANCE. The structured anchor record holds fields transcribed from real Chicago crash data supplied by the project owner. Every narrative document is SYNTHETIC and is not a statement by any real crash participant. No person-level demographic attribute is carried into this fixture. Results measured against it record WHAT WE PLANTED (D-003); the real anchor makes the scenario physically plausible, it does not make the evaluation real-world evidence.",
+    "anchor": {
+      "source_name": "user_supplied_chicago_crash_export",
+      "source_url": null,
+      "licence": null,
+      "retrieved_at": null,
+      "record_identifiers": {
+        "claim_id": "CLAIM-001"
+      },
+      "excluded_entries": [
+        {
+          "fact_id": "A006",
+          "field": "HIT_AND_RUN_I",
+          "reason": "Crash-status coding with intent-adjacent semantics. Deferred to a later experiment on the project owner's instruction; not an E1 fact."
+        },
+        {
+          "fact_id": "A007",
+          "field": "PRIM_CONTRIBUTORY_CAUSE",
+          "reason": "Contributory-cause coding is a causal/liability determination, outside the geometry/timing/roadway/vehicle/status categories the supplied anchor permits for E1. Excluded to keep difference detection off liability ground."
+        }
+      ],
+      "todo": "Source URL, licence, and retrieval date are deliberately null. The supplied objective_anchor.json asserts none, and CLAUDE.md forbids inventing them. Fill these in only from a verified source. USAGE CONSTRAINT (carried from the supplied file): use only crash geometry, timing, roadway, vehicle, and crash-status attributes. Do not attach synthetic narrative statements to real crash participants."
+    }
+  },
+  "claim_record": {
+    "claim_number": "CLAIM-001",
+    "policy_id": "SYN-POL-001",
+    "loss_date": "2026-08-11",
+    "reported_date": null,
+    "loss_location": "4655 S Karlov Ave, Chicago, IL",
+    "claim_type": "auto_collision",
+    "status": "open_investigating",
+    "jurisdiction": null,
+    "handler_history": [
+      {
+        "handler": "Handler A",
+        "from": "2026-08-11",
+        "to": null
+      }
+    ],
+    "parties": [
+      {
+        "party_id": "p_001",
+        "name_as_written": "Claimant",
+        "role": "claimant"
+      },
+      {
+        "party_id": "p_002",
+        "name_as_written": "Claimant",
+        "role": "driver"
+      }
+    ]
+  },
+  "policy_record": {
+    "policy_id": "SYN-POL-001",
+    "policy_number": "SYN-POL-001",
+    "inception_date": "2026-01-01",
+    "expiry_date": "2027-01-01",
+    "listed_drivers": [
+      "Claimant"
+    ],
+    "scheduled_vehicles": [
+      {
+        "vin": null,
+        "year": 2015,
+        "make": "MERCEDES-BENZ",
+        "model": "G-CLASS"
+      }
+    ],
+    "coverages": [
+      {
+        "code": "COLL",
+        "limit": "not_specified_in_fixture",
+        "deductible": null
+      }
+    ],
+    "garaging_address": null,
+    "lapse_history": []
+  },
+  "structured_records": {
+    "anchor": {
+      "A001": {
+        "field": "CRASH_DATE",
+        "value": "2026-08-11T21:43:00"
+      },
+      "A002": {
+        "field": "LOCATION_TEXT",
+        "value": "4655 S Karlov Ave, Chicago, IL"
+      },
+      "A003": {
+        "field": "ROADWAY_SURFACE_COND",
+        "value": "WET"
+      },
+      "A004": {
+        "field": "LIGHTING_CONDITION",
+        "value": "DARKNESS, LIGHTED ROAD"
+      },
+      "A005": {
+        "field": "FIRST_CRASH_TYPE",
+        "value": "PARKED MOTOR VEHICLE"
+      },
+      "A008": {
+        "field": "POSTED_SPEED_LIMIT",
+        "value": 30
+      },
+      "A009": {
+        "field": "UNIT_1_VEHICLE",
+        "value": {
+          "year": 2015,
+          "make": "MERCEDES-BENZ",
+          "model": "G-CLASS"
+        }
+      },
+      "A010": {
+        "field": "UNIT_1_TRAVEL_DIRECTION",
+        "value": "N"
+      },
+      "A011": {
+        "field": "UNIT_1_MANEUVER",
+        "value": "TURNING RIGHT"
+      },
+      "A012": {
+        "field": "UNIT_1_OCCUPANT_CNT",
+        "value": 1
+      },
+      "A013": {
+        "field": "UNIT_2_VEHICLE",
+        "value": {
+          "year": 2005,
+          "make": "CHEVROLET",
+          "model": "SUBURBAN"
+        }
+      },
+      "A014": {
+        "field": "UNIT_2_UNIT_TYPE",
+        "value": "PARKED"
+      },
+      "A015": {
+        "field": "UNIT_2_OCCUPANT_CNT",
+        "value": 0
+      },
+      "A016": {
+        "field": "UNIT_2_FIRST_CONTACT_POINT",
+        "value": "REAR-RIGHT-CORNER"
+      },
+      "A017": {
+        "field": "MOST_SEVERE_INJURY",
+        "value": "NO INDICATION OF INJURY"
+      },
+      "A018": {
+        "field": "INJURIES_TOTAL",
+        "value": 0
+      },
+      "A019": {
+        "field": "DAMAGE",
+        "value": "OVER $1,500"
+      }
+    },
+    "crash": null,
+    "vehicles": [],
+    "people": []
+  },
+  "documents": [
+    "documents/fnol.json",
+    "documents/recorded_statement.json"
+  ],
+  "prior_claims": [],
+  "reserve_history": []
+}

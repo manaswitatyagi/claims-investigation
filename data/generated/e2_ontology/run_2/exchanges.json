@@ -1,0 +1,925 @@
+[
+  {
+    "tag": "extract__fnol.description_of_accident",
+    "request": {
+      "system": "You extract facts from a single passage of a US personal auto insurance claim file.\n\nYou return only what the passage states. You never infer, summarise, or add context from general knowledge.\n\nRULES\n\n1. VERBATIM QUOTE REQUIRED. Every fact must quote an exact, contiguous substring of the passage \u2014 copied character for character, including punctuation and capitalisation exactly as they appear. Do not paraphrase, tidy, join across a gap, or normalise anything inside the quote. You do NOT need to count character positions: those are computed from your quote by code. What matters is that the quote is copied EXACTLY, and that it is long enough to occur only once in the passage. A quote that cannot be found verbatim is discarded downstream, so an approximate quote is wasted output rather than a partial success.\n\n2. ATTRIBUTE TO THE SPEAKER, NOT THE QUESTIONER. In a transcript, a fact stated inside an interviewer's question is the interviewer's, not the subject's. If an adjuster asks \"so you were stopped at the light?\" and the subject answers \"yes\", the assertion belongs to the subject and the span must cover the subject's answer. Getting this wrong is the highest-consequence error you can make here.\n\n3. SELF-CORRECTION. If a speaker revises within the passage, return the final version as the assertion and set `revised` to true with the superseded text. A revision is NOT a disagreement \u2014 do not report it as one.\n\n4. DO NOT NORMALISE VAGUE TIME EXPRESSIONS. \"That evening\", \"a few minutes later\", \"around lunchtime\" must be returned exactly as written in `raw_time_expression`. Never convert them to a date or a clock time. Inventing a timestamp is a chronology error, not a normalisation.\n\n5. PRESERVE APPROXIMATION AND UNCERTAINTY EVERYWHERE, NOT ONLY IN TIMES. If the source hedges, the assertion must carry the same hedge with the same strength. \"Around 25 to 30\" stays a range; it does not become 27, or 30, or \"approximately 30\". \"Roughly\", \"about\", \"I think\", \"I am not sure\", \"I do not recall\" are part of what was asserted. A stated inability to recall something IS an assertion and may be extracted as one \u2014 but as an assertion about recall, not about the underlying fact.\n\n6. NEVER STRENGTHEN A CLAIM. Report the exact epistemic status the source gives it, and never upgrade it:\n   - A belief is not a fact. \"They did not believe anyone was injured\" must NOT become \"nobody was injured\".\n   - A failure to observe is not an absence. \"They did not see anyone in the vehicle\" must NOT become \"the vehicle was empty\".\n   - A perception is not a measurement. \"It felt like it slid\" must NOT become \"the vehicle slid\".\n   - An intention is not an act. \"They intended to report it\" must NOT become \"they reported it\".\n   - A partial statement is not a general one. Do not widen scope, drop qualifiers, or merge two hedged statements into one confident one.\n\n7. NEUTRAL FRAMING. Write the assertion as what the source states, without judgement. Not \"the claimant falsely claimed X\" \u2014 just \"X\". Never characterise anyone as truthful, untruthful, mistaken, or evasive.\n\n8. NO MATERIALITY, NO SUSPICION. Do not assess importance, credibility, fault, liability, coverage, or whether anything looks unusual. That is not your task and no downstream stage wants it.\n\n9. IF THE PASSAGE ASSERTS NOTHING EXTRACTABLE, RETURN AN EMPTY LIST. An empty list is a correct answer. Do not manufacture facts to fill the response.\n\n10. TAG EACH FACT WITH AN ENTITY AND A PREDICATE. Every fact must name the entity it is about, chosen from the ENTITY ROSTER below, and the property it asserts, chosen from the PREDICATE VOCABULARY below. Both are closed sets: pick from them or return nothing. Never invent an entity id or a predicate name.\n\n11. IF NO PREDICATE FITS, OMIT THE PREDICATE. Returning the fact with `predicate` set to null is correct and useful. Forcing a fact into a nearly-right predicate destroys the comparison it would otherwise feed. In particular, do not map a qualitative impression of speed onto a numeric speed predicate, do not map a causal or fault judgement onto a physical property, and do not map what someone REPORTS SEEING onto a predicate that records what a thing IS.\n\n12. GIVE THE RAW VALUE, NOT A TIDIED ONE. Put the value as the source expresses it into `value_raw`. Code normalises it against a lookup table afterwards. For a range or an approximation, give the range (\"25 to 30\"), never a midpoint.",
+      "user": "PASSAGE ID: fnol.description_of_accident\nDOCUMENT: fnol (doc_fnol)\nLABEL: First Notice of Loss narrative\n\nENTITY ROSTER \u2014 choose `subject_entity_id` from these ids only:\n  vehicle_1    (vehicle) \u2014 The claimant's vehicle (crash unit 1): 2015 MERCEDES-BENZ G-CLASS\n  vehicle_2    (vehicle) \u2014 The other vehicle (crash unit 2), parked: 2005 CHEVROLET SUBURBAN\n  roadway_1    (roadway) \u2014 The roadway and conditions at the loss location\n  crash_001    (collision) \u2014 The collision itself\n  claimant_1   (party) \u2014 The claimant, driver of vehicle_1\n\nPREDICATE VOCABULARY \u2014 choose `predicate` from these names only, or null:\n  approximate_speed        subject=vehicle    MEASURED OR ESTIMATED speed of this vehicle. A range stays a range. Qualitative impressions ('moving quickly') are NOT admitted here \u2014 they have no numeric value and forcing one invents precision. They stay ungrouped, which is a finding.\n  awareness_of_severity    subject=party      \n  contact_point            subject=vehicle    Contact point ON THIS VEHICLE. Two vehicles' contact points are different facts, not competing accounts of one.\n  crash_type               subject=collision  \n  damage_band              subject=collision  \n  injuries_total           subject=collision  \n  injury_belief            subject=party      A BELIEF held by a person, never an injury fact. The claim record's injury coding is `injuries_total` on the event.\n  intended_to_report       subject=party      An INTENTION. Never conflated with whether a report was made.\n  lighting                 subject=roadway    \n  location_text            subject=collision  \n  loss_of_control          subject=vehicle    Reported loss of control. Silence is NOT `none_reported` \u2014 absence of an assertion is not an assertion.\n  maneuver                 subject=vehicle    What the vehicle was doing. `parked` is a maneuver value AND a unit type; both are recorded rather than merged.\n  occupant_count           subject=vehicle    A count stated by a record. See `occupant_observation`.\n  occupant_observation     subject=vehicle    What an observer REPORTS SEEING. Deliberately distinct from `occupant_count`: a failure to observe is not an absence.\n  occurred_at              subject=collision  \n  post_collision_action    subject=party      \n  posted_speed_limit       subject=roadway    A ROAD attribute. NEVER comparable with `approximate_speed`, which is a vehicle attribute. Different properties of different entities.\n  reason_for_leaving       subject=party      Free text by necessity. A stated reason is not enumerable without deciding what counts as the same reason, which is a judgement no stage of this system may make.\n  recall_limitation        subject=party      A stated inability to recall. Takes no position on the underlying fact and therefore cannot conflict with one.\n  road_surface             subject=roadway    \n  travel_direction         subject=vehicle    Compass heading of travel. Distinct from `maneuver`.\n  unit_type                subject=vehicle    Crash-record classification of the unit's state.\n  vehicle_make             subject=vehicle    \n  vehicle_model            subject=vehicle    \n  vehicle_year             subject=vehicle    \n  weather_before_loss      subject=roadway    \n\nThe passage text follows between the markers.\n\n<<<PASSAGE_BEGIN>>>\nThe claimant reports that their vehicle was traveling northbound on Karlov Avenue at night. The claimant says the road was wet and visibility was limited by darkness, although the roadway was illuminated.\n\nThe claimant reports that the vehicle was turning right when it came into contact with a parked vehicle. The claimant says they did not initially realize how significant the contact was.\n\nThe claimant states that they stopped briefly, looked at the vehicles, and then left because they were concerned about being stranded late at night. The claimant says they did not see anyone inside the parked vehicle and did not believe anyone was injured.\n<<<PASSAGE_END>>>\n\nExtract the facts this passage asserts.",
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "facts"
+        ],
+        "properties": {
+          "facts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "assertion",
+                "asserter_kind",
+                "quoted_text",
+                "subject",
+                "subject_entity_id",
+                "predicate",
+                "value_raw"
+              ],
+              "properties": {
+                "assertion": {
+                  "type": "string"
+                },
+                "asserter_kind": {
+                  "enum": [
+                    "claimant",
+                    "insured",
+                    "witness",
+                    "police_officer",
+                    "adjuster",
+                    "provider",
+                    "system_record",
+                    "attorney"
+                  ]
+                },
+                "asserter_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "subject": {
+                  "type": "string",
+                  "description": "Short snake_case key for what this fact is about."
+                },
+                "subject_entity_id": {
+                  "enum": [
+                    "vehicle_1",
+                    "vehicle_2",
+                    "roadway_1",
+                    "crash_001",
+                    "claimant_1",
+                    null
+                  ]
+                },
+                "predicate": {
+                  "enum": [
+                    "approximate_speed",
+                    "awareness_of_severity",
+                    "contact_point",
+                    "crash_type",
+                    "damage_band",
+                    "injuries_total",
+                    "injury_belief",
+                    "intended_to_report",
+                    "lighting",
+                    "location_text",
+                    "loss_of_control",
+                    "maneuver",
+                    "occupant_count",
+                    "occupant_observation",
+                    "occurred_at",
+                    "post_collision_action",
+                    "posted_speed_limit",
+                    "reason_for_leaving",
+                    "recall_limitation",
+                    "road_surface",
+                    "travel_direction",
+                    "unit_type",
+                    "vehicle_make",
+                    "vehicle_model",
+                    "vehicle_year",
+                    "weather_before_loss",
+                    null
+                  ]
+                },
+                "value_raw": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The value as the source expresses it. Ranges stay ranges. Code normalises this."
+                },
+                "quoted_text": {
+                  "type": "string"
+                },
+                "raw_time_expression": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "revised": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "superseded_text": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "response": {
+      "facts": [
+        {
+          "assertion": "The claimant's vehicle was traveling northbound.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "claimant_vehicle_travel_direction",
+          "subject_entity_id": "vehicle_1",
+          "predicate": "travel_direction",
+          "value_raw": "northbound",
+          "quoted_text": "their vehicle was traveling northbound on Karlov Avenue at night",
+          "raw_time_expression": "at night",
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The road was wet.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "road_surface_condition",
+          "subject_entity_id": "roadway_1",
+          "predicate": "road_surface",
+          "value_raw": "wet",
+          "quoted_text": "the road was wet",
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The roadway was illuminated.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "roadway_lighting",
+          "subject_entity_id": "roadway_1",
+          "predicate": "lighting",
+          "value_raw": "illuminated",
+          "quoted_text": "the roadway was illuminated",
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant's vehicle was turning right.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "claimant_vehicle_maneuver",
+          "subject_entity_id": "vehicle_1",
+          "predicate": "maneuver",
+          "value_raw": "turning right",
+          "quoted_text": "the vehicle was turning right",
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The other vehicle was parked.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "other_vehicle_maneuver",
+          "subject_entity_id": "vehicle_2",
+          "predicate": "maneuver",
+          "value_raw": "parked",
+          "quoted_text": "came into contact with a parked vehicle",
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The other vehicle's unit type was parked.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "other_vehicle_unit_type",
+          "subject_entity_id": "vehicle_2",
+          "predicate": "unit_type",
+          "value_raw": "parked",
+          "quoted_text": "came into contact with a parked vehicle",
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant did not initially realize how significant the contact was.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "claimant_awareness_of_severity",
+          "subject_entity_id": "claimant_1",
+          "predicate": "awareness_of_severity",
+          "value_raw": "did not initially realize how significant the contact was",
+          "quoted_text": "did not initially realize how significant the contact was",
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant stopped briefly, looked at the vehicles, and then left.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "claimant_post_collision_action",
+          "subject_entity_id": "claimant_1",
+          "predicate": "post_collision_action",
+          "value_raw": "stopped briefly, looked at the vehicles, and then left",
+          "quoted_text": "stopped briefly, looked at the vehicles, and then left",
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant left because they were concerned about being stranded late at night.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "claimant_reason_for_leaving",
+          "subject_entity_id": "claimant_1",
+          "predicate": "reason_for_leaving",
+          "value_raw": "they were concerned about being stranded late at night",
+          "quoted_text": "they were concerned about being stranded late at night",
+          "raw_time_expression": "late at night",
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant did not see anyone inside the parked vehicle.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "other_vehicle_occupant_observation",
+          "subject_entity_id": "vehicle_2",
+          "predicate": "occupant_observation",
+          "value_raw": "did not see anyone inside the parked vehicle",
+          "quoted_text": "did not see anyone inside the parked vehicle",
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant did not believe anyone was injured.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "claimant_injury_belief",
+          "subject_entity_id": "claimant_1",
+          "predicate": "injury_belief",
+          "value_raw": "did not believe anyone was injured",
+          "quoted_text": "did not believe anyone was injured",
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        }
+      ]
+    }
+  },
+  {
+    "tag": "extract__statement.body",
+    "request": {
+      "system": "You extract facts from a single passage of a US personal auto insurance claim file.\n\nYou return only what the passage states. You never infer, summarise, or add context from general knowledge.\n\nRULES\n\n1. VERBATIM QUOTE REQUIRED. Every fact must quote an exact, contiguous substring of the passage \u2014 copied character for character, including punctuation and capitalisation exactly as they appear. Do not paraphrase, tidy, join across a gap, or normalise anything inside the quote. You do NOT need to count character positions: those are computed from your quote by code. What matters is that the quote is copied EXACTLY, and that it is long enough to occur only once in the passage. A quote that cannot be found verbatim is discarded downstream, so an approximate quote is wasted output rather than a partial success.\n\n2. ATTRIBUTE TO THE SPEAKER, NOT THE QUESTIONER. In a transcript, a fact stated inside an interviewer's question is the interviewer's, not the subject's. If an adjuster asks \"so you were stopped at the light?\" and the subject answers \"yes\", the assertion belongs to the subject and the span must cover the subject's answer. Getting this wrong is the highest-consequence error you can make here.\n\n3. SELF-CORRECTION. If a speaker revises within the passage, return the final version as the assertion and set `revised` to true with the superseded text. A revision is NOT a disagreement \u2014 do not report it as one.\n\n4. DO NOT NORMALISE VAGUE TIME EXPRESSIONS. \"That evening\", \"a few minutes later\", \"around lunchtime\" must be returned exactly as written in `raw_time_expression`. Never convert them to a date or a clock time. Inventing a timestamp is a chronology error, not a normalisation.\n\n5. PRESERVE APPROXIMATION AND UNCERTAINTY EVERYWHERE, NOT ONLY IN TIMES. If the source hedges, the assertion must carry the same hedge with the same strength. \"Around 25 to 30\" stays a range; it does not become 27, or 30, or \"approximately 30\". \"Roughly\", \"about\", \"I think\", \"I am not sure\", \"I do not recall\" are part of what was asserted. A stated inability to recall something IS an assertion and may be extracted as one \u2014 but as an assertion about recall, not about the underlying fact.\n\n6. NEVER STRENGTHEN A CLAIM. Report the exact epistemic status the source gives it, and never upgrade it:\n   - A belief is not a fact. \"They did not believe anyone was injured\" must NOT become \"nobody was injured\".\n   - A failure to observe is not an absence. \"They did not see anyone in the vehicle\" must NOT become \"the vehicle was empty\".\n   - A perception is not a measurement. \"It felt like it slid\" must NOT become \"the vehicle slid\".\n   - An intention is not an act. \"They intended to report it\" must NOT become \"they reported it\".\n   - A partial statement is not a general one. Do not widen scope, drop qualifiers, or merge two hedged statements into one confident one.\n\n7. NEUTRAL FRAMING. Write the assertion as what the source states, without judgement. Not \"the claimant falsely claimed X\" \u2014 just \"X\". Never characterise anyone as truthful, untruthful, mistaken, or evasive.\n\n8. NO MATERIALITY, NO SUSPICION. Do not assess importance, credibility, fault, liability, coverage, or whether anything looks unusual. That is not your task and no downstream stage wants it.\n\n9. IF THE PASSAGE ASSERTS NOTHING EXTRACTABLE, RETURN AN EMPTY LIST. An empty list is a correct answer. Do not manufacture facts to fill the response.\n\n10. TAG EACH FACT WITH AN ENTITY AND A PREDICATE. Every fact must name the entity it is about, chosen from the ENTITY ROSTER below, and the property it asserts, chosen from the PREDICATE VOCABULARY below. Both are closed sets: pick from them or return nothing. Never invent an entity id or a predicate name.\n\n11. IF NO PREDICATE FITS, OMIT THE PREDICATE. Returning the fact with `predicate` set to null is correct and useful. Forcing a fact into a nearly-right predicate destroys the comparison it would otherwise feed. In particular, do not map a qualitative impression of speed onto a numeric speed predicate, do not map a causal or fault judgement onto a physical property, and do not map what someone REPORTS SEEING onto a predicate that records what a thing IS.\n\n12. GIVE THE RAW VALUE, NOT A TIDIED ONE. Put the value as the source expresses it into `value_raw`. Code normalises it against a lookup table afterwards. For a range or an approximation, give the range (\"25 to 30\"), never a midpoint.",
+      "user": "PASSAGE ID: statement.body\nDOCUMENT: recorded_statement (doc_statement)\nLABEL: Recorded statement of the claimant\n\nENTITY ROSTER \u2014 choose `subject_entity_id` from these ids only:\n  vehicle_1    (vehicle) \u2014 The claimant's vehicle (crash unit 1): 2015 MERCEDES-BENZ G-CLASS\n  vehicle_2    (vehicle) \u2014 The other vehicle (crash unit 2), parked: 2005 CHEVROLET SUBURBAN\n  roadway_1    (roadway) \u2014 The roadway and conditions at the loss location\n  crash_001    (collision) \u2014 The collision itself\n  claimant_1   (party) \u2014 The claimant, driver of vehicle_1\n\nPREDICATE VOCABULARY \u2014 choose `predicate` from these names only, or null:\n  approximate_speed        subject=vehicle    MEASURED OR ESTIMATED speed of this vehicle. A range stays a range. Qualitative impressions ('moving quickly') are NOT admitted here \u2014 they have no numeric value and forcing one invents precision. They stay ungrouped, which is a finding.\n  awareness_of_severity    subject=party      \n  contact_point            subject=vehicle    Contact point ON THIS VEHICLE. Two vehicles' contact points are different facts, not competing accounts of one.\n  crash_type               subject=collision  \n  damage_band              subject=collision  \n  injuries_total           subject=collision  \n  injury_belief            subject=party      A BELIEF held by a person, never an injury fact. The claim record's injury coding is `injuries_total` on the event.\n  intended_to_report       subject=party      An INTENTION. Never conflated with whether a report was made.\n  lighting                 subject=roadway    \n  location_text            subject=collision  \n  loss_of_control          subject=vehicle    Reported loss of control. Silence is NOT `none_reported` \u2014 absence of an assertion is not an assertion.\n  maneuver                 subject=vehicle    What the vehicle was doing. `parked` is a maneuver value AND a unit type; both are recorded rather than merged.\n  occupant_count           subject=vehicle    A count stated by a record. See `occupant_observation`.\n  occupant_observation     subject=vehicle    What an observer REPORTS SEEING. Deliberately distinct from `occupant_count`: a failure to observe is not an absence.\n  occurred_at              subject=collision  \n  post_collision_action    subject=party      \n  posted_speed_limit       subject=roadway    A ROAD attribute. NEVER comparable with `approximate_speed`, which is a vehicle attribute. Different properties of different entities.\n  reason_for_leaving       subject=party      Free text by necessity. A stated reason is not enumerable without deciding what counts as the same reason, which is a judgement no stage of this system may make.\n  recall_limitation        subject=party      A stated inability to recall. Takes no position on the underlying fact and therefore cannot conflict with one.\n  road_surface             subject=roadway    \n  travel_direction         subject=vehicle    Compass heading of travel. Distinct from `maneuver`.\n  unit_type                subject=vehicle    Crash-record classification of the unit's state.\n  vehicle_make             subject=vehicle    \n  vehicle_model            subject=vehicle    \n  vehicle_year             subject=vehicle    \n  weather_before_loss      subject=roadway    \n\nThe passage text follows between the markers.\n\n<<<PASSAGE_BEGIN>>>\nThe claimant says they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.\n\nThe claimant recalls that it had been raining earlier and that the pavement was wet. They say they were driving \"around 25 to 30 mph\" before beginning the turn.\n\nAccording to the claimant, the turn was normal until the vehicle suddenly slid. The claimant says they tried to correct the vehicle but the front of the Mercedes contacted a parked SUV.\n\nThe claimant says they did not see anyone inside the parked SUV and did not believe anyone was injured.\n\nThe claimant says they stopped after the collision, looked at the vehicles, and then left because they were concerned about being stranded late at night. They say they intended to report the incident.\n\nThe claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.\n<<<PASSAGE_END>>>\n\nExtract the facts this passage asserts.",
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "facts"
+        ],
+        "properties": {
+          "facts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "assertion",
+                "asserter_kind",
+                "quoted_text",
+                "subject",
+                "subject_entity_id",
+                "predicate",
+                "value_raw"
+              ],
+              "properties": {
+                "assertion": {
+                  "type": "string"
+                },
+                "asserter_kind": {
+                  "enum": [
+                    "claimant",
+                    "insured",
+                    "witness",
+                    "police_officer",
+                    "adjuster",
+                    "provider",
+                    "system_record",
+                    "attorney"
+                  ]
+                },
+                "asserter_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "subject": {
+                  "type": "string",
+                  "description": "Short snake_case key for what this fact is about."
+                },
+                "subject_entity_id": {
+                  "enum": [
+                    "vehicle_1",
+                    "vehicle_2",
+                    "roadway_1",
+                    "crash_001",
+                    "claimant_1",
+                    null
+                  ]
+                },
+                "predicate": {
+                  "enum": [
+                    "approximate_speed",
+                    "awareness_of_severity",
+                    "contact_point",
+                    "crash_type",
+                    "damage_band",
+                    "injuries_total",
+                    "injury_belief",
+                    "intended_to_report",
+                    "lighting",
+                    "location_text",
+                    "loss_of_control",
+                    "maneuver",
+                    "occupant_count",
+                    "occupant_observation",
+                    "occurred_at",
+                    "post_collision_action",
+                    "posted_speed_limit",
+                    "reason_for_leaving",
+                    "recall_limitation",
+                    "road_surface",
+                    "travel_direction",
+                    "unit_type",
+                    "vehicle_make",
+                    "vehicle_model",
+                    "vehicle_year",
+                    "weather_before_loss",
+                    null
+                  ]
+                },
+                "value_raw": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The value as the source expresses it. Ranges stay ranges. Code normalises this."
+                },
+                "quoted_text": {
+                  "type": "string"
+                },
+                "raw_time_expression": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "revised": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "superseded_text": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "response": {
+      "facts": [
+        {
+          "assertion": "The claimant states vehicle 1 was traveling southbound.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "vehicle_1_travel_direction",
+          "subject_entity_id": "vehicle_1",
+          "predicate": "travel_direction",
+          "value_raw": "southbound",
+          "quoted_text": "driving the Mercedes-Benz G-Class southbound",
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant states vehicle 1 was making a right turn.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "vehicle_1_maneuver",
+          "subject_entity_id": "vehicle_1",
+          "predicate": "maneuver",
+          "value_raw": "making a right turn",
+          "quoted_text": "making a right turn",
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant states the collision occurred at approximately 9:40 PM.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "collision_time",
+          "subject_entity_id": "crash_001",
+          "predicate": "occurred_at",
+          "value_raw": "approximately 9:40 PM",
+          "quoted_text": "at approximately 9:40 PM",
+          "raw_time_expression": "approximately 9:40 PM",
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant recalls that it had been raining earlier.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "weather_prior",
+          "subject_entity_id": "roadway_1",
+          "predicate": "weather_before_loss",
+          "value_raw": "raining earlier",
+          "quoted_text": "it had been raining earlier",
+          "raw_time_expression": "earlier",
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant states the pavement was wet.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "road_surface_condition",
+          "subject_entity_id": "roadway_1",
+          "predicate": "road_surface",
+          "value_raw": "wet",
+          "quoted_text": "the pavement was wet",
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant states they were driving around 25 to 30 mph before beginning the turn.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "vehicle_1_speed",
+          "subject_entity_id": "vehicle_1",
+          "predicate": "approximate_speed",
+          "value_raw": "around 25 to 30 mph",
+          "quoted_text": "\"around 25 to 30 mph\"",
+          "raw_time_expression": "before beginning the turn",
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant states vehicle 1 suddenly slid during the turn.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "vehicle_1_loss_of_control",
+          "subject_entity_id": "vehicle_1",
+          "predicate": "loss_of_control",
+          "value_raw": "suddenly slid",
+          "quoted_text": "the vehicle suddenly slid",
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant states the front of vehicle 1 contacted vehicle 2.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "vehicle_1_contact_point",
+          "subject_entity_id": "vehicle_1",
+          "predicate": "contact_point",
+          "value_raw": "front",
+          "quoted_text": "the front of the Mercedes contacted a parked SUV",
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant states vehicle 2 was parked.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "vehicle_2_maneuver",
+          "subject_entity_id": "vehicle_2",
+          "predicate": "maneuver",
+          "value_raw": "parked",
+          "quoted_text": "contacted a parked SUV",
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant states they did not see anyone inside vehicle 2.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "vehicle_2_occupant_observation",
+          "subject_entity_id": "vehicle_2",
+          "predicate": "occupant_observation",
+          "value_raw": "did not see anyone inside",
+          "quoted_text": "did not see anyone inside the parked SUV",
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant states they did not believe anyone was injured.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "claimant_injury_belief",
+          "subject_entity_id": "claimant_1",
+          "predicate": "injury_belief",
+          "value_raw": "did not believe anyone was injured",
+          "quoted_text": "did not believe anyone was injured",
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant states they stopped after the collision, looked at the vehicles, and then left.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "claimant_post_collision_action",
+          "subject_entity_id": "claimant_1",
+          "predicate": "post_collision_action",
+          "value_raw": "stopped after the collision, looked at the vehicles, and then left",
+          "quoted_text": "stopped after the collision, looked at the vehicles, and then left",
+          "raw_time_expression": "after the collision",
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant states they left because they were concerned about being stranded late at night.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "claimant_reason_for_leaving",
+          "subject_entity_id": "claimant_1",
+          "predicate": "reason_for_leaving",
+          "value_raw": "concerned about being stranded late at night",
+          "quoted_text": "because they were concerned about being stranded late at night",
+          "raw_time_expression": "late at night",
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant states they intended to report the incident.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "claimant_intended_to_report",
+          "subject_entity_id": "claimant_1",
+          "predicate": "intended_to_report",
+          "value_raw": "intended to report the incident",
+          "quoted_text": "intended to report the incident",
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        },
+        {
+          "assertion": "The claimant states they do not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.",
+          "asserter_kind": "claimant",
+          "asserter_name": null,
+          "subject": "claimant_recall_limitation",
+          "subject_entity_id": "claimant_1",
+          "predicate": "recall_limitation",
+          "value_raw": "does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location",
+          "quoted_text": "The claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.",
+          "raw_time_expression": null,
+          "revised": null,
+          "superseded_text": null
+        }
+      ]
+    }
+  },
+  {
+    "tag": "differences",
+    "request": {
+      "system": "You compare facts already extracted from a US personal auto insurance claim file and identify where sources assert DIFFERENT things about the SAME thing.\n\nYou are given facts only. You do not have the source documents, and you must not reason about anything the facts do not state.\n\nRULES\n\n1. SAME SUBJECT, DIFFERENT SUBSTANCE. A difference exists when two or more facts address the same subject and cannot both be describing the same state of affairs. Group by what is being asserted, not by wording. The `subject` key on each fact is a HINT from an earlier stage, not a constraint: facts with different subject keys may well be about the same thing, and facts sharing a key may not be. Read the assertions.\n\n2. RETURN A SET OF POSITIONS, NOT A PAIR. If three sources disagree about one thing, that is ONE difference with three positions, not three differences.\n\n3. NORMAL VARIATION IS NOT A DIFFERENCE. People recounting a stressful event are routinely inconsistent in detail. Rounded times, approximate distances, different wording for the same event, and a speaker's own self-correction are NOT differences. Report a difference only where the substance is incompatible.\n\n4. SILENCE IS NOT A POSITION. If one source asserts something and another simply does not mention it, that is MISSING CORROBORATION, not a difference. A source that says nothing about a topic \u2014 or that explicitly says it does not establish, does not recall, or did not observe something \u2014 takes NO position on it and cannot disagree. A difference requires at least two sources that each assert something, and whose assertions are incompatible.\n\n5. COMPATIBLE APPROXIMATIONS ARE NOT DIFFERENCES. Two values that could describe the same reality agree, even if they are not identical. An approximation that overlaps or contains another value is compatible: \"approximately 9:40 PM\" and \"9:43 PM\" are the same event; \"around 25 to 30\" and \"under 30\" are compatible; a general description and a more specific one are compatible unless the specific one falls outside the general one. Report a difference only where no single state of affairs could satisfy both assertions.\n\n6. DO NOT ASSESS MATERIALITY. Do not say which differences matter, or rank them, or explain their significance. A human makes that judgement. Any field about importance will be discarded.\n\n7. DO NOT DECIDE WHICH SOURCE IS CORRECT. You report that sources differ. You never resolve the difference, rank the sources by reliability, say which account is more likely, or note that one source is official, independent, or objective. A structured record and a person's recollection are two positions, presented alike.\n\n8. DO NOT CHARACTERISE ANYONE. Never state or imply that a party is lying, mistaken, exaggerating, evasive, impaired, distracted, or suspicious. Never infer motive, intent, or state of mind. Report positions, not people.\n\n9. IF THERE ARE NO DIFFERENCES, RETURN AN EMPTY LIST. This is a correct and expected answer. A claim file with consistent accounts is normal. Do not lower your threshold to find something to report.",
+      "user": "The extracted fact set follows. Each fact has an id, a subject, who asserted it, and what it asserts.\n\n- id=sf_001 | subject=loss_date | asserted_by=system_record | The reported date of loss is 2026-08-11.\n- id=sf_002 | subject=loss_location | asserted_by=system_record | The loss location of record is 4655 S Karlov Ave, Chicago, IL.\n- id=sf_003 | subject=policy_term | asserted_by=system_record | The policy incepted on 2026-01-01 and expires on 2027-01-01.\n- id=an_001 | subject=anchor:CRASH_DATE | asserted_by=system_record | The structured crash record codes CRASH_DATE as 2026-08-11T21:43:00.\n- id=an_002 | subject=anchor:LOCATION_TEXT | asserted_by=system_record | The structured crash record codes LOCATION_TEXT as 4655 S Karlov Ave, Chicago, IL.\n- id=an_003 | subject=anchor:ROADWAY_SURFACE_COND | asserted_by=system_record | The structured crash record codes ROADWAY_SURFACE_COND as WET.\n- id=an_004 | subject=anchor:LIGHTING_CONDITION | asserted_by=system_record | The structured crash record codes LIGHTING_CONDITION as DARKNESS, LIGHTED ROAD.\n- id=an_005 | subject=anchor:FIRST_CRASH_TYPE | asserted_by=system_record | The structured crash record codes FIRST_CRASH_TYPE as PARKED MOTOR VEHICLE.\n- id=an_006 | subject=anchor:POSTED_SPEED_LIMIT | asserted_by=system_record | The structured crash record codes POSTED_SPEED_LIMIT as 30.\n- id=an_007 | subject=anchor:UNIT_1_VEHICLE | asserted_by=system_record | The structured crash record codes UNIT_1_VEHICLE as {'year': 2015, 'make': 'MERCEDES-BENZ', 'model': 'G-CLASS'}.\n- id=an_008 | subject=anchor:UNIT_1_TRAVEL_DIRECTION | asserted_by=system_record | The structured crash record codes UNIT_1_TRAVEL_DIRECTION as N.\n- id=an_009 | subject=anchor:UNIT_1_MANEUVER | asserted_by=system_record | The structured crash record codes UNIT_1_MANEUVER as TURNING RIGHT.\n- id=an_010 | subject=anchor:UNIT_1_OCCUPANT_CNT | asserted_by=system_record | The structured crash record codes UNIT_1_OCCUPANT_CNT as 1.\n- id=an_011 | subject=anchor:UNIT_2_VEHICLE | asserted_by=system_record | The structured crash record codes UNIT_2_VEHICLE as {'year': 2005, 'make': 'CHEVROLET', 'model': 'SUBURBAN'}.\n- id=an_012 | subject=anchor:UNIT_2_UNIT_TYPE | asserted_by=system_record | The structured crash record codes UNIT_2_UNIT_TYPE as PARKED.\n- id=an_013 | subject=anchor:UNIT_2_OCCUPANT_CNT | asserted_by=system_record | The structured crash record codes UNIT_2_OCCUPANT_CNT as 0.\n- id=an_014 | subject=anchor:UNIT_2_FIRST_CONTACT_POINT | asserted_by=system_record | The structured crash record codes UNIT_2_FIRST_CONTACT_POINT as REAR-RIGHT-CORNER.\n- id=an_015 | subject=anchor:MOST_SEVERE_INJURY | asserted_by=system_record | The structured crash record codes MOST_SEVERE_INJURY as NO INDICATION OF INJURY.\n- id=an_016 | subject=anchor:INJURIES_TOTAL | asserted_by=system_record | The structured crash record codes INJURIES_TOTAL as 0.\n- id=an_017 | subject=anchor:DAMAGE | asserted_by=system_record | The structured crash record codes DAMAGE as OVER $1,500.\n- id=anv_001 | subject=anchor:UNIT_1_VEHICLE.make | asserted_by=system_record | The structured crash record codes UNIT_1_VEHICLE make as MERCEDES-BENZ.\n- id=anv_002 | subject=anchor:UNIT_1_VEHICLE.model | asserted_by=system_record | The structured crash record codes UNIT_1_VEHICLE model as G-CLASS.\n- id=anv_003 | subject=anchor:UNIT_1_VEHICLE.year | asserted_by=system_record | The structured crash record codes UNIT_1_VEHICLE year as 2015.\n- id=anv_004 | subject=anchor:UNIT_2_VEHICLE.make | asserted_by=system_record | The structured crash record codes UNIT_2_VEHICLE make as CHEVROLET.\n- id=anv_005 | subject=anchor:UNIT_2_VEHICLE.model | asserted_by=system_record | The structured crash record codes UNIT_2_VEHICLE model as SUBURBAN.\n- id=anv_006 | subject=anchor:UNIT_2_VEHICLE.year | asserted_by=system_record | The structured crash record codes UNIT_2_VEHICLE year as 2005.\n- id=df_001 | subject=policy_age_at_loss_days | asserted_by=system_record | The policy had been in force 222 days at the date of loss.\n- id=df_002 | subject=policy_in_force_at_loss | asserted_by=system_record | The policy was in force on the reported date of loss.\n- id=df_003 | subject=prior_claim_count | asserted_by=system_record | The file records 0 prior claim(s).\n- id=df_004 | subject=handler_count | asserted_by=system_record | The claim has been handled by 1 handler(s).\n- id=bk_001 | subject=document_received:doc_statement | asserted_by=system_record | The recorded statement was received into the file on 2026-08-13.\n- id=ex_001 | subject=claimant_vehicle_travel_direction | asserted_by=claimant | The claimant's vehicle was traveling northbound.\n- id=ex_002 | subject=road_surface_condition | asserted_by=claimant | The road was wet.\n- id=ex_003 | subject=roadway_lighting | asserted_by=claimant | The roadway was illuminated.\n- id=ex_004 | subject=claimant_vehicle_maneuver | asserted_by=claimant | The claimant's vehicle was turning right.\n- id=ex_005 | subject=other_vehicle_maneuver | asserted_by=claimant | The other vehicle was parked.\n- id=ex_006 | subject=other_vehicle_unit_type | asserted_by=claimant | The other vehicle's unit type was parked.\n- id=ex_007 | subject=claimant_awareness_of_severity | asserted_by=claimant | The claimant did not initially realize how significant the contact was.\n- id=ex_008 | subject=claimant_post_collision_action | asserted_by=claimant | The claimant stopped briefly, looked at the vehicles, and then left.\n- id=ex_009 | subject=claimant_reason_for_leaving | asserted_by=claimant | The claimant left because they were concerned about being stranded late at night.\n- id=ex_010 | subject=other_vehicle_occupant_observation | asserted_by=claimant | The claimant did not see anyone inside the parked vehicle.\n- id=ex_011 | subject=claimant_injury_belief | asserted_by=claimant | The claimant did not believe anyone was injured.\n- id=ex_012 | subject=vehicle_1_travel_direction | asserted_by=claimant | The claimant states vehicle 1 was traveling southbound.\n- id=ex_013 | subject=vehicle_1_maneuver | asserted_by=claimant | The claimant states vehicle 1 was making a right turn.\n- id=ex_014 | subject=collision_time | asserted_by=claimant | The claimant states the collision occurred at approximately 9:40 PM.\n- id=ex_015 | subject=weather_prior | asserted_by=claimant | The claimant recalls that it had been raining earlier.\n- id=ex_016 | subject=road_surface_condition | asserted_by=claimant | The claimant states the pavement was wet.\n- id=ex_017 | subject=vehicle_1_speed | asserted_by=claimant | The claimant states they were driving around 25 to 30 mph before beginning the turn.\n- id=ex_018 | subject=vehicle_1_loss_of_control | asserted_by=claimant | The claimant states vehicle 1 suddenly slid during the turn.\n- id=ex_019 | subject=vehicle_1_contact_point | asserted_by=claimant | The claimant states the front of vehicle 1 contacted vehicle 2.\n- id=ex_020 | subject=vehicle_2_maneuver | asserted_by=claimant | The claimant states vehicle 2 was parked.\n- id=ex_021 | subject=vehicle_2_occupant_observation | asserted_by=claimant | The claimant states they did not see anyone inside vehicle 2.\n- id=ex_022 | subject=claimant_injury_belief | asserted_by=claimant | The claimant states they did not believe anyone was injured.\n- id=ex_023 | subject=claimant_post_collision_action | asserted_by=claimant | The claimant states they stopped after the collision, looked at the vehicles, and then left.\n- id=ex_024 | subject=claimant_reason_for_leaving | asserted_by=claimant | The claimant states they left because they were concerned about being stranded late at night.\n- id=ex_025 | subject=claimant_intended_to_report | asserted_by=claimant | The claimant states they intended to report the incident.\n- id=ex_026 | subject=claimant_recall_limitation | asserted_by=claimant | The claimant states they do not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.\n\nIdentify differences between these facts.",
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "differences"
+        ],
+        "properties": {
+          "differences": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "subject",
+                "positions"
+              ],
+              "properties": {
+                "subject": {
+                  "type": "string"
+                },
+                "positions": {
+                  "type": "array",
+                  "minItems": 2,
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "fact_id",
+                      "stance"
+                    ],
+                    "properties": {
+                      "fact_id": {
+                        "type": "string"
+                      },
+                      "stance": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "response": {
+      "differences": [
+        {
+          "subject": "vehicle_1_travel_direction",
+          "positions": [
+            {
+              "fact_id": "an_008",
+              "stance": "The structured crash record indicates Unit 1 was traveling north."
+            },
+            {
+              "fact_id": "ex_001",
+              "stance": "The claimant states their vehicle was traveling northbound."
+            },
+            {
+              "fact_id": "ex_012",
+              "stance": "The claimant states vehicle 1 was traveling southbound."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "tag": "neighborhood__claimant_1__injury_belief",
+    "request": {
+      "system": "You classify the relationship between assertions that are ALREADY KNOWN to concern the same entity, the same event, and the same property.\n\nYou do not need to work out what these assertions are about. That has been established. Your only task is to characterise how they relate.\n\nReturn exactly one relationship for the set:\n\n  CORROBORATING  - the assertions state the same thing. They agree.\n  COMPATIBLE     - they differ in wording or precision but one state of affairs satisfies all of them. An approximation that contains or overlaps another value is compatible.\n  CONTRADICTORY  - no single state of affairs could satisfy all of them.\n\nRULES\n\n1. NORMAL VARIATION IS NOT CONTRADICTION. People recounting a stressful event are routinely inconsistent in detail. Rounded values, differing precision, and different wording for the same thing are COMPATIBLE, not CONTRADICTORY.\n\n2. SILENCE IS NOT A POSITION. You are only shown assertions that were actually made. A source absent from this set has not disagreed with anything.\n\n3. DO NOT DECIDE WHICH SOURCE IS CORRECT. You report the relationship. You never resolve it, never rank sources by reliability, and never note that one source is official, independent, or objective. A structured record and a person's recollection are two assertions, presented alike.\n\n4. DO NOT CHARACTERISE ANYONE. Never state or imply that a party is lying, mistaken, exaggerating, evasive, impaired, or suspicious. Never infer motive, intent, or state of mind.\n\n5. NO MATERIALITY, NO CREDIBILITY, NO LIKELIHOOD. Do not say which relationships matter, rank them, score them, or estimate which assertion is more probably true. A human makes those judgements. Any such field will be discarded.\n\n6. EXPLAIN BRIEFLY AND FACTUALLY. One sentence stating what differs or agrees, in neutral terms.",
+      "user": "ENTITY: claimant_1\nEVENT: crash_001\nPROPERTY: injury_belief\n\nThese assertions all concern that entity, event, and property:\n\n- id=ex_011 | source=doc_fnol | asserted_by=claimant | normalised_value=None | The claimant did not believe anyone was injured.\n- id=ex_022 | source=doc_statement | asserted_by=claimant | normalised_value=None | The claimant states they did not believe anyone was injured.\n\nClassify their relationship.",
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "relationship",
+          "rationale"
+        ],
+        "properties": {
+          "relationship": {
+            "enum": [
+              "CORROBORATING",
+              "COMPATIBLE",
+              "CONTRADICTORY"
+            ]
+          },
+          "rationale": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "response": {
+      "relationship": "CORROBORATING",
+      "rationale": "Both assertions state that the claimant did not believe anyone was injured."
+    }
+  },
+  {
+    "tag": "neighborhood__claimant_1__post_collision_action",
+    "request": {
+      "system": "You classify the relationship between assertions that are ALREADY KNOWN to concern the same entity, the same event, and the same property.\n\nYou do not need to work out what these assertions are about. That has been established. Your only task is to characterise how they relate.\n\nReturn exactly one relationship for the set:\n\n  CORROBORATING  - the assertions state the same thing. They agree.\n  COMPATIBLE     - they differ in wording or precision but one state of affairs satisfies all of them. An approximation that contains or overlaps another value is compatible.\n  CONTRADICTORY  - no single state of affairs could satisfy all of them.\n\nRULES\n\n1. NORMAL VARIATION IS NOT CONTRADICTION. People recounting a stressful event are routinely inconsistent in detail. Rounded values, differing precision, and different wording for the same thing are COMPATIBLE, not CONTRADICTORY.\n\n2. SILENCE IS NOT A POSITION. You are only shown assertions that were actually made. A source absent from this set has not disagreed with anything.\n\n3. DO NOT DECIDE WHICH SOURCE IS CORRECT. You report the relationship. You never resolve it, never rank sources by reliability, and never note that one source is official, independent, or objective. A structured record and a person's recollection are two assertions, presented alike.\n\n4. DO NOT CHARACTERISE ANYONE. Never state or imply that a party is lying, mistaken, exaggerating, evasive, impaired, or suspicious. Never infer motive, intent, or state of mind.\n\n5. NO MATERIALITY, NO CREDIBILITY, NO LIKELIHOOD. Do not say which relationships matter, rank them, score them, or estimate which assertion is more probably true. A human makes those judgements. Any such field will be discarded.\n\n6. EXPLAIN BRIEFLY AND FACTUALLY. One sentence stating what differs or agrees, in neutral terms.",
+      "user": "ENTITY: claimant_1\nEVENT: crash_001\nPROPERTY: post_collision_action\n\nThese assertions all concern that entity, event, and property:\n\n- id=ex_008 | source=doc_fnol | asserted_by=claimant | normalised_value=None | The claimant stopped briefly, looked at the vehicles, and then left.\n- id=ex_023 | source=doc_statement | asserted_by=claimant | normalised_value=None | The claimant states they stopped after the collision, looked at the vehicles, and then left.\n\nClassify their relationship.",
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "relationship",
+          "rationale"
+        ],
+        "properties": {
+          "relationship": {
+            "enum": [
+              "CORROBORATING",
+              "COMPATIBLE",
+              "CONTRADICTORY"
+            ]
+          },
+          "rationale": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "response": {
+      "relationship": "CORROBORATING",
+      "rationale": "Both assertions state that the claimant stopped, inspected the vehicles, and then departed."
+    }
+  },
+  {
+    "tag": "neighborhood__claimant_1__reason_for_leaving",
+    "request": {
+      "system": "You classify the relationship between assertions that are ALREADY KNOWN to concern the same entity, the same event, and the same property.\n\nYou do not need to work out what these assertions are about. That has been established. Your only task is to characterise how they relate.\n\nReturn exactly one relationship for the set:\n\n  CORROBORATING  - the assertions state the same thing. They agree.\n  COMPATIBLE     - they differ in wording or precision but one state of affairs satisfies all of them. An approximation that contains or overlaps another value is compatible.\n  CONTRADICTORY  - no single state of affairs could satisfy all of them.\n\nRULES\n\n1. NORMAL VARIATION IS NOT CONTRADICTION. People recounting a stressful event are routinely inconsistent in detail. Rounded values, differing precision, and different wording for the same thing are COMPATIBLE, not CONTRADICTORY.\n\n2. SILENCE IS NOT A POSITION. You are only shown assertions that were actually made. A source absent from this set has not disagreed with anything.\n\n3. DO NOT DECIDE WHICH SOURCE IS CORRECT. You report the relationship. You never resolve it, never rank sources by reliability, and never note that one source is official, independent, or objective. A structured record and a person's recollection are two assertions, presented alike.\n\n4. DO NOT CHARACTERISE ANYONE. Never state or imply that a party is lying, mistaken, exaggerating, evasive, impaired, or suspicious. Never infer motive, intent, or state of mind.\n\n5. NO MATERIALITY, NO CREDIBILITY, NO LIKELIHOOD. Do not say which relationships matter, rank them, score them, or estimate which assertion is more probably true. A human makes those judgements. Any such field will be discarded.\n\n6. EXPLAIN BRIEFLY AND FACTUALLY. One sentence stating what differs or agrees, in neutral terms.",
+      "user": "ENTITY: claimant_1\nEVENT: crash_001\nPROPERTY: reason_for_leaving\n\nThese assertions all concern that entity, event, and property:\n\n- id=ex_009 | source=doc_fnol | asserted_by=claimant | normalised_value='they were concerned about being stranded late at night' | The claimant left because they were concerned about being stranded late at night.\n- id=ex_024 | source=doc_statement | asserted_by=claimant | normalised_value='concerned about being stranded late at night' | The claimant states they left because they were concerned about being stranded late at night.\n\nClassify their relationship.",
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "relationship",
+          "rationale"
+        ],
+        "properties": {
+          "relationship": {
+            "enum": [
+              "CORROBORATING",
+              "COMPATIBLE",
+              "CONTRADICTORY"
+            ]
+          },
+          "rationale": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "response": {
+      "relationship": "CORROBORATING",
+      "rationale": "Both assertions state that the claimant left due to concern about being stranded late at night."
+    }
+  },
+  {
+    "tag": "neighborhood__crash_001__occurred_at",
+    "request": {
+      "system": "You classify the relationship between assertions that are ALREADY KNOWN to concern the same entity, the same event, and the same property.\n\nYou do not need to work out what these assertions are about. That has been established. Your only task is to characterise how they relate.\n\nReturn exactly one relationship for the set:\n\n  CORROBORATING  - the assertions state the same thing. They agree.\n  COMPATIBLE     - they differ in wording or precision but one state of affairs satisfies all of them. An approximation that contains or overlaps another value is compatible.\n  CONTRADICTORY  - no single state of affairs could satisfy all of them.\n\nRULES\n\n1. NORMAL VARIATION IS NOT CONTRADICTION. People recounting a stressful event are routinely inconsistent in detail. Rounded values, differing precision, and different wording for the same thing are COMPATIBLE, not CONTRADICTORY.\n\n2. SILENCE IS NOT A POSITION. You are only shown assertions that were actually made. A source absent from this set has not disagreed with anything.\n\n3. DO NOT DECIDE WHICH SOURCE IS CORRECT. You report the relationship. You never resolve it, never rank sources by reliability, and never note that one source is official, independent, or objective. A structured record and a person's recollection are two assertions, presented alike.\n\n4. DO NOT CHARACTERISE ANYONE. Never state or imply that a party is lying, mistaken, exaggerating, evasive, impaired, or suspicious. Never infer motive, intent, or state of mind.\n\n5. NO MATERIALITY, NO CREDIBILITY, NO LIKELIHOOD. Do not say which relationships matter, rank them, score them, or estimate which assertion is more probably true. A human makes those judgements. Any such field will be discarded.\n\n6. EXPLAIN BRIEFLY AND FACTUALLY. One sentence stating what differs or agrees, in neutral terms.",
+      "user": "ENTITY: crash_001\nEVENT: crash_001\nPROPERTY: occurred_at\n\nThese assertions all concern that entity, event, and property:\n\n- id=an_001 | source=rec_anchor | asserted_by=system_record | normalised_value='2026-08-11T21:43:00' | The structured crash record codes CRASH_DATE as 2026-08-11T21:43:00.\n- id=ex_014 | source=doc_statement | asserted_by=claimant | normalised_value='approximately 9:40 PM' | The claimant states the collision occurred at approximately 9:40 PM.\n\nClassify their relationship.",
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "relationship",
+          "rationale"
+        ],
+        "properties": {
+          "relationship": {
+            "enum": [
+              "CORROBORATING",
+              "COMPATIBLE",
+              "CONTRADICTORY"
+            ]
+          },
+          "rationale": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "response": {
+      "relationship": "COMPATIBLE",
+      "rationale": "One source provides an approximate time of 9:40 PM while the other gives a precise time of 9:43 PM, which is consistent with that approximation."
+    }
+  },
+  {
+    "tag": "neighborhood__roadway_1__lighting",
+    "request": {
+      "system": "You classify the relationship between assertions that are ALREADY KNOWN to concern the same entity, the same event, and the same property.\n\nYou do not need to work out what these assertions are about. That has been established. Your only task is to characterise how they relate.\n\nReturn exactly one relationship for the set:\n\n  CORROBORATING  - the assertions state the same thing. They agree.\n  COMPATIBLE     - they differ in wording or precision but one state of affairs satisfies all of them. An approximation that contains or overlaps another value is compatible.\n  CONTRADICTORY  - no single state of affairs could satisfy all of them.\n\nRULES\n\n1. NORMAL VARIATION IS NOT CONTRADICTION. People recounting a stressful event are routinely inconsistent in detail. Rounded values, differing precision, and different wording for the same thing are COMPATIBLE, not CONTRADICTORY.\n\n2. SILENCE IS NOT A POSITION. You are only shown assertions that were actually made. A source absent from this set has not disagreed with anything.\n\n3. DO NOT DECIDE WHICH SOURCE IS CORRECT. You report the relationship. You never resolve it, never rank sources by reliability, and never note that one source is official, independent, or objective. A structured record and a person's recollection are two assertions, presented alike.\n\n4. DO NOT CHARACTERISE ANYONE. Never state or imply that a party is lying, mistaken, exaggerating, evasive, impaired, or suspicious. Never infer motive, intent, or state of mind.\n\n5. NO MATERIALITY, NO CREDIBILITY, NO LIKELIHOOD. Do not say which relationships matter, rank them, score them, or estimate which assertion is more probably true. A human makes those judgements. Any such field will be discarded.\n\n6. EXPLAIN BRIEFLY AND FACTUALLY. One sentence stating what differs or agrees, in neutral terms.",
+      "user": "ENTITY: roadway_1\nEVENT: crash_001\nPROPERTY: lighting\n\nThese assertions all concern that entity, event, and property:\n\n- id=an_004 | source=rec_anchor | asserted_by=system_record | normalised_value='darkness_lighted_road' | The structured crash record codes LIGHTING_CONDITION as DARKNESS, LIGHTED ROAD.\n- id=ex_003 | source=doc_fnol | asserted_by=claimant | normalised_value=None | The roadway was illuminated.\n\nClassify their relationship.",
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "relationship",
+          "rationale"
+        ],
+        "properties": {
+          "relationship": {
+            "enum": [
+              "CORROBORATING",
+              "COMPATIBLE",
+              "CONTRADICTORY"
+            ]
+          },
+          "rationale": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "response": {
+      "relationship": "COMPATIBLE",
+      "rationale": "Both assertions state that the road was illuminated, with one assertion adding the detail that it occurred during darkness."
+    }
+  },
+  {
+    "tag": "neighborhood__vehicle_1__maneuver",
+    "request": {
+      "system": "You classify the relationship between assertions that are ALREADY KNOWN to concern the same entity, the same event, and the same property.\n\nYou do not need to work out what these assertions are about. That has been established. Your only task is to characterise how they relate.\n\nReturn exactly one relationship for the set:\n\n  CORROBORATING  - the assertions state the same thing. They agree.\n  COMPATIBLE     - they differ in wording or precision but one state of affairs satisfies all of them. An approximation that contains or overlaps another value is compatible.\n  CONTRADICTORY  - no single state of affairs could satisfy all of them.\n\nRULES\n\n1. NORMAL VARIATION IS NOT CONTRADICTION. People recounting a stressful event are routinely inconsistent in detail. Rounded values, differing precision, and different wording for the same thing are COMPATIBLE, not CONTRADICTORY.\n\n2. SILENCE IS NOT A POSITION. You are only shown assertions that were actually made. A source absent from this set has not disagreed with anything.\n\n3. DO NOT DECIDE WHICH SOURCE IS CORRECT. You report the relationship. You never resolve it, never rank sources by reliability, and never note that one source is official, independent, or objective. A structured record and a person's recollection are two assertions, presented alike.\n\n4. DO NOT CHARACTERISE ANYONE. Never state or imply that a party is lying, mistaken, exaggerating, evasive, impaired, or suspicious. Never infer motive, intent, or state of mind.\n\n5. NO MATERIALITY, NO CREDIBILITY, NO LIKELIHOOD. Do not say which relationships matter, rank them, score them, or estimate which assertion is more probably true. A human makes those judgements. Any such field will be discarded.\n\n6. EXPLAIN BRIEFLY AND FACTUALLY. One sentence stating what differs or agrees, in neutral terms.",
+      "user": "ENTITY: vehicle_1\nEVENT: crash_001\nPROPERTY: maneuver\n\nThese assertions all concern that entity, event, and property:\n\n- id=an_009 | source=rec_anchor | asserted_by=system_record | normalised_value='right_turn' | The structured crash record codes UNIT_1_MANEUVER as TURNING RIGHT.\n- id=ex_004 | source=doc_fnol | asserted_by=claimant | normalised_value='right_turn' | The claimant's vehicle was turning right.\n- id=ex_013 | source=doc_statement | asserted_by=claimant | normalised_value=None | The claimant states vehicle 1 was making a right turn.\n\nClassify their relationship.",
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "relationship",
+          "rationale"
+        ],
+        "properties": {
+          "relationship": {
+            "enum": [
+              "CORROBORATING",
+              "COMPATIBLE",
+              "CONTRADICTORY"
+            ]
+          },
+          "rationale": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "response": {
+      "relationship": "CORROBORATING",
+      "rationale": "All assertions agree that vehicle 1 was turning right."
+    }
+  },
+  {
+    "tag": "neighborhood__vehicle_1__travel_direction",
+    "request": {
+      "system": "You classify the relationship between assertions that are ALREADY KNOWN to concern the same entity, the same event, and the same property.\n\nYou do not need to work out what these assertions are about. That has been established. Your only task is to characterise how they relate.\n\nReturn exactly one relationship for the set:\n\n  CORROBORATING  - the assertions state the same thing. They agree.\n  COMPATIBLE     - they differ in wording or precision but one state of affairs satisfies all of them. An approximation that contains or overlaps another value is compatible.\n  CONTRADICTORY  - no single state of affairs could satisfy all of them.\n\nRULES\n\n1. NORMAL VARIATION IS NOT CONTRADICTION. People recounting a stressful event are routinely inconsistent in detail. Rounded values, differing precision, and different wording for the same thing are COMPATIBLE, not CONTRADICTORY.\n\n2. SILENCE IS NOT A POSITION. You are only shown assertions that were actually made. A source absent from this set has not disagreed with anything.\n\n3. DO NOT DECIDE WHICH SOURCE IS CORRECT. You report the relationship. You never resolve it, never rank sources by reliability, and never note that one source is official, independent, or objective. A structured record and a person's recollection are two assertions, presented alike.\n\n4. DO NOT CHARACTERISE ANYONE. Never state or imply that a party is lying, mistaken, exaggerating, evasive, impaired, or suspicious. Never infer motive, intent, or state of mind.\n\n5. NO MATERIALITY, NO CREDIBILITY, NO LIKELIHOOD. Do not say which relationships matter, rank them, score them, or estimate which assertion is more probably true. A human makes those judgements. Any such field will be discarded.\n\n6. EXPLAIN BRIEFLY AND FACTUALLY. One sentence stating what differs or agrees, in neutral terms.",
+      "user": "ENTITY: vehicle_1\nEVENT: crash_001\nPROPERTY: travel_direction\n\nThese assertions all concern that entity, event, and property:\n\n- id=an_008 | source=rec_anchor | asserted_by=system_record | normalised_value='north' | The structured crash record codes UNIT_1_TRAVEL_DIRECTION as N.\n- id=ex_001 | source=doc_fnol | asserted_by=claimant | normalised_value='north' | The claimant's vehicle was traveling northbound.\n- id=ex_012 | source=doc_statement | asserted_by=claimant | normalised_value='south' | The claimant states vehicle 1 was traveling southbound.\n\nClassify their relationship.",
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "relationship",
+          "rationale"
+        ],
+        "properties": {
+          "relationship": {
+            "enum": [
+              "CORROBORATING",
+              "COMPATIBLE",
+              "CONTRADICTORY"
+            ]
+          },
+          "rationale": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "response": {
+      "relationship": "CONTRADICTORY",
+      "rationale": "Two assertions state the vehicle was traveling north, while a third assertion states it was traveling south."
+    }
+  },
+  {
+    "tag": "neighborhood__vehicle_2__occupant_observation",
+    "request": {
+      "system": "You classify the relationship between assertions that are ALREADY KNOWN to concern the same entity, the same event, and the same property.\n\nYou do not need to work out what these assertions are about. That has been established. Your only task is to characterise how they relate.\n\nReturn exactly one relationship for the set:\n\n  CORROBORATING  - the assertions state the same thing. They agree.\n  COMPATIBLE     - they differ in wording or precision but one state of affairs satisfies all of them. An approximation that contains or overlaps another value is compatible.\n  CONTRADICTORY  - no single state of affairs could satisfy all of them.\n\nRULES\n\n1. NORMAL VARIATION IS NOT CONTRADICTION. People recounting a stressful event are routinely inconsistent in detail. Rounded values, differing precision, and different wording for the same thing are COMPATIBLE, not CONTRADICTORY.\n\n2. SILENCE IS NOT A POSITION. You are only shown assertions that were actually made. A source absent from this set has not disagreed with anything.\n\n3. DO NOT DECIDE WHICH SOURCE IS CORRECT. You report the relationship. You never resolve it, never rank sources by reliability, and never note that one source is official, independent, or objective. A structured record and a person's recollection are two assertions, presented alike.\n\n4. DO NOT CHARACTERISE ANYONE. Never state or imply that a party is lying, mistaken, exaggerating, evasive, impaired, or suspicious. Never infer motive, intent, or state of mind.\n\n5. NO MATERIALITY, NO CREDIBILITY, NO LIKELIHOOD. Do not say which relationships matter, rank them, score them, or estimate which assertion is more probably true. A human makes those judgements. Any such field will be discarded.\n\n6. EXPLAIN BRIEFLY AND FACTUALLY. One sentence stating what differs or agrees, in neutral terms.",
+      "user": "ENTITY: vehicle_2\nEVENT: crash_001\nPROPERTY: occupant_observation\n\nThese assertions all concern that entity, event, and property:\n\n- id=ex_010 | source=doc_fnol | asserted_by=claimant | normalised_value=None | The claimant did not see anyone inside the parked vehicle.\n- id=ex_021 | source=doc_statement | asserted_by=claimant | normalised_value=None | The claimant states they did not see anyone inside vehicle 2.\n\nClassify their relationship.",
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "relationship",
+          "rationale"
+        ],
+        "properties": {
+          "relationship": {
+            "enum": [
+              "CORROBORATING",
+              "COMPATIBLE",
+              "CONTRADICTORY"
+            ]
+          },
+          "rationale": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "response": {
+      "relationship": "CORROBORATING",
+      "rationale": "Both assertions state that the claimant did not see anyone inside the vehicle."
+    }
+  }
+]

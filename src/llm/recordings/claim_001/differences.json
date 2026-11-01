@@ -1,0 +1,17 @@
+{
+  "differences": [
+    {
+      "subject": "direction_of_travel",
+      "positions": [
+        {
+          "fact_id": "ex_001",
+          "stance": "The FNOL records the vehicle as travelling northbound on Karlov Avenue."
+        },
+        {
+          "fact_id": "ex_012",
+          "stance": "The recorded statement has the claimant driving southbound."
+        }
+      ]
+    }
+  ]
+}

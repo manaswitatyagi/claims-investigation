@@ -1,0 +1,23 @@
+[
+  {
+    "passage_id": "fnol.description_of_accident",
+    "document_id": "doc_fnol",
+    "label": "Description of Accident",
+    "length": 264,
+    "text": "I had parked outside my sister's house on Willow Street and gone inside to collect a box. When I came back out the front nearside of my car was pushed in and there was a silver saloon stopped further up the road. My car was parked at the kerb and nobody was in it."
+  },
+  {
+    "passage_id": "statement.body",
+    "document_id": "doc_statement",
+    "label": "Recorded statement of Dana Whitfield",
+    "length": 848,
+    "text": "[00:00:12] ADJUSTER: Can you take me through what happened on the fourteenth?\n[00:00:18] MS WHITFIELD: I'd been at my sister's on Willow Street. I left there and I was heading north, back towards the junction.\n[00:00:31] ADJUSTER: And roughly what speed were you doing?\n[00:00:34] MS WHITFIELD: Twenty, twenty-five. It is a narrow road, you cannot do much more.\n[00:00:41] ADJUSTER: So you were stopped at the light when the other vehicle hit you, is that right?\n[00:00:47] MS WHITFIELD: No, I was still moving. I had not got to the lights yet.\n[00:00:53] ADJUSTER: What time would this have been?\n[00:00:56] MS WHITFIELD: That evening, after I had my tea. I could not tell you exactly.\n[00:01:04] ADJUSTER: And you reported it to us on the twentieth?\n[00:01:08] MS WHITFIELD: That is right. I wanted to see if the other driver would sort it first."
+  },
+  {
+    "passage_id": "independent.body",
+    "document_id": "doc_independent",
+    "label": "Written account of Elaine Torrance",
+    "length": 338,
+    "text": "I was in my front room at number 41 when I heard the bang. I came out and there was a dark blue hatchback across the middle of the road with its front end damaged, and a silver car further up with its hazards on. The road was wet; it had been raining on and off all day. I did not see the collision itself, only what was there afterwards."
+  }
+]

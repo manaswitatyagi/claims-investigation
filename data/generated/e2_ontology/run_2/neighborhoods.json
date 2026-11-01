@@ -1,0 +1,1401 @@
+[
+  {
+    "entity_id": "claimant_1",
+    "event_id": "crash_001",
+    "predicate": "awareness_of_severity",
+    "singleton": true,
+    "distinct_values": [
+      "'did not initially realize how significant the contact was'"
+    ],
+    "members": [
+      {
+        "fact_id": "ex_007",
+        "value": "'did not initially realize how significant the contact was'",
+        "asserter": "claimant",
+        "document_id": "doc_fnol",
+        "assertion": "The claimant did not initially realize how significant the contact was.",
+        "citation": {
+          "document_id": "doc_fnol",
+          "document_version": "v1",
+          "locator": {
+            "TextSpan": {
+              "passage_id": "fnol.description_of_accident",
+              "char_start": 334,
+              "char_end": 391
+            }
+          },
+          "quoted_text": "did not initially realize how significant the contact was",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": null,
+    "method": "not_compared",
+    "rationale": "Only one source addresses this property. Silence by other sources is not a relationship."
+  },
+  {
+    "entity_id": "claimant_1",
+    "event_id": "crash_001",
+    "predicate": "injury_belief",
+    "singleton": false,
+    "distinct_values": [
+      "None"
+    ],
+    "members": [
+      {
+        "fact_id": "ex_011",
+        "value": "None",
+        "asserter": "claimant",
+        "document_id": "doc_fnol",
+        "assertion": "The claimant did not believe anyone was injured.",
+        "citation": {
+          "document_id": "doc_fnol",
+          "document_version": "v1",
+          "locator": {
+            "TextSpan": {
+              "passage_id": "fnol.description_of_accident",
+              "char_start": 615,
+              "char_end": 649
+            }
+          },
+          "quoted_text": "did not believe anyone was injured",
+          "resolved": true,
+          "resolution_note": null
+        }
+      },
+      {
+        "fact_id": "ex_022",
+        "value": "None",
+        "asserter": "claimant",
+        "document_id": "doc_statement",
+        "assertion": "The claimant states they did not believe anyone was injured.",
+        "citation": {
+          "document_id": "doc_statement",
+          "document_version": "v1",
+          "locator": {
+            "TextSpan": {
+              "passage_id": "statement.body",
+              "char_start": 541,
+              "char_end": 575
+            }
+          },
+          "quoted_text": "did not believe anyone was injured",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": "CORROBORATING",
+    "method": "llm",
+    "rationale": "Both assertions state that the claimant did not believe anyone was injured."
+  },
+  {
+    "entity_id": "claimant_1",
+    "event_id": "crash_001",
+    "predicate": "intended_to_report",
+    "singleton": true,
+    "distinct_values": [
+      "None"
+    ],
+    "members": [
+      {
+        "fact_id": "ex_025",
+        "value": "None",
+        "asserter": "claimant",
+        "document_id": "doc_statement",
+        "assertion": "The claimant states they intended to report the incident.",
+        "citation": {
+          "document_id": "doc_statement",
+          "document_version": "v1",
+          "locator": {
+            "TextSpan": {
+              "passage_id": "statement.body",
+              "char_start": 746,
+              "char_end": 777
+            }
+          },
+          "quoted_text": "intended to report the incident",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": null,
+    "method": "not_compared",
+    "rationale": "Only one source addresses this property. Silence by other sources is not a relationship."
+  },
+  {
+    "entity_id": "claimant_1",
+    "event_id": "crash_001",
+    "predicate": "post_collision_action",
+    "singleton": false,
+    "distinct_values": [
+      "None"
+    ],
+    "members": [
+      {
+        "fact_id": "ex_008",
+        "value": "None",
+        "asserter": "claimant",
+        "document_id": "doc_fnol",
+        "assertion": "The claimant stopped briefly, looked at the vehicles, and then left.",
+        "citation": {
+          "document_id": "doc_fnol",
+          "document_version": "v1",
+          "locator": {
+            "TextSpan": {
+              "passage_id": "fnol.description_of_accident",
+              "char_start": 424,
+              "char_end": 478
+            }
+          },
+          "quoted_text": "stopped briefly, looked at the vehicles, and then left",
+          "resolved": true,
+          "resolution_note": null
+        }
+      },
+      {
+        "fact_id": "ex_023",
+        "value": "None",
+        "asserter": "claimant",
+        "document_id": "doc_statement",
+        "assertion": "The claimant states they stopped after the collision, looked at the vehicles, and then left.",
+        "citation": {
+          "document_id": "doc_statement",
+          "document_version": "v1",
+          "locator": {
+            "TextSpan": {
+              "passage_id": "statement.body",
+              "char_start": 601,
+              "char_end": 667
+            }
+          },
+          "quoted_text": "stopped after the collision, looked at the vehicles, and then left",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": "CORROBORATING",
+    "method": "llm",
+    "rationale": "Both assertions state that the claimant stopped, inspected the vehicles, and then departed."
+  },
+  {
+    "entity_id": "claimant_1",
+    "event_id": "crash_001",
+    "predicate": "reason_for_leaving",
+    "singleton": false,
+    "distinct_values": [
+      "'they were concerned about being stranded late at night'",
+      "'concerned about being stranded late at night'"
+    ],
+    "members": [
+      {
+        "fact_id": "ex_009",
+        "value": "'they were concerned about being stranded late at night'",
+        "asserter": "claimant",
+        "document_id": "doc_fnol",
+        "assertion": "The claimant left because they were concerned about being stranded late at night.",
+        "citation": {
+          "document_id": "doc_fnol",
+          "document_version": "v1",
+          "locator": {
+            "TextSpan": {
+              "passage_id": "fnol.description_of_accident",
+              "char_start": 487,
+              "char_end": 541
+            }
+          },
+          "quoted_text": "they were concerned about being stranded late at night",
+          "resolved": true,
+          "resolution_note": null
+        }
+      },
+      {
+        "fact_id": "ex_024",
+        "value": "'concerned about being stranded late at night'",
+        "asserter": "claimant",
+        "document_id": "doc_statement",
+        "assertion": "The claimant states they left because they were concerned about being stranded late at night.",
+        "citation": {
+          "document_id": "doc_statement",
+          "document_version": "v1",
+          "locator": {
+            "TextSpan": {
+              "passage_id": "statement.body",
+              "char_start": 668,
+              "char_end": 730
+            }
+          },
+          "quoted_text": "because they were concerned about being stranded late at night",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": "CORROBORATING",
+    "method": "llm",
+    "rationale": "Both assertions state that the claimant left due to concern about being stranded late at night."
+  },
+  {
+    "entity_id": "claimant_1",
+    "event_id": "crash_001",
+    "predicate": "recall_limitation",
+    "singleton": true,
+    "distinct_values": [
+      "'does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location'"
+    ],
+    "members": [
+      {
+        "fact_id": "ex_026",
+        "value": "'does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location'",
+        "asserter": "claimant",
+        "document_id": "doc_statement",
+        "assertion": "The claimant states they do not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.",
+        "citation": {
+          "document_id": "doc_statement",
+          "document_version": "v1",
+          "locator": {
+            "TextSpan": {
+              "passage_id": "statement.body",
+              "char_start": 780,
+              "char_end": 968
+            }
+          },
+          "quoted_text": "The claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": null,
+    "method": "not_compared",
+    "rationale": "Only one source addresses this property. Silence by other sources is not a relationship."
+  },
+  {
+    "entity_id": "crash_001",
+    "event_id": "crash_001",
+    "predicate": "crash_type",
+    "singleton": true,
+    "distinct_values": [
+      "'PARKED MOTOR VEHICLE'"
+    ],
+    "members": [
+      {
+        "fact_id": "an_005",
+        "value": "'PARKED MOTOR VEHICLE'",
+        "asserter": "system_record",
+        "document_id": "rec_anchor",
+        "assertion": "The structured crash record codes FIRST_CRASH_TYPE as PARKED MOTOR VEHICLE.",
+        "citation": {
+          "document_id": "rec_anchor",
+          "document_version": "v1",
+          "locator": {
+            "Field": {
+              "record": "anchor_record",
+              "field_path": "A005.value"
+            }
+          },
+          "quoted_text": "PARKED MOTOR VEHICLE",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": null,
+    "method": "not_compared",
+    "rationale": "Only one source addresses this property. Silence by other sources is not a relationship."
+  },
+  {
+    "entity_id": "crash_001",
+    "event_id": "crash_001",
+    "predicate": "damage_band",
+    "singleton": true,
+    "distinct_values": [
+      "'OVER $1,500'"
+    ],
+    "members": [
+      {
+        "fact_id": "an_017",
+        "value": "'OVER $1,500'",
+        "asserter": "system_record",
+        "document_id": "rec_anchor",
+        "assertion": "The structured crash record codes DAMAGE as OVER $1,500.",
+        "citation": {
+          "document_id": "rec_anchor",
+          "document_version": "v1",
+          "locator": {
+            "Field": {
+              "record": "anchor_record",
+              "field_path": "A019.value"
+            }
+          },
+          "quoted_text": "OVER $1,500",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": null,
+    "method": "not_compared",
+    "rationale": "Only one source addresses this property. Silence by other sources is not a relationship."
+  },
+  {
+    "entity_id": "crash_001",
+    "event_id": "crash_001",
+    "predicate": "injuries_total",
+    "singleton": true,
+    "distinct_values": [
+      "{'min': 0.0, 'max': 0.0, 'unit': 'persons'}"
+    ],
+    "members": [
+      {
+        "fact_id": "an_016",
+        "value": "{'min': 0.0, 'max': 0.0, 'unit': 'persons'}",
+        "asserter": "system_record",
+        "document_id": "rec_anchor",
+        "assertion": "The structured crash record codes INJURIES_TOTAL as 0.",
+        "citation": {
+          "document_id": "rec_anchor",
+          "document_version": "v1",
+          "locator": {
+            "Field": {
+              "record": "anchor_record",
+              "field_path": "A018.value"
+            }
+          },
+          "quoted_text": "0",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": null,
+    "method": "not_compared",
+    "rationale": "Only one source addresses this property. Silence by other sources is not a relationship."
+  },
+  {
+    "entity_id": "crash_001",
+    "event_id": "crash_001",
+    "predicate": "location_text",
+    "singleton": true,
+    "distinct_values": [
+      "'4655 S Karlov Ave, Chicago, IL'"
+    ],
+    "members": [
+      {
+        "fact_id": "an_002",
+        "value": "'4655 S Karlov Ave, Chicago, IL'",
+        "asserter": "system_record",
+        "document_id": "rec_anchor",
+        "assertion": "The structured crash record codes LOCATION_TEXT as 4655 S Karlov Ave, Chicago, IL.",
+        "citation": {
+          "document_id": "rec_anchor",
+          "document_version": "v1",
+          "locator": {
+            "Field": {
+              "record": "anchor_record",
+              "field_path": "A002.value"
+            }
+          },
+          "quoted_text": "4655 S Karlov Ave, Chicago, IL",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": null,
+    "method": "not_compared",
+    "rationale": "Only one source addresses this property. Silence by other sources is not a relationship."
+  },
+  {
+    "entity_id": "crash_001",
+    "event_id": "crash_001",
+    "predicate": "occurred_at",
+    "singleton": false,
+    "distinct_values": [
+      "'2026-08-11T21:43:00'",
+      "'approximately 9:40 PM'"
+    ],
+    "members": [
+      {
+        "fact_id": "an_001",
+        "value": "'2026-08-11T21:43:00'",
+        "asserter": "system_record",
+        "document_id": "rec_anchor",
+        "assertion": "The structured crash record codes CRASH_DATE as 2026-08-11T21:43:00.",
+        "citation": {
+          "document_id": "rec_anchor",
+          "document_version": "v1",
+          "locator": {
+            "Field": {
+              "record": "anchor_record",
+              "field_path": "A001.value"
+            }
+          },
+          "quoted_text": "2026-08-11T21:43:00",
+          "resolved": true,
+          "resolution_note": null
+        }
+      },
+      {
+        "fact_id": "ex_014",
+        "value": "'approximately 9:40 PM'",
+        "asserter": "claimant",
+        "document_id": "doc_statement",
+        "assertion": "The claimant states the collision occurred at approximately 9:40 PM.",
+        "citation": {
+          "document_id": "doc_statement",
+          "document_version": "v1",
+          "locator": {
+            "TextSpan": {
+              "passage_id": "statement.body",
+              "char_start": 97,
+              "char_end": 121
+            }
+          },
+          "quoted_text": "at approximately 9:40 PM",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": "COMPATIBLE",
+    "method": "llm",
+    "rationale": "One source provides an approximate time of 9:40 PM while the other gives a precise time of 9:43 PM, which is consistent with that approximation."
+  },
+  {
+    "entity_id": "roadway_1",
+    "event_id": "crash_001",
+    "predicate": "lighting",
+    "singleton": false,
+    "distinct_values": [
+      "'darkness_lighted_road'",
+      "None"
+    ],
+    "members": [
+      {
+        "fact_id": "an_004",
+        "value": "'darkness_lighted_road'",
+        "asserter": "system_record",
+        "document_id": "rec_anchor",
+        "assertion": "The structured crash record codes LIGHTING_CONDITION as DARKNESS, LIGHTED ROAD.",
+        "citation": {
+          "document_id": "rec_anchor",
+          "document_version": "v1",
+          "locator": {
+            "Field": {
+              "record": "anchor_record",
+              "field_path": "A004.value"
+            }
+          },
+          "quoted_text": "DARKNESS, LIGHTED ROAD",
+          "resolved": true,
+          "resolution_note": null
+        }
+      },
+      {
+        "fact_id": "ex_003",
+        "value": "None",
+        "asserter": "claimant",
+        "document_id": "doc_fnol",
+        "assertion": "The roadway was illuminated.",
+        "citation": {
+          "document_id": "doc_fnol",
+          "document_version": "v1",
+          "locator": {
+            "TextSpan": {
+              "passage_id": "fnol.description_of_accident",
+              "char_start": 176,
+              "char_end": 203
+            }
+          },
+          "quoted_text": "the roadway was illuminated",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": "COMPATIBLE",
+    "method": "llm",
+    "rationale": "Both assertions state that the road was illuminated, with one assertion adding the detail that it occurred during darkness."
+  },
+  {
+    "entity_id": "roadway_1",
+    "event_id": "crash_001",
+    "predicate": "posted_speed_limit",
+    "singleton": true,
+    "distinct_values": [
+      "{'min': 30.0, 'max': 30.0, 'unit': 'mph'}"
+    ],
+    "members": [
+      {
+        "fact_id": "an_006",
+        "value": "{'min': 30.0, 'max': 30.0, 'unit': 'mph'}",
+        "asserter": "system_record",
+        "document_id": "rec_anchor",
+        "assertion": "The structured crash record codes POSTED_SPEED_LIMIT as 30.",
+        "citation": {
+          "document_id": "rec_anchor",
+          "document_version": "v1",
+          "locator": {
+            "Field": {
+              "record": "anchor_record",
+              "field_path": "A008.value"
+            }
+          },
+          "quoted_text": "30",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": null,
+    "method": "not_compared",
+    "rationale": "Only one source addresses this property. Silence by other sources is not a relationship."
+  },
+  {
+    "entity_id": "roadway_1",
+    "event_id": "crash_001",
+    "predicate": "road_surface",
+    "singleton": false,
+    "distinct_values": [
+      "'wet'"
+    ],
+    "members": [
+      {
+        "fact_id": "an_003",
+        "value": "'wet'",
+        "asserter": "system_record",
+        "document_id": "rec_anchor",
+        "assertion": "The structured crash record codes ROADWAY_SURFACE_COND as WET.",
+        "citation": {
+          "document_id": "rec_anchor",
+          "document_version": "v1",
+          "locator": {
+            "Field": {
+              "record": "anchor_record",
+              "field_path": "A003.value"
+            }
+          },
+          "quoted_text": "WET",
+          "resolved": true,
+          "resolution_note": null
+        }
+      },
+      {
+        "fact_id": "ex_002",
+        "value": "'wet'",
+        "asserter": "claimant",
+        "document_id": "doc_fnol",
+        "assertion": "The road was wet.",
+        "citation": {
+          "document_id": "doc_fnol",
+          "document_version": "v1",
+          "locator": {
+            "TextSpan": {
+              "passage_id": "fnol.description_of_accident",
+              "char_start": 110,
+              "char_end": 126
+            }
+          },
+          "quoted_text": "the road was wet",
+          "resolved": true,
+          "resolution_note": null
+        }
+      },
+      {
+        "fact_id": "ex_016",
+        "value": "'wet'",
+        "asserter": "claimant",
+        "document_id": "doc_statement",
+        "assertion": "The claimant states the pavement was wet.",
+        "citation": {
+          "document_id": "doc_statement",
+          "document_version": "v1",
+          "locator": {
+            "TextSpan": {
+              "passage_id": "statement.body",
+              "char_start": 187,
+              "char_end": 207
+            }
+          },
+          "quoted_text": "the pavement was wet",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": "CORROBORATING",
+    "method": "deterministic",
+    "rationale": "All sources normalise to the same value ('wet')."
+  },
+  {
+    "entity_id": "roadway_1",
+    "event_id": "crash_001",
+    "predicate": "weather_before_loss",
+    "singleton": true,
+    "distinct_values": [
+      "None"
+    ],
+    "members": [
+      {
+        "fact_id": "ex_015",
+        "value": "None",
+        "asserter": "claimant",
+        "document_id": "doc_statement",
+        "assertion": "The claimant recalls that it had been raining earlier.",
+        "citation": {
+          "document_id": "doc_statement",
+          "document_version": "v1",
+          "locator": {
+            "TextSpan": {
+              "passage_id": "statement.body",
+              "char_start": 150,
+              "char_end": 177
+            }
+          },
+          "quoted_text": "it had been raining earlier",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": null,
+    "method": "not_compared",
+    "rationale": "Only one source addresses this property. Silence by other sources is not a relationship."
+  },
+  {
+    "entity_id": "vehicle_1",
+    "event_id": null,
+    "predicate": "vehicle_make",
+    "singleton": true,
+    "distinct_values": [
+      "'MERCEDES-BENZ'"
+    ],
+    "members": [
+      {
+        "fact_id": "anv_001",
+        "value": "'MERCEDES-BENZ'",
+        "asserter": "system_record",
+        "document_id": "rec_anchor",
+        "assertion": "The structured crash record codes UNIT_1_VEHICLE make as MERCEDES-BENZ.",
+        "citation": {
+          "document_id": "rec_anchor",
+          "document_version": "v1",
+          "locator": {
+            "Field": {
+              "record": "anchor_record",
+              "field_path": "A009.value"
+            }
+          },
+          "quoted_text": "{'year': 2015, 'make': 'MERCEDES-BENZ', 'model': 'G-CLASS'}",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": null,
+    "method": "not_compared",
+    "rationale": "Only one source addresses this property. Silence by other sources is not a relationship."
+  },
+  {
+    "entity_id": "vehicle_1",
+    "event_id": null,
+    "predicate": "vehicle_model",
+    "singleton": true,
+    "distinct_values": [
+      "'G-CLASS'"
+    ],
+    "members": [
+      {
+        "fact_id": "anv_002",
+        "value": "'G-CLASS'",
+        "asserter": "system_record",
+        "document_id": "rec_anchor",
+        "assertion": "The structured crash record codes UNIT_1_VEHICLE model as G-CLASS.",
+        "citation": {
+          "document_id": "rec_anchor",
+          "document_version": "v1",
+          "locator": {
+            "Field": {
+              "record": "anchor_record",
+              "field_path": "A009.value"
+            }
+          },
+          "quoted_text": "{'year': 2015, 'make': 'MERCEDES-BENZ', 'model': 'G-CLASS'}",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": null,
+    "method": "not_compared",
+    "rationale": "Only one source addresses this property. Silence by other sources is not a relationship."
+  },
+  {
+    "entity_id": "vehicle_1",
+    "event_id": null,
+    "predicate": "vehicle_year",
+    "singleton": true,
+    "distinct_values": [
+      "{'min': 2015.0, 'max': 2015.0, 'unit': 'year'}"
+    ],
+    "members": [
+      {
+        "fact_id": "anv_003",
+        "value": "{'min': 2015.0, 'max': 2015.0, 'unit': 'year'}",
+        "asserter": "system_record",
+        "document_id": "rec_anchor",
+        "assertion": "The structured crash record codes UNIT_1_VEHICLE year as 2015.",
+        "citation": {
+          "document_id": "rec_anchor",
+          "document_version": "v1",
+          "locator": {
+            "Field": {
+              "record": "anchor_record",
+              "field_path": "A009.value"
+            }
+          },
+          "quoted_text": "{'year': 2015, 'make': 'MERCEDES-BENZ', 'model': 'G-CLASS'}",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": null,
+    "method": "not_compared",
+    "rationale": "Only one source addresses this property. Silence by other sources is not a relationship."
+  },
+  {
+    "entity_id": "vehicle_1",
+    "event_id": "crash_001",
+    "predicate": "approximate_speed",
+    "singleton": true,
+    "distinct_values": [
+      "None"
+    ],
+    "members": [
+      {
+        "fact_id": "ex_017",
+        "value": "None",
+        "asserter": "claimant",
+        "document_id": "doc_statement",
+        "assertion": "The claimant states they were driving around 25 to 30 mph before beginning the turn.",
+        "citation": {
+          "document_id": "doc_statement",
+          "document_version": "v1",
+          "locator": {
+            "TextSpan": {
+              "passage_id": "statement.body",
+              "char_start": 236,
+              "char_end": 257
+            }
+          },
+          "quoted_text": "\"around 25 to 30 mph\"",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": null,
+    "method": "not_compared",
+    "rationale": "Only one source addresses this property. Silence by other sources is not a relationship."
+  },
+  {
+    "entity_id": "vehicle_1",
+    "event_id": "crash_001",
+    "predicate": "contact_point",
+    "singleton": true,
+    "distinct_values": [
+      "'front'"
+    ],
+    "members": [
+      {
+        "fact_id": "ex_019",
+        "value": "'front'",
+        "asserter": "claimant",
+        "document_id": "doc_statement",
+        "assertion": "The claimant states the front of vehicle 1 contacted vehicle 2.",
+        "citation": {
+          "document_id": "doc_statement",
+          "document_version": "v1",
+          "locator": {
+            "TextSpan": {
+              "passage_id": "statement.body",
+              "char_start": 422,
+              "char_end": 470
+            }
+          },
+          "quoted_text": "the front of the Mercedes contacted a parked SUV",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": null,
+    "method": "not_compared",
+    "rationale": "Only one source addresses this property. Silence by other sources is not a relationship."
+  },
+  {
+    "entity_id": "vehicle_1",
+    "event_id": "crash_001",
+    "predicate": "loss_of_control",
+    "singleton": true,
+    "distinct_values": [
+      "None"
+    ],
+    "members": [
+      {
+        "fact_id": "ex_018",
+        "value": "None",
+        "asserter": "claimant",
+        "document_id": "doc_statement",
+        "assertion": "The claimant states vehicle 1 suddenly slid during the turn.",
+        "citation": {
+          "document_id": "doc_statement",
+          "document_version": "v1",
+          "locator": {
+            "TextSpan": {
+              "passage_id": "statement.body",
+              "char_start": 339,
+              "char_end": 364
+            }
+          },
+          "quoted_text": "the vehicle suddenly slid",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": null,
+    "method": "not_compared",
+    "rationale": "Only one source addresses this property. Silence by other sources is not a relationship."
+  },
+  {
+    "entity_id": "vehicle_1",
+    "event_id": "crash_001",
+    "predicate": "maneuver",
+    "singleton": false,
+    "distinct_values": [
+      "'right_turn'",
+      "None"
+    ],
+    "members": [
+      {
+        "fact_id": "an_009",
+        "value": "'right_turn'",
+        "asserter": "system_record",
+        "document_id": "rec_anchor",
+        "assertion": "The structured crash record codes UNIT_1_MANEUVER as TURNING RIGHT.",
+        "citation": {
+          "document_id": "rec_anchor",
+          "document_version": "v1",
+          "locator": {
+            "Field": {
+              "record": "anchor_record",
+              "field_path": "A011.value"
+            }
+          },
+          "quoted_text": "TURNING RIGHT",
+          "resolved": true,
+          "resolution_note": null
+        }
+      },
+      {
+        "fact_id": "ex_004",
+        "value": "'right_turn'",
+        "asserter": "claimant",
+        "document_id": "doc_fnol",
+        "assertion": "The claimant's vehicle was turning right.",
+        "citation": {
+          "document_id": "doc_fnol",
+          "document_version": "v1",
+          "locator": {
+            "TextSpan": {
+              "passage_id": "fnol.description_of_accident",
+              "char_start": 232,
+              "char_end": 261
+            }
+          },
+          "quoted_text": "the vehicle was turning right",
+          "resolved": true,
+          "resolution_note": null
+        }
+      },
+      {
+        "fact_id": "ex_013",
+        "value": "None",
+        "asserter": "claimant",
+        "document_id": "doc_statement",
+        "assertion": "The claimant states vehicle 1 was making a right turn.",
+        "citation": {
+          "document_id": "doc_statement",
+          "document_version": "v1",
+          "locator": {
+            "TextSpan": {
+              "passage_id": "statement.body",
+              "char_start": 77,
+              "char_end": 96
+            }
+          },
+          "quoted_text": "making a right turn",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": "CORROBORATING",
+    "method": "llm",
+    "rationale": "All assertions agree that vehicle 1 was turning right."
+  },
+  {
+    "entity_id": "vehicle_1",
+    "event_id": "crash_001",
+    "predicate": "occupant_count",
+    "singleton": true,
+    "distinct_values": [
+      "{'min': 1.0, 'max': 1.0, 'unit': 'occupants'}"
+    ],
+    "members": [
+      {
+        "fact_id": "an_010",
+        "value": "{'min': 1.0, 'max': 1.0, 'unit': 'occupants'}",
+        "asserter": "system_record",
+        "document_id": "rec_anchor",
+        "assertion": "The structured crash record codes UNIT_1_OCCUPANT_CNT as 1.",
+        "citation": {
+          "document_id": "rec_anchor",
+          "document_version": "v1",
+          "locator": {
+            "Field": {
+              "record": "anchor_record",
+              "field_path": "A012.value"
+            }
+          },
+          "quoted_text": "1",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": null,
+    "method": "not_compared",
+    "rationale": "Only one source addresses this property. Silence by other sources is not a relationship."
+  },
+  {
+    "entity_id": "vehicle_1",
+    "event_id": "crash_001",
+    "predicate": "travel_direction",
+    "singleton": false,
+    "distinct_values": [
+      "'north'",
+      "'south'"
+    ],
+    "members": [
+      {
+        "fact_id": "an_008",
+        "value": "'north'",
+        "asserter": "system_record",
+        "document_id": "rec_anchor",
+        "assertion": "The structured crash record codes UNIT_1_TRAVEL_DIRECTION as N.",
+        "citation": {
+          "document_id": "rec_anchor",
+          "document_version": "v1",
+          "locator": {
+            "Field": {
+              "record": "anchor_record",
+              "field_path": "A010.value"
+            }
+          },
+          "quoted_text": "N",
+          "resolved": true,
+          "resolution_note": null
+        }
+      },
+      {
+        "fact_id": "ex_001",
+        "value": "'north'",
+        "asserter": "claimant",
+        "document_id": "doc_fnol",
+        "assertion": "The claimant's vehicle was traveling northbound.",
+        "citation": {
+          "document_id": "doc_fnol",
+          "document_version": "v1",
+          "locator": {
+            "TextSpan": {
+              "passage_id": "fnol.description_of_accident",
+              "char_start": 26,
+              "char_end": 90
+            }
+          },
+          "quoted_text": "their vehicle was traveling northbound on Karlov Avenue at night",
+          "resolved": true,
+          "resolution_note": null
+        }
+      },
+      {
+        "fact_id": "ex_012",
+        "value": "'south'",
+        "asserter": "claimant",
+        "document_id": "doc_statement",
+        "assertion": "The claimant states vehicle 1 was traveling southbound.",
+        "citation": {
+          "document_id": "doc_statement",
+          "document_version": "v1",
+          "locator": {
+            "TextSpan": {
+              "passage_id": "statement.body",
+              "char_start": 28,
+              "char_end": 72
+            }
+          },
+          "quoted_text": "driving the Mercedes-Benz G-Class southbound",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": "CONTRADICTORY",
+    "method": "llm",
+    "rationale": "Two assertions state the vehicle was traveling north, while a third assertion states it was traveling south."
+  },
+  {
+    "entity_id": "vehicle_2",
+    "event_id": null,
+    "predicate": "vehicle_make",
+    "singleton": true,
+    "distinct_values": [
+      "'CHEVROLET'"
+    ],
+    "members": [
+      {
+        "fact_id": "anv_004",
+        "value": "'CHEVROLET'",
+        "asserter": "system_record",
+        "document_id": "rec_anchor",
+        "assertion": "The structured crash record codes UNIT_2_VEHICLE make as CHEVROLET.",
+        "citation": {
+          "document_id": "rec_anchor",
+          "document_version": "v1",
+          "locator": {
+            "Field": {
+              "record": "anchor_record",
+              "field_path": "A013.value"
+            }
+          },
+          "quoted_text": "{'year': 2005, 'make': 'CHEVROLET', 'model': 'SUBURBAN'}",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": null,
+    "method": "not_compared",
+    "rationale": "Only one source addresses this property. Silence by other sources is not a relationship."
+  },
+  {
+    "entity_id": "vehicle_2",
+    "event_id": null,
+    "predicate": "vehicle_model",
+    "singleton": true,
+    "distinct_values": [
+      "'SUBURBAN'"
+    ],
+    "members": [
+      {
+        "fact_id": "anv_005",
+        "value": "'SUBURBAN'",
+        "asserter": "system_record",
+        "document_id": "rec_anchor",
+        "assertion": "The structured crash record codes UNIT_2_VEHICLE model as SUBURBAN.",
+        "citation": {
+          "document_id": "rec_anchor",
+          "document_version": "v1",
+          "locator": {
+            "Field": {
+              "record": "anchor_record",
+              "field_path": "A013.value"
+            }
+          },
+          "quoted_text": "{'year': 2005, 'make': 'CHEVROLET', 'model': 'SUBURBAN'}",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": null,
+    "method": "not_compared",
+    "rationale": "Only one source addresses this property. Silence by other sources is not a relationship."
+  },
+  {
+    "entity_id": "vehicle_2",
+    "event_id": null,
+    "predicate": "vehicle_year",
+    "singleton": true,
+    "distinct_values": [
+      "{'min': 2005.0, 'max': 2005.0, 'unit': 'year'}"
+    ],
+    "members": [
+      {
+        "fact_id": "anv_006",
+        "value": "{'min': 2005.0, 'max': 2005.0, 'unit': 'year'}",
+        "asserter": "system_record",
+        "document_id": "rec_anchor",
+        "assertion": "The structured crash record codes UNIT_2_VEHICLE year as 2005.",
+        "citation": {
+          "document_id": "rec_anchor",
+          "document_version": "v1",
+          "locator": {
+            "Field": {
+              "record": "anchor_record",
+              "field_path": "A013.value"
+            }
+          },
+          "quoted_text": "{'year': 2005, 'make': 'CHEVROLET', 'model': 'SUBURBAN'}",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": null,
+    "method": "not_compared",
+    "rationale": "Only one source addresses this property. Silence by other sources is not a relationship."
+  },
+  {
+    "entity_id": "vehicle_2",
+    "event_id": "crash_001",
+    "predicate": "contact_point",
+    "singleton": true,
+    "distinct_values": [
+      "'rear_right_corner'"
+    ],
+    "members": [
+      {
+        "fact_id": "an_014",
+        "value": "'rear_right_corner'",
+        "asserter": "system_record",
+        "document_id": "rec_anchor",
+        "assertion": "The structured crash record codes UNIT_2_FIRST_CONTACT_POINT as REAR-RIGHT-CORNER.",
+        "citation": {
+          "document_id": "rec_anchor",
+          "document_version": "v1",
+          "locator": {
+            "Field": {
+              "record": "anchor_record",
+              "field_path": "A016.value"
+            }
+          },
+          "quoted_text": "REAR-RIGHT-CORNER",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": null,
+    "method": "not_compared",
+    "rationale": "Only one source addresses this property. Silence by other sources is not a relationship."
+  },
+  {
+    "entity_id": "vehicle_2",
+    "event_id": "crash_001",
+    "predicate": "maneuver",
+    "singleton": false,
+    "distinct_values": [
+      "'parked'"
+    ],
+    "members": [
+      {
+        "fact_id": "ex_005",
+        "value": "'parked'",
+        "asserter": "claimant",
+        "document_id": "doc_fnol",
+        "assertion": "The other vehicle was parked.",
+        "citation": {
+          "document_id": "doc_fnol",
+          "document_version": "v1",
+          "locator": {
+            "TextSpan": {
+              "passage_id": "fnol.description_of_accident",
+              "char_start": 270,
+              "char_end": 309
+            }
+          },
+          "quoted_text": "came into contact with a parked vehicle",
+          "resolved": true,
+          "resolution_note": null
+        }
+      },
+      {
+        "fact_id": "ex_020",
+        "value": "'parked'",
+        "asserter": "claimant",
+        "document_id": "doc_statement",
+        "assertion": "The claimant states vehicle 2 was parked.",
+        "citation": {
+          "document_id": "doc_statement",
+          "document_version": "v1",
+          "locator": {
+            "TextSpan": {
+              "passage_id": "statement.body",
+              "char_start": 448,
+              "char_end": 470
+            }
+          },
+          "quoted_text": "contacted a parked SUV",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": "CORROBORATING",
+    "method": "deterministic",
+    "rationale": "All sources normalise to the same value ('parked')."
+  },
+  {
+    "entity_id": "vehicle_2",
+    "event_id": "crash_001",
+    "predicate": "occupant_count",
+    "singleton": true,
+    "distinct_values": [
+      "{'min': 0.0, 'max': 0.0, 'unit': 'occupants'}"
+    ],
+    "members": [
+      {
+        "fact_id": "an_013",
+        "value": "{'min': 0.0, 'max': 0.0, 'unit': 'occupants'}",
+        "asserter": "system_record",
+        "document_id": "rec_anchor",
+        "assertion": "The structured crash record codes UNIT_2_OCCUPANT_CNT as 0.",
+        "citation": {
+          "document_id": "rec_anchor",
+          "document_version": "v1",
+          "locator": {
+            "Field": {
+              "record": "anchor_record",
+              "field_path": "A015.value"
+            }
+          },
+          "quoted_text": "0",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": null,
+    "method": "not_compared",
+    "rationale": "Only one source addresses this property. Silence by other sources is not a relationship."
+  },
+  {
+    "entity_id": "vehicle_2",
+    "event_id": "crash_001",
+    "predicate": "occupant_observation",
+    "singleton": false,
+    "distinct_values": [
+      "None"
+    ],
+    "members": [
+      {
+        "fact_id": "ex_010",
+        "value": "None",
+        "asserter": "claimant",
+        "document_id": "doc_fnol",
+        "assertion": "The claimant did not see anyone inside the parked vehicle.",
+        "citation": {
+          "document_id": "doc_fnol",
+          "document_version": "v1",
+          "locator": {
+            "TextSpan": {
+              "passage_id": "fnol.description_of_accident",
+              "char_start": 566,
+              "char_end": 610
+            }
+          },
+          "quoted_text": "did not see anyone inside the parked vehicle",
+          "resolved": true,
+          "resolution_note": null
+        }
+      },
+      {
+        "fact_id": "ex_021",
+        "value": "None",
+        "asserter": "claimant",
+        "document_id": "doc_statement",
+        "assertion": "The claimant states they did not see anyone inside vehicle 2.",
+        "citation": {
+          "document_id": "doc_statement",
+          "document_version": "v1",
+          "locator": {
+            "TextSpan": {
+              "passage_id": "statement.body",
+              "char_start": 496,
+              "char_end": 536
+            }
+          },
+          "quoted_text": "did not see anyone inside the parked SUV",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": "CORROBORATING",
+    "method": "llm",
+    "rationale": "Both assertions state that the claimant did not see anyone inside the vehicle."
+  },
+  {
+    "entity_id": "vehicle_2",
+    "event_id": "crash_001",
+    "predicate": "unit_type",
+    "singleton": false,
+    "distinct_values": [
+      "'parked'"
+    ],
+    "members": [
+      {
+        "fact_id": "an_012",
+        "value": "'parked'",
+        "asserter": "system_record",
+        "document_id": "rec_anchor",
+        "assertion": "The structured crash record codes UNIT_2_UNIT_TYPE as PARKED.",
+        "citation": {
+          "document_id": "rec_anchor",
+          "document_version": "v1",
+          "locator": {
+            "Field": {
+              "record": "anchor_record",
+              "field_path": "A014.value"
+            }
+          },
+          "quoted_text": "PARKED",
+          "resolved": true,
+          "resolution_note": null
+        }
+      },
+      {
+        "fact_id": "ex_006",
+        "value": "'parked'",
+        "asserter": "claimant",
+        "document_id": "doc_fnol",
+        "assertion": "The other vehicle's unit type was parked.",
+        "citation": {
+          "document_id": "doc_fnol",
+          "document_version": "v1",
+          "locator": {
+            "TextSpan": {
+              "passage_id": "fnol.description_of_accident",
+              "char_start": 270,
+              "char_end": 309
+            }
+          },
+          "quoted_text": "came into contact with a parked vehicle",
+          "resolved": true,
+          "resolution_note": null
+        }
+      }
+    ],
+    "relationship": "CORROBORATING",
+    "method": "deterministic",
+    "rationale": "All sources normalise to the same value ('parked')."
+  }
+]

@@ -1,0 +1,52 @@
+{
+  "strategy": "deterministic_neighborhoods",
+  "facts_considered": 57,
+  "neighborhoods_total": 32,
+  "model_calls": 8,
+  "input_chars": 18613,
+  "relationship_counts": {
+    "CORROBORATING": 9,
+    "COMPATIBLE": 1,
+    "CONTRADICTORY": 1
+  },
+  "differences": [
+    {
+      "difference_id": "nd_001",
+      "subject": "travel_direction",
+      "positions": [
+        {
+          "fact_id": "an_008",
+          "stance": "The structured crash record codes UNIT_1_TRAVEL_DIRECTION as N."
+        },
+        {
+          "fact_id": "ex_001",
+          "stance": "The claimant's vehicle was traveling northbound."
+        },
+        {
+          "fact_id": "ex_012",
+          "stance": "The claimant states they were driving southbound."
+        }
+      ],
+      "detection_method": "extracted",
+      "already_noted": {
+        "value": false,
+        "fact_id": null
+      },
+      "review": null,
+      "materiality": null,
+      "materiality_rationale": null
+    }
+  ],
+  "scored": {
+    "difference_recall": 1.0,
+    "difference_precision": 1.0,
+    "matched": [
+      {
+        "gold": "gold_d_001",
+        "output": "nd_001"
+      }
+    ],
+    "missed": [],
+    "spurious": []
+  }
+}

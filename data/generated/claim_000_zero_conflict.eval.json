@@ -1,0 +1,1298 @@
+{
+  "fixture": "claim_000_zero_conflict",
+  "client": "recorded",
+  "summary": {
+    "runs": 1,
+    "fact_recall": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0.0
+    },
+    "fact_precision": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0.0
+    },
+    "span_exactness": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0.0
+    },
+    "asserter_accuracy": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0.0
+    },
+    "hallucination_rate": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "stdev": 0.0
+    },
+    "omission_rate": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "stdev": 0.0
+    },
+    "timeline_ordering_accuracy": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0.0
+    },
+    "difference_recall": {
+      "value": null,
+      "note": "undefined (no denominator)"
+    },
+    "difference_precision": {
+      "value": null,
+      "note": "undefined (no denominator)"
+    },
+    "open_question_recall": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0.0
+    },
+    "false_differences_on_zero_conflict_control": [
+      0
+    ],
+    "invented_precision_count": [
+      0
+    ],
+    "specificity": "requires_human_rating",
+    "open_question_usefulness": "requires_human_rating"
+  },
+  "runs": [
+    {
+      "claim_id": "claim_000_zero_conflict",
+      "synthesis_id": "syn_edb6e16d2cee",
+      "model_id": "recorded",
+      "prompt_version": "e1-v2",
+      "is_zero_conflict_control": true,
+      "fact_recall": 1.0,
+      "fact_precision": 1.0,
+      "span_exactness": 1.0,
+      "asserter_accuracy": 1.0,
+      "hallucination_rate": 0.0,
+      "omission_rate": 0.0,
+      "timeline_ordering_accuracy": 1.0,
+      "invented_precision_count": 0,
+      "invented_precision_items": [],
+      "difference_recall": null,
+      "difference_precision": null,
+      "false_differences_on_zero_conflict_control": 0,
+      "open_question_recall": 1.0,
+      "open_question_spurious": 0,
+      "specificity": "requires_human_rating",
+      "open_question_usefulness": "requires_human_rating",
+      "counts": {
+        "gold_facts": 27,
+        "output_facts": 27,
+        "matched_facts": 27,
+        "unmatched_gold": 0,
+        "unmatched_output": 0,
+        "facts_dropped_by_span_rule": 0,
+        "dropped_as_fabricated_span": 0,
+        "dropped_as_offset_drift": 0,
+        "forbidden_facts_emitted": 0,
+        "differences_output": 0,
+        "differences_planted": 0,
+        "differences_spurious": 0
+      },
+      "detail": {
+        "missed_gold_facts": [],
+        "unmatched_output_facts": [],
+        "forbidden_hits": [],
+        "missed_differences": [],
+        "spurious_differences": []
+      },
+      "stage_counts": {
+        "passages": 3,
+        "facts_deterministic": 14,
+        "facts_extracted": 13,
+        "facts_dropped": 0,
+        "facts_final": 27,
+        "differences_deterministic": 0,
+        "differences_extracted": 0,
+        "open_questions": 1
+      },
+      "dropped_facts": []
+    }
+  ],
+  "last_result": {
+    "synthesis_id": "syn_edb6e16d2cee",
+    "claim_id": "claim_000_zero_conflict",
+    "generated_at": "2026-08-22T20:20:59.045992+00:00",
+    "checkpoint": "C3",
+    "document_set": [
+      {
+        "document_id": "doc_fnol",
+        "version": "v1",
+        "type": "fnol"
+      },
+      {
+        "document_id": "doc_statement",
+        "version": "v1",
+        "type": "recorded_statement"
+      },
+      {
+        "document_id": "doc_independent",
+        "version": "v1",
+        "type": "independent_account"
+      }
+    ],
+    "model_id": "recorded",
+    "prompt_version": "e1-v2",
+    "header": {
+      "coverage": {
+        "value": "The policy incepted on 2026-01-04 and expires on 2027-01-03.; The policy was in force on the reported date of loss.",
+        "state": "present",
+        "fact_ids": [
+          "sf_004",
+          "df_003"
+        ]
+      },
+      "loss_description": {
+        "value": "The reported date of loss is 2026-02-14.; The loss location of record is Willow Street at Beckett Road.",
+        "state": "present",
+        "fact_ids": [
+          "sf_001",
+          "sf_003"
+        ]
+      },
+      "jurisdiction": {
+        "value": null,
+        "state": "absent_from_file",
+        "fact_ids": []
+      },
+      "damages": {
+        "value": null,
+        "state": "absent_from_file",
+        "fact_ids": []
+      },
+      "status": {
+        "value": "open_investigating",
+        "state": "present",
+        "fact_ids": []
+      },
+      "reserve": {
+        "value": "11500 as at 2026-03-11",
+        "state": "present",
+        "fact_ids": [
+          "bk_004",
+          "bk_005"
+        ]
+      }
+    },
+    "timeline": [
+      {
+        "event_id": "ev_001",
+        "axis": "occurred",
+        "when": {
+          "Date": {
+            "value": "2026-02-14",
+            "precision": "day",
+            "raw_expression": "2026-02-14"
+          }
+        },
+        "label": "The reported date of loss is 2026-02-14.",
+        "source_fact_ids": [
+          "sf_001"
+        ],
+        "ordering_confidence": "exact"
+      },
+      {
+        "event_id": "ev_008",
+        "axis": "occurred",
+        "when": {
+          "Date": {
+            "value": null,
+            "precision": "vague",
+            "raw_expression": "That evening, after I had my tea"
+          }
+        },
+        "label": "The loss occurred that evening, after the claimant had eaten.",
+        "source_fact_ids": [
+          "ex_008"
+        ],
+        "ordering_confidence": "unorderable"
+      },
+      {
+        "event_id": "ev_002",
+        "axis": "became_known",
+        "when": {
+          "Date": {
+            "value": "2026-02-20",
+            "precision": "day",
+            "raw_expression": "2026-02-20"
+          }
+        },
+        "label": "The loss was reported to the carrier on 2026-02-20.",
+        "source_fact_ids": [
+          "sf_002"
+        ],
+        "ordering_confidence": "exact"
+      },
+      {
+        "event_id": "ev_003",
+        "axis": "became_known",
+        "when": {
+          "Date": {
+            "value": "2026-02-21",
+            "precision": "day",
+            "raw_expression": "2026-02-21"
+          }
+        },
+        "label": "The FNOL was received into the file on 2026-02-21.",
+        "source_fact_ids": [
+          "bk_001"
+        ],
+        "ordering_confidence": "exact"
+      },
+      {
+        "event_id": "ev_006",
+        "axis": "became_known",
+        "when": {
+          "Date": {
+            "value": "2026-02-21",
+            "precision": "day",
+            "raw_expression": "2026-02-21"
+          }
+        },
+        "label": "The reserve was set to 4000 on 2026-02-21 by J. Osei.",
+        "source_fact_ids": [
+          "bk_004"
+        ],
+        "ordering_confidence": "exact"
+      },
+      {
+        "event_id": "ev_004",
+        "axis": "became_known",
+        "when": {
+          "Date": {
+            "value": "2026-02-25",
+            "precision": "day",
+            "raw_expression": "2026-02-25"
+          }
+        },
+        "label": "The recorded statement was received into the file on 2026-02-25.",
+        "source_fact_ids": [
+          "bk_002"
+        ],
+        "ordering_confidence": "exact"
+      },
+      {
+        "event_id": "ev_005",
+        "axis": "became_known",
+        "when": {
+          "Date": {
+            "value": "2026-03-02",
+            "precision": "day",
+            "raw_expression": "2026-03-02"
+          }
+        },
+        "label": "The independent account was received into the file on 2026-03-02.",
+        "source_fact_ids": [
+          "bk_003"
+        ],
+        "ordering_confidence": "exact"
+      },
+      {
+        "event_id": "ev_007",
+        "axis": "became_known",
+        "when": {
+          "Date": {
+            "value": "2026-03-11",
+            "precision": "day",
+            "raw_expression": "2026-03-11"
+          }
+        },
+        "label": "The reserve was set to 11500 on 2026-03-11 by P. Raghunathan.",
+        "source_fact_ids": [
+          "bk_005"
+        ],
+        "ordering_confidence": "exact"
+      }
+    ],
+    "facts": [
+      {
+        "fact_id": "sf_001",
+        "assertion": "The reported date of loss is 2026-02-14.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "claim_record",
+                "field_path": "loss_date"
+              }
+            },
+            "quoted_text": "2026-02-14",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "loss_date",
+        "normalised_value": {
+          "Date": {
+            "value": "2026-02-14",
+            "precision": "day",
+            "raw_expression": "2026-02-14"
+          }
+        },
+        "review": null
+      },
+      {
+        "fact_id": "sf_002",
+        "assertion": "The loss was reported to the carrier on 2026-02-20.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "claim_record",
+                "field_path": "reported_date"
+              }
+            },
+            "quoted_text": "2026-02-20",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "reported_date",
+        "normalised_value": {
+          "Date": {
+            "value": "2026-02-20",
+            "precision": "day",
+            "raw_expression": "2026-02-20"
+          }
+        },
+        "review": null
+      },
+      {
+        "fact_id": "sf_003",
+        "assertion": "The loss location of record is Willow Street at Beckett Road.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "claim_record",
+                "field_path": "loss_location"
+              }
+            },
+            "quoted_text": "Willow Street at Beckett Road",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "loss_location",
+        "normalised_value": null,
+        "review": null
+      },
+      {
+        "fact_id": "sf_004",
+        "assertion": "The policy incepted on 2026-01-04 and expires on 2027-01-03.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_policy",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "policy_record",
+                "field_path": "inception_date"
+              }
+            },
+            "quoted_text": "2026-01-04",
+            "resolved": true,
+            "resolution_note": null
+          },
+          {
+            "document_id": "rec_policy",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "policy_record",
+                "field_path": "expiry_date"
+              }
+            },
+            "quoted_text": "2027-01-03",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "policy_term",
+        "normalised_value": null,
+        "review": null
+      },
+      {
+        "fact_id": "df_001",
+        "assertion": "The loss was reported 6 days after the reported date of loss.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "claim_record",
+                "field_path": "loss_date"
+              }
+            },
+            "quoted_text": "2026-02-14",
+            "resolved": true,
+            "resolution_note": null
+          },
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "claim_record",
+                "field_path": "reported_date"
+              }
+            },
+            "quoted_text": "2026-02-20",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "reporting_delay_days",
+        "normalised_value": {
+          "Quantity": {
+            "value": 6,
+            "unit": "days"
+          }
+        },
+        "review": null
+      },
+      {
+        "fact_id": "df_002",
+        "assertion": "The policy had been in force 41 days at the date of loss.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_policy",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "policy_record",
+                "field_path": "inception_date"
+              }
+            },
+            "quoted_text": "2026-01-04",
+            "resolved": true,
+            "resolution_note": null
+          },
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "claim_record",
+                "field_path": "loss_date"
+              }
+            },
+            "quoted_text": "2026-02-14",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "policy_age_at_loss_days",
+        "normalised_value": {
+          "Quantity": {
+            "value": 41,
+            "unit": "days"
+          }
+        },
+        "review": null
+      },
+      {
+        "fact_id": "df_003",
+        "assertion": "The policy was in force on the reported date of loss.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_policy",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "policy_record",
+                "field_path": "inception_date"
+              }
+            },
+            "quoted_text": "2026-01-04",
+            "resolved": true,
+            "resolution_note": null
+          },
+          {
+            "document_id": "rec_policy",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "policy_record",
+                "field_path": "expiry_date"
+              }
+            },
+            "quoted_text": "2027-01-03",
+            "resolved": true,
+            "resolution_note": null
+          },
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "claim_record",
+                "field_path": "loss_date"
+              }
+            },
+            "quoted_text": "2026-02-14",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "policy_in_force_at_loss",
+        "normalised_value": {
+          "Boolean": {
+            "value": true
+          }
+        },
+        "review": null
+      },
+      {
+        "fact_id": "df_004",
+        "assertion": "The file records 0 prior claim(s).",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "claim_record",
+                "field_path": "claim_number"
+              }
+            },
+            "quoted_text": "CLM-CLAIM_000_ZERO_CONFLICT",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "prior_claim_count",
+        "normalised_value": {
+          "Quantity": {
+            "value": 0,
+            "unit": "claims"
+          }
+        },
+        "review": null
+      },
+      {
+        "fact_id": "df_005",
+        "assertion": "The claim has been handled by 2 handler(s).",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "claim_record",
+                "field_path": "handler_history.0.handler"
+              }
+            },
+            "quoted_text": "J. Osei",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "handler_count",
+        "normalised_value": {
+          "Quantity": {
+            "value": 2,
+            "unit": "handlers"
+          }
+        },
+        "review": null
+      },
+      {
+        "fact_id": "bk_001",
+        "assertion": "The FNOL was received into the file on 2026-02-21.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "doc_fnol",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "document_metadata",
+                "field_path": "doc_fnol.received_date"
+              }
+            },
+            "quoted_text": "2026-02-21",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "document_received:doc_fnol",
+        "normalised_value": {
+          "Date": {
+            "value": "2026-02-21",
+            "precision": "day",
+            "raw_expression": "2026-02-21"
+          }
+        },
+        "review": null
+      },
+      {
+        "fact_id": "bk_002",
+        "assertion": "The recorded statement was received into the file on 2026-02-25.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "doc_statement",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "document_metadata",
+                "field_path": "doc_statement.received_date"
+              }
+            },
+            "quoted_text": "2026-02-25",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "document_received:doc_statement",
+        "normalised_value": {
+          "Date": {
+            "value": "2026-02-25",
+            "precision": "day",
+            "raw_expression": "2026-02-25"
+          }
+        },
+        "review": null
+      },
+      {
+        "fact_id": "bk_003",
+        "assertion": "The independent account was received into the file on 2026-03-02.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "doc_independent",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "document_metadata",
+                "field_path": "doc_independent.received_date"
+              }
+            },
+            "quoted_text": "2026-03-02",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "document_received:doc_independent",
+        "normalised_value": {
+          "Date": {
+            "value": "2026-03-02",
+            "precision": "day",
+            "raw_expression": "2026-03-02"
+          }
+        },
+        "review": null
+      },
+      {
+        "fact_id": "bk_004",
+        "assertion": "The reserve was set to 4000 on 2026-02-21 by J. Osei.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "reserve_history",
+                "field_path": "0.amount"
+              }
+            },
+            "quoted_text": "4000",
+            "resolved": true,
+            "resolution_note": null
+          },
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "reserve_history",
+                "field_path": "0.set_at"
+              }
+            },
+            "quoted_text": "2026-02-21",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "reserve_change:0",
+        "normalised_value": {
+          "Date": {
+            "value": "2026-02-21",
+            "precision": "day",
+            "raw_expression": "2026-02-21"
+          }
+        },
+        "review": null
+      },
+      {
+        "fact_id": "bk_005",
+        "assertion": "The reserve was set to 11500 on 2026-03-11 by P. Raghunathan.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "reserve_history",
+                "field_path": "1.amount"
+              }
+            },
+            "quoted_text": "11500",
+            "resolved": true,
+            "resolution_note": null
+          },
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "reserve_history",
+                "field_path": "1.set_at"
+              }
+            },
+            "quoted_text": "2026-03-11",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "reserve_change:1",
+        "normalised_value": {
+          "Date": {
+            "value": "2026-03-11",
+            "precision": "day",
+            "raw_expression": "2026-03-11"
+          }
+        },
+        "review": null
+      },
+      {
+        "fact_id": "ex_001",
+        "assertion": "The vehicle was moving at the time of the impact.",
+        "asserter": {
+          "kind": "claimant",
+          "name": "Dana Whitfield",
+          "party_id": null
+        },
+        "provenance": "extracted",
+        "citations": [
+          {
+            "document_id": "doc_fnol",
+            "document_version": "v1",
+            "locator": {
+              "TextSpan": {
+                "passage_id": "fnol.description_of_accident",
+                "char_start": 212,
+                "char_end": 255
+              }
+            },
+            "quoted_text": "My car was moving at the time of the impact",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "vehicle_state_at_impact",
+        "normalised_value": null,
+        "review": null,
+        "extraction_confidence": null
+      },
+      {
+        "fact_id": "ex_002",
+        "assertion": "The claimant was driving back north towards the junction.",
+        "asserter": {
+          "kind": "claimant",
+          "name": "Dana Whitfield",
+          "party_id": null
+        },
+        "provenance": "extracted",
+        "citations": [
+          {
+            "document_id": "doc_fnol",
+            "document_version": "v1",
+            "locator": {
+              "TextSpan": {
+                "passage_id": "fnol.description_of_accident",
+                "char_start": 53,
+                "char_end": 96
+              }
+            },
+            "quoted_text": "was driving back north towards the junction",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "direction_of_travel",
+        "normalised_value": null,
+        "review": null,
+        "extraction_confidence": null
+      },
+      {
+        "fact_id": "ex_003",
+        "assertion": "The claimant was not going fast, maybe twenty.",
+        "asserter": {
+          "kind": "claimant",
+          "name": "Dana Whitfield",
+          "party_id": null
+        },
+        "provenance": "extracted",
+        "citations": [
+          {
+            "document_id": "doc_fnol",
+            "document_version": "v1",
+            "locator": {
+              "TextSpan": {
+                "passage_id": "fnol.description_of_accident",
+                "char_start": 170,
+                "char_end": 210
+              }
+            },
+            "quoted_text": "I was not going fast, maybe twenty or so",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "speed_at_impact",
+        "normalised_value": null,
+        "review": null,
+        "extraction_confidence": null
+      },
+      {
+        "fact_id": "ex_004",
+        "assertion": "A silver saloon came out and struck the front nearside.",
+        "asserter": {
+          "kind": "claimant",
+          "name": "Dana Whitfield",
+          "party_id": null
+        },
+        "provenance": "extracted",
+        "citations": [
+          {
+            "document_id": "doc_fnol",
+            "document_version": "v1",
+            "locator": {
+              "TextSpan": {
+                "passage_id": "fnol.description_of_accident",
+                "char_start": 102,
+                "char_end": 168
+              }
+            },
+            "quoted_text": "the silver saloon came out and struck the front nearside of my car",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "other_vehicle",
+        "normalised_value": null,
+        "review": null,
+        "extraction_confidence": null
+      },
+      {
+        "fact_id": "ex_005",
+        "assertion": "The claimant was heading north towards the junction.",
+        "asserter": {
+          "kind": "claimant",
+          "name": "Dana Whitfield",
+          "party_id": null
+        },
+        "provenance": "extracted",
+        "citations": [
+          {
+            "document_id": "doc_statement",
+            "document_version": "v1",
+            "locator": {
+              "TextSpan": {
+                "passage_id": "statement.body",
+                "char_start": 162,
+                "char_end": 208
+              }
+            },
+            "quoted_text": "I was heading north, back towards the junction",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "direction_of_travel",
+        "normalised_value": null,
+        "review": null,
+        "extraction_confidence": null
+      },
+      {
+        "fact_id": "ex_006",
+        "assertion": "The claimant was travelling at twenty to twenty-five.",
+        "asserter": {
+          "kind": "claimant",
+          "name": "Dana Whitfield",
+          "party_id": null
+        },
+        "provenance": "extracted",
+        "citations": [
+          {
+            "document_id": "doc_statement",
+            "document_version": "v1",
+            "locator": {
+              "TextSpan": {
+                "passage_id": "statement.body",
+                "char_start": 295,
+                "char_end": 314
+              }
+            },
+            "quoted_text": "Twenty, twenty-five",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "speed_at_impact",
+        "normalised_value": null,
+        "review": null,
+        "extraction_confidence": null
+      },
+      {
+        "fact_id": "ex_007",
+        "assertion": "The vehicle was still moving at the time of the impact.",
+        "asserter": {
+          "kind": "claimant",
+          "name": "Dana Whitfield",
+          "party_id": null
+        },
+        "provenance": "extracted",
+        "citations": [
+          {
+            "document_id": "doc_statement",
+            "document_version": "v1",
+            "locator": {
+              "TextSpan": {
+                "passage_id": "statement.body",
+                "char_start": 488,
+                "char_end": 510
+              }
+            },
+            "quoted_text": "No, I was still moving",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "vehicle_state_at_impact",
+        "normalised_value": null,
+        "review": null,
+        "extraction_confidence": null
+      },
+      {
+        "fact_id": "ex_008",
+        "assertion": "The loss occurred that evening, after the claimant had eaten.",
+        "asserter": {
+          "kind": "claimant",
+          "name": "Dana Whitfield",
+          "party_id": null
+        },
+        "provenance": "extracted",
+        "citations": [
+          {
+            "document_id": "doc_statement",
+            "document_version": "v1",
+            "locator": {
+              "TextSpan": {
+                "passage_id": "statement.body",
+                "char_start": 623,
+                "char_end": 655
+              }
+            },
+            "quoted_text": "That evening, after I had my tea",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "time_of_loss",
+        "normalised_value": {
+          "Date": {
+            "value": null,
+            "precision": "vague",
+            "raw_expression": "That evening, after I had my tea"
+          }
+        },
+        "review": null,
+        "extraction_confidence": null
+      },
+      {
+        "fact_id": "ex_009",
+        "assertion": "The claimant delayed reporting to see whether the other driver would resolve it.",
+        "asserter": {
+          "kind": "claimant",
+          "name": "Dana Whitfield",
+          "party_id": null
+        },
+        "provenance": "extracted",
+        "citations": [
+          {
+            "document_id": "doc_statement",
+            "document_version": "v1",
+            "locator": {
+              "TextSpan": {
+                "passage_id": "statement.body",
+                "char_start": 792,
+                "char_end": 847
+              }
+            },
+            "quoted_text": "I wanted to see if the other driver would sort it first",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "reporting_delay_reason",
+        "normalised_value": null,
+        "review": null,
+        "extraction_confidence": null
+      },
+      {
+        "fact_id": "ex_010",
+        "assertion": "The witness heard the collision from inside number 41.",
+        "asserter": {
+          "kind": "witness",
+          "name": "Elaine Torrance",
+          "party_id": null
+        },
+        "provenance": "extracted",
+        "citations": [
+          {
+            "document_id": "doc_independent",
+            "document_version": "v1",
+            "locator": {
+              "TextSpan": {
+                "passage_id": "independent.body",
+                "char_start": 0,
+                "char_end": 57
+              }
+            },
+            "quoted_text": "I was in my front room at number 41 when I heard the bang",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "witness_observation",
+        "normalised_value": null,
+        "review": null,
+        "extraction_confidence": null
+      },
+      {
+        "fact_id": "ex_011",
+        "assertion": "A dark blue hatchback was across the middle of the road with front-end damage.",
+        "asserter": {
+          "kind": "witness",
+          "name": "Elaine Torrance",
+          "party_id": null
+        },
+        "provenance": "extracted",
+        "citations": [
+          {
+            "document_id": "doc_independent",
+            "document_version": "v1",
+            "locator": {
+              "TextSpan": {
+                "passage_id": "independent.body",
+                "char_start": 84,
+                "char_end": 162
+              }
+            },
+            "quoted_text": "a dark blue hatchback across the middle of the road with its front end damaged",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "post_impact_position",
+        "normalised_value": null,
+        "review": null,
+        "extraction_confidence": null
+      },
+      {
+        "fact_id": "ex_012",
+        "assertion": "The road was wet and it had been raining on and off all day.",
+        "asserter": {
+          "kind": "witness",
+          "name": "Elaine Torrance",
+          "party_id": null
+        },
+        "provenance": "extracted",
+        "citations": [
+          {
+            "document_id": "doc_independent",
+            "document_version": "v1",
+            "locator": {
+              "TextSpan": {
+                "passage_id": "independent.body",
+                "char_start": 213,
+                "char_end": 269
+              }
+            },
+            "quoted_text": "The road was wet; it had been raining on and off all day",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "road_conditions",
+        "normalised_value": null,
+        "review": null,
+        "extraction_confidence": null
+      },
+      {
+        "fact_id": "ex_013",
+        "assertion": "The witness did not see the collision itself, only the aftermath.",
+        "asserter": {
+          "kind": "witness",
+          "name": "Elaine Torrance",
+          "party_id": null
+        },
+        "provenance": "extracted",
+        "citations": [
+          {
+            "document_id": "doc_independent",
+            "document_version": "v1",
+            "locator": {
+              "TextSpan": {
+                "passage_id": "independent.body",
+                "char_start": 271,
+                "char_end": 337
+              }
+            },
+            "quoted_text": "I did not see the collision itself, only what was there afterwards",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "witness_observation_limit",
+        "normalised_value": null,
+        "review": null,
+        "extraction_confidence": null
+      }
+    ],
+    "differences": [],
+    "open_questions": [
+      {
+        "question_id": "oq_001",
+        "question": "The file does not contain adjuster notes. Has it been requested or received?",
+        "kind": "expected_document_absent",
+        "provenance": "deterministic",
+        "expected_source": "adjuster notes",
+        "supporting_citations": [],
+        "related_difference_id": null,
+        "review": null
+      }
+    ],
+    "coverage": {
+      "documents_total": 3,
+      "documents_processed": 3,
+      "documents_withheld_by_checkpoint": 0,
+      "passages_total": 3,
+      "passages_processed": 3,
+      "facts_dropped": 0
+    },
+    "not_assessed": [
+      "materiality \u2014 not assessed by design (PRD \u00a77.4, gated on D-014). The system surfaces differences; a human decides which matter.",
+      "credibility, fault, liability, coverage, and suspicion \u2014 out of scope for V1.",
+      "photographs and scene diagrams \u2014 presence noted, content not read."
+    ]
+  },
+  "disclaimer": "Scored against an authored synthetic gold answer. Measures what we planted, not real-world performance (D-003)."
+}

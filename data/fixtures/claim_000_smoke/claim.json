@@ -1,0 +1,99 @@
+{
+  "claim_id": "claim_000_smoke",
+  "checkpoint": "C3",
+  "provenance": {
+    "fixture_kind": "fully_synthetic",
+    "documents_are_synthetic": true,
+    "disclaimer": "SYNTHETIC. Every party, vehicle, address, and document in this fixture is invented. Results measured against it record WHAT WE PLANTED. They are not evidence of real-world performance (D-003).",
+    "anchor": null
+  },
+  "claim_record": {
+    "claim_number": "CLM-CLAIM_000_SMOKE",
+    "policy_id": "POL-88213",
+    "loss_date": "2026-02-14",
+    "reported_date": "2026-02-20",
+    "loss_location": "Willow Street at Beckett Road",
+    "claim_type": "auto_collision",
+    "status": "open_investigating",
+    "jurisdiction": null,
+    "handler_history": [
+      {
+        "handler": "J. Osei",
+        "from": "2026-02-20",
+        "to": "2026-03-06"
+      },
+      {
+        "handler": "P. Raghunathan",
+        "from": "2026-03-06",
+        "to": null
+      }
+    ],
+    "parties": [
+      {
+        "party_id": "p_001",
+        "name_as_written": "Dana Whitfield",
+        "role": "insured"
+      },
+      {
+        "party_id": "p_002",
+        "name_as_written": "Dana Whitfield",
+        "role": "driver"
+      },
+      {
+        "party_id": "p_003",
+        "name_as_written": "Elaine Torrance",
+        "role": "witness"
+      }
+    ]
+  },
+  "policy_record": {
+    "policy_id": "POL-88213",
+    "policy_number": "PA-88213-04",
+    "inception_date": "2026-01-04",
+    "expiry_date": "2027-01-03",
+    "listed_drivers": [
+      "Marcus Whitfield"
+    ],
+    "scheduled_vehicles": [
+      {
+        "vin": "1HGCM82633A004352",
+        "year": 2019,
+        "make": "Honda",
+        "model": "Civic"
+      }
+    ],
+    "coverages": [
+      {
+        "code": "COLL",
+        "limit": 25000,
+        "deductible": 500
+      },
+      {
+        "code": "LIAB",
+        "limit": 100000,
+        "deductible": null
+      }
+    ],
+    "garaging_address": "12 Willow Street",
+    "lapse_history": []
+  },
+  "structured_records": null,
+  "documents": [
+    "documents/fnol.json",
+    "documents/recorded_statement.json",
+    "documents/independent_account.json"
+  ],
+  "prior_claims": [],
+  "reserve_history": [
+    {
+      "amount": 4000,
+      "set_at": "2026-02-21",
+      "set_by": "J. Osei"
+    },
+    {
+      "amount": 11500,
+      "set_at": "2026-03-11",
+      "set_by": "P. Raghunathan"
+    }
+  ]
+}

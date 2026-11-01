@@ -1,0 +1,130 @@
+[
+  {
+    "fact_id": "ex_002",
+    "assertion": "The road was wet",
+    "reason": "unresolved_citation",
+    "notes": [
+      "offset_drift"
+    ]
+  },
+  {
+    "fact_id": "ex_003",
+    "assertion": "Visibility was limited by darkness, although the roadway was illuminated",
+    "reason": "unresolved_citation",
+    "notes": [
+      "offset_drift"
+    ]
+  },
+  {
+    "fact_id": "ex_004",
+    "assertion": "The vehicle was turning right when it came into contact with a parked vehicle",
+    "reason": "unresolved_citation",
+    "notes": [
+      "offset_drift"
+    ]
+  },
+  {
+    "fact_id": "ex_005",
+    "assertion": "The claimant did not initially realize how significant the contact was",
+    "reason": "unresolved_citation",
+    "notes": [
+      "offset_drift"
+    ]
+  },
+  {
+    "fact_id": "ex_006",
+    "assertion": "The claimant stopped briefly, looked at the vehicles, and then left because they were concerned about being stranded late at night",
+    "reason": "unresolved_citation",
+    "notes": [
+      "offset_drift"
+    ]
+  },
+  {
+    "fact_id": "ex_007",
+    "assertion": "The claimant did not see anyone inside the parked vehicle",
+    "reason": "unresolved_citation",
+    "notes": [
+      "offset_drift"
+    ]
+  },
+  {
+    "fact_id": "ex_008",
+    "assertion": "The claimant did not believe anyone was injured",
+    "reason": "unresolved_citation",
+    "notes": [
+      "offsets_out_of_range"
+    ]
+  },
+  {
+    "fact_id": "ex_009",
+    "assertion": "The claimant was driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.",
+    "reason": "unresolved_citation",
+    "notes": [
+      "offset_drift"
+    ]
+  },
+  {
+    "fact_id": "ex_010",
+    "assertion": "The claimant recalls that it had been raining earlier and that the pavement was wet.",
+    "reason": "unresolved_citation",
+    "notes": [
+      "offset_drift"
+    ]
+  },
+  {
+    "fact_id": "ex_011",
+    "assertion": "The claimant was driving around 25 to 30 mph before beginning the turn.",
+    "reason": "unresolved_citation",
+    "notes": [
+      "offset_drift"
+    ]
+  },
+  {
+    "fact_id": "ex_012",
+    "assertion": "The turn was normal until the vehicle suddenly slid.",
+    "reason": "unresolved_citation",
+    "notes": [
+      "offset_drift"
+    ]
+  },
+  {
+    "fact_id": "ex_013",
+    "assertion": "The claimant tried to correct the vehicle, but the front of the Mercedes contacted a parked SUV.",
+    "reason": "unresolved_citation",
+    "notes": [
+      "offset_drift"
+    ]
+  },
+  {
+    "fact_id": "ex_014",
+    "assertion": "The claimant did not see anyone inside the parked SUV and did not believe anyone was injured.",
+    "reason": "unresolved_citation",
+    "notes": [
+      "offset_drift"
+    ]
+  },
+  {
+    "fact_id": "ex_015",
+    "assertion": "The claimant stopped after the collision, looked at the vehicles, and then left because they were concerned about being stranded late at night.",
+    "reason": "unresolved_citation",
+    "notes": [
+      "offset_drift"
+    ]
+  },
+  {
+    "fact_id": "ex_016",
+    "assertion": "The claimant intended to report the incident.",
+    "reason": "unresolved_citation",
+    "notes": [
+      "offset_drift"
+    ]
+  },
+  {
+    "fact_id": "ex_017",
+    "assertion": "The claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.",
+    "reason": "unresolved_citation",
+    "notes": [
+      "offsets_out_of_range"
+    ]
+  }
+]

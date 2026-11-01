@@ -1,0 +1,24 @@
+{
+  "policy_id": "SYN-POL-001",
+  "claim_id": "CLAIM-001",
+  "synthetic": true,
+  "evaluation_fixture_only": true,
+  "effective_at": "2026-01-01T00:00:00",
+  "expires_at": "2027-01-01T00:00:00",
+  "listed_drivers": [
+    {
+      "driver_ref": "claimant_driver",
+      "listed": true
+    }
+  ],
+  "scheduled_vehicles": [
+    {
+      "vehicle_ref": "claimant_vehicle",
+      "year": 2015,
+      "make": "MERCEDES-BENZ",
+      "model": "G-CLASS",
+      "scheduled": true
+    }
+  ],
+  "purpose": "Minimal synthetic policy record solely to exercise deterministic E1 checks. No policy conflict is planted."
+}

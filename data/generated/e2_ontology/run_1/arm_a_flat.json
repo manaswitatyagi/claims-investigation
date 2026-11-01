@@ -1,0 +1,46 @@
+{
+  "strategy": "flat_all_facts_one_call",
+  "facts_considered": 57,
+  "model_calls": 1,
+  "input_chars": 11000,
+  "differences": [
+    {
+      "difference_id": "d_001",
+      "subject": "vehicle_travel_direction",
+      "positions": [
+        {
+          "fact_id": "an_008",
+          "stance": "The claimant vehicle was traveling northbound."
+        },
+        {
+          "fact_id": "ex_001",
+          "stance": "The claimant vehicle was traveling northbound."
+        },
+        {
+          "fact_id": "ex_012",
+          "stance": "The claimant vehicle was traveling southbound."
+        }
+      ],
+      "detection_method": "extracted",
+      "already_noted": {
+        "value": false,
+        "fact_id": null
+      },
+      "review": null,
+      "materiality": null,
+      "materiality_rationale": null
+    }
+  ],
+  "scored": {
+    "difference_recall": 1.0,
+    "difference_precision": 1.0,
+    "matched": [
+      {
+        "gold": "gold_d_001",
+        "output": "d_001"
+      }
+    ],
+    "missed": [],
+    "spurious": []
+  }
+}

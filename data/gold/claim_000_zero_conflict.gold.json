@@ -1,0 +1,561 @@
+{
+  "claim_id": "claim_000_zero_conflict",
+  "checkpoint": "C3",
+  "disclaimer": "These labels record WHAT WE PLANTED. They are not evidence of real-world performance (D-003). The fixture is entirely synthetic. The `expected_facts` list for extracted facts is an AUTHORED judgement about what a correct extraction contains \u2014 reasonable people would draw the boundary differently, so fact recall and precision against this list are indicative, not absolute. `materiality_intent` is metadata for the \u00a712 human study and is NEVER scored by the E1 runner (D-033). THIS IS THE ZERO-CONFLICT CONTROL: the correct differences list is EMPTY. PRD \u00a712.2 decision rule 1 \u2014 if the system invents a difference here, no other metric matters.",
+  "is_zero_conflict_control": true,
+  "expected_facts": [
+    {
+      "match_key": "det.loss_date",
+      "assertion": "The reported date of loss is 2026-02-14.",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "rec_claim",
+      "passage_id": null,
+      "span": null,
+      "field_path": "loss_date",
+      "normalised_value": null,
+      "materiality_intent": null,
+      "subject": "loss_date"
+    },
+    {
+      "match_key": "det.reported_date",
+      "assertion": "The loss was reported to the carrier on 2026-02-20.",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "rec_claim",
+      "passage_id": null,
+      "span": null,
+      "field_path": "reported_date",
+      "normalised_value": null,
+      "materiality_intent": null,
+      "subject": "reported_date"
+    },
+    {
+      "match_key": "det.loss_location",
+      "assertion": "The loss location of record is Willow Street at Beckett Road.",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "rec_claim",
+      "passage_id": null,
+      "span": null,
+      "field_path": "loss_location",
+      "normalised_value": null,
+      "materiality_intent": null,
+      "subject": "loss_location"
+    },
+    {
+      "match_key": "det.policy_term",
+      "assertion": "The policy incepted on 2026-01-04 and expires on 2027-01-03.",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "rec_policy",
+      "passage_id": null,
+      "span": null,
+      "field_path": "inception_date",
+      "normalised_value": null,
+      "materiality_intent": null,
+      "subject": "policy_term"
+    },
+    {
+      "match_key": "det.reporting_delay",
+      "assertion": "The loss was reported 6 days after the reported date of loss.",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "rec_claim",
+      "passage_id": null,
+      "span": null,
+      "field_path": "loss_date",
+      "normalised_value": null,
+      "materiality_intent": null,
+      "subject": "reporting_delay_days"
+    },
+    {
+      "match_key": "det.policy_age",
+      "assertion": "The policy had been in force 41 days at the date of loss.",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "rec_policy",
+      "passage_id": null,
+      "span": null,
+      "field_path": "inception_date",
+      "normalised_value": null,
+      "materiality_intent": null,
+      "subject": "policy_age_at_loss_days"
+    },
+    {
+      "match_key": "det.in_force",
+      "assertion": "The policy was in force on the reported date of loss.",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "rec_policy",
+      "passage_id": null,
+      "span": null,
+      "field_path": "inception_date",
+      "normalised_value": null,
+      "materiality_intent": null,
+      "subject": "policy_in_force_at_loss"
+    },
+    {
+      "match_key": "det.prior_claims",
+      "assertion": "The file records 0 prior claim(s).",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "rec_claim",
+      "passage_id": null,
+      "span": null,
+      "field_path": "claim_number",
+      "normalised_value": null,
+      "materiality_intent": null,
+      "subject": "prior_claim_count"
+    },
+    {
+      "match_key": "det.handler_count",
+      "assertion": "The claim has been handled by 2 handler(s).",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "rec_claim",
+      "passage_id": null,
+      "span": null,
+      "field_path": "handler_history.0.handler",
+      "normalised_value": null,
+      "materiality_intent": null,
+      "subject": "handler_count"
+    },
+    {
+      "match_key": "det.recv_fnol",
+      "assertion": "The FNOL was received into the file on 2026-02-21.",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "doc_fnol",
+      "passage_id": null,
+      "span": null,
+      "field_path": "document_metadata.doc_fnol.received_date",
+      "normalised_value": null,
+      "materiality_intent": null,
+      "subject": "document_received:doc_fnol"
+    },
+    {
+      "match_key": "det.recv_statement",
+      "assertion": "The recorded statement was received into the file on 2026-02-25.",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "doc_statement",
+      "passage_id": null,
+      "span": null,
+      "field_path": "document_metadata.doc_statement.received_date",
+      "normalised_value": null,
+      "materiality_intent": null,
+      "subject": "document_received:doc_statement"
+    },
+    {
+      "match_key": "det.recv_independent",
+      "assertion": "The independent account was received into the file on 2026-03-02.",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "doc_independent",
+      "passage_id": null,
+      "span": null,
+      "field_path": "document_metadata.doc_independent.received_date",
+      "normalised_value": null,
+      "materiality_intent": null,
+      "subject": "document_received:doc_independent"
+    },
+    {
+      "match_key": "det.reserve_1",
+      "assertion": "The reserve was set to 4000 on 2026-02-21 by J. Osei.",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "rec_claim",
+      "passage_id": null,
+      "span": null,
+      "field_path": "reserve_history.0.amount",
+      "normalised_value": null,
+      "materiality_intent": null,
+      "subject": "reserve_change:0"
+    },
+    {
+      "match_key": "det.reserve_2",
+      "assertion": "The reserve was set to 11500 on 2026-03-11 by P. Raghunathan.",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "rec_claim",
+      "passage_id": null,
+      "span": null,
+      "field_path": "reserve_history.1.amount",
+      "normalised_value": null,
+      "materiality_intent": null,
+      "subject": "reserve_change:1"
+    },
+    {
+      "match_key": "fnol.moving",
+      "assertion": "The vehicle was moving at the time of the impact.",
+      "asserter_kind": "claimant",
+      "asserter_name": "Dana Whitfield",
+      "provenance": "extracted",
+      "document_id": "doc_fnol",
+      "passage_id": "fnol.description_of_accident",
+      "span": {
+        "char_start": 212,
+        "char_end": 255,
+        "quoted_text": "My car was moving at the time of the impact"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null,
+      "subject": "vehicle_state_at_impact"
+    },
+    {
+      "match_key": "fnol.direction",
+      "assertion": "The claimant was driving back north towards the junction.",
+      "asserter_kind": "claimant",
+      "asserter_name": "Dana Whitfield",
+      "provenance": "extracted",
+      "document_id": "doc_fnol",
+      "passage_id": "fnol.description_of_accident",
+      "span": {
+        "char_start": 53,
+        "char_end": 96,
+        "quoted_text": "was driving back north towards the junction"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null,
+      "subject": "direction_of_travel"
+    },
+    {
+      "match_key": "fnol.speed",
+      "assertion": "The claimant was not going fast, maybe twenty.",
+      "asserter_kind": "claimant",
+      "asserter_name": "Dana Whitfield",
+      "provenance": "extracted",
+      "document_id": "doc_fnol",
+      "passage_id": "fnol.description_of_accident",
+      "span": {
+        "char_start": 170,
+        "char_end": 210,
+        "quoted_text": "I was not going fast, maybe twenty or so"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null,
+      "subject": "speed_at_impact"
+    },
+    {
+      "match_key": "fnol.other_vehicle",
+      "assertion": "A silver saloon came out and struck the front nearside.",
+      "asserter_kind": "claimant",
+      "asserter_name": "Dana Whitfield",
+      "provenance": "extracted",
+      "document_id": "doc_fnol",
+      "passage_id": "fnol.description_of_accident",
+      "span": {
+        "char_start": 102,
+        "char_end": 168,
+        "quoted_text": "the silver saloon came out and struck the front nearside of my car"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null,
+      "subject": "other_vehicle"
+    },
+    {
+      "match_key": "stmt.direction",
+      "assertion": "The claimant was heading north towards the junction.",
+      "asserter_kind": "claimant",
+      "asserter_name": "Dana Whitfield",
+      "provenance": "extracted",
+      "document_id": "doc_statement",
+      "passage_id": "statement.body",
+      "span": {
+        "char_start": 162,
+        "char_end": 208,
+        "quoted_text": "I was heading north, back towards the junction"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null,
+      "subject": "direction_of_travel"
+    },
+    {
+      "match_key": "stmt.speed",
+      "assertion": "The claimant was travelling at twenty to twenty-five.",
+      "asserter_kind": "claimant",
+      "asserter_name": "Dana Whitfield",
+      "provenance": "extracted",
+      "document_id": "doc_statement",
+      "passage_id": "statement.body",
+      "span": {
+        "char_start": 295,
+        "char_end": 314,
+        "quoted_text": "Twenty, twenty-five"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null,
+      "subject": "speed_at_impact"
+    },
+    {
+      "match_key": "stmt.moving",
+      "assertion": "The vehicle was still moving at the time of the impact.",
+      "asserter_kind": "claimant",
+      "asserter_name": "Dana Whitfield",
+      "provenance": "extracted",
+      "document_id": "doc_statement",
+      "passage_id": "statement.body",
+      "span": {
+        "char_start": 488,
+        "char_end": 510,
+        "quoted_text": "No, I was still moving"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": "clearly_material",
+      "subject": "vehicle_state_at_impact"
+    },
+    {
+      "match_key": "stmt.vague_time",
+      "assertion": "The loss occurred that evening, after the claimant had eaten.",
+      "asserter_kind": "claimant",
+      "asserter_name": "Dana Whitfield",
+      "provenance": "extracted",
+      "document_id": "doc_statement",
+      "passage_id": "statement.body",
+      "span": {
+        "char_start": 623,
+        "char_end": 655,
+        "quoted_text": "That evening, after I had my tea"
+      },
+      "field_path": null,
+      "normalised_value": {
+        "Date": {
+          "value": null,
+          "precision": "vague",
+          "raw_expression": "That evening, after I had my tea"
+        }
+      },
+      "materiality_intent": null,
+      "subject": "time_of_loss"
+    },
+    {
+      "match_key": "stmt.delay_reason",
+      "assertion": "The claimant delayed reporting to see whether the other driver would resolve it.",
+      "asserter_kind": "claimant",
+      "asserter_name": "Dana Whitfield",
+      "provenance": "extracted",
+      "document_id": "doc_statement",
+      "passage_id": "statement.body",
+      "span": {
+        "char_start": 792,
+        "char_end": 847,
+        "quoted_text": "I wanted to see if the other driver would sort it first"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null,
+      "subject": "reporting_delay_reason"
+    },
+    {
+      "match_key": "ind.heard",
+      "assertion": "The witness heard the collision from inside number 41.",
+      "asserter_kind": "witness",
+      "asserter_name": "Elaine Torrance",
+      "provenance": "extracted",
+      "document_id": "doc_independent",
+      "passage_id": "independent.body",
+      "span": {
+        "char_start": 0,
+        "char_end": 57,
+        "quoted_text": "I was in my front room at number 41 when I heard the bang"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null,
+      "subject": "witness_observation"
+    },
+    {
+      "match_key": "ind.position",
+      "assertion": "A dark blue hatchback was across the middle of the road with front-end damage.",
+      "asserter_kind": "witness",
+      "asserter_name": "Elaine Torrance",
+      "provenance": "extracted",
+      "document_id": "doc_independent",
+      "passage_id": "independent.body",
+      "span": {
+        "char_start": 84,
+        "char_end": 162,
+        "quoted_text": "a dark blue hatchback across the middle of the road with its front end damaged"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null,
+      "subject": "post_impact_position"
+    },
+    {
+      "match_key": "ind.road",
+      "assertion": "The road was wet and it had been raining on and off all day.",
+      "asserter_kind": "witness",
+      "asserter_name": "Elaine Torrance",
+      "provenance": "extracted",
+      "document_id": "doc_independent",
+      "passage_id": "independent.body",
+      "span": {
+        "char_start": 213,
+        "char_end": 269,
+        "quoted_text": "The road was wet; it had been raining on and off all day"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null,
+      "subject": "road_conditions"
+    },
+    {
+      "match_key": "ind.limit",
+      "assertion": "The witness did not see the collision itself, only the aftermath.",
+      "asserter_kind": "witness",
+      "asserter_name": "Elaine Torrance",
+      "provenance": "extracted",
+      "document_id": "doc_independent",
+      "passage_id": "independent.body",
+      "span": {
+        "char_start": 271,
+        "char_end": 337,
+        "quoted_text": "I did not see the collision itself, only what was there afterwards"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null,
+      "subject": "witness_observation_limit"
+    }
+  ],
+  "facts_must_not_appear": [
+    {
+      "match_key": "must_not.stopped_at_light",
+      "assertion": "The claimant stated that the vehicle was stopped at a traffic light.",
+      "why_absent": "Asserted only inside the ADJUSTER's leading question; the claimant denies it."
+    },
+    {
+      "match_key": "must_not.parked",
+      "assertion": "The vehicle was parked at the time of the impact.",
+      "why_absent": "No source says this. It is the planted conflict from claim_000_smoke and must not bleed across fixtures."
+    }
+  ],
+  "expected_timeline": [
+    {
+      "axis": "occurred",
+      "label": "reported date of loss",
+      "order": 1,
+      "when": "2026-02-14",
+      "must_remain_vague": false,
+      "source_match_keys": [
+        "det.loss_date"
+      ]
+    },
+    {
+      "axis": "occurred",
+      "label": "that evening, after the claimant had eaten",
+      "order": 99,
+      "when": null,
+      "must_remain_vague": true,
+      "source_match_keys": [
+        "stmt.vague_time"
+      ]
+    },
+    {
+      "axis": "became_known",
+      "label": "loss reported to carrier",
+      "order": 1,
+      "when": "2026-02-20",
+      "must_remain_vague": false,
+      "source_match_keys": [
+        "det.reported_date"
+      ]
+    },
+    {
+      "axis": "became_known",
+      "label": "FNOL received",
+      "order": 2,
+      "when": "2026-02-21",
+      "must_remain_vague": false,
+      "source_match_keys": [
+        "det.recv_fnol"
+      ]
+    },
+    {
+      "axis": "became_known",
+      "label": "reserve set to 4000",
+      "order": 2,
+      "when": "2026-02-21",
+      "must_remain_vague": false,
+      "source_match_keys": [
+        "det.reserve_1"
+      ]
+    },
+    {
+      "axis": "became_known",
+      "label": "recorded statement received",
+      "order": 3,
+      "when": "2026-02-25",
+      "must_remain_vague": false,
+      "source_match_keys": [
+        "det.recv_statement"
+      ]
+    },
+    {
+      "axis": "became_known",
+      "label": "independent account received",
+      "order": 4,
+      "when": "2026-03-02",
+      "must_remain_vague": false,
+      "source_match_keys": [
+        "det.recv_independent"
+      ]
+    },
+    {
+      "axis": "became_known",
+      "label": "reserve increased to 11500",
+      "order": 5,
+      "when": "2026-03-11",
+      "must_remain_vague": false,
+      "source_match_keys": [
+        "det.reserve_2"
+      ]
+    }
+  ],
+  "planted_differences": [],
+  "differences_must_not_be_reported": [
+    {
+      "subject": "vehicle_state_at_impact",
+      "why_not": "The FNOL and the recorded statement AGREE that the vehicle was moving. This is the control condition."
+    },
+    {
+      "subject": "time_of_loss",
+      "why_not": "Ordinary variation between a rounded time and a vague expression."
+    },
+    {
+      "subject": "speed_phrasing",
+      "why_not": "'maybe twenty or so' and 'twenty, twenty-five' are the same position."
+    }
+  ],
+  "expected_open_questions": [
+    {
+      "match_key": "oq.adjuster_notes",
+      "kind": "expected_document_absent",
+      "question": "No adjuster notes are present in the file.",
+      "expected_source": "adjuster notes"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "facts": [
+    {
+      "assertion": "The witness heard the collision from inside number 41.",
+      "asserter_kind": "witness",
+      "asserter_name": "Elaine Torrance",
+      "subject": "witness_observation",
+      "quoted_text": "I was in my front room at number 41 when I heard the bang",
+      "char_start": 0,
+      "char_end": 57,
+      "raw_time_expression": null,
+      "revised": null,
+      "superseded_text": null
+    },
+    {
+      "assertion": "A dark blue hatchback was across the middle of the road with front-end damage.",
+      "asserter_kind": "witness",
+      "asserter_name": "Elaine Torrance",
+      "subject": "post_impact_position",
+      "quoted_text": "a dark blue hatchback across the middle of the road with its front end damaged",
+      "char_start": 84,
+      "char_end": 162,
+      "raw_time_expression": null,
+      "revised": null,
+      "superseded_text": null
+    },
+    {
+      "assertion": "The road was wet and it had been raining on and off all day.",
+      "asserter_kind": "witness",
+      "asserter_name": "Elaine Torrance",
+      "subject": "road_conditions",
+      "quoted_text": "The road was wet; it had been raining on and off all day",
+      "char_start": 213,
+      "char_end": 269,
+      "raw_time_expression": null,
+      "revised": null,
+      "superseded_text": null
+    },
+    {
+      "assertion": "The witness did not see the collision itself, only the aftermath.",
+      "asserter_kind": "witness",
+      "asserter_name": "Elaine Torrance",
+      "subject": "witness_observation_limit",
+      "quoted_text": "I did not see the collision itself, only what was there afterwards",
+      "char_start": 271,
+      "char_end": 337,
+      "raw_time_expression": null,
+      "revised": null,
+      "superseded_text": null
+    }
+  ]
+}

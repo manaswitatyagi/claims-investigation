@@ -1,0 +1,16 @@
+{
+  "document_id": "doc_independent",
+  "type": "independent_account",
+  "version": "v1",
+  "received_date": "2026-03-02",
+  "checkpoint_available": "C3",
+  "structure_class": "unstructured",
+  "structured_fields": null,
+  "passages": [
+    {
+      "passage_id": "independent.body",
+      "label": "Written account of Elaine Torrance",
+      "text": "I was in my front room at number 41 when I heard the bang. I came out and there was a dark blue hatchback across the middle of the road with its front end damaged, and a silver car further up with its hazards on. The road was wet; it had been raining on and off all day. I did not see the collision itself, only what was there afterwards."
+    }
+  ]
+}

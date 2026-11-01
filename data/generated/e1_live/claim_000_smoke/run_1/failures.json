@@ -1,0 +1,157 @@
+{
+  "by_stage": {
+    "extraction": [
+      {
+        "stage": "extraction",
+        "kind": "omitted_gold_fact_caused_upstream",
+        "confidence": "confirmed",
+        "why": "Gold fact absent from the result, but the model produced it and the drop rule removed it. ROOT CAUSE IS GROUNDING, not extraction \u2014 see the linked grounding failure. The system behaved correctly here: an uncitable fact is dropped, never hedged.",
+        "evidence": {
+          "gold_match_key": "ind.road",
+          "assertion": "The road was wet and it had been raining on and off all day.",
+          "provenance": "extracted",
+          "root_cause_stage": "grounding",
+          "dropped_fact_id": "ex_013",
+          "dropped_reason": "unresolved_citation",
+          "dropped_notes": [
+            "offset_drift"
+          ]
+        }
+      }
+    ],
+    "grounding": [
+      {
+        "stage": "grounding",
+        "kind": "unresolved_citation",
+        "detail": "text_absent_from_passage",
+        "confidence": "confirmed",
+        "why": "The quoted text does not occur in the passage. The model fabricated the evidence, not merely the offsets.",
+        "evidence": {
+          "fact_id": "ex_010",
+          "assertion": "The claimant stated the vehicle was stopped at a traffic light.",
+          "all_notes": [
+            "text_absent_from_passage"
+          ],
+          "outcome": "dropped before assembly; absent from the result"
+        }
+      },
+      {
+        "stage": "grounding",
+        "kind": "unresolved_citation",
+        "detail": "offset_drift",
+        "confidence": "confirmed",
+        "why": "The quoted text is present but the offsets point elsewhere. The model can nearly cite \u2014 a different problem from inventing.",
+        "evidence": {
+          "fact_id": "ex_013",
+          "assertion": "The road was wet and it had been raining on and off all day.",
+          "all_notes": [
+            "offset_drift"
+          ],
+          "outcome": "dropped before assembly; absent from the result"
+        }
+      }
+    ],
+    "attribution": [
+      {
+        "stage": "attribution",
+        "kind": "wrong_asserter",
+        "confidence": "confirmed",
+        "why": "Who asserted a fact often matters more than what was asserted. The span resolves, so nothing else in the pipeline catches this.",
+        "evidence": {
+          "fact_id": "ex_011",
+          "assertion": "The witness heard the collision from inside number 41.",
+          "expected_asserter": "witness",
+          "actual_asserter": "claimant",
+          "gold_match_key": "ind.heard",
+          "output_span": {
+            "passage_id": "independent.body",
+            "char_start": 0,
+            "char_end": 57,
+            "quoted_text": "I was in my front room at number 41 when I heard the bang"
+          },
+          "passage_text_at_output_span": "I was in my front room at number 41 when I heard the bang",
+          "match_path": "one_to_one"
+        }
+      }
+    ],
+    "normalization": [],
+    "difference_proposal": []
+  },
+  "totals": {
+    "extraction": 1,
+    "grounding": 2,
+    "attribution": 1,
+    "normalization": 0,
+    "difference_proposal": 0
+  },
+  "all": [
+    {
+      "stage": "grounding",
+      "kind": "unresolved_citation",
+      "detail": "text_absent_from_passage",
+      "confidence": "confirmed",
+      "why": "The quoted text does not occur in the passage. The model fabricated the evidence, not merely the offsets.",
+      "evidence": {
+        "fact_id": "ex_010",
+        "assertion": "The claimant stated the vehicle was stopped at a traffic light.",
+        "all_notes": [
+          "text_absent_from_passage"
+        ],
+        "outcome": "dropped before assembly; absent from the result"
+      }
+    },
+    {
+      "stage": "grounding",
+      "kind": "unresolved_citation",
+      "detail": "offset_drift",
+      "confidence": "confirmed",
+      "why": "The quoted text is present but the offsets point elsewhere. The model can nearly cite \u2014 a different problem from inventing.",
+      "evidence": {
+        "fact_id": "ex_013",
+        "assertion": "The road was wet and it had been raining on and off all day.",
+        "all_notes": [
+          "offset_drift"
+        ],
+        "outcome": "dropped before assembly; absent from the result"
+      }
+    },
+    {
+      "stage": "attribution",
+      "kind": "wrong_asserter",
+      "confidence": "confirmed",
+      "why": "Who asserted a fact often matters more than what was asserted. The span resolves, so nothing else in the pipeline catches this.",
+      "evidence": {
+        "fact_id": "ex_011",
+        "assertion": "The witness heard the collision from inside number 41.",
+        "expected_asserter": "witness",
+        "actual_asserter": "claimant",
+        "gold_match_key": "ind.heard",
+        "output_span": {
+          "passage_id": "independent.body",
+          "char_start": 0,
+          "char_end": 57,
+          "quoted_text": "I was in my front room at number 41 when I heard the bang"
+        },
+        "passage_text_at_output_span": "I was in my front room at number 41 when I heard the bang",
+        "match_path": "one_to_one"
+      }
+    },
+    {
+      "stage": "extraction",
+      "kind": "omitted_gold_fact_caused_upstream",
+      "confidence": "confirmed",
+      "why": "Gold fact absent from the result, but the model produced it and the drop rule removed it. ROOT CAUSE IS GROUNDING, not extraction \u2014 see the linked grounding failure. The system behaved correctly here: an uncitable fact is dropped, never hedged.",
+      "evidence": {
+        "gold_match_key": "ind.road",
+        "assertion": "The road was wet and it had been raining on and off all day.",
+        "provenance": "extracted",
+        "root_cause_stage": "grounding",
+        "dropped_fact_id": "ex_013",
+        "dropped_reason": "unresolved_citation",
+        "dropped_notes": [
+          "offset_drift"
+        ]
+      }
+    }
+  ]
+}

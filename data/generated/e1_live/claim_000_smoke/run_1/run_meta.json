@@ -1,0 +1,13 @@
+{
+  "run": 1,
+  "fixture": "claim_000_smoke",
+  "client": "recorded",
+  "model_id": "recorded",
+  "prompt_version": "e1-v2",
+  "synthesis_id": "syn_be174f29fca5",
+  "started_at": "2026-08-22T20:34:31.640287+00:00",
+  "finished_at": "2026-08-22T20:34:31.641589+00:00",
+  "wall_seconds": 0.0,
+  "model_calls": 4,
+  "disclaimer": "Scored against an authored synthetic gold answer. Measures what we planted, not real-world performance (D-003)."
+}

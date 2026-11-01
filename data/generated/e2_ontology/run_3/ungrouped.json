@@ -1,0 +1,79 @@
+[
+  {
+    "fact_id": "sf_001",
+    "subject": "loss_date",
+    "assertion": "The reported date of loss is 2026-08-11.",
+    "provenance": "deterministic",
+    "reason": "no entity and no predicate"
+  },
+  {
+    "fact_id": "sf_002",
+    "subject": "loss_location",
+    "assertion": "The loss location of record is 4655 S Karlov Ave, Chicago, IL.",
+    "provenance": "deterministic",
+    "reason": "no entity and no predicate"
+  },
+  {
+    "fact_id": "sf_003",
+    "subject": "policy_term",
+    "assertion": "The policy incepted on 2026-01-01 and expires on 2027-01-01.",
+    "provenance": "deterministic",
+    "reason": "no entity and no predicate"
+  },
+  {
+    "fact_id": "an_007",
+    "subject": "anchor:UNIT_1_VEHICLE",
+    "assertion": "The structured crash record codes UNIT_1_VEHICLE as {'year': 2015, 'make': 'MERCEDES-BENZ', 'model': 'G-CLASS'}.",
+    "provenance": "deterministic",
+    "reason": "no entity and no predicate"
+  },
+  {
+    "fact_id": "an_011",
+    "subject": "anchor:UNIT_2_VEHICLE",
+    "assertion": "The structured crash record codes UNIT_2_VEHICLE as {'year': 2005, 'make': 'CHEVROLET', 'model': 'SUBURBAN'}.",
+    "provenance": "deterministic",
+    "reason": "no entity and no predicate"
+  },
+  {
+    "fact_id": "an_015",
+    "subject": "anchor:MOST_SEVERE_INJURY",
+    "assertion": "The structured crash record codes MOST_SEVERE_INJURY as NO INDICATION OF INJURY.",
+    "provenance": "deterministic",
+    "reason": "no entity and no predicate"
+  },
+  {
+    "fact_id": "df_001",
+    "subject": "policy_age_at_loss_days",
+    "assertion": "The policy had been in force 222 days at the date of loss.",
+    "provenance": "deterministic",
+    "reason": "no entity and no predicate"
+  },
+  {
+    "fact_id": "df_002",
+    "subject": "policy_in_force_at_loss",
+    "assertion": "The policy was in force on the reported date of loss.",
+    "provenance": "deterministic",
+    "reason": "no entity and no predicate"
+  },
+  {
+    "fact_id": "df_003",
+    "subject": "prior_claim_count",
+    "assertion": "The file records 0 prior claim(s).",
+    "provenance": "deterministic",
+    "reason": "no entity and no predicate"
+  },
+  {
+    "fact_id": "df_004",
+    "subject": "handler_count",
+    "assertion": "The claim has been handled by 1 handler(s).",
+    "provenance": "deterministic",
+    "reason": "no entity and no predicate"
+  },
+  {
+    "fact_id": "bk_001",
+    "subject": "document_received:doc_statement",
+    "assertion": "The recorded statement was received into the file on 2026-08-13.",
+    "provenance": "deterministic",
+    "reason": "no entity and no predicate"
+  }
+]

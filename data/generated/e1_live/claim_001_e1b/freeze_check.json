@@ -1,0 +1,15 @@
+{
+  "manifest": "data/generated/E1_FREEZE.json",
+  "frozen_at": "2026-08-22T20:28:30.051790+00:00",
+  "model_id": "claude-opus-5",
+  "prompt_version": "e1-v2",
+  "files_checked": 22,
+  "files_drifted": 0,
+  "files_missing": [],
+  "drifted": [],
+  "verified": true,
+  "prompt_digests": {
+    "extract_system_sha256_16": "db346bd5eb5192d4",
+    "difference_system_sha256_16": "dc13c9ccc8fd503c"
+  }
+}
