@@ -1,0 +1,27 @@
+{
+  "document_id": "doc_fnol",
+  "type": "fnol",
+  "version": "v1",
+  "received_date": "2026-06-04",
+  "checkpoint_available": "C1",
+  "structure_class": "structured_with_narrative",
+  "structured_fields": {
+    "claim_id": "CLAIM-002",
+    "loss_date": "June 3, 2026",
+    "loss_time_approximate": "7:15 PM",
+    "loss_location": "Harrison Street at Gilbert Road",
+    "reported_damage_band": "Over $1,500",
+    "injury_reported": "No",
+    "claimant_vehicle": "2017 Silver Hatchback",
+    "vehicle_use": "Personal",
+    "vehicle_occupants": "1",
+    "driver_name": "Claimant"
+  },
+  "passages": [
+    {
+      "passage_id": "fnol.description_of_accident",
+      "label": "First Notice of Loss narrative",
+      "text": "The claimant reports that their vehicle was traveling westbound on Harrison Street toward the junction with Gilbert Road. The claimant states the road surface was dry at the time. The claimant was the only occupant of the vehicle. The claimant reports that contact occurred with a second vehicle and that the front of the claimant's vehicle was damaged."
+    }
+  ]
+}

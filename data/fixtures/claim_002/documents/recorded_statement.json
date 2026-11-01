@@ -1,0 +1,26 @@
+{
+  "document_id": "doc_statement",
+  "type": "recorded_statement",
+  "version": "v1",
+  "received_date": "2026-06-19",
+  "checkpoint_available": "C3",
+  "structure_class": "unstructured",
+  "structured_fields": null,
+  "passages": [
+    {
+      "passage_id": "statement.q_direction",
+      "label": "Recorded statement — direction of travel",
+      "text": "I had come off Gilbert Road and I was heading eastbound along Harrison Street. I was going about 25 miles per hour, no faster than that, because it is a narrow stretch."
+    },
+    {
+      "passage_id": "statement.q_other_vehicle",
+      "label": "Recorded statement — the second vehicle",
+      "text": "The other car reversed out of a parking space straight into my lane. I had no time to do anything about it. It came backwards out of the line of parked cars and I hit it with my front end."
+    },
+    {
+      "passage_id": "statement.q_conditions",
+      "label": "Recorded statement — conditions",
+      "text": "I could not tell you whether the street lights had come on by then. I do not remember that detail."
+    }
+  ]
+}

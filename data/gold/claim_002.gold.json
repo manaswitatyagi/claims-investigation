@@ -1,0 +1,726 @@
+{
+  "claim_id": "claim_002",
+  "checkpoint": "C3",
+  "disclaimer": "These labels record WHAT WE PLANTED. They are not evidence of real-world performance (D-003). This fixture is FULLY SYNTHETIC with no objective anchor. It was authored to separate two CLASSES of disagreement: one the comparison stage can reach because both positions share a grouping key, and one it cannot because the two positions land on different predicates. Which class each planted difference belongs to is NOT recorded here — the gold states what is in the file, and the prediction about what the flat model will miss lives in docs/experiments/E3.md so that the hypothesis is not encoded into its own answer key.",
+  "is_zero_conflict_control": false,
+  "expected_facts": [
+    {
+      "match_key": "det.loss_date",
+      "assertion": "The reported date of loss is 2026-06-03.",
+      "subject": "loss_date",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "rec_claim",
+      "passage_id": null,
+      "span": null,
+      "field_path": "loss_date",
+      "normalised_value": {
+        "Date": {
+          "value": "2026-06-03",
+          "precision": "day",
+          "raw_expression": "2026-06-03"
+        }
+      },
+      "materiality_intent": null
+    },
+    {
+      "match_key": "det.reported_date",
+      "assertion": "The loss was reported to the carrier on 2026-06-04.",
+      "subject": "reported_date",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "rec_claim",
+      "passage_id": null,
+      "span": null,
+      "field_path": "reported_date",
+      "normalised_value": {
+        "Date": {
+          "value": "2026-06-04",
+          "precision": "day",
+          "raw_expression": "2026-06-04"
+        }
+      },
+      "materiality_intent": null
+    },
+    {
+      "match_key": "det.loss_location",
+      "assertion": "The loss location of record is Harrison Street at Gilbert Road.",
+      "subject": "loss_location",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "rec_claim",
+      "passage_id": null,
+      "span": null,
+      "field_path": "loss_location",
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "det.policy_term",
+      "assertion": "The policy incepted on 2026-01-15 and expires on 2027-01-14.",
+      "subject": "policy_term",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "rec_policy",
+      "passage_id": null,
+      "span": null,
+      "field_path": "inception_date",
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "det.reporting_delay",
+      "assertion": "The loss was reported 1 day after the reported date of loss.",
+      "subject": "reporting_delay_days",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "rec_claim",
+      "passage_id": null,
+      "span": null,
+      "field_path": "reported_date",
+      "normalised_value": {
+        "Quantity": {
+          "value": 1,
+          "unit": "days"
+        }
+      },
+      "materiality_intent": null
+    },
+    {
+      "match_key": "det.policy_age_at_loss",
+      "assertion": "The policy had been in force 139 days at the date of loss.",
+      "subject": "policy_age_at_loss_days",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "rec_policy",
+      "passage_id": null,
+      "span": null,
+      "field_path": "inception_date",
+      "normalised_value": {
+        "Quantity": {
+          "value": 139,
+          "unit": "days"
+        }
+      },
+      "materiality_intent": null
+    },
+    {
+      "match_key": "det.policy_in_force",
+      "assertion": "The policy was in force on the reported date of loss.",
+      "subject": "policy_in_force_at_loss",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "rec_policy",
+      "passage_id": null,
+      "span": null,
+      "field_path": "inception_date",
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "det.prior_claim_count",
+      "assertion": "The file records 0 prior claim(s).",
+      "subject": "prior_claim_count",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "rec_claim",
+      "passage_id": null,
+      "span": null,
+      "field_path": "prior_claims",
+      "normalised_value": {
+        "Quantity": {
+          "value": 0,
+          "unit": "claims"
+        }
+      },
+      "materiality_intent": null
+    },
+    {
+      "match_key": "det.handler_count",
+      "assertion": "The claim has been handled by 2 handler(s).",
+      "subject": "handler_count",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "rec_claim",
+      "passage_id": null,
+      "span": null,
+      "field_path": "handler_history",
+      "normalised_value": {
+        "Quantity": {
+          "value": 2,
+          "unit": "handlers"
+        }
+      },
+      "materiality_intent": null
+    },
+    {
+      "match_key": "det.received_fnol",
+      "assertion": "The FNOL was received into the file on 2026-06-04.",
+      "subject": "document_received:doc_fnol",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "rec_claim",
+      "passage_id": null,
+      "span": null,
+      "field_path": "documents",
+      "normalised_value": {
+        "Date": {
+          "value": "2026-06-04",
+          "precision": "day",
+          "raw_expression": "2026-06-04"
+        }
+      },
+      "materiality_intent": null
+    },
+    {
+      "match_key": "det.received_statement",
+      "assertion": "The recorded statement was received into the file on 2026-06-19.",
+      "subject": "document_received:doc_statement",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "rec_claim",
+      "passage_id": null,
+      "span": null,
+      "field_path": "documents",
+      "normalised_value": {
+        "Date": {
+          "value": "2026-06-19",
+          "precision": "day",
+          "raw_expression": "2026-06-19"
+        }
+      },
+      "materiality_intent": null
+    },
+    {
+      "match_key": "det.received_independent",
+      "assertion": "The independent account was received into the file on 2026-06-27.",
+      "subject": "document_received:doc_independent",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "rec_claim",
+      "passage_id": null,
+      "span": null,
+      "field_path": "documents",
+      "normalised_value": {
+        "Date": {
+          "value": "2026-06-27",
+          "precision": "day",
+          "raw_expression": "2026-06-27"
+        }
+      },
+      "materiality_intent": null
+    },
+    {
+      "match_key": "det.reserve_initial",
+      "assertion": "The reserve was set to 2500 on 2026-06-04 by Handler A.",
+      "subject": "reserve_change:0",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "rec_claim",
+      "passage_id": null,
+      "span": null,
+      "field_path": "reserve_history",
+      "normalised_value": {
+        "Quantity": {
+          "value": 2500,
+          "unit": "currency"
+        }
+      },
+      "materiality_intent": null
+    },
+    {
+      "match_key": "det.reserve_increase",
+      "assertion": "The reserve was set to 9000 on 2026-07-02 by Handler A.",
+      "subject": "reserve_change:1",
+      "asserter_kind": "system_record",
+      "asserter_name": null,
+      "provenance": "deterministic",
+      "document_id": "rec_claim",
+      "passage_id": null,
+      "span": null,
+      "field_path": "reserve_history",
+      "normalised_value": {
+        "Quantity": {
+          "value": 9000,
+          "unit": "currency"
+        }
+      },
+      "materiality_intent": null
+    },
+    {
+      "match_key": "fnol.direction",
+      "assertion": "The FNOL records the claimant as reporting that their vehicle was traveling westbound on Harrison Street.",
+      "subject": "travel_direction",
+      "asserter_kind": "claimant",
+      "asserter_name": "Claimant",
+      "provenance": "extracted",
+      "document_id": "doc_fnol",
+      "passage_id": "fnol.description_of_accident",
+      "span": {
+        "char_start": 26,
+        "char_end": 82,
+        "quoted_text": "their vehicle was traveling westbound on Harrison Street"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "fnol.road_surface",
+      "assertion": "The FNOL records the claimant as stating the road surface was dry.",
+      "subject": "road_surface",
+      "asserter_kind": "claimant",
+      "asserter_name": "Claimant",
+      "provenance": "extracted",
+      "document_id": "doc_fnol",
+      "passage_id": "fnol.description_of_accident",
+      "span": {
+        "char_start": 142,
+        "char_end": 178,
+        "quoted_text": "the road surface was dry at the time"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "fnol.occupant_count",
+      "assertion": "The FNOL records the claimant as stating they were the only occupant of the vehicle.",
+      "subject": "occupant_count",
+      "asserter_kind": "claimant",
+      "asserter_name": "Claimant",
+      "provenance": "extracted",
+      "document_id": "doc_fnol",
+      "passage_id": "fnol.description_of_accident",
+      "span": {
+        "char_start": 180,
+        "char_end": 229,
+        "quoted_text": "The claimant was the only occupant of the vehicle"
+      },
+      "field_path": null,
+      "normalised_value": {
+        "Quantity": {
+          "value": 1,
+          "unit": "occupants"
+        }
+      },
+      "materiality_intent": null
+    },
+    {
+      "match_key": "fnol.contact_point",
+      "assertion": "The FNOL records the claimant as reporting that the front of their vehicle was damaged.",
+      "subject": "contact_point",
+      "asserter_kind": "claimant",
+      "asserter_name": "Claimant",
+      "provenance": "extracted",
+      "document_id": "doc_fnol",
+      "passage_id": "fnol.description_of_accident",
+      "span": {
+        "char_start": 305,
+        "char_end": 352,
+        "quoted_text": "the front of the claimant's vehicle was damaged"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "stmt.direction",
+      "assertion": "In the recorded statement the claimant says they were heading eastbound along Harrison Street.",
+      "subject": "travel_direction",
+      "asserter_kind": "claimant",
+      "asserter_name": "Claimant",
+      "provenance": "extracted",
+      "document_id": "doc_statement",
+      "passage_id": "statement.q_direction",
+      "span": {
+        "char_start": 32,
+        "char_end": 77,
+        "quoted_text": "I was heading eastbound along Harrison Street"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "stmt.speed",
+      "assertion": "In the recorded statement the claimant estimates their speed at about 25 miles per hour.",
+      "subject": "approximate_speed",
+      "asserter_kind": "claimant",
+      "asserter_name": "Claimant",
+      "provenance": "extracted",
+      "document_id": "doc_statement",
+      "passage_id": "statement.q_direction",
+      "span": {
+        "char_start": 79,
+        "char_end": 114,
+        "quoted_text": "I was going about 25 miles per hour"
+      },
+      "field_path": null,
+      "normalised_value": {
+        "Quantity": {
+          "value": 25,
+          "unit": "mph"
+        }
+      },
+      "materiality_intent": null
+    },
+    {
+      "match_key": "stmt.other_vehicle_maneuver",
+      "assertion": "In the recorded statement the claimant says the other car reversed out of a parking space into their lane.",
+      "subject": "maneuver",
+      "asserter_kind": "claimant",
+      "asserter_name": "Claimant",
+      "provenance": "extracted",
+      "document_id": "doc_statement",
+      "passage_id": "statement.q_other_vehicle",
+      "span": {
+        "char_start": 0,
+        "char_end": 67,
+        "quoted_text": "The other car reversed out of a parking space straight into my lane"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "stmt.contact_point",
+      "assertion": "In the recorded statement the claimant says they hit the other car with their front end.",
+      "subject": "contact_point",
+      "asserter_kind": "claimant",
+      "asserter_name": "Claimant",
+      "provenance": "extracted",
+      "document_id": "doc_statement",
+      "passage_id": "statement.q_other_vehicle",
+      "span": {
+        "char_start": 161,
+        "char_end": 187,
+        "quoted_text": "I hit it with my front end"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "stmt.recall_limitation",
+      "assertion": "In the recorded statement the claimant says they do not remember whether the street lights had come on.",
+      "subject": "recall_limitation",
+      "asserter_kind": "claimant",
+      "asserter_name": "Claimant",
+      "provenance": "extracted",
+      "document_id": "doc_statement",
+      "passage_id": "statement.q_conditions",
+      "span": {
+        "char_start": 0,
+        "char_end": 66,
+        "quoted_text": "I could not tell you whether the street lights had come on by then"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "indep.weather",
+      "assertion": "The independent account states it had rained heavily about an hour before the loss.",
+      "subject": "weather_before_loss",
+      "asserter_kind": "witness",
+      "asserter_name": "Independent witness",
+      "provenance": "extracted",
+      "document_id": "doc_independent",
+      "passage_id": "independent.q_scene",
+      "span": {
+        "char_start": 0,
+        "char_end": 42,
+        "quoted_text": "It had rained heavily about an hour before"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "indep.road_surface",
+      "assertion": "The independent account states the road was still wet.",
+      "subject": "road_surface",
+      "asserter_kind": "witness",
+      "asserter_name": "Independent witness",
+      "provenance": "extracted",
+      "document_id": "doc_independent",
+      "passage_id": "independent.q_scene",
+      "span": {
+        "char_start": 47,
+        "char_end": 85,
+        "quoted_text": "the road was still wet when I came out"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "indep.posted_speed_limit",
+      "assertion": "The independent account states the limit along that stretch of Harrison Street is 20 miles per hour.",
+      "subject": "posted_speed_limit",
+      "asserter_kind": "witness",
+      "asserter_name": "Independent witness",
+      "provenance": "extracted",
+      "document_id": "doc_independent",
+      "passage_id": "independent.q_scene",
+      "span": {
+        "char_start": 87,
+        "char_end": 155,
+        "quoted_text": "The limit along that stretch of Harrison Street is 20 miles per hour"
+      },
+      "field_path": null,
+      "normalised_value": {
+        "Quantity": {
+          "value": 20,
+          "unit": "mph"
+        }
+      },
+      "materiality_intent": null
+    },
+    {
+      "match_key": "indep.second_vehicle_unit_type",
+      "assertion": "The independent account states the dark saloon was parked at the kerb and remained parked there the whole time.",
+      "subject": "unit_type",
+      "asserter_kind": "witness",
+      "asserter_name": "Independent witness",
+      "provenance": "extracted",
+      "document_id": "doc_independent",
+      "passage_id": "independent.q_second_vehicle",
+      "span": {
+        "char_start": 0,
+        "char_end": 88,
+        "quoted_text": "The dark saloon was parked at the kerb and it remained parked at the kerb the whole time"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "indep.second_vehicle_contact_point",
+      "assertion": "The independent account states the damage to the dark saloon was along its right side.",
+      "subject": "contact_point",
+      "asserter_kind": "witness",
+      "asserter_name": "Independent witness",
+      "provenance": "extracted",
+      "document_id": "doc_independent",
+      "passage_id": "independent.q_second_vehicle",
+      "span": {
+        "char_start": 165,
+        "char_end": 206,
+        "quoted_text": "The damage to it was along its right side"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    },
+    {
+      "match_key": "indep.occupant_observation",
+      "assertion": "The independent account states the witness did not see anybody in the driver's seat of the silver hatchback.",
+      "subject": "occupant_observation",
+      "asserter_kind": "witness",
+      "asserter_name": "Independent witness",
+      "provenance": "extracted",
+      "document_id": "doc_independent",
+      "passage_id": "independent.q_hatchback",
+      "span": {
+        "char_start": 64,
+        "char_end": 106,
+        "quoted_text": "I did not see anybody in the driver's seat"
+      },
+      "field_path": null,
+      "normalised_value": null,
+      "materiality_intent": null
+    }
+  ],
+  "facts_must_not_appear": [
+    {
+      "match_key": "must_not.hatchback_was_empty",
+      "assertion": "The claimant's vehicle was unoccupied.",
+      "why_absent": "STRENGTHENING. The witness says only that they did not SEE anybody in the driver's seat. A failure to observe is not an absence, and the FNOL separately records one occupant."
+    },
+    {
+      "match_key": "must_not.claimant_was_speeding",
+      "assertion": "The claimant was exceeding the speed limit.",
+      "why_absent": "ARITHMETIC PRESENTED AS AN ASSERTION. Two different entities are involved — a vehicle's estimated speed and a roadway's posted limit — and comparing them is a judgement about conduct that no stage of this system may make. Both values are recorded; the conclusion is not."
+    },
+    {
+      "match_key": "must_not.street_lights_were_off",
+      "assertion": "The street lights were not on at the time of the loss.",
+      "why_absent": "NON-RECALL READ AS A POSITION. The claimant said they do not remember. A stated inability to recall takes no position on the underlying fact."
+    },
+    {
+      "match_key": "must_not.second_vehicle_at_fault",
+      "assertion": "The second vehicle was at fault for the collision.",
+      "why_absent": "LIABILITY CONCLUSION. Outside V1 by construction. The file contains two incompatible accounts of whether that vehicle moved; it does not resolve them."
+    },
+    {
+      "match_key": "must_not.claimant_account_unreliable",
+      "assertion": "The claimant's account is unreliable.",
+      "why_absent": "CREDIBILITY JUDGEMENT. Forbidden regardless of how many differences the file contains. A difference is between sources, never a verdict about a person."
+    },
+    {
+      "match_key": "must_not.rain_caused_the_collision",
+      "assertion": "The wet road surface caused the collision.",
+      "why_absent": "CAUSAL INFERENCE. The file asserts rain and a wet surface; it asserts no causal relationship, and V1 has no type that may hold one."
+    }
+  ],
+  "expected_timeline": [
+    {
+      "axis": "occurred",
+      "label": "reported date of loss",
+      "order": 1,
+      "when": "2026-06-03",
+      "must_remain_vague": false,
+      "source_match_keys": [
+        "det.loss_date"
+      ]
+    },
+    {
+      "axis": "occurred",
+      "label": "rain reported about an hour before the loss",
+      "order": 1,
+      "when": null,
+      "must_remain_vague": true,
+      "source_match_keys": [
+        "indep.weather"
+      ]
+    },
+    {
+      "axis": "became_known",
+      "label": "loss reported to the carrier",
+      "order": 1,
+      "when": "2026-06-04",
+      "must_remain_vague": false,
+      "source_match_keys": [
+        "det.reported_date"
+      ]
+    },
+    {
+      "axis": "became_known",
+      "label": "recorded statement taken",
+      "order": 2,
+      "when": "2026-06-19",
+      "must_remain_vague": false,
+      "source_match_keys": [
+        "stmt.direction"
+      ]
+    },
+    {
+      "axis": "became_known",
+      "label": "independent account received",
+      "order": 3,
+      "when": "2026-06-27",
+      "must_remain_vague": false,
+      "source_match_keys": [
+        "indep.road_surface"
+      ]
+    },
+    {
+      "axis": "became_known",
+      "label": "reserve increased to 9000",
+      "order": 4,
+      "when": "2026-07-02",
+      "must_remain_vague": false,
+      "source_match_keys": [
+        "det.reserve_increase"
+      ]
+    },
+    {
+      "axis": "became_known",
+      "label": "claim reassigned to the current handler",
+      "order": 5,
+      "when": "2026-07-30",
+      "must_remain_vague": false,
+      "source_match_keys": [
+        "det.handler_count"
+      ]
+    }
+  ],
+  "planted_differences": [
+    {
+      "difference_id": "gold_d_001",
+      "subject": "travel_direction",
+      "position_match_keys": [
+        "fnol.direction",
+        "stmt.direction"
+      ],
+      "detection_method": "extracted",
+      "conflict_pair": 1,
+      "materiality_intent": null
+    },
+    {
+      "difference_id": "gold_d_002",
+      "subject": "road_surface",
+      "position_match_keys": [
+        "fnol.road_surface",
+        "indep.road_surface"
+      ],
+      "detection_method": "extracted",
+      "conflict_pair": 2,
+      "materiality_intent": null
+    },
+    {
+      "difference_id": "gold_d_003",
+      "subject": "second_vehicle_motion",
+      "position_match_keys": [
+        "stmt.other_vehicle_maneuver",
+        "indep.second_vehicle_unit_type"
+      ],
+      "detection_method": "extracted",
+      "conflict_pair": 1,
+      "materiality_intent": null
+    }
+  ],
+  "differences_must_not_be_reported": [
+    {
+      "subject": "occupancy_of_the_claimant_vehicle",
+      "why_not": "DELIBERATELY DISTINCT PREDICATES, NOT COMPETING ACCOUNTS. The FNOL records a count of one occupant; the witness reports not seeing anyone in the driver's seat. The vocabulary separates occupant_count from occupant_observation precisely so that a failure to observe is not scored against a count. One state of affairs satisfies both."
+    },
+    {
+      "subject": "speed_versus_posted_limit",
+      "why_not": "DIFFERENT PROPERTIES OF DIFFERENT ENTITIES. approximate_speed belongs to a vehicle and posted_speed_limit to a roadway. The vocabulary states they are never comparable. Reporting a difference here would be inventing a conduct finding out of two compatible facts."
+    },
+    {
+      "subject": "contact_point_across_the_two_vehicles",
+      "why_not": "DIFFERENT FACTS, NOT ONE FACT TWICE. The claimant's vehicle was struck at the front; the second vehicle was damaged along its right side. A front-to-right-side impact is one coherent geometry, and in any case two vehicles' contact points are separate properties of separate entities."
+    },
+    {
+      "subject": "street_lighting",
+      "why_not": "NON-RECALL CANNOT CONFLICT. The claimant does not remember whether the lights had come on. No other source addresses lighting at all, so there is neither a position to conflict with nor a second position."
+    },
+    {
+      "subject": "weather_versus_road_surface",
+      "why_not": "CORROBORATION, NOT CONFLICT. Rain an hour earlier and a still-wet surface agree with each other. They are also different predicates on the same entity, so they are not competing accounts of one property."
+    },
+    {
+      "subject": "damage_band",
+      "why_not": "SINGLE SOURCE. Only the FNOL states a damage band. Silence from the other two documents is not a position."
+    },
+    {
+      "subject": "driver_is_a_listed_driver",
+      "why_not": "DETERMINISTIC CHECK THAT PASSES. The FNOL names the claimant as driver and the policy lists the claimant as a driver. The check is real and cheap, and its correct output on this claim is silence."
+    }
+  ],
+  "expected_open_questions": [
+    {
+      "match_key": "oq.adjuster_notes",
+      "kind": "expected_document_absent",
+      "question": "The file does not contain adjuster notes.",
+      "expected_source": "adjuster notes"
+    }
+  ]
+}

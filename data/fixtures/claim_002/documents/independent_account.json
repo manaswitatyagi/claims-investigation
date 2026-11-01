@@ -1,0 +1,26 @@
+{
+  "document_id": "doc_independent",
+  "type": "independent_account",
+  "version": "v1",
+  "received_date": "2026-06-27",
+  "checkpoint_available": "C3",
+  "structure_class": "unstructured",
+  "structured_fields": null,
+  "passages": [
+    {
+      "passage_id": "independent.q_scene",
+      "label": "Independent account — the scene",
+      "text": "It had rained heavily about an hour before and the road was still wet when I came out. The limit along that stretch of Harrison Street is 20 miles per hour."
+    },
+    {
+      "passage_id": "independent.q_second_vehicle",
+      "label": "Independent account — the second vehicle",
+      "text": "The dark saloon was parked at the kerb and it remained parked at the kerb the whole time. It never moved from that space, not before the collision and not after it. The damage to it was along its right side."
+    },
+    {
+      "passage_id": "independent.q_hatchback",
+      "label": "Independent account — the claimant's vehicle",
+      "text": "I looked over at the silver hatchback right after the noise and I did not see anybody in the driver's seat."
+    }
+  ]
+}

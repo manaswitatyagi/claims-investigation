@@ -1,0 +1,105 @@
+{
+  "claim_id": "claim_002",
+  "checkpoint": "C3",
+  "provenance": {
+    "fixture_kind": "fully_synthetic",
+    "documents_are_synthetic": true,
+    "disclaimer": "FULLY SYNTHETIC. No real crash record, no real person, and no real claim file contributed to this fixture. Unlike claim_001 there is no objective anchor: every structured field and every narrative passage was authored for this project. Results measured against it record WHAT WE PLANTED (D-003) and are not evidence of real-world performance. The scenario is ordinary on purpose — the fixture tests which CLASS of disagreement the comparison stage can reach, not whether the system can handle an unusual loss.",
+    "anchor": null
+  },
+  "claim_record": {
+    "claim_number": "CLAIM-002",
+    "policy_id": "SYN-POL-002",
+    "loss_date": "2026-06-03",
+    "reported_date": "2026-06-04",
+    "loss_location": "Harrison Street at Gilbert Road",
+    "claim_type": "auto_collision",
+    "status": "open_investigating",
+    "jurisdiction": null,
+    "handler_history": [
+      {
+        "handler": "Handler A",
+        "from": "2026-06-04",
+        "to": "2026-07-30"
+      },
+      {
+        "handler": "Handler B",
+        "from": "2026-07-30",
+        "to": null
+      }
+    ],
+    "parties": [
+      {
+        "party_id": "claimant_1",
+        "name_as_written": "Claimant",
+        "role": "claimant"
+      },
+      {
+        "party_id": "witness_1",
+        "name_as_written": "Independent witness",
+        "role": "witness"
+      }
+    ]
+  },
+  "policy_record": {
+    "policy_id": "SYN-POL-002",
+    "policy_number": "SYN-POL-002",
+    "inception_date": "2026-01-15",
+    "expiry_date": "2027-01-14",
+    "listed_drivers": [
+      "Claimant"
+    ],
+    "scheduled_vehicles": [
+      {
+        "vin": null,
+        "year": 2017,
+        "make": "SYNTHETIC",
+        "model": "HATCHBACK"
+      }
+    ],
+    "coverages": [
+      {
+        "code": "COLL",
+        "limit": "not_specified_in_fixture",
+        "deductible": null
+      }
+    ],
+    "garaging_address": null,
+    "lapse_history": []
+  },
+  "structured_records": {
+    "anchor": null,
+    "crash": null,
+    "vehicles": [
+      {
+        "unit": 1,
+        "entity_id": "vehicle_1",
+        "description": "2017 silver hatchback, the claimant's vehicle"
+      },
+      {
+        "unit": 2,
+        "entity_id": "vehicle_2",
+        "description": "Second vehicle, dark saloon, at the kerb on Harrison Street"
+      }
+    ],
+    "people": []
+  },
+  "documents": [
+    "documents/fnol.json",
+    "documents/recorded_statement.json",
+    "documents/independent_account.json"
+  ],
+  "prior_claims": [],
+  "reserve_history": [
+    {
+      "amount": 2500,
+      "set_at": "2026-06-04",
+      "set_by": "Handler A"
+    },
+    {
+      "amount": 9000,
+      "set_at": "2026-07-02",
+      "set_by": "Handler A"
+    }
+  ]
+}

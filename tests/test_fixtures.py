@@ -16,7 +16,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FIXTURES = os.path.join(ROOT, "data", "fixtures")
 GOLD = os.path.join(ROOT, "data", "gold")
 
-RUNNABLE = ["claim_000_smoke", "claim_000_zero_conflict", "claim_001"]
+RUNNABLE = ["claim_000_smoke", "claim_000_zero_conflict", "claim_001", "claim_002"]
 ALL_FIXTURES = sorted(d for d in os.listdir(FIXTURES)
                       if os.path.isdir(os.path.join(FIXTURES, d)))
 

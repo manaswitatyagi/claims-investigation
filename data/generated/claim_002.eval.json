@@ -1,0 +1,907 @@
+{
+  "fixture": "claim_002",
+  "client": "null",
+  "summary": {
+    "runs": 1,
+    "fact_recall": {
+      "mean": 0.4828,
+      "min": 0.4828,
+      "max": 0.4828,
+      "stdev": 0.0
+    },
+    "fact_precision": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0.0
+    },
+    "span_exactness": {
+      "value": null,
+      "note": "undefined (no denominator)"
+    },
+    "asserter_accuracy": {
+      "value": null,
+      "note": "undefined (no denominator)"
+    },
+    "hallucination_rate": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "stdev": 0.0
+    },
+    "omission_rate": {
+      "mean": 0.5172,
+      "min": 0.5172,
+      "max": 0.5172,
+      "stdev": 0.0
+    },
+    "timeline_ordering_accuracy": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0.0
+    },
+    "difference_recall": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "stdev": 0.0
+    },
+    "difference_precision": {
+      "value": null,
+      "note": "undefined (no denominator)"
+    },
+    "open_question_recall": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0.0
+    },
+    "false_differences_on_zero_conflict_control": null,
+    "invented_precision_count": [
+      0
+    ],
+    "specificity": "requires_human_rating",
+    "open_question_usefulness": "requires_human_rating"
+  },
+  "runs": [
+    {
+      "claim_id": "claim_002",
+      "synthesis_id": "syn_4f4f05bea8f7",
+      "model_id": null,
+      "prompt_version": null,
+      "is_zero_conflict_control": false,
+      "fact_recall": 0.4828,
+      "fact_precision": 1.0,
+      "span_exactness": null,
+      "asserter_accuracy": null,
+      "hallucination_rate": 0.0,
+      "omission_rate": 0.5172,
+      "timeline_ordering_accuracy": 1.0,
+      "invented_precision_count": 0,
+      "invented_precision_items": [],
+      "difference_recall": 0.0,
+      "difference_precision": null,
+      "false_differences_on_zero_conflict_control": null,
+      "open_question_recall": 1.0,
+      "open_question_spurious": 0,
+      "specificity": "requires_human_rating",
+      "open_question_usefulness": "requires_human_rating",
+      "counts": {
+        "gold_facts": 29,
+        "output_facts": 14,
+        "matched_facts": 14,
+        "matched_one_to_one": 14,
+        "co_extractions": 0,
+        "span_exactness_denominator": 0,
+        "unmatched_gold": 15,
+        "unmatched_output": 0,
+        "facts_dropped_by_span_rule": 0,
+        "dropped_as_fabricated_span": 0,
+        "dropped_as_offset_drift": 0,
+        "forbidden_facts_emitted": 0,
+        "differences_output": 0,
+        "differences_planted": 3,
+        "differences_spurious": 0
+      },
+      "detail": {
+        "missed_gold_facts": [
+          "fnol.direction",
+          "fnol.road_surface",
+          "fnol.occupant_count",
+          "fnol.contact_point",
+          "stmt.direction",
+          "stmt.speed",
+          "stmt.other_vehicle_maneuver",
+          "stmt.contact_point",
+          "stmt.recall_limitation",
+          "indep.weather",
+          "indep.road_surface",
+          "indep.posted_speed_limit",
+          "indep.second_vehicle_unit_type",
+          "indep.second_vehicle_contact_point",
+          "indep.occupant_observation"
+        ],
+        "co_extraction_pairs": [],
+        "unmatched_output_facts": [],
+        "forbidden_hits": [],
+        "missed_differences": [
+          "gold_d_001",
+          "gold_d_002",
+          "gold_d_003"
+        ],
+        "spurious_differences": []
+      },
+      "stage_counts": {
+        "passages": 7,
+        "facts_deterministic": 14,
+        "facts_extracted": 0,
+        "facts_dropped": 0,
+        "facts_final": 14,
+        "differences_deterministic": 0,
+        "differences_extracted": 0,
+        "open_questions": 1
+      },
+      "dropped_facts": []
+    }
+  ],
+  "last_result": {
+    "synthesis_id": "syn_4f4f05bea8f7",
+    "claim_id": "claim_002",
+    "generated_at": "2026-11-01T21:23:55.854139+00:00",
+    "checkpoint": "C3",
+    "document_set": [
+      {
+        "document_id": "doc_fnol",
+        "version": "v1",
+        "type": "fnol"
+      },
+      {
+        "document_id": "doc_statement",
+        "version": "v1",
+        "type": "recorded_statement"
+      },
+      {
+        "document_id": "doc_independent",
+        "version": "v1",
+        "type": "independent_account"
+      }
+    ],
+    "model_id": null,
+    "prompt_version": null,
+    "header": {
+      "coverage": {
+        "value": "The policy incepted on 2026-01-15 and expires on 2027-01-14.; The policy was in force on the reported date of loss.",
+        "state": "present",
+        "fact_ids": [
+          "sf_004",
+          "df_003"
+        ]
+      },
+      "loss_description": {
+        "value": "The reported date of loss is 2026-06-03.; The loss location of record is Harrison Street at Gilbert Road.",
+        "state": "present",
+        "fact_ids": [
+          "sf_001",
+          "sf_003"
+        ]
+      },
+      "jurisdiction": {
+        "value": null,
+        "state": "absent_from_file",
+        "fact_ids": []
+      },
+      "damages": {
+        "value": null,
+        "state": "absent_from_file",
+        "fact_ids": []
+      },
+      "status": {
+        "value": "open_investigating",
+        "state": "present",
+        "fact_ids": []
+      },
+      "reserve": {
+        "value": "9000 as at 2026-07-02",
+        "state": "present",
+        "fact_ids": [
+          "bk_004",
+          "bk_005"
+        ]
+      }
+    },
+    "timeline": [
+      {
+        "event_id": "ev_001",
+        "axis": "occurred",
+        "when": {
+          "Date": {
+            "value": "2026-06-03",
+            "precision": "day",
+            "raw_expression": "2026-06-03"
+          }
+        },
+        "label": "The reported date of loss is 2026-06-03.",
+        "source_fact_ids": [
+          "sf_001"
+        ],
+        "ordering_confidence": "exact"
+      },
+      {
+        "event_id": "ev_003",
+        "axis": "became_known",
+        "when": {
+          "Date": {
+            "value": "2026-06-04",
+            "precision": "day",
+            "raw_expression": "2026-06-04"
+          }
+        },
+        "label": "The FNOL was received into the file on 2026-06-04.",
+        "source_fact_ids": [
+          "bk_001"
+        ],
+        "ordering_confidence": "exact"
+      },
+      {
+        "event_id": "ev_002",
+        "axis": "became_known",
+        "when": {
+          "Date": {
+            "value": "2026-06-04",
+            "precision": "day",
+            "raw_expression": "2026-06-04"
+          }
+        },
+        "label": "The loss was reported to the carrier on 2026-06-04.",
+        "source_fact_ids": [
+          "sf_002"
+        ],
+        "ordering_confidence": "exact"
+      },
+      {
+        "event_id": "ev_006",
+        "axis": "became_known",
+        "when": {
+          "Date": {
+            "value": "2026-06-04",
+            "precision": "day",
+            "raw_expression": "2026-06-04"
+          }
+        },
+        "label": "The reserve was set to 2500 on 2026-06-04 by Handler A.",
+        "source_fact_ids": [
+          "bk_004"
+        ],
+        "ordering_confidence": "exact"
+      },
+      {
+        "event_id": "ev_004",
+        "axis": "became_known",
+        "when": {
+          "Date": {
+            "value": "2026-06-19",
+            "precision": "day",
+            "raw_expression": "2026-06-19"
+          }
+        },
+        "label": "The recorded statement was received into the file on 2026-06-19.",
+        "source_fact_ids": [
+          "bk_002"
+        ],
+        "ordering_confidence": "exact"
+      },
+      {
+        "event_id": "ev_005",
+        "axis": "became_known",
+        "when": {
+          "Date": {
+            "value": "2026-06-27",
+            "precision": "day",
+            "raw_expression": "2026-06-27"
+          }
+        },
+        "label": "The independent account was received into the file on 2026-06-27.",
+        "source_fact_ids": [
+          "bk_003"
+        ],
+        "ordering_confidence": "exact"
+      },
+      {
+        "event_id": "ev_007",
+        "axis": "became_known",
+        "when": {
+          "Date": {
+            "value": "2026-07-02",
+            "precision": "day",
+            "raw_expression": "2026-07-02"
+          }
+        },
+        "label": "The reserve was set to 9000 on 2026-07-02 by Handler A.",
+        "source_fact_ids": [
+          "bk_005"
+        ],
+        "ordering_confidence": "exact"
+      }
+    ],
+    "facts": [
+      {
+        "fact_id": "sf_001",
+        "assertion": "The reported date of loss is 2026-06-03.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "claim_record",
+                "field_path": "loss_date"
+              }
+            },
+            "quoted_text": "2026-06-03",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "loss_date",
+        "normalised_value": {
+          "Date": {
+            "value": "2026-06-03",
+            "precision": "day",
+            "raw_expression": "2026-06-03"
+          }
+        },
+        "review": null
+      },
+      {
+        "fact_id": "sf_002",
+        "assertion": "The loss was reported to the carrier on 2026-06-04.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "claim_record",
+                "field_path": "reported_date"
+              }
+            },
+            "quoted_text": "2026-06-04",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "reported_date",
+        "normalised_value": {
+          "Date": {
+            "value": "2026-06-04",
+            "precision": "day",
+            "raw_expression": "2026-06-04"
+          }
+        },
+        "review": null
+      },
+      {
+        "fact_id": "sf_003",
+        "assertion": "The loss location of record is Harrison Street at Gilbert Road.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "claim_record",
+                "field_path": "loss_location"
+              }
+            },
+            "quoted_text": "Harrison Street at Gilbert Road",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "loss_location",
+        "normalised_value": null,
+        "review": null
+      },
+      {
+        "fact_id": "sf_004",
+        "assertion": "The policy incepted on 2026-01-15 and expires on 2027-01-14.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_policy",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "policy_record",
+                "field_path": "inception_date"
+              }
+            },
+            "quoted_text": "2026-01-15",
+            "resolved": true,
+            "resolution_note": null
+          },
+          {
+            "document_id": "rec_policy",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "policy_record",
+                "field_path": "expiry_date"
+              }
+            },
+            "quoted_text": "2027-01-14",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "policy_term",
+        "normalised_value": null,
+        "review": null
+      },
+      {
+        "fact_id": "df_001",
+        "assertion": "The loss was reported 1 day after the reported date of loss.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "claim_record",
+                "field_path": "loss_date"
+              }
+            },
+            "quoted_text": "2026-06-03",
+            "resolved": true,
+            "resolution_note": null
+          },
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "claim_record",
+                "field_path": "reported_date"
+              }
+            },
+            "quoted_text": "2026-06-04",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "reporting_delay_days",
+        "normalised_value": {
+          "Quantity": {
+            "value": 1,
+            "unit": "days"
+          }
+        },
+        "review": null
+      },
+      {
+        "fact_id": "df_002",
+        "assertion": "The policy had been in force 139 days at the date of loss.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_policy",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "policy_record",
+                "field_path": "inception_date"
+              }
+            },
+            "quoted_text": "2026-01-15",
+            "resolved": true,
+            "resolution_note": null
+          },
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "claim_record",
+                "field_path": "loss_date"
+              }
+            },
+            "quoted_text": "2026-06-03",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "policy_age_at_loss_days",
+        "normalised_value": {
+          "Quantity": {
+            "value": 139,
+            "unit": "days"
+          }
+        },
+        "review": null
+      },
+      {
+        "fact_id": "df_003",
+        "assertion": "The policy was in force on the reported date of loss.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_policy",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "policy_record",
+                "field_path": "inception_date"
+              }
+            },
+            "quoted_text": "2026-01-15",
+            "resolved": true,
+            "resolution_note": null
+          },
+          {
+            "document_id": "rec_policy",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "policy_record",
+                "field_path": "expiry_date"
+              }
+            },
+            "quoted_text": "2027-01-14",
+            "resolved": true,
+            "resolution_note": null
+          },
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "claim_record",
+                "field_path": "loss_date"
+              }
+            },
+            "quoted_text": "2026-06-03",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "policy_in_force_at_loss",
+        "normalised_value": {
+          "Boolean": {
+            "value": true
+          }
+        },
+        "review": null
+      },
+      {
+        "fact_id": "df_004",
+        "assertion": "The file records 0 prior claim(s).",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "claim_record",
+                "field_path": "claim_number"
+              }
+            },
+            "quoted_text": "CLAIM-002",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "prior_claim_count",
+        "normalised_value": {
+          "Quantity": {
+            "value": 0,
+            "unit": "claims"
+          }
+        },
+        "review": null
+      },
+      {
+        "fact_id": "df_005",
+        "assertion": "The claim has been handled by 2 handler(s).",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "claim_record",
+                "field_path": "handler_history.0.handler"
+              }
+            },
+            "quoted_text": "Handler A",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "handler_count",
+        "normalised_value": {
+          "Quantity": {
+            "value": 2,
+            "unit": "handlers"
+          }
+        },
+        "review": null
+      },
+      {
+        "fact_id": "bk_001",
+        "assertion": "The FNOL was received into the file on 2026-06-04.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "doc_fnol",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "document_metadata",
+                "field_path": "doc_fnol.received_date"
+              }
+            },
+            "quoted_text": "2026-06-04",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "document_received:doc_fnol",
+        "normalised_value": {
+          "Date": {
+            "value": "2026-06-04",
+            "precision": "day",
+            "raw_expression": "2026-06-04"
+          }
+        },
+        "review": null
+      },
+      {
+        "fact_id": "bk_002",
+        "assertion": "The recorded statement was received into the file on 2026-06-19.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "doc_statement",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "document_metadata",
+                "field_path": "doc_statement.received_date"
+              }
+            },
+            "quoted_text": "2026-06-19",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "document_received:doc_statement",
+        "normalised_value": {
+          "Date": {
+            "value": "2026-06-19",
+            "precision": "day",
+            "raw_expression": "2026-06-19"
+          }
+        },
+        "review": null
+      },
+      {
+        "fact_id": "bk_003",
+        "assertion": "The independent account was received into the file on 2026-06-27.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "doc_independent",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "document_metadata",
+                "field_path": "doc_independent.received_date"
+              }
+            },
+            "quoted_text": "2026-06-27",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "document_received:doc_independent",
+        "normalised_value": {
+          "Date": {
+            "value": "2026-06-27",
+            "precision": "day",
+            "raw_expression": "2026-06-27"
+          }
+        },
+        "review": null
+      },
+      {
+        "fact_id": "bk_004",
+        "assertion": "The reserve was set to 2500 on 2026-06-04 by Handler A.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "reserve_history",
+                "field_path": "0.amount"
+              }
+            },
+            "quoted_text": "2500",
+            "resolved": true,
+            "resolution_note": null
+          },
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "reserve_history",
+                "field_path": "0.set_at"
+              }
+            },
+            "quoted_text": "2026-06-04",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "reserve_change:0",
+        "normalised_value": {
+          "Date": {
+            "value": "2026-06-04",
+            "precision": "day",
+            "raw_expression": "2026-06-04"
+          }
+        },
+        "review": null
+      },
+      {
+        "fact_id": "bk_005",
+        "assertion": "The reserve was set to 9000 on 2026-07-02 by Handler A.",
+        "asserter": {
+          "kind": "system_record",
+          "name": null,
+          "party_id": null
+        },
+        "provenance": "deterministic",
+        "citations": [
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "reserve_history",
+                "field_path": "1.amount"
+              }
+            },
+            "quoted_text": "9000",
+            "resolved": true,
+            "resolution_note": null
+          },
+          {
+            "document_id": "rec_claim",
+            "document_version": "v1",
+            "locator": {
+              "Field": {
+                "record": "reserve_history",
+                "field_path": "1.set_at"
+              }
+            },
+            "quoted_text": "2026-07-02",
+            "resolved": true,
+            "resolution_note": null
+          }
+        ],
+        "subject": "reserve_change:1",
+        "normalised_value": {
+          "Date": {
+            "value": "2026-07-02",
+            "precision": "day",
+            "raw_expression": "2026-07-02"
+          }
+        },
+        "review": null
+      }
+    ],
+    "differences": [],
+    "open_questions": [
+      {
+        "question_id": "oq_001",
+        "question": "The file does not contain adjuster notes. Has it been requested or received?",
+        "kind": "expected_document_absent",
+        "provenance": "deterministic",
+        "expected_source": "adjuster notes",
+        "supporting_citations": [],
+        "related_difference_id": null,
+        "review": null
+      }
+    ],
+    "coverage": {
+      "documents_total": 3,
+      "documents_processed": 3,
+      "documents_withheld_by_checkpoint": 0,
+      "passages_total": 7,
+      "passages_processed": 7,
+      "facts_dropped": 0
+    },
+    "not_assessed": [
+      "materiality \u2014 not assessed by design (PRD \u00a77.4, gated on D-014). The system surfaces differences; a human decides which matter.",
+      "credibility, fault, liability, coverage, and suspicion \u2014 out of scope for V1.",
+      "photographs and scene diagrams \u2014 presence noted, content not read.",
+      "narrative extraction and difference proposal \u2014 no model was run (deterministic-only mode)."
+    ]
+  },
+  "disclaimer": "Scored against an authored synthetic gold answer. Measures what we planted, not real-world performance (D-003)."
+}
