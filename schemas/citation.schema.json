@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://claims-handoff-copilot/schemas/citation.schema.json",
+  "title": "Citation",
+  "description": "Evidence as a value object on a Fact. Never an entity: no independent identity, nothing points at it, never outlives its owner. data/schema.md §1.4.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["document_id", "document_version", "locator", "quoted_text", "resolved"],
+  "properties": {
+    "document_id": { "type": "string" },
+    "document_version": { "type": "string" },
+    "locator": { "$ref": "#/$defs/Locator" },
+    "quoted_text": {
+      "type": "string",
+      "description": "Verbatim, exactly as it appears in the source. P1: span-level, never document-level."
+    },
+    "resolved": {
+      "type": "boolean",
+      "description": "Did this span verify against the source? P2: if false the owning Fact is DROPPED, not hedged. A false never reaches a SynthesisResult; it exists only so the drop is auditable."
+    },
+    "resolution_note": {
+      "type": ["string", "null"],
+      "description": "Diagnostic only. Distinguishes offset drift (text present elsewhere) from absence (text not in passage at all)."
+    }
+  },
+  "$defs": {
+    "Locator": {
+      "description": "Tagged union. Exactly one key.",
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 1,
+      "oneOf": [
+        {
+          "required": ["TextSpan"],
+          "properties": {
+            "TextSpan": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["passage_id", "char_start", "char_end"],
+              "properties": {
+                "passage_id": { "type": "string" },
+                "char_start": { "type": "integer", "minimum": 0 },
+                "char_end": { "type": "integer", "minimum": 0 }
+              }
+            }
+          }
+        },
+        {
+          "required": ["PageParagraph"],
+          "properties": {
+            "PageParagraph": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["page", "paragraph"],
+              "properties": {
+                "page": { "type": "integer", "minimum": 1 },
+                "paragraph": { "type": "integer", "minimum": 1 }
+              }
+            }
+          }
+        },
+        {
+          "required": ["Timestamp"],
+          "properties": {
+            "Timestamp": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["hhmmss"],
+              "properties": {
+                "hhmmss": { "type": "string", "pattern": "^[0-9]{2}:[0-9]{2}:[0-9]{2}$" }
+              }
+            }
+          }
+        },
+        {
+          "required": ["Field"],
+          "properties": {
+            "Field": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["record", "field_path"],
+              "properties": {
+                "record": { "type": "string" },
+                "field_path": { "type": "string" }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

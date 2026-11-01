@@ -1,0 +1,295 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://claims-handoff-copilot/schemas/fact.schema.json",
+  "title": "Fact",
+  "description": "What a source explicitly states, attributed to who stated it. data/schema.md \u00a71.5.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "fact_id",
+    "assertion",
+    "asserter",
+    "provenance",
+    "citations"
+  ],
+  "properties": {
+    "fact_id": {
+      "type": "string"
+    },
+    "assertion": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Neutral framing. NOT the composed sentence. The rendering layer composes asserter + document + assertion into 'the FNOL records the claimant as reporting X' (D-020 P3). Storing the composed sentence would bake presentation into data and make asserter unenforceable."
+    },
+    "asserter": {
+      "$ref": "#/$defs/Asserter"
+    },
+    "provenance": {
+      "enum": [
+        "deterministic",
+        "extracted"
+      ]
+    },
+    "citations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "https://claims-handoff-copilot/schemas/citation.schema.json"
+      },
+      "description": "At least one, always. A derived fact cites BOTH operands."
+    },
+    "subject": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "What this fact is about. Used to group facts for comparison, and as the primary evaluation match key."
+    },
+    "normalised_value": {
+      "$ref": "#/$defs/NormalisedValue"
+    },
+    "extraction_confidence": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Present only when provenance = extracted."
+    },
+    "review": {
+      "$ref": "#/$defs/ReviewStatus"
+    },
+    "subject_entity_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Stable id of the entity this assertion is about. Required for comparison; without it two assertions cannot be known to concern the same thing."
+    },
+    "predicate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Controlled-vocabulary property key. Replaces the free-text `subject` for grouping, which proved model-dependent across runs."
+    },
+    "value": {
+      "description": "Normalised value in the predicate's value space. north/N/northbound collapse; 25 mph and 'moving quickly' do not."
+    },
+    "event_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Temporal scope. Two assertions about one property at different times are not in conflict."
+    }
+  },
+  "$defs": {
+    "Asserter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "description": "Required, no default. Misattribution is the error most likely to be invisible in evaluation and damaging in a deposition.",
+      "properties": {
+        "kind": {
+          "enum": [
+            "claimant",
+            "insured",
+            "witness",
+            "police_officer",
+            "adjuster",
+            "provider",
+            "system_record",
+            "attorney"
+          ]
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "null for system_record"
+        },
+        "party_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Set ONLY when entity resolution has been CONFIRMED by a human. LLMs are confidently wrong here."
+        }
+      }
+    },
+    "NormalisedValue": {
+      "description": "Null, or exactly one tagged variant.",
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 1,
+          "oneOf": [
+            {
+              "required": [
+                "Date"
+              ],
+              "properties": {
+                "Date": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "value",
+                    "precision",
+                    "raw_expression"
+                  ],
+                  "properties": {
+                    "value": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "ISO-8601. MUST be null when precision is 'vague' \u2014 inventing precision on a timeline is the incorrect-chronology risk."
+                    },
+                    "precision": {
+                      "enum": [
+                        "day",
+                        "month",
+                        "year",
+                        "vague"
+                      ]
+                    },
+                    "raw_expression": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "required": [
+                "Money"
+              ],
+              "properties": {
+                "Money": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "amount",
+                    "currency"
+                  ],
+                  "properties": {
+                    "amount": {
+                      "type": "number"
+                    },
+                    "currency": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "required": [
+                "Location"
+              ],
+              "properties": {
+                "Location": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "raw",
+                    "normalised"
+                  ],
+                  "properties": {
+                    "raw": {
+                      "type": "string"
+                    },
+                    "normalised": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "required": [
+                "Boolean"
+              ],
+              "properties": {
+                "Boolean": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "value"
+                  ],
+                  "properties": {
+                    "value": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "required": [
+                "Quantity"
+              ],
+              "properties": {
+                "Quantity": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "value",
+                    "unit"
+                  ],
+                  "properties": {
+                    "value": {
+                      "type": "number"
+                    },
+                    "unit": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "ReviewStatus": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "required": [
+        "state"
+      ],
+      "description": "Shared value object across Fact / Difference / OpenQuestion (D-027).",
+      "properties": {
+        "state": {
+          "enum": [
+            "unreviewed",
+            "accepted",
+            "dismissed",
+            "corrected"
+          ]
+        },
+        "latest_decision_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}

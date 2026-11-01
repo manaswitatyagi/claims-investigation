@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://claims-handoff-copilot/schemas/open_question.schema.json",
+  "title": "OpenQuestion",
+  "description": "Mostly deterministic, and that is the point. The lowest-risk, cheapest high-value output in the product (D-026). data/schema.md §1.8.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["question_id", "question", "kind", "provenance"],
+  "properties": {
+    "question_id": { "type": "string" },
+    "question": { "type": "string", "minLength": 1 },
+    "kind": {
+      "enum": ["expected_document_absent", "requested_never_received", "unresolved_by_file"]
+    },
+    "provenance": { "enum": ["deterministic", "extracted"] },
+    "expected_source": { "type": ["string", "null"], "description": "What would answer it." },
+    "supporting_citations": {
+      "type": "array",
+      "items": { "$ref": "https://claims-handoff-copilot/schemas/citation.schema.json" },
+      "description": "OPTIONAL, unlike Fact.citations. An OpenQuestion about an ABSENT document has nothing to cite. This is the one place the drop-if-uncitable rule cannot apply, and it is precisely why OpenQuestion cannot be a Fact with a status (D-027)."
+    },
+    "related_difference_id": { "type": ["string", "null"] },
+    "review": { "$ref": "https://claims-handoff-copilot/schemas/fact.schema.json#/$defs/ReviewStatus" }
+  }
+}

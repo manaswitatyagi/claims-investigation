@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://claims-handoff-copilot/schemas/difference.schema.json",
+  "title": "Difference",
+  "description": "A SET of positions, not a pair. Three-way disagreement between FNOL, statement, and police narrative is real and common. data/schema.md §1.7.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["difference_id", "subject", "positions", "detection_method", "already_noted"],
+  "properties": {
+    "difference_id": { "type": "string" },
+    "subject": { "type": "string", "minLength": 1 },
+    "positions": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["fact_id", "stance"],
+        "properties": {
+          "fact_id": { "type": "string" },
+          "stance": { "type": "string", "description": "The assertion, as that source has it." }
+        }
+      }
+    },
+    "detection_method": {
+      "enum": ["deterministic", "extracted"],
+      "description": "Lets the two paths be evaluated independently, and stops a deterministic finding inheriting a model's error bar."
+    },
+    "already_noted": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value"],
+      "description": "Adjuster notes are where a discrepancy the predecessor already spotted is written down. Re-reporting a resolved difference destroys trust on first contact.",
+      "properties": {
+        "value": { "type": "boolean" },
+        "fact_id": { "type": ["string", "null"] }
+      }
+    },
+    "review": { "$ref": "https://claims-handoff-copilot/schemas/fact.schema.json#/$defs/ReviewStatus" },
+    "materiality": {
+      "type": "null",
+      "description": "PROVISIONAL — GATED ON D-014. The shape is visible; V1 NEVER populates it. Typed as null so any attempt to write a value fails schema validation. If §12 metric 2 returns at chance, this field and materiality_rationale are deleted and the product ships as 'differences noted, materiality not assessed'."
+    },
+    "materiality_rationale": {
+      "type": "null",
+      "description": "PROVISIONAL — GATED ON D-014. See materiality."
+    }
+  }
+}

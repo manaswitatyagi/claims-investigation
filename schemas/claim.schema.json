@@ -1,0 +1,618 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://claims-handoff-copilot/schemas/claim.schema.json",
+  "title": "Claim",
+  "description": "The canonical input bundle. Authored AS OF a checkpoint (D-004, D-015): documents not yet available at that checkpoint are withheld, because evaluating against a complete closed file is target leakage. data/schema.md Part 2.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "claim_id",
+    "checkpoint",
+    "provenance",
+    "claim_record",
+    "documents"
+  ],
+  "properties": {
+    "claim_id": {
+      "type": "string"
+    },
+    "checkpoint": {
+      "enum": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "description": "C3 post-statement, C4 post-supporting-documents. V1 runs at C3 targeting C4 (D-015)."
+    },
+    "provenance": {
+      "$ref": "#/$defs/Provenance"
+    },
+    "claim_record": {
+      "$ref": "#/$defs/ClaimRecord"
+    },
+    "policy_record": {
+      "$ref": "#/$defs/PolicyRecord"
+    },
+    "structured_records": {
+      "$ref": "#/$defs/StructuredRecords"
+    },
+    "documents": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Document"
+      }
+    },
+    "prior_claims": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/PriorClaimSummary"
+      }
+    },
+    "reserve_history": {
+      "type": "array",
+      "description": "Reserve CHANGES signal when the predecessor's view of severity shifted. Feeds the became_known timeline axis.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "amount",
+          "set_at",
+          "set_by"
+        ],
+        "properties": {
+          "amount": {
+            "type": "number"
+          },
+          "set_at": {
+            "type": "string"
+          },
+          "set_by": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "Provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fixture_kind",
+        "documents_are_synthetic",
+        "disclaimer"
+      ],
+      "description": "D-003. Synthetic evaluation measures WHAT WE PLANTED, never real-world performance, and this must be stated in the artifact itself rather than only in research notes.",
+      "properties": {
+        "fixture_kind": {
+          "enum": [
+            "fully_synthetic",
+            "real_anchor_synthetic_documents"
+          ],
+          "description": "real_anchor_synthetic_documents = structured crash facts derived from a real public record; ALL narrative documents, party names, and identifiers invented."
+        },
+        "documents_are_synthetic": {
+          "const": true
+        },
+        "disclaimer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "anchor": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "description": "Populated only for real_anchor_synthetic_documents. No URL or licence is asserted until the source is verified.",
+          "properties": {
+            "source_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "source_url": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "licence": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "retrieved_at": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "record_identifiers": {
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "todo": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "excluded_entries": {
+              "type": "array",
+              "description": "Anchor entries present in the source export but deliberately NOT carried into this fixture's fact set. Recorded so the exclusion is visible and reversible rather than an unexplained gap in the id sequence.",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "fact_id",
+                  "field",
+                  "reason"
+                ],
+                "properties": {
+                  "fact_id": {
+                    "type": "string"
+                  },
+                  "field": {
+                    "type": "string"
+                  },
+                  "reason": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "ClaimRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim_number",
+        "loss_date",
+        "claim_type",
+        "status",
+        "handler_history",
+        "parties"
+      ],
+      "properties": {
+        "claim_number": {
+          "type": "string"
+        },
+        "policy_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "loss_date": {
+          "type": "string"
+        },
+        "reported_date": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Null when the file does not record a report date. Derivations that need it (reporting delay) are then SKIPPED and declared in not_assessed, rather than computed from an invented value."
+        },
+        "loss_location": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "claim_type": {
+          "type": "string",
+          "description": "Drives the completeness checklist."
+        },
+        "status": {
+          "type": "string"
+        },
+        "jurisdiction": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "handler_history": {
+          "type": "array",
+          "minItems": 1,
+          "description": "The field that identifies the moment the product exists for. The \u00a72.2 segment filter reads from it.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "handler",
+              "from"
+            ],
+            "properties": {
+              "handler": {
+                "type": "string"
+              },
+              "from": {
+                "type": "string"
+              },
+              "to": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        },
+        "parties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Party"
+          }
+        }
+      }
+    },
+    "Party": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "party_id",
+        "name_as_written",
+        "role"
+      ],
+      "properties": {
+        "party_id": {
+          "type": "string"
+        },
+        "name_as_written": {
+          "type": "string",
+          "description": "As it appears in the source. NEVER normalised. A silent merge is the source-confusion failure and is invisible once it has happened."
+        },
+        "role": {
+          "enum": [
+            "insured",
+            "claimant",
+            "driver",
+            "passenger",
+            "witness",
+            "officer",
+            "provider",
+            "attorney"
+          ]
+        },
+        "merge_candidates": {
+          "type": "array",
+          "description": "A proposal list, not a merge. Confirmation is a HumanDecision with action: merge.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "party_id",
+              "proposed_by"
+            ],
+            "properties": {
+              "party_id": {
+                "type": "string"
+              },
+              "proposed_by": {
+                "type": "string"
+              },
+              "confirmed_by": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "PolicyRecord": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "required": [
+        "policy_id",
+        "policy_number",
+        "inception_date",
+        "expiry_date",
+        "listed_drivers",
+        "scheduled_vehicles",
+        "coverages"
+      ],
+      "description": "Separate from Claim because DOCMAP pair 4 (stated driver vs listed driver) is a deterministic, materially consequential check that needs the policy as an addressable object with its own citable fields.",
+      "properties": {
+        "policy_id": {
+          "type": "string"
+        },
+        "policy_number": {
+          "type": "string"
+        },
+        "inception_date": {
+          "type": "string"
+        },
+        "expiry_date": {
+          "type": "string"
+        },
+        "listed_drivers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "scheduled_vehicles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "year",
+              "make",
+              "model"
+            ],
+            "properties": {
+              "vin": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "Optional. Absent VIN disables the vehicle-scheduled check rather than inviting an invented value."
+              },
+              "year": {
+                "type": "integer"
+              },
+              "make": {
+                "type": "string"
+              },
+              "model": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "coverages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "code",
+              "limit"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "limit": {
+                "type": [
+                  "number",
+                  "string"
+                ]
+              },
+              "deductible": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            }
+          }
+        },
+        "garaging_address": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lapse_history": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "StructuredRecords": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "description": "The factual anchor. Deterministic reads only \u2014 no LLM ever touches these.",
+      "properties": {
+        "anchor": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "description": "Structured source data used to anchor a synthetic scenario, keyed by the supplier's own fact id (e.g. \"A001\"), each holding {field, value}. Read deterministically and cited by Field locator; NEVER sent to a model. This is structured source data, not an insurance document and not unquestionable truth \u2014 facts derived from it are attributed to the record, exactly as a claimant's account is attributed to the claimant."
+        },
+        "crash": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "vehicles": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "people": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "PriorClaimSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim_number",
+        "loss_date",
+        "claim_type"
+      ],
+      "properties": {
+        "claim_number": {
+          "type": "string"
+        },
+        "loss_date": {
+          "type": "string"
+        },
+        "claim_type": {
+          "type": "string"
+        },
+        "amount_paid": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      }
+    },
+    "Document": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "document_id",
+        "type",
+        "version",
+        "checkpoint_available",
+        "structure_class"
+      ],
+      "properties": {
+        "document_id": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "fnol",
+            "policy_record",
+            "recorded_statement",
+            "independent_account",
+            "police_report",
+            "adjuster_notes",
+            "repair_estimate",
+            "correspondence",
+            "witness_statement",
+            "prior_claims_summary",
+            "rental_invoice",
+            "other"
+          ]
+        },
+        "version": {
+          "type": "string",
+          "description": "Required by D-020 P6."
+        },
+        "received_date": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Drives the became_known timeline axis. Null when unrecorded; the document then contributes no became_known event rather than a fabricated one."
+        },
+        "checkpoint_available": {
+          "enum": [
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5"
+          ],
+          "description": "Enforces D-004. A document whose checkpoint is later than the claim's run checkpoint is withheld, not read."
+        },
+        "structure_class": {
+          "enum": [
+            "structured",
+            "structured_with_narrative",
+            "unstructured",
+            "non_text"
+          ],
+          "description": "THE FIELD THAT ROUTES THE PIPELINE. A `structured` document that reached an LLM is a bug the data can expose \u2014 the ingester raises rather than warns."
+        },
+        "structured_fields": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "passages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Passage"
+          }
+        }
+      }
+    },
+    "Passage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "passage_id",
+        "label",
+        "text"
+      ],
+      "description": "The addressable region of narrative text. The unit an LLM is given, and the unit a TextSpan offsets into. An FNOL has ~100 structured fields and one or two narrative boxes; the LLM must receive ONLY the boxes.",
+      "properties": {
+        "passage_id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "speaker_turns": {
+          "type": "array",
+          "description": "Recorded statements only. Without it the leading-question failure ('so you were stopped at the light?') is unverifiable \u2014 and that is the highest-consequence error type in the model.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "speaker",
+              "char_start",
+              "char_end"
+            ],
+            "properties": {
+              "speaker": {
+                "type": "string"
+              },
+              "speaker_kind": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "char_start": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "char_end": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "timestamp": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

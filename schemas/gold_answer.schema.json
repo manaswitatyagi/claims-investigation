@@ -1,0 +1,320 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://claims-handoff-copilot/schemas/gold_answer.schema.json",
+  "title": "GoldAnswer",
+  "description": "Authored expected output for one fixture. PRD \u00a79.3. These labels record WHAT WE PLANTED. They are not evidence of real-world performance (D-003).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "claim_id",
+    "checkpoint",
+    "disclaimer",
+    "expected_facts",
+    "facts_must_not_appear",
+    "expected_timeline",
+    "planted_differences",
+    "differences_must_not_be_reported",
+    "expected_open_questions"
+  ],
+  "properties": {
+    "claim_id": {
+      "type": "string"
+    },
+    "checkpoint": {
+      "enum": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5"
+      ]
+    },
+    "disclaimer": {
+      "type": "string",
+      "minLength": 1,
+      "description": "REQUIRED and carried in the artifact itself, not only in research notes (D-003)."
+    },
+    "is_zero_conflict_control": {
+      "type": "boolean",
+      "default": false,
+      "description": "PRD \u00a79.3 category 2. The most important case in the set: correct output is an EMPTY differences list. If the system invents one, no other metric matters."
+    },
+    "expected_facts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/GoldFact"
+      }
+    },
+    "facts_must_not_appear": {
+      "type": "array",
+      "description": "Plausible-but-absent facts, to catch hallucination DIRECTLY rather than by inference.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "match_key",
+          "assertion",
+          "why_absent"
+        ],
+        "properties": {
+          "match_key": {
+            "type": "string"
+          },
+          "assertion": {
+            "type": "string"
+          },
+          "why_absent": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "expected_timeline": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "axis",
+          "label",
+          "order",
+          "must_remain_vague"
+        ],
+        "properties": {
+          "axis": {
+            "enum": [
+              "occurred",
+              "became_known"
+            ]
+          },
+          "label": {
+            "type": "string"
+          },
+          "order": {
+            "type": "integer",
+            "description": "Expected position within its axis. Equal values mean order is not determinable and either is correct."
+          },
+          "when": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "must_remain_vague": {
+            "type": "boolean",
+            "description": "True where the source expression is vague. Normalising it to a timestamp is an INVENTED-PRECISION failure, scored as its own metric."
+          },
+          "source_match_keys": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "planted_differences": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/GoldDifference"
+      }
+    },
+    "differences_must_not_be_reported": {
+      "type": "array",
+      "description": "Includes the already-resolved-by-predecessor case (PRD \u00a79.3 category 12) and ordinary non-conflicting variation.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "subject",
+          "why_not"
+        ],
+        "properties": {
+          "subject": {
+            "type": "string"
+          },
+          "why_not": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "expected_open_questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "match_key",
+          "kind",
+          "question"
+        ],
+        "properties": {
+          "match_key": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "expected_document_absent",
+              "requested_never_received",
+              "unresolved_by_file"
+            ]
+          },
+          "question": {
+            "type": "string"
+          },
+          "expected_source": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "GoldFact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "match_key",
+        "assertion",
+        "subject",
+        "asserter_kind",
+        "provenance",
+        "document_id"
+      ],
+      "properties": {
+        "match_key": {
+          "type": "string",
+          "description": "The unambiguous evaluation join key. Deliberately explicit rather than inferred: E1 uses NO LLM-as-judge, because a model judging a model makes the evaluation non-reproducible."
+        },
+        "assertion": {
+          "type": "string"
+        },
+        "subject": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Grouping key. Facts about the same thing share a subject; this is what the difference stage compares on and what the evaluation matcher joins on."
+        },
+        "asserter_kind": {
+          "$ref": "https://claims-handoff-copilot/schemas/fact.schema.json#/$defs/Asserter/properties/kind"
+        },
+        "asserter_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "provenance": {
+          "enum": [
+            "deterministic",
+            "extracted"
+          ]
+        },
+        "document_id": {
+          "type": "string"
+        },
+        "passage_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "span": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "required": [
+            "char_start",
+            "char_end",
+            "quoted_text"
+          ],
+          "properties": {
+            "char_start": {
+              "type": "integer"
+            },
+            "char_end": {
+              "type": "integer"
+            },
+            "quoted_text": {
+              "type": "string"
+            }
+          }
+        },
+        "field_path": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "For deterministic facts."
+        },
+        "normalised_value": {
+          "$ref": "https://claims-handoff-copilot/schemas/fact.schema.json#/$defs/NormalisedValue"
+        },
+        "materiality_intent": {
+          "enum": [
+            "clearly_material",
+            "clearly_immaterial",
+            "deliberately_ambiguous",
+            null
+          ],
+          "description": "\u00a712 HUMAN-STUDY METADATA ONLY. NOT an E1 metric and NEVER scored \u2014 see D-033. The evaluation runner raises if anything attempts to score it. A model reproducing labels we authored measures our own consistency, not performance."
+        }
+      }
+    },
+    "GoldDifference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "difference_id",
+        "subject",
+        "position_match_keys",
+        "detection_method"
+      ],
+      "properties": {
+        "difference_id": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "position_match_keys": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "string"
+          },
+          "description": "match_keys of the gold facts that take positions. A set, not a pair."
+        },
+        "detection_method": {
+          "enum": [
+            "deterministic",
+            "extracted"
+          ]
+        },
+        "conflict_pair": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "Which DOCMAP \u00a73 conflict pair this instantiates. E1 plants pair 1 (FNOL narrative vs recorded statement)."
+        },
+        "materiality_intent": {
+          "enum": [
+            "clearly_material",
+            "clearly_immaterial",
+            "deliberately_ambiguous",
+            null
+          ],
+          "description": "\u00a712 HUMAN-STUDY METADATA ONLY. NOT an E1 metric and NEVER scored \u2014 see D-033."
+        }
+      }
+    }
+  }
+}
