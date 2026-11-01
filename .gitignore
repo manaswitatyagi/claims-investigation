@@ -1,0 +1,27 @@
+# Secrets — never commit. The OpenRouter key lives here.
+.env
+.env.*
+!.env.example
+
+# Environments and dependencies
+.venv/
+node_modules/
+
+# Python artefacts
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Frontend build output — regenerate with `cd web && npm run build`
+src/presentation/static/
+
+# Mutable demo state — reseeded from the E2 artifacts on first run
+data/runtime/
+
+# OS noise
+.DS_Store
+
+# NOTE: data/generated/ IS committed, deliberately. The freeze manifests are
+# what make the E1/E1b/E2 baselines reproducible, and the decision log cites the
+# run artifacts as evidence. Ignoring them would leave every experiment claim in
+# docs/ unverifiable. 3.1 MB, no file over 200 KB.
