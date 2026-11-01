@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { fetchClaimView } from "./api";
+import { fetchClaimView, STATIC_MODE } from "./api";
 import type { ClaimView, Neighborhood } from "./types";
 import { AddEvidence } from "./components/AddEvidence";
 import { EvidenceGraph } from "./components/EvidenceGraph";
@@ -84,6 +84,16 @@ export default function App() {
       <p className="disclaimer">
         <strong>Verified means traced, not true.</strong> {view.claim.verified_means}
       </p>
+
+      {STATIC_MODE && (
+        <p className="disclaimer static-banner">
+          <strong>Synthetic claim, read-only snapshot.</strong> No real claim, person or
+          crash record is involved. This is a frozen E2 run served as a file, so the
+          numbers match the ones reported in <code>docs/experiments/E2.md</code>.
+          Adding a document is disabled here because ingestion runs the real
+          extraction pipeline.
+        </p>
+      )}
 
       <div className="layout">
         <div className="col-left">

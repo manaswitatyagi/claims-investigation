@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { STATIC_MODE } from "../api";
 import type { IngestionSession } from "../useClaimStream";
 import { RelationshipBadge } from "./RelationshipBadge";
 
@@ -33,6 +34,30 @@ export function AddEvidence({
   }
 
   const busy = session.status === "uploading" || session.status === "processing";
+
+  // On a static host there is no extraction pipeline to run. Saying so is the
+  // only honest option: a mocked ingestion that invented plausible assertions
+  // without locating a single quote would be a demonstration of nothing, on a
+  // page whose entire claim is that every assertion is traced to a span.
+  if (STATIC_MODE) {
+    return (
+      <section className="panel add-evidence" aria-labelledby="add-h">
+        <div className="panel-head">
+          <h2 id="add-h">Add evidence</h2>
+          <span className="live-dot">read-only</span>
+        </div>
+        <p className="panel-sub">
+          Disabled on the hosted demo. Ingesting a document runs the real extraction
+          and quote-location pipeline, which needs the Python backend — and mocking it
+          would mean showing assertions whose spans were never resolved.
+        </p>
+        <p className="static-note">
+          Everything else is live against the same data contract the server returns.
+          To add a document, clone the repo and run the server locally.
+        </p>
+      </section>
+    );
+  }
 
   return (
     <section className="panel add-evidence" aria-labelledby="add-h">

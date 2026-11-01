@@ -1,0 +1,83 @@
+# Publish the read-only demo to GitHub Pages.
+#
+# The hosted page is the SAME app as the local one, built with VITE_STATIC=1 so
+# it reads the baked `web/public/claim-view.json` instead of calling the Python
+# API. One codebase, one build config, three env vars — a separate static entry
+# point would drift from the real one and the drift would only appear here.
+#
+# The snapshot is committed, not generated in CI: producing it needs the Python
+# venv and the frozen E2 run, and regenerating it on every push would let the
+# hosted numbers move without a commit saying so. Refresh it deliberately with
+#   ./.venv/bin/python tools/build_static_snapshot.py
+name: pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never let two deploys race; a half-published site is worse than a stale one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install
+        working-directory: web
+        run: npm ci
+
+      - name: Fail if the snapshot is missing
+        # Without it the page renders an error instead of a claim, and a green
+        # deploy would hide that.
+        run: test -s web/public/claim-view.json
+
+      - name: Build
+        working-directory: web
+        env:
+          VITE_STATIC: "1"
+          VITE_BASE: /claims-investigation/
+          VITE_OUT: dist
+        run: npm run build
+
+      - name: Check the build is really static
+        # The API path must be dead-code-eliminated. If a /api/claim call
+        # survives into the bundle, the hosted page will try to reach a backend
+        # that does not exist, so this is a build failure rather than a runtime
+        # surprise for whoever opens the link.
+        run: |
+          if grep -rq "/api/claim" web/dist/assets; then
+            echo "::error::/api/claim survived into the static bundle"
+            exit 1
+          fi
+          test -s web/dist/claim-view.json
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

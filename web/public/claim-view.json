@@ -1,0 +1,2304 @@
+{
+ "assertions": {
+  "an_001": {
+   "asserter_kind": "system_record",
+   "asserter_name": null,
+   "assertion_id": "an_001",
+   "entity_id": "crash_001",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": null,
+    "char_start": null,
+    "document_id": "rec_anchor",
+    "document_version": "v1",
+    "field_path": "A001.value",
+    "field_record": "anchor_record",
+    "locator_kind": "Field",
+    "passage_id": null,
+    "passage_label": null,
+    "passage_text": null,
+    "quote": "2026-08-11T21:43:00",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "occurred_at",
+   "predicate_label": "Occurred at",
+   "provenance": "deterministic",
+   "source_id": "rec_anchor",
+   "source_name": "Structured crash record",
+   "text": "The structured crash record codes CRASH_DATE as 2026-08-11T21:43:00.",
+   "value": "2026-08-11T21:43:00",
+   "value_normalised": "2026-08-11T21:43:00"
+  },
+  "an_002": {
+   "asserter_kind": "system_record",
+   "asserter_name": null,
+   "assertion_id": "an_002",
+   "entity_id": "crash_001",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": null,
+    "char_start": null,
+    "document_id": "rec_anchor",
+    "document_version": "v1",
+    "field_path": "A002.value",
+    "field_record": "anchor_record",
+    "locator_kind": "Field",
+    "passage_id": null,
+    "passage_label": null,
+    "passage_text": null,
+    "quote": "4655 S Karlov Ave, Chicago, IL",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "location_text",
+   "predicate_label": "Location",
+   "provenance": "deterministic",
+   "source_id": "rec_anchor",
+   "source_name": "Structured crash record",
+   "text": "The structured crash record codes LOCATION_TEXT as 4655 S Karlov Ave, Chicago, IL.",
+   "value": "4655 S Karlov Ave, Chicago, IL",
+   "value_normalised": "4655 S Karlov Ave, Chicago, IL"
+  },
+  "an_003": {
+   "asserter_kind": "system_record",
+   "asserter_name": null,
+   "assertion_id": "an_003",
+   "entity_id": "roadway_1",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": null,
+    "char_start": null,
+    "document_id": "rec_anchor",
+    "document_version": "v1",
+    "field_path": "A003.value",
+    "field_record": "anchor_record",
+    "locator_kind": "Field",
+    "passage_id": null,
+    "passage_label": null,
+    "passage_text": null,
+    "quote": "WET",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "road_surface",
+   "predicate_label": "Road surface",
+   "provenance": "deterministic",
+   "source_id": "rec_anchor",
+   "source_name": "Structured crash record",
+   "text": "The structured crash record codes ROADWAY_SURFACE_COND as WET.",
+   "value": "wet",
+   "value_normalised": "wet"
+  },
+  "an_004": {
+   "asserter_kind": "system_record",
+   "asserter_name": null,
+   "assertion_id": "an_004",
+   "entity_id": "roadway_1",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": null,
+    "char_start": null,
+    "document_id": "rec_anchor",
+    "document_version": "v1",
+    "field_path": "A004.value",
+    "field_record": "anchor_record",
+    "locator_kind": "Field",
+    "passage_id": null,
+    "passage_label": null,
+    "passage_text": null,
+    "quote": "DARKNESS, LIGHTED ROAD",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "lighting",
+   "predicate_label": "Lighting",
+   "provenance": "deterministic",
+   "source_id": "rec_anchor",
+   "source_name": "Structured crash record",
+   "text": "The structured crash record codes LIGHTING_CONDITION as DARKNESS, LIGHTED ROAD.",
+   "value": "darkness lighted road",
+   "value_normalised": "darkness_lighted_road"
+  },
+  "an_005": {
+   "asserter_kind": "system_record",
+   "asserter_name": null,
+   "assertion_id": "an_005",
+   "entity_id": "crash_001",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": null,
+    "char_start": null,
+    "document_id": "rec_anchor",
+    "document_version": "v1",
+    "field_path": "A005.value",
+    "field_record": "anchor_record",
+    "locator_kind": "Field",
+    "passage_id": null,
+    "passage_label": null,
+    "passage_text": null,
+    "quote": "PARKED MOTOR VEHICLE",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "crash_type",
+   "predicate_label": "Crash type",
+   "provenance": "deterministic",
+   "source_id": "rec_anchor",
+   "source_name": "Structured crash record",
+   "text": "The structured crash record codes FIRST_CRASH_TYPE as PARKED MOTOR VEHICLE.",
+   "value": "PARKED MOTOR VEHICLE",
+   "value_normalised": "PARKED MOTOR VEHICLE"
+  },
+  "an_006": {
+   "asserter_kind": "system_record",
+   "asserter_name": null,
+   "assertion_id": "an_006",
+   "entity_id": "roadway_1",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": null,
+    "char_start": null,
+    "document_id": "rec_anchor",
+    "document_version": "v1",
+    "field_path": "A008.value",
+    "field_record": "anchor_record",
+    "locator_kind": "Field",
+    "passage_id": null,
+    "passage_label": null,
+    "passage_text": null,
+    "quote": "30",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "posted_speed_limit",
+   "predicate_label": "Posted speed limit",
+   "provenance": "deterministic",
+   "source_id": "rec_anchor",
+   "source_name": "Structured crash record",
+   "text": "The structured crash record codes POSTED_SPEED_LIMIT as 30.",
+   "value": "30 mph",
+   "value_normalised": {
+    "max": 30.0,
+    "min": 30.0,
+    "unit": "mph"
+   }
+  },
+  "an_008": {
+   "asserter_kind": "system_record",
+   "asserter_name": null,
+   "assertion_id": "an_008",
+   "entity_id": "vehicle_1",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": null,
+    "char_start": null,
+    "document_id": "rec_anchor",
+    "document_version": "v1",
+    "field_path": "A010.value",
+    "field_record": "anchor_record",
+    "locator_kind": "Field",
+    "passage_id": null,
+    "passage_label": null,
+    "passage_text": null,
+    "quote": "N",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "travel_direction",
+   "predicate_label": "Travel direction",
+   "provenance": "deterministic",
+   "source_id": "rec_anchor",
+   "source_name": "Structured crash record",
+   "text": "The structured crash record codes UNIT_1_TRAVEL_DIRECTION as N.",
+   "value": "north",
+   "value_normalised": "north"
+  },
+  "an_009": {
+   "asserter_kind": "system_record",
+   "asserter_name": null,
+   "assertion_id": "an_009",
+   "entity_id": "vehicle_1",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": null,
+    "char_start": null,
+    "document_id": "rec_anchor",
+    "document_version": "v1",
+    "field_path": "A011.value",
+    "field_record": "anchor_record",
+    "locator_kind": "Field",
+    "passage_id": null,
+    "passage_label": null,
+    "passage_text": null,
+    "quote": "TURNING RIGHT",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "maneuver",
+   "predicate_label": "Maneuver",
+   "provenance": "deterministic",
+   "source_id": "rec_anchor",
+   "source_name": "Structured crash record",
+   "text": "The structured crash record codes UNIT_1_MANEUVER as TURNING RIGHT.",
+   "value": "right turn",
+   "value_normalised": "right_turn"
+  },
+  "an_010": {
+   "asserter_kind": "system_record",
+   "asserter_name": null,
+   "assertion_id": "an_010",
+   "entity_id": "vehicle_1",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": null,
+    "char_start": null,
+    "document_id": "rec_anchor",
+    "document_version": "v1",
+    "field_path": "A012.value",
+    "field_record": "anchor_record",
+    "locator_kind": "Field",
+    "passage_id": null,
+    "passage_label": null,
+    "passage_text": null,
+    "quote": "1",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "occupant_count",
+   "predicate_label": "Occupant count",
+   "provenance": "deterministic",
+   "source_id": "rec_anchor",
+   "source_name": "Structured crash record",
+   "text": "The structured crash record codes UNIT_1_OCCUPANT_CNT as 1.",
+   "value": "1 occupants",
+   "value_normalised": {
+    "max": 1.0,
+    "min": 1.0,
+    "unit": "occupants"
+   }
+  },
+  "an_012": {
+   "asserter_kind": "system_record",
+   "asserter_name": null,
+   "assertion_id": "an_012",
+   "entity_id": "vehicle_2",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": null,
+    "char_start": null,
+    "document_id": "rec_anchor",
+    "document_version": "v1",
+    "field_path": "A014.value",
+    "field_record": "anchor_record",
+    "locator_kind": "Field",
+    "passage_id": null,
+    "passage_label": null,
+    "passage_text": null,
+    "quote": "PARKED",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "unit_type",
+   "predicate_label": "Unit type",
+   "provenance": "deterministic",
+   "source_id": "rec_anchor",
+   "source_name": "Structured crash record",
+   "text": "The structured crash record codes UNIT_2_UNIT_TYPE as PARKED.",
+   "value": "parked",
+   "value_normalised": "parked"
+  },
+  "an_013": {
+   "asserter_kind": "system_record",
+   "asserter_name": null,
+   "assertion_id": "an_013",
+   "entity_id": "vehicle_2",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": null,
+    "char_start": null,
+    "document_id": "rec_anchor",
+    "document_version": "v1",
+    "field_path": "A015.value",
+    "field_record": "anchor_record",
+    "locator_kind": "Field",
+    "passage_id": null,
+    "passage_label": null,
+    "passage_text": null,
+    "quote": "0",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "occupant_count",
+   "predicate_label": "Occupant count",
+   "provenance": "deterministic",
+   "source_id": "rec_anchor",
+   "source_name": "Structured crash record",
+   "text": "The structured crash record codes UNIT_2_OCCUPANT_CNT as 0.",
+   "value": "0 occupants",
+   "value_normalised": {
+    "max": 0.0,
+    "min": 0.0,
+    "unit": "occupants"
+   }
+  },
+  "an_014": {
+   "asserter_kind": "system_record",
+   "asserter_name": null,
+   "assertion_id": "an_014",
+   "entity_id": "vehicle_2",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": null,
+    "char_start": null,
+    "document_id": "rec_anchor",
+    "document_version": "v1",
+    "field_path": "A016.value",
+    "field_record": "anchor_record",
+    "locator_kind": "Field",
+    "passage_id": null,
+    "passage_label": null,
+    "passage_text": null,
+    "quote": "REAR-RIGHT-CORNER",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "contact_point",
+   "predicate_label": "Contact point",
+   "provenance": "deterministic",
+   "source_id": "rec_anchor",
+   "source_name": "Structured crash record",
+   "text": "The structured crash record codes UNIT_2_FIRST_CONTACT_POINT as REAR-RIGHT-CORNER.",
+   "value": "rear right corner",
+   "value_normalised": "rear_right_corner"
+  },
+  "an_016": {
+   "asserter_kind": "system_record",
+   "asserter_name": null,
+   "assertion_id": "an_016",
+   "entity_id": "crash_001",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": null,
+    "char_start": null,
+    "document_id": "rec_anchor",
+    "document_version": "v1",
+    "field_path": "A018.value",
+    "field_record": "anchor_record",
+    "locator_kind": "Field",
+    "passage_id": null,
+    "passage_label": null,
+    "passage_text": null,
+    "quote": "0",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "injuries_total",
+   "predicate_label": "Injuries recorded",
+   "provenance": "deterministic",
+   "source_id": "rec_anchor",
+   "source_name": "Structured crash record",
+   "text": "The structured crash record codes INJURIES_TOTAL as 0.",
+   "value": "0 persons",
+   "value_normalised": {
+    "max": 0.0,
+    "min": 0.0,
+    "unit": "persons"
+   }
+  },
+  "an_017": {
+   "asserter_kind": "system_record",
+   "asserter_name": null,
+   "assertion_id": "an_017",
+   "entity_id": "crash_001",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": null,
+    "char_start": null,
+    "document_id": "rec_anchor",
+    "document_version": "v1",
+    "field_path": "A019.value",
+    "field_record": "anchor_record",
+    "locator_kind": "Field",
+    "passage_id": null,
+    "passage_label": null,
+    "passage_text": null,
+    "quote": "OVER $1,500",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "damage_band",
+   "predicate_label": "Damage band",
+   "provenance": "deterministic",
+   "source_id": "rec_anchor",
+   "source_name": "Structured crash record",
+   "text": "The structured crash record codes DAMAGE as OVER $1,500.",
+   "value": "OVER $1,500",
+   "value_normalised": "OVER $1,500"
+  },
+  "anv_001": {
+   "asserter_kind": "system_record",
+   "asserter_name": null,
+   "assertion_id": "anv_001",
+   "entity_id": "vehicle_1",
+   "event_id": null,
+   "evidence": {
+    "char_end": null,
+    "char_start": null,
+    "document_id": "rec_anchor",
+    "document_version": "v1",
+    "field_path": "A009.value",
+    "field_record": "anchor_record",
+    "locator_kind": "Field",
+    "passage_id": null,
+    "passage_label": null,
+    "passage_text": null,
+    "quote": "{'year': 2015, 'make': 'MERCEDES-BENZ', 'model': 'G-CLASS'}",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "vehicle_make",
+   "predicate_label": "Make",
+   "provenance": "deterministic",
+   "source_id": "rec_anchor",
+   "source_name": "Structured crash record",
+   "text": "The structured crash record codes UNIT_1_VEHICLE make as MERCEDES-BENZ.",
+   "value": "MERCEDES-BENZ",
+   "value_normalised": "MERCEDES-BENZ"
+  },
+  "anv_002": {
+   "asserter_kind": "system_record",
+   "asserter_name": null,
+   "assertion_id": "anv_002",
+   "entity_id": "vehicle_1",
+   "event_id": null,
+   "evidence": {
+    "char_end": null,
+    "char_start": null,
+    "document_id": "rec_anchor",
+    "document_version": "v1",
+    "field_path": "A009.value",
+    "field_record": "anchor_record",
+    "locator_kind": "Field",
+    "passage_id": null,
+    "passage_label": null,
+    "passage_text": null,
+    "quote": "{'year': 2015, 'make': 'MERCEDES-BENZ', 'model': 'G-CLASS'}",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "vehicle_model",
+   "predicate_label": "Model",
+   "provenance": "deterministic",
+   "source_id": "rec_anchor",
+   "source_name": "Structured crash record",
+   "text": "The structured crash record codes UNIT_1_VEHICLE model as G-CLASS.",
+   "value": "G-CLASS",
+   "value_normalised": "G-CLASS"
+  },
+  "anv_003": {
+   "asserter_kind": "system_record",
+   "asserter_name": null,
+   "assertion_id": "anv_003",
+   "entity_id": "vehicle_1",
+   "event_id": null,
+   "evidence": {
+    "char_end": null,
+    "char_start": null,
+    "document_id": "rec_anchor",
+    "document_version": "v1",
+    "field_path": "A009.value",
+    "field_record": "anchor_record",
+    "locator_kind": "Field",
+    "passage_id": null,
+    "passage_label": null,
+    "passage_text": null,
+    "quote": "{'year': 2015, 'make': 'MERCEDES-BENZ', 'model': 'G-CLASS'}",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "vehicle_year",
+   "predicate_label": "Year",
+   "provenance": "deterministic",
+   "source_id": "rec_anchor",
+   "source_name": "Structured crash record",
+   "text": "The structured crash record codes UNIT_1_VEHICLE year as 2015.",
+   "value": "2015 year",
+   "value_normalised": {
+    "max": 2015.0,
+    "min": 2015.0,
+    "unit": "year"
+   }
+  },
+  "anv_004": {
+   "asserter_kind": "system_record",
+   "asserter_name": null,
+   "assertion_id": "anv_004",
+   "entity_id": "vehicle_2",
+   "event_id": null,
+   "evidence": {
+    "char_end": null,
+    "char_start": null,
+    "document_id": "rec_anchor",
+    "document_version": "v1",
+    "field_path": "A013.value",
+    "field_record": "anchor_record",
+    "locator_kind": "Field",
+    "passage_id": null,
+    "passage_label": null,
+    "passage_text": null,
+    "quote": "{'year': 2005, 'make': 'CHEVROLET', 'model': 'SUBURBAN'}",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "vehicle_make",
+   "predicate_label": "Make",
+   "provenance": "deterministic",
+   "source_id": "rec_anchor",
+   "source_name": "Structured crash record",
+   "text": "The structured crash record codes UNIT_2_VEHICLE make as CHEVROLET.",
+   "value": "CHEVROLET",
+   "value_normalised": "CHEVROLET"
+  },
+  "anv_005": {
+   "asserter_kind": "system_record",
+   "asserter_name": null,
+   "assertion_id": "anv_005",
+   "entity_id": "vehicle_2",
+   "event_id": null,
+   "evidence": {
+    "char_end": null,
+    "char_start": null,
+    "document_id": "rec_anchor",
+    "document_version": "v1",
+    "field_path": "A013.value",
+    "field_record": "anchor_record",
+    "locator_kind": "Field",
+    "passage_id": null,
+    "passage_label": null,
+    "passage_text": null,
+    "quote": "{'year': 2005, 'make': 'CHEVROLET', 'model': 'SUBURBAN'}",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "vehicle_model",
+   "predicate_label": "Model",
+   "provenance": "deterministic",
+   "source_id": "rec_anchor",
+   "source_name": "Structured crash record",
+   "text": "The structured crash record codes UNIT_2_VEHICLE model as SUBURBAN.",
+   "value": "SUBURBAN",
+   "value_normalised": "SUBURBAN"
+  },
+  "anv_006": {
+   "asserter_kind": "system_record",
+   "asserter_name": null,
+   "assertion_id": "anv_006",
+   "entity_id": "vehicle_2",
+   "event_id": null,
+   "evidence": {
+    "char_end": null,
+    "char_start": null,
+    "document_id": "rec_anchor",
+    "document_version": "v1",
+    "field_path": "A013.value",
+    "field_record": "anchor_record",
+    "locator_kind": "Field",
+    "passage_id": null,
+    "passage_label": null,
+    "passage_text": null,
+    "quote": "{'year': 2005, 'make': 'CHEVROLET', 'model': 'SUBURBAN'}",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "vehicle_year",
+   "predicate_label": "Year",
+   "provenance": "deterministic",
+   "source_id": "rec_anchor",
+   "source_name": "Structured crash record",
+   "text": "The structured crash record codes UNIT_2_VEHICLE year as 2005.",
+   "value": "2005 year",
+   "value_normalised": {
+    "max": 2005.0,
+    "min": 2005.0,
+    "unit": "year"
+   }
+  },
+  "ex_001": {
+   "asserter_kind": "claimant",
+   "asserter_name": null,
+   "assertion_id": "ex_001",
+   "entity_id": "vehicle_1",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": 64,
+    "char_start": 26,
+    "document_id": "doc_fnol",
+    "document_version": "v1",
+    "field_path": null,
+    "field_record": null,
+    "locator_kind": "TextSpan",
+    "passage_id": "fnol.description_of_accident",
+    "passage_label": "First Notice of Loss narrative",
+    "passage_text": "The claimant reports that their vehicle was traveling northbound on Karlov Avenue at night. The claimant says the road was wet and visibility was limited by darkness, although the roadway was illuminated.\n\nThe claimant reports that the vehicle was turning right when it came into contact with a parked vehicle. The claimant says they did not initially realize how significant the contact was.\n\nThe claimant states that they stopped briefly, looked at the vehicles, and then left because they were concerned about being stranded late at night. The claimant says they did not see anyone inside the parked vehicle and did not believe anyone was injured.",
+    "quote": "their vehicle was traveling northbound",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "travel_direction",
+   "predicate_label": "Travel direction",
+   "provenance": "extracted",
+   "source_id": "doc_fnol",
+   "source_name": "First Notice of Loss",
+   "text": "The claimant's vehicle was traveling northbound.",
+   "value": "north",
+   "value_normalised": "north"
+  },
+  "ex_002": {
+   "asserter_kind": "claimant",
+   "asserter_name": null,
+   "assertion_id": "ex_002",
+   "entity_id": "roadway_1",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": 126,
+    "char_start": 110,
+    "document_id": "doc_fnol",
+    "document_version": "v1",
+    "field_path": null,
+    "field_record": null,
+    "locator_kind": "TextSpan",
+    "passage_id": "fnol.description_of_accident",
+    "passage_label": "First Notice of Loss narrative",
+    "passage_text": "The claimant reports that their vehicle was traveling northbound on Karlov Avenue at night. The claimant says the road was wet and visibility was limited by darkness, although the roadway was illuminated.\n\nThe claimant reports that the vehicle was turning right when it came into contact with a parked vehicle. The claimant says they did not initially realize how significant the contact was.\n\nThe claimant states that they stopped briefly, looked at the vehicles, and then left because they were concerned about being stranded late at night. The claimant says they did not see anyone inside the parked vehicle and did not believe anyone was injured.",
+    "quote": "the road was wet",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "road_surface",
+   "predicate_label": "Road surface",
+   "provenance": "extracted",
+   "source_id": "doc_fnol",
+   "source_name": "First Notice of Loss",
+   "text": "The road surface was wet.",
+   "value": "wet",
+   "value_normalised": "wet"
+  },
+  "ex_003": {
+   "asserter_kind": "claimant",
+   "asserter_name": null,
+   "assertion_id": "ex_003",
+   "entity_id": "roadway_1",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": 203,
+    "char_start": 131,
+    "document_id": "doc_fnol",
+    "document_version": "v1",
+    "field_path": null,
+    "field_record": null,
+    "locator_kind": "TextSpan",
+    "passage_id": "fnol.description_of_accident",
+    "passage_label": "First Notice of Loss narrative",
+    "passage_text": "The claimant reports that their vehicle was traveling northbound on Karlov Avenue at night. The claimant says the road was wet and visibility was limited by darkness, although the roadway was illuminated.\n\nThe claimant reports that the vehicle was turning right when it came into contact with a parked vehicle. The claimant says they did not initially realize how significant the contact was.\n\nThe claimant states that they stopped briefly, looked at the vehicles, and then left because they were concerned about being stranded late at night. The claimant says they did not see anyone inside the parked vehicle and did not believe anyone was injured.",
+    "quote": "visibility was limited by darkness, although the roadway was illuminated",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "lighting",
+   "predicate_label": "Lighting",
+   "provenance": "extracted",
+   "source_id": "doc_fnol",
+   "source_name": "First Notice of Loss",
+   "text": "Visibility was limited by darkness, although the roadway was illuminated.",
+   "value": null,
+   "value_normalised": null
+  },
+  "ex_004": {
+   "asserter_kind": "claimant",
+   "asserter_name": null,
+   "assertion_id": "ex_004",
+   "entity_id": "vehicle_1",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": 261,
+    "char_start": 232,
+    "document_id": "doc_fnol",
+    "document_version": "v1",
+    "field_path": null,
+    "field_record": null,
+    "locator_kind": "TextSpan",
+    "passage_id": "fnol.description_of_accident",
+    "passage_label": "First Notice of Loss narrative",
+    "passage_text": "The claimant reports that their vehicle was traveling northbound on Karlov Avenue at night. The claimant says the road was wet and visibility was limited by darkness, although the roadway was illuminated.\n\nThe claimant reports that the vehicle was turning right when it came into contact with a parked vehicle. The claimant says they did not initially realize how significant the contact was.\n\nThe claimant states that they stopped briefly, looked at the vehicles, and then left because they were concerned about being stranded late at night. The claimant says they did not see anyone inside the parked vehicle and did not believe anyone was injured.",
+    "quote": "the vehicle was turning right",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "maneuver",
+   "predicate_label": "Maneuver",
+   "provenance": "extracted",
+   "source_id": "doc_fnol",
+   "source_name": "First Notice of Loss",
+   "text": "The claimant's vehicle was turning right.",
+   "value": "right turn",
+   "value_normalised": "right_turn"
+  },
+  "ex_005": {
+   "asserter_kind": "claimant",
+   "asserter_name": null,
+   "assertion_id": "ex_005",
+   "entity_id": "vehicle_2",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": 309,
+    "char_start": 293,
+    "document_id": "doc_fnol",
+    "document_version": "v1",
+    "field_path": null,
+    "field_record": null,
+    "locator_kind": "TextSpan",
+    "passage_id": "fnol.description_of_accident",
+    "passage_label": "First Notice of Loss narrative",
+    "passage_text": "The claimant reports that their vehicle was traveling northbound on Karlov Avenue at night. The claimant says the road was wet and visibility was limited by darkness, although the roadway was illuminated.\n\nThe claimant reports that the vehicle was turning right when it came into contact with a parked vehicle. The claimant says they did not initially realize how significant the contact was.\n\nThe claimant states that they stopped briefly, looked at the vehicles, and then left because they were concerned about being stranded late at night. The claimant says they did not see anyone inside the parked vehicle and did not believe anyone was injured.",
+    "quote": "a parked vehicle",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "maneuver",
+   "predicate_label": "Maneuver",
+   "provenance": "extracted",
+   "source_id": "doc_fnol",
+   "source_name": "First Notice of Loss",
+   "text": "The other vehicle was parked.",
+   "value": "parked",
+   "value_normalised": "parked"
+  },
+  "ex_006": {
+   "asserter_kind": "claimant",
+   "asserter_name": null,
+   "assertion_id": "ex_006",
+   "entity_id": "vehicle_2",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": 309,
+    "char_start": 293,
+    "document_id": "doc_fnol",
+    "document_version": "v1",
+    "field_path": null,
+    "field_record": null,
+    "locator_kind": "TextSpan",
+    "passage_id": "fnol.description_of_accident",
+    "passage_label": "First Notice of Loss narrative",
+    "passage_text": "The claimant reports that their vehicle was traveling northbound on Karlov Avenue at night. The claimant says the road was wet and visibility was limited by darkness, although the roadway was illuminated.\n\nThe claimant reports that the vehicle was turning right when it came into contact with a parked vehicle. The claimant says they did not initially realize how significant the contact was.\n\nThe claimant states that they stopped briefly, looked at the vehicles, and then left because they were concerned about being stranded late at night. The claimant says they did not see anyone inside the parked vehicle and did not believe anyone was injured.",
+    "quote": "a parked vehicle",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "unit_type",
+   "predicate_label": "Unit type",
+   "provenance": "extracted",
+   "source_id": "doc_fnol",
+   "source_name": "First Notice of Loss",
+   "text": "The other vehicle was a parked unit.",
+   "value": "parked",
+   "value_normalised": "parked"
+  },
+  "ex_007": {
+   "asserter_kind": "claimant",
+   "asserter_name": null,
+   "assertion_id": "ex_007",
+   "entity_id": "claimant_1",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": 391,
+    "char_start": 334,
+    "document_id": "doc_fnol",
+    "document_version": "v1",
+    "field_path": null,
+    "field_record": null,
+    "locator_kind": "TextSpan",
+    "passage_id": "fnol.description_of_accident",
+    "passage_label": "First Notice of Loss narrative",
+    "passage_text": "The claimant reports that their vehicle was traveling northbound on Karlov Avenue at night. The claimant says the road was wet and visibility was limited by darkness, although the roadway was illuminated.\n\nThe claimant reports that the vehicle was turning right when it came into contact with a parked vehicle. The claimant says they did not initially realize how significant the contact was.\n\nThe claimant states that they stopped briefly, looked at the vehicles, and then left because they were concerned about being stranded late at night. The claimant says they did not see anyone inside the parked vehicle and did not believe anyone was injured.",
+    "quote": "did not initially realize how significant the contact was",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "awareness_of_severity",
+   "predicate_label": "Awareness of severity",
+   "provenance": "extracted",
+   "source_id": "doc_fnol",
+   "source_name": "First Notice of Loss",
+   "text": "The claimant did not initially realize how significant the contact was.",
+   "value": "did not initially realize how significant the contact was",
+   "value_normalised": "did not initially realize how significant the contact was"
+  },
+  "ex_008": {
+   "asserter_kind": "claimant",
+   "asserter_name": null,
+   "assertion_id": "ex_008",
+   "entity_id": "claimant_1",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": 478,
+    "char_start": 424,
+    "document_id": "doc_fnol",
+    "document_version": "v1",
+    "field_path": null,
+    "field_record": null,
+    "locator_kind": "TextSpan",
+    "passage_id": "fnol.description_of_accident",
+    "passage_label": "First Notice of Loss narrative",
+    "passage_text": "The claimant reports that their vehicle was traveling northbound on Karlov Avenue at night. The claimant says the road was wet and visibility was limited by darkness, although the roadway was illuminated.\n\nThe claimant reports that the vehicle was turning right when it came into contact with a parked vehicle. The claimant says they did not initially realize how significant the contact was.\n\nThe claimant states that they stopped briefly, looked at the vehicles, and then left because they were concerned about being stranded late at night. The claimant says they did not see anyone inside the parked vehicle and did not believe anyone was injured.",
+    "quote": "stopped briefly, looked at the vehicles, and then left",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "post_collision_action",
+   "predicate_label": "Post-collision actions",
+   "provenance": "extracted",
+   "source_id": "doc_fnol",
+   "source_name": "First Notice of Loss",
+   "text": "The claimant stopped briefly, looked at the vehicles, and then left.",
+   "value": null,
+   "value_normalised": null
+  },
+  "ex_009": {
+   "asserter_kind": "claimant",
+   "asserter_name": null,
+   "assertion_id": "ex_009",
+   "entity_id": "claimant_1",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": 541,
+    "char_start": 497,
+    "document_id": "doc_fnol",
+    "document_version": "v1",
+    "field_path": null,
+    "field_record": null,
+    "locator_kind": "TextSpan",
+    "passage_id": "fnol.description_of_accident",
+    "passage_label": "First Notice of Loss narrative",
+    "passage_text": "The claimant reports that their vehicle was traveling northbound on Karlov Avenue at night. The claimant says the road was wet and visibility was limited by darkness, although the roadway was illuminated.\n\nThe claimant reports that the vehicle was turning right when it came into contact with a parked vehicle. The claimant says they did not initially realize how significant the contact was.\n\nThe claimant states that they stopped briefly, looked at the vehicles, and then left because they were concerned about being stranded late at night. The claimant says they did not see anyone inside the parked vehicle and did not believe anyone was injured.",
+    "quote": "concerned about being stranded late at night",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "reason_for_leaving",
+   "predicate_label": "Stated reason for leaving",
+   "provenance": "extracted",
+   "source_id": "doc_fnol",
+   "source_name": "First Notice of Loss",
+   "text": "The claimant left because they were concerned about being stranded late at night.",
+   "value": "concerned about being stranded late at night",
+   "value_normalised": "concerned about being stranded late at night"
+  },
+  "ex_010": {
+   "asserter_kind": "claimant",
+   "asserter_name": null,
+   "assertion_id": "ex_010",
+   "entity_id": "vehicle_2",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": 610,
+    "char_start": 566,
+    "document_id": "doc_fnol",
+    "document_version": "v1",
+    "field_path": null,
+    "field_record": null,
+    "locator_kind": "TextSpan",
+    "passage_id": "fnol.description_of_accident",
+    "passage_label": "First Notice of Loss narrative",
+    "passage_text": "The claimant reports that their vehicle was traveling northbound on Karlov Avenue at night. The claimant says the road was wet and visibility was limited by darkness, although the roadway was illuminated.\n\nThe claimant reports that the vehicle was turning right when it came into contact with a parked vehicle. The claimant says they did not initially realize how significant the contact was.\n\nThe claimant states that they stopped briefly, looked at the vehicles, and then left because they were concerned about being stranded late at night. The claimant says they did not see anyone inside the parked vehicle and did not believe anyone was injured.",
+    "quote": "did not see anyone inside the parked vehicle",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "occupant_observation",
+   "predicate_label": "Occupants observed",
+   "provenance": "extracted",
+   "source_id": "doc_fnol",
+   "source_name": "First Notice of Loss",
+   "text": "The claimant did not see anyone inside the parked vehicle.",
+   "value": null,
+   "value_normalised": null
+  },
+  "ex_011": {
+   "asserter_kind": "claimant",
+   "asserter_name": null,
+   "assertion_id": "ex_011",
+   "entity_id": "claimant_1",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": 649,
+    "char_start": 615,
+    "document_id": "doc_fnol",
+    "document_version": "v1",
+    "field_path": null,
+    "field_record": null,
+    "locator_kind": "TextSpan",
+    "passage_id": "fnol.description_of_accident",
+    "passage_label": "First Notice of Loss narrative",
+    "passage_text": "The claimant reports that their vehicle was traveling northbound on Karlov Avenue at night. The claimant says the road was wet and visibility was limited by darkness, although the roadway was illuminated.\n\nThe claimant reports that the vehicle was turning right when it came into contact with a parked vehicle. The claimant says they did not initially realize how significant the contact was.\n\nThe claimant states that they stopped briefly, looked at the vehicles, and then left because they were concerned about being stranded late at night. The claimant says they did not see anyone inside the parked vehicle and did not believe anyone was injured.",
+    "quote": "did not believe anyone was injured",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "injury_belief",
+   "predicate_label": "Belief about injury",
+   "provenance": "extracted",
+   "source_id": "doc_fnol",
+   "source_name": "First Notice of Loss",
+   "text": "The claimant did not believe anyone was injured.",
+   "value": null,
+   "value_normalised": null
+  },
+  "ex_012": {
+   "asserter_kind": "claimant",
+   "asserter_name": null,
+   "assertion_id": "ex_012",
+   "entity_id": "vehicle_1",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": 72,
+    "char_start": 28,
+    "document_id": "doc_statement",
+    "document_version": "v1",
+    "field_path": null,
+    "field_record": null,
+    "locator_kind": "TextSpan",
+    "passage_id": "statement.body",
+    "passage_label": "Recorded statement of the claimant",
+    "passage_text": "The claimant says they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.\n\nThe claimant recalls that it had been raining earlier and that the pavement was wet. They say they were driving \"around 25 to 30 mph\" before beginning the turn.\n\nAccording to the claimant, the turn was normal until the vehicle suddenly slid. The claimant says they tried to correct the vehicle but the front of the Mercedes contacted a parked SUV.\n\nThe claimant says they did not see anyone inside the parked SUV and did not believe anyone was injured.\n\nThe claimant says they stopped after the collision, looked at the vehicles, and then left because they were concerned about being stranded late at night. They say they intended to report the incident.\n\nThe claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.",
+    "quote": "driving the Mercedes-Benz G-Class southbound",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "travel_direction",
+   "predicate_label": "Travel direction",
+   "provenance": "extracted",
+   "source_id": "doc_statement",
+   "source_name": "Recorded statement",
+   "text": "The claimant states they were driving southbound.",
+   "value": "south",
+   "value_normalised": "south"
+  },
+  "ex_013": {
+   "asserter_kind": "claimant",
+   "asserter_name": null,
+   "assertion_id": "ex_013",
+   "entity_id": "vehicle_1",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": 96,
+    "char_start": 77,
+    "document_id": "doc_statement",
+    "document_version": "v1",
+    "field_path": null,
+    "field_record": null,
+    "locator_kind": "TextSpan",
+    "passage_id": "statement.body",
+    "passage_label": "Recorded statement of the claimant",
+    "passage_text": "The claimant says they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.\n\nThe claimant recalls that it had been raining earlier and that the pavement was wet. They say they were driving \"around 25 to 30 mph\" before beginning the turn.\n\nAccording to the claimant, the turn was normal until the vehicle suddenly slid. The claimant says they tried to correct the vehicle but the front of the Mercedes contacted a parked SUV.\n\nThe claimant says they did not see anyone inside the parked SUV and did not believe anyone was injured.\n\nThe claimant says they stopped after the collision, looked at the vehicles, and then left because they were concerned about being stranded late at night. They say they intended to report the incident.\n\nThe claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.",
+    "quote": "making a right turn",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "maneuver",
+   "predicate_label": "Maneuver",
+   "provenance": "extracted",
+   "source_id": "doc_statement",
+   "source_name": "Recorded statement",
+   "text": "The claimant states they were making a right turn.",
+   "value": null,
+   "value_normalised": null
+  },
+  "ex_014": {
+   "asserter_kind": "claimant",
+   "asserter_name": null,
+   "assertion_id": "ex_014",
+   "entity_id": "crash_001",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": 121,
+    "char_start": 97,
+    "document_id": "doc_statement",
+    "document_version": "v1",
+    "field_path": null,
+    "field_record": null,
+    "locator_kind": "TextSpan",
+    "passage_id": "statement.body",
+    "passage_label": "Recorded statement of the claimant",
+    "passage_text": "The claimant says they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.\n\nThe claimant recalls that it had been raining earlier and that the pavement was wet. They say they were driving \"around 25 to 30 mph\" before beginning the turn.\n\nAccording to the claimant, the turn was normal until the vehicle suddenly slid. The claimant says they tried to correct the vehicle but the front of the Mercedes contacted a parked SUV.\n\nThe claimant says they did not see anyone inside the parked SUV and did not believe anyone was injured.\n\nThe claimant says they stopped after the collision, looked at the vehicles, and then left because they were concerned about being stranded late at night. They say they intended to report the incident.\n\nThe claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.",
+    "quote": "at approximately 9:40 PM",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "occurred_at",
+   "predicate_label": "Occurred at",
+   "provenance": "extracted",
+   "source_id": "doc_statement",
+   "source_name": "Recorded statement",
+   "text": "The claimant states the collision occurred at approximately 9:40 PM.",
+   "value": "approximately 9:40 PM",
+   "value_normalised": "approximately 9:40 PM"
+  },
+  "ex_015": {
+   "asserter_kind": "claimant",
+   "asserter_name": null,
+   "assertion_id": "ex_015",
+   "entity_id": "roadway_1",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": 177,
+    "char_start": 153,
+    "document_id": "doc_statement",
+    "document_version": "v1",
+    "field_path": null,
+    "field_record": null,
+    "locator_kind": "TextSpan",
+    "passage_id": "statement.body",
+    "passage_label": "Recorded statement of the claimant",
+    "passage_text": "The claimant says they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.\n\nThe claimant recalls that it had been raining earlier and that the pavement was wet. They say they were driving \"around 25 to 30 mph\" before beginning the turn.\n\nAccording to the claimant, the turn was normal until the vehicle suddenly slid. The claimant says they tried to correct the vehicle but the front of the Mercedes contacted a parked SUV.\n\nThe claimant says they did not see anyone inside the parked SUV and did not believe anyone was injured.\n\nThe claimant says they stopped after the collision, looked at the vehicles, and then left because they were concerned about being stranded late at night. They say they intended to report the incident.\n\nThe claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.",
+    "quote": "had been raining earlier",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "weather_before_loss",
+   "predicate_label": "Weather before loss",
+   "provenance": "extracted",
+   "source_id": "doc_statement",
+   "source_name": "Recorded statement",
+   "text": "The claimant recalls that it had been raining earlier.",
+   "value": null,
+   "value_normalised": null
+  },
+  "ex_016": {
+   "asserter_kind": "claimant",
+   "asserter_name": null,
+   "assertion_id": "ex_016",
+   "entity_id": "roadway_1",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": 207,
+    "char_start": 191,
+    "document_id": "doc_statement",
+    "document_version": "v1",
+    "field_path": null,
+    "field_record": null,
+    "locator_kind": "TextSpan",
+    "passage_id": "statement.body",
+    "passage_label": "Recorded statement of the claimant",
+    "passage_text": "The claimant says they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.\n\nThe claimant recalls that it had been raining earlier and that the pavement was wet. They say they were driving \"around 25 to 30 mph\" before beginning the turn.\n\nAccording to the claimant, the turn was normal until the vehicle suddenly slid. The claimant says they tried to correct the vehicle but the front of the Mercedes contacted a parked SUV.\n\nThe claimant says they did not see anyone inside the parked SUV and did not believe anyone was injured.\n\nThe claimant says they stopped after the collision, looked at the vehicles, and then left because they were concerned about being stranded late at night. They say they intended to report the incident.\n\nThe claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.",
+    "quote": "pavement was wet",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "road_surface",
+   "predicate_label": "Road surface",
+   "provenance": "extracted",
+   "source_id": "doc_statement",
+   "source_name": "Recorded statement",
+   "text": "The claimant recalls that the pavement was wet.",
+   "value": "wet",
+   "value_normalised": "wet"
+  },
+  "ex_017": {
+   "asserter_kind": "claimant",
+   "asserter_name": null,
+   "assertion_id": "ex_017",
+   "entity_id": "vehicle_1",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": 256,
+    "char_start": 237,
+    "document_id": "doc_statement",
+    "document_version": "v1",
+    "field_path": null,
+    "field_record": null,
+    "locator_kind": "TextSpan",
+    "passage_id": "statement.body",
+    "passage_label": "Recorded statement of the claimant",
+    "passage_text": "The claimant says they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.\n\nThe claimant recalls that it had been raining earlier and that the pavement was wet. They say they were driving \"around 25 to 30 mph\" before beginning the turn.\n\nAccording to the claimant, the turn was normal until the vehicle suddenly slid. The claimant says they tried to correct the vehicle but the front of the Mercedes contacted a parked SUV.\n\nThe claimant says they did not see anyone inside the parked SUV and did not believe anyone was injured.\n\nThe claimant says they stopped after the collision, looked at the vehicles, and then left because they were concerned about being stranded late at night. They say they intended to report the incident.\n\nThe claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.",
+    "quote": "around 25 to 30 mph",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "approximate_speed",
+   "predicate_label": "Approximate speed",
+   "provenance": "extracted",
+   "source_id": "doc_statement",
+   "source_name": "Recorded statement",
+   "text": "The claimant states they were driving around 25 to 30 mph before beginning the turn.",
+   "value": null,
+   "value_normalised": null
+  },
+  "ex_018": {
+   "asserter_kind": "claimant",
+   "asserter_name": null,
+   "assertion_id": "ex_018",
+   "entity_id": "vehicle_1",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": 364,
+    "char_start": 343,
+    "document_id": "doc_statement",
+    "document_version": "v1",
+    "field_path": null,
+    "field_record": null,
+    "locator_kind": "TextSpan",
+    "passage_id": "statement.body",
+    "passage_label": "Recorded statement of the claimant",
+    "passage_text": "The claimant says they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.\n\nThe claimant recalls that it had been raining earlier and that the pavement was wet. They say they were driving \"around 25 to 30 mph\" before beginning the turn.\n\nAccording to the claimant, the turn was normal until the vehicle suddenly slid. The claimant says they tried to correct the vehicle but the front of the Mercedes contacted a parked SUV.\n\nThe claimant says they did not see anyone inside the parked SUV and did not believe anyone was injured.\n\nThe claimant says they stopped after the collision, looked at the vehicles, and then left because they were concerned about being stranded late at night. They say they intended to report the incident.\n\nThe claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.",
+    "quote": "vehicle suddenly slid",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "loss_of_control",
+   "predicate_label": "Loss of control",
+   "provenance": "extracted",
+   "source_id": "doc_statement",
+   "source_name": "Recorded statement",
+   "text": "According to the claimant, the vehicle suddenly slid.",
+   "value": null,
+   "value_normalised": null
+  },
+  "ex_019": {
+   "asserter_kind": "claimant",
+   "asserter_name": null,
+   "assertion_id": "ex_019",
+   "entity_id": "vehicle_1",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": 470,
+    "char_start": 426,
+    "document_id": "doc_statement",
+    "document_version": "v1",
+    "field_path": null,
+    "field_record": null,
+    "locator_kind": "TextSpan",
+    "passage_id": "statement.body",
+    "passage_label": "Recorded statement of the claimant",
+    "passage_text": "The claimant says they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.\n\nThe claimant recalls that it had been raining earlier and that the pavement was wet. They say they were driving \"around 25 to 30 mph\" before beginning the turn.\n\nAccording to the claimant, the turn was normal until the vehicle suddenly slid. The claimant says they tried to correct the vehicle but the front of the Mercedes contacted a parked SUV.\n\nThe claimant says they did not see anyone inside the parked SUV and did not believe anyone was injured.\n\nThe claimant says they stopped after the collision, looked at the vehicles, and then left because they were concerned about being stranded late at night. They say they intended to report the incident.\n\nThe claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.",
+    "quote": "front of the Mercedes contacted a parked SUV",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "contact_point",
+   "predicate_label": "Contact point",
+   "provenance": "extracted",
+   "source_id": "doc_statement",
+   "source_name": "Recorded statement",
+   "text": "The claimant states the front of the Mercedes made contact.",
+   "value": "front",
+   "value_normalised": "front"
+  },
+  "ex_020": {
+   "asserter_kind": "claimant",
+   "asserter_name": null,
+   "assertion_id": "ex_020",
+   "entity_id": "vehicle_2",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": 536,
+    "char_start": 526,
+    "document_id": "doc_statement",
+    "document_version": "v1",
+    "field_path": null,
+    "field_record": null,
+    "locator_kind": "TextSpan",
+    "passage_id": "statement.body",
+    "passage_label": "Recorded statement of the claimant",
+    "passage_text": "The claimant says they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.\n\nThe claimant recalls that it had been raining earlier and that the pavement was wet. They say they were driving \"around 25 to 30 mph\" before beginning the turn.\n\nAccording to the claimant, the turn was normal until the vehicle suddenly slid. The claimant says they tried to correct the vehicle but the front of the Mercedes contacted a parked SUV.\n\nThe claimant says they did not see anyone inside the parked SUV and did not believe anyone was injured.\n\nThe claimant says they stopped after the collision, looked at the vehicles, and then left because they were concerned about being stranded late at night. They say they intended to report the incident.\n\nThe claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.",
+    "quote": "parked SUV",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "maneuver",
+   "predicate_label": "Maneuver",
+   "provenance": "extracted",
+   "source_id": "doc_statement",
+   "source_name": "Recorded statement",
+   "text": "The other vehicle was parked.",
+   "value": "parked",
+   "value_normalised": "parked"
+  },
+  "ex_021": {
+   "asserter_kind": "claimant",
+   "asserter_name": null,
+   "assertion_id": "ex_021",
+   "entity_id": "vehicle_2",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": 536,
+    "char_start": 496,
+    "document_id": "doc_statement",
+    "document_version": "v1",
+    "field_path": null,
+    "field_record": null,
+    "locator_kind": "TextSpan",
+    "passage_id": "statement.body",
+    "passage_label": "Recorded statement of the claimant",
+    "passage_text": "The claimant says they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.\n\nThe claimant recalls that it had been raining earlier and that the pavement was wet. They say they were driving \"around 25 to 30 mph\" before beginning the turn.\n\nAccording to the claimant, the turn was normal until the vehicle suddenly slid. The claimant says they tried to correct the vehicle but the front of the Mercedes contacted a parked SUV.\n\nThe claimant says they did not see anyone inside the parked SUV and did not believe anyone was injured.\n\nThe claimant says they stopped after the collision, looked at the vehicles, and then left because they were concerned about being stranded late at night. They say they intended to report the incident.\n\nThe claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.",
+    "quote": "did not see anyone inside the parked SUV",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "occupant_observation",
+   "predicate_label": "Occupants observed",
+   "provenance": "extracted",
+   "source_id": "doc_statement",
+   "source_name": "Recorded statement",
+   "text": "The claimant did not see anyone inside the parked SUV.",
+   "value": null,
+   "value_normalised": null
+  },
+  "ex_022": {
+   "asserter_kind": "claimant",
+   "asserter_name": null,
+   "assertion_id": "ex_022",
+   "entity_id": "claimant_1",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": 575,
+    "char_start": 541,
+    "document_id": "doc_statement",
+    "document_version": "v1",
+    "field_path": null,
+    "field_record": null,
+    "locator_kind": "TextSpan",
+    "passage_id": "statement.body",
+    "passage_label": "Recorded statement of the claimant",
+    "passage_text": "The claimant says they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.\n\nThe claimant recalls that it had been raining earlier and that the pavement was wet. They say they were driving \"around 25 to 30 mph\" before beginning the turn.\n\nAccording to the claimant, the turn was normal until the vehicle suddenly slid. The claimant says they tried to correct the vehicle but the front of the Mercedes contacted a parked SUV.\n\nThe claimant says they did not see anyone inside the parked SUV and did not believe anyone was injured.\n\nThe claimant says they stopped after the collision, looked at the vehicles, and then left because they were concerned about being stranded late at night. They say they intended to report the incident.\n\nThe claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.",
+    "quote": "did not believe anyone was injured",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "injury_belief",
+   "predicate_label": "Belief about injury",
+   "provenance": "extracted",
+   "source_id": "doc_statement",
+   "source_name": "Recorded statement",
+   "text": "The claimant did not believe anyone was injured.",
+   "value": null,
+   "value_normalised": null
+  },
+  "ex_023": {
+   "asserter_kind": "claimant",
+   "asserter_name": null,
+   "assertion_id": "ex_023",
+   "entity_id": "claimant_1",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": 667,
+    "char_start": 601,
+    "document_id": "doc_statement",
+    "document_version": "v1",
+    "field_path": null,
+    "field_record": null,
+    "locator_kind": "TextSpan",
+    "passage_id": "statement.body",
+    "passage_label": "Recorded statement of the claimant",
+    "passage_text": "The claimant says they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.\n\nThe claimant recalls that it had been raining earlier and that the pavement was wet. They say they were driving \"around 25 to 30 mph\" before beginning the turn.\n\nAccording to the claimant, the turn was normal until the vehicle suddenly slid. The claimant says they tried to correct the vehicle but the front of the Mercedes contacted a parked SUV.\n\nThe claimant says they did not see anyone inside the parked SUV and did not believe anyone was injured.\n\nThe claimant says they stopped after the collision, looked at the vehicles, and then left because they were concerned about being stranded late at night. They say they intended to report the incident.\n\nThe claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.",
+    "quote": "stopped after the collision, looked at the vehicles, and then left",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "post_collision_action",
+   "predicate_label": "Post-collision actions",
+   "provenance": "extracted",
+   "source_id": "doc_statement",
+   "source_name": "Recorded statement",
+   "text": "The claimant states they stopped after the collision, looked at the vehicles, and then left.",
+   "value": null,
+   "value_normalised": null
+  },
+  "ex_024": {
+   "asserter_kind": "claimant",
+   "asserter_name": null,
+   "assertion_id": "ex_024",
+   "entity_id": "claimant_1",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": 730,
+    "char_start": 686,
+    "document_id": "doc_statement",
+    "document_version": "v1",
+    "field_path": null,
+    "field_record": null,
+    "locator_kind": "TextSpan",
+    "passage_id": "statement.body",
+    "passage_label": "Recorded statement of the claimant",
+    "passage_text": "The claimant says they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.\n\nThe claimant recalls that it had been raining earlier and that the pavement was wet. They say they were driving \"around 25 to 30 mph\" before beginning the turn.\n\nAccording to the claimant, the turn was normal until the vehicle suddenly slid. The claimant says they tried to correct the vehicle but the front of the Mercedes contacted a parked SUV.\n\nThe claimant says they did not see anyone inside the parked SUV and did not believe anyone was injured.\n\nThe claimant says they stopped after the collision, looked at the vehicles, and then left because they were concerned about being stranded late at night. They say they intended to report the incident.\n\nThe claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.",
+    "quote": "concerned about being stranded late at night",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "reason_for_leaving",
+   "predicate_label": "Stated reason for leaving",
+   "provenance": "extracted",
+   "source_id": "doc_statement",
+   "source_name": "Recorded statement",
+   "text": "The claimant states they left because they were concerned about being stranded late at night.",
+   "value": "concerned about being stranded late at night",
+   "value_normalised": "concerned about being stranded late at night"
+  },
+  "ex_025": {
+   "asserter_kind": "claimant",
+   "asserter_name": null,
+   "assertion_id": "ex_025",
+   "entity_id": "claimant_1",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": 777,
+    "char_start": 746,
+    "document_id": "doc_statement",
+    "document_version": "v1",
+    "field_path": null,
+    "field_record": null,
+    "locator_kind": "TextSpan",
+    "passage_id": "statement.body",
+    "passage_label": "Recorded statement of the claimant",
+    "passage_text": "The claimant says they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.\n\nThe claimant recalls that it had been raining earlier and that the pavement was wet. They say they were driving \"around 25 to 30 mph\" before beginning the turn.\n\nAccording to the claimant, the turn was normal until the vehicle suddenly slid. The claimant says they tried to correct the vehicle but the front of the Mercedes contacted a parked SUV.\n\nThe claimant says they did not see anyone inside the parked SUV and did not believe anyone was injured.\n\nThe claimant says they stopped after the collision, looked at the vehicles, and then left because they were concerned about being stranded late at night. They say they intended to report the incident.\n\nThe claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.",
+    "quote": "intended to report the incident",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "intended_to_report",
+   "predicate_label": "Intended to report",
+   "provenance": "extracted",
+   "source_id": "doc_statement",
+   "source_name": "Recorded statement",
+   "text": "The claimant states they intended to report the incident.",
+   "value": null,
+   "value_normalised": null
+  },
+  "ex_026": {
+   "asserter_kind": "claimant",
+   "asserter_name": null,
+   "assertion_id": "ex_026",
+   "entity_id": "claimant_1",
+   "event_id": "crash_001",
+   "evidence": {
+    "char_end": 967,
+    "char_start": 793,
+    "document_id": "doc_statement",
+    "document_version": "v1",
+    "field_path": null,
+    "field_record": null,
+    "locator_kind": "TextSpan",
+    "passage_id": "statement.body",
+    "passage_label": "Recorded statement of the claimant",
+    "passage_text": "The claimant says they were driving the Mercedes-Benz G-Class southbound and making a right turn at approximately 9:40 PM.\n\nThe claimant recalls that it had been raining earlier and that the pavement was wet. They say they were driving \"around 25 to 30 mph\" before beginning the turn.\n\nAccording to the claimant, the turn was normal until the vehicle suddenly slid. The claimant says they tried to correct the vehicle but the front of the Mercedes contacted a parked SUV.\n\nThe claimant says they did not see anyone inside the parked SUV and did not believe anyone was injured.\n\nThe claimant says they stopped after the collision, looked at the vehicles, and then left because they were concerned about being stranded late at night. They say they intended to report the incident.\n\nThe claimant does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.",
+    "quote": "does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location",
+    "resolution_note": null,
+    "verified": true
+   },
+   "predicate": "recall_limitation",
+   "predicate_label": "Stated limits of recall",
+   "provenance": "extracted",
+   "source_id": "doc_statement",
+   "source_name": "Recorded statement",
+   "text": "The claimant states they do not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location.",
+   "value": "does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location",
+   "value_normalised": "does not recall the exact distance traveled, whether traction control activated, whether another vehicle was nearby, whether there was a witness, or the exact impact location"
+  }
+ },
+ "claim": {
+  "checkpoint": "C3",
+  "claim_id": "claim_001",
+  "claim_number": "CLAIM-001",
+  "generated_at": "2026-09-07T20:59:09.919898+00:00",
+  "loss_date": "2026-08-11",
+  "loss_location": "4655 S Karlov Ave, Chicago, IL",
+  "model_id": "google/gemini-3.8-flash",
+  "prompt_version": "e1-v2",
+  "provenance_disclaimer": "HYBRID PROVENANCE. The structured anchor record holds fields transcribed from real Chicago crash data supplied by the project owner. Every narrative document is SYNTHETIC and is not a statement by any real crash participant. No person-level demographic attribute is carried into this fixture. Results measured against it record WHAT WE PLANTED (D-003); the real anchor makes the scenario physically plausible, it does not make the evaluation real-world evidence.",
+  "status": "open_investigating",
+  "verified_means": "Verified means this assertion was traced to exact text in a source document and that citation was checked in code. It does NOT mean the assertion is true. No stage of this system decides which source is correct, which differences matter, or anything about credibility, liability, or fraud."
+ },
+ "entities": [
+  {
+   "contradiction_count": 1,
+   "entity_id": "vehicle_1",
+   "label": "Vehicle 1 — claimant's vehicle",
+   "neighborhood_ids": [
+    "nb_016",
+    "nb_017",
+    "nb_018",
+    "nb_019",
+    "nb_020",
+    "nb_021",
+    "nb_022",
+    "nb_023",
+    "nb_024"
+   ],
+   "type": "vehicle"
+  },
+  {
+   "contradiction_count": 0,
+   "entity_id": "vehicle_2",
+   "label": "Vehicle 2 — the parked vehicle",
+   "neighborhood_ids": [
+    "nb_025",
+    "nb_026",
+    "nb_027",
+    "nb_028",
+    "nb_029",
+    "nb_030",
+    "nb_031",
+    "nb_032"
+   ],
+   "type": "vehicle"
+  },
+  {
+   "contradiction_count": 0,
+   "entity_id": "roadway_1",
+   "label": "Roadway and conditions",
+   "neighborhood_ids": [
+    "nb_012",
+    "nb_013",
+    "nb_014",
+    "nb_015"
+   ],
+   "type": "roadway"
+  },
+  {
+   "contradiction_count": 0,
+   "entity_id": "crash_001",
+   "label": "The collision",
+   "neighborhood_ids": [
+    "nb_007",
+    "nb_008",
+    "nb_009",
+    "nb_010",
+    "nb_011"
+   ],
+   "type": "collision"
+  },
+  {
+   "contradiction_count": 0,
+   "entity_id": "claimant_1",
+   "label": "The claimant",
+   "neighborhood_ids": [
+    "nb_001",
+    "nb_002",
+    "nb_003",
+    "nb_004",
+    "nb_005",
+    "nb_006"
+   ],
+   "type": "party"
+  }
+ ],
+ "neighborhoods": [
+  {
+   "assertion_ids": [
+    "ex_007"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "claimant_1",
+   "event_id": "crash_001",
+   "neighborhood_id": "nb_001",
+   "predicate": "awareness_of_severity",
+   "predicate_label": "Awareness of severity",
+   "rationale": "Only one source addresses this property. Silence by other sources is not a relationship.",
+   "relationship": null,
+   "relationship_method": "not_compared",
+   "singleton": true,
+   "source_ids": [
+    "doc_fnol"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "ex_011",
+    "ex_022"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "claimant_1",
+   "event_id": "crash_001",
+   "neighborhood_id": "nb_002",
+   "predicate": "injury_belief",
+   "predicate_label": "Belief about injury",
+   "rationale": "Both assertions state that the claimant did not believe anyone was injured.",
+   "relationship": "CORROBORATING",
+   "relationship_method": "llm",
+   "singleton": false,
+   "source_ids": [
+    "doc_fnol",
+    "doc_statement"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "ex_025"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "claimant_1",
+   "event_id": "crash_001",
+   "neighborhood_id": "nb_003",
+   "predicate": "intended_to_report",
+   "predicate_label": "Intended to report",
+   "rationale": "Only one source addresses this property. Silence by other sources is not a relationship.",
+   "relationship": null,
+   "relationship_method": "not_compared",
+   "singleton": true,
+   "source_ids": [
+    "doc_statement"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "ex_008",
+    "ex_023"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "claimant_1",
+   "event_id": "crash_001",
+   "neighborhood_id": "nb_004",
+   "predicate": "post_collision_action",
+   "predicate_label": "Post-collision actions",
+   "rationale": "Both assertions describe the identical sequence of actions following the collision: stopping, looking at the vehicles, and then leaving.",
+   "relationship": "CORROBORATING",
+   "relationship_method": "llm",
+   "singleton": false,
+   "source_ids": [
+    "doc_fnol",
+    "doc_statement"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "ex_009",
+    "ex_024"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "claimant_1",
+   "event_id": "crash_001",
+   "neighborhood_id": "nb_005",
+   "predicate": "reason_for_leaving",
+   "predicate_label": "Stated reason for leaving",
+   "rationale": "Both assertions state that the claimant left because they were concerned about being stranded late at night.",
+   "relationship": "CORROBORATING",
+   "relationship_method": "llm",
+   "singleton": false,
+   "source_ids": [
+    "doc_fnol",
+    "doc_statement"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "ex_026"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "claimant_1",
+   "event_id": "crash_001",
+   "neighborhood_id": "nb_006",
+   "predicate": "recall_limitation",
+   "predicate_label": "Stated limits of recall",
+   "rationale": "Only one source addresses this property. Silence by other sources is not a relationship.",
+   "relationship": null,
+   "relationship_method": "not_compared",
+   "singleton": true,
+   "source_ids": [
+    "doc_statement"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "an_005"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "crash_001",
+   "event_id": "crash_001",
+   "neighborhood_id": "nb_007",
+   "predicate": "crash_type",
+   "predicate_label": "Crash type",
+   "rationale": "Only one source addresses this property. Silence by other sources is not a relationship.",
+   "relationship": null,
+   "relationship_method": "not_compared",
+   "singleton": true,
+   "source_ids": [
+    "rec_anchor"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "an_017"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "crash_001",
+   "event_id": "crash_001",
+   "neighborhood_id": "nb_008",
+   "predicate": "damage_band",
+   "predicate_label": "Damage band",
+   "rationale": "Only one source addresses this property. Silence by other sources is not a relationship.",
+   "relationship": null,
+   "relationship_method": "not_compared",
+   "singleton": true,
+   "source_ids": [
+    "rec_anchor"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "an_016"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "crash_001",
+   "event_id": "crash_001",
+   "neighborhood_id": "nb_009",
+   "predicate": "injuries_total",
+   "predicate_label": "Injuries recorded",
+   "rationale": "Only one source addresses this property. Silence by other sources is not a relationship.",
+   "relationship": null,
+   "relationship_method": "not_compared",
+   "singleton": true,
+   "source_ids": [
+    "rec_anchor"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "an_002"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "crash_001",
+   "event_id": "crash_001",
+   "neighborhood_id": "nb_010",
+   "predicate": "location_text",
+   "predicate_label": "Location",
+   "rationale": "Only one source addresses this property. Silence by other sources is not a relationship.",
+   "relationship": null,
+   "relationship_method": "not_compared",
+   "singleton": true,
+   "source_ids": [
+    "rec_anchor"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "an_001",
+    "ex_014"
+   ],
+   "distinct_value_count": 2,
+   "entity_id": "crash_001",
+   "event_id": "crash_001",
+   "neighborhood_id": "nb_011",
+   "predicate": "occurred_at",
+   "predicate_label": "Occurred at",
+   "rationale": "One assertion provides an exact time of 21:43:00 while the other gives an approximate time of 9:40 PM.",
+   "relationship": "COMPATIBLE",
+   "relationship_method": "llm",
+   "singleton": false,
+   "source_ids": [
+    "rec_anchor",
+    "doc_statement"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "an_004",
+    "ex_003"
+   ],
+   "distinct_value_count": 2,
+   "entity_id": "roadway_1",
+   "event_id": "crash_001",
+   "neighborhood_id": "nb_012",
+   "predicate": "lighting",
+   "predicate_label": "Lighting",
+   "rationale": "Both assertions agree that the roadway was in darkness but illuminated by artificial lighting.",
+   "relationship": "CORROBORATING",
+   "relationship_method": "llm",
+   "singleton": false,
+   "source_ids": [
+    "rec_anchor",
+    "doc_fnol"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "an_006"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "roadway_1",
+   "event_id": "crash_001",
+   "neighborhood_id": "nb_013",
+   "predicate": "posted_speed_limit",
+   "predicate_label": "Posted speed limit",
+   "rationale": "Only one source addresses this property. Silence by other sources is not a relationship.",
+   "relationship": null,
+   "relationship_method": "not_compared",
+   "singleton": true,
+   "source_ids": [
+    "rec_anchor"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "an_003",
+    "ex_002",
+    "ex_016"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "roadway_1",
+   "event_id": "crash_001",
+   "neighborhood_id": "nb_014",
+   "predicate": "road_surface",
+   "predicate_label": "Road surface",
+   "rationale": "All sources normalise to the same value ('wet').",
+   "relationship": "CORROBORATING",
+   "relationship_method": "deterministic",
+   "singleton": false,
+   "source_ids": [
+    "rec_anchor",
+    "doc_fnol",
+    "doc_statement"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "ex_015"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "roadway_1",
+   "event_id": "crash_001",
+   "neighborhood_id": "nb_015",
+   "predicate": "weather_before_loss",
+   "predicate_label": "Weather before loss",
+   "rationale": "Only one source addresses this property. Silence by other sources is not a relationship.",
+   "relationship": null,
+   "relationship_method": "not_compared",
+   "singleton": true,
+   "source_ids": [
+    "doc_statement"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "anv_001"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "vehicle_1",
+   "event_id": null,
+   "neighborhood_id": "nb_016",
+   "predicate": "vehicle_make",
+   "predicate_label": "Make",
+   "rationale": "Only one source addresses this property. Silence by other sources is not a relationship.",
+   "relationship": null,
+   "relationship_method": "not_compared",
+   "singleton": true,
+   "source_ids": [
+    "rec_anchor"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "anv_002"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "vehicle_1",
+   "event_id": null,
+   "neighborhood_id": "nb_017",
+   "predicate": "vehicle_model",
+   "predicate_label": "Model",
+   "rationale": "Only one source addresses this property. Silence by other sources is not a relationship.",
+   "relationship": null,
+   "relationship_method": "not_compared",
+   "singleton": true,
+   "source_ids": [
+    "rec_anchor"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "anv_003"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "vehicle_1",
+   "event_id": null,
+   "neighborhood_id": "nb_018",
+   "predicate": "vehicle_year",
+   "predicate_label": "Year",
+   "rationale": "Only one source addresses this property. Silence by other sources is not a relationship.",
+   "relationship": null,
+   "relationship_method": "not_compared",
+   "singleton": true,
+   "source_ids": [
+    "rec_anchor"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "ex_017"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "vehicle_1",
+   "event_id": "crash_001",
+   "neighborhood_id": "nb_019",
+   "predicate": "approximate_speed",
+   "predicate_label": "Approximate speed",
+   "rationale": "Only one source addresses this property. Silence by other sources is not a relationship.",
+   "relationship": null,
+   "relationship_method": "not_compared",
+   "singleton": true,
+   "source_ids": [
+    "doc_statement"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "ex_019"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "vehicle_1",
+   "event_id": "crash_001",
+   "neighborhood_id": "nb_020",
+   "predicate": "contact_point",
+   "predicate_label": "Contact point",
+   "rationale": "Only one source addresses this property. Silence by other sources is not a relationship.",
+   "relationship": null,
+   "relationship_method": "not_compared",
+   "singleton": true,
+   "source_ids": [
+    "doc_statement"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "ex_018"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "vehicle_1",
+   "event_id": "crash_001",
+   "neighborhood_id": "nb_021",
+   "predicate": "loss_of_control",
+   "predicate_label": "Loss of control",
+   "rationale": "Only one source addresses this property. Silence by other sources is not a relationship.",
+   "relationship": null,
+   "relationship_method": "not_compared",
+   "singleton": true,
+   "source_ids": [
+    "doc_statement"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "an_009",
+    "ex_004",
+    "ex_013"
+   ],
+   "distinct_value_count": 2,
+   "entity_id": "vehicle_1",
+   "event_id": "crash_001",
+   "neighborhood_id": "nb_022",
+   "predicate": "maneuver",
+   "predicate_label": "Maneuver",
+   "rationale": "All assertions state that the vehicle was making a right turn.",
+   "relationship": "CORROBORATING",
+   "relationship_method": "llm",
+   "singleton": false,
+   "source_ids": [
+    "rec_anchor",
+    "doc_fnol",
+    "doc_statement"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "an_010"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "vehicle_1",
+   "event_id": "crash_001",
+   "neighborhood_id": "nb_023",
+   "predicate": "occupant_count",
+   "predicate_label": "Occupant count",
+   "rationale": "Only one source addresses this property. Silence by other sources is not a relationship.",
+   "relationship": null,
+   "relationship_method": "not_compared",
+   "singleton": true,
+   "source_ids": [
+    "rec_anchor"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "an_008",
+    "ex_001",
+    "ex_012"
+   ],
+   "distinct_value_count": 2,
+   "entity_id": "vehicle_1",
+   "event_id": "crash_001",
+   "neighborhood_id": "nb_024",
+   "predicate": "travel_direction",
+   "predicate_label": "Travel direction",
+   "rationale": "Two assertions state the vehicle was traveling northbound, while one assertion states it was traveling southbound.",
+   "relationship": "CONTRADICTORY",
+   "relationship_method": "llm",
+   "singleton": false,
+   "source_ids": [
+    "rec_anchor",
+    "doc_fnol",
+    "doc_statement"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "anv_004"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "vehicle_2",
+   "event_id": null,
+   "neighborhood_id": "nb_025",
+   "predicate": "vehicle_make",
+   "predicate_label": "Make",
+   "rationale": "Only one source addresses this property. Silence by other sources is not a relationship.",
+   "relationship": null,
+   "relationship_method": "not_compared",
+   "singleton": true,
+   "source_ids": [
+    "rec_anchor"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "anv_005"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "vehicle_2",
+   "event_id": null,
+   "neighborhood_id": "nb_026",
+   "predicate": "vehicle_model",
+   "predicate_label": "Model",
+   "rationale": "Only one source addresses this property. Silence by other sources is not a relationship.",
+   "relationship": null,
+   "relationship_method": "not_compared",
+   "singleton": true,
+   "source_ids": [
+    "rec_anchor"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "anv_006"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "vehicle_2",
+   "event_id": null,
+   "neighborhood_id": "nb_027",
+   "predicate": "vehicle_year",
+   "predicate_label": "Year",
+   "rationale": "Only one source addresses this property. Silence by other sources is not a relationship.",
+   "relationship": null,
+   "relationship_method": "not_compared",
+   "singleton": true,
+   "source_ids": [
+    "rec_anchor"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "an_014"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "vehicle_2",
+   "event_id": "crash_001",
+   "neighborhood_id": "nb_028",
+   "predicate": "contact_point",
+   "predicate_label": "Contact point",
+   "rationale": "Only one source addresses this property. Silence by other sources is not a relationship.",
+   "relationship": null,
+   "relationship_method": "not_compared",
+   "singleton": true,
+   "source_ids": [
+    "rec_anchor"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "ex_005",
+    "ex_020"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "vehicle_2",
+   "event_id": "crash_001",
+   "neighborhood_id": "nb_029",
+   "predicate": "maneuver",
+   "predicate_label": "Maneuver",
+   "rationale": "All sources normalise to the same value ('parked').",
+   "relationship": "CORROBORATING",
+   "relationship_method": "deterministic",
+   "singleton": false,
+   "source_ids": [
+    "doc_fnol",
+    "doc_statement"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "an_013"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "vehicle_2",
+   "event_id": "crash_001",
+   "neighborhood_id": "nb_030",
+   "predicate": "occupant_count",
+   "predicate_label": "Occupant count",
+   "rationale": "Only one source addresses this property. Silence by other sources is not a relationship.",
+   "relationship": null,
+   "relationship_method": "not_compared",
+   "singleton": true,
+   "source_ids": [
+    "rec_anchor"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "ex_010",
+    "ex_021"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "vehicle_2",
+   "event_id": "crash_001",
+   "neighborhood_id": "nb_031",
+   "predicate": "occupant_observation",
+   "predicate_label": "Occupants observed",
+   "rationale": "Both assertions state that the claimant did not observe anyone inside the parked vehicle.",
+   "relationship": "CORROBORATING",
+   "relationship_method": "llm",
+   "singleton": false,
+   "source_ids": [
+    "doc_fnol",
+    "doc_statement"
+   ]
+  },
+  {
+   "assertion_ids": [
+    "an_012",
+    "ex_006"
+   ],
+   "distinct_value_count": 1,
+   "entity_id": "vehicle_2",
+   "event_id": "crash_001",
+   "neighborhood_id": "nb_032",
+   "predicate": "unit_type",
+   "predicate_label": "Unit type",
+   "rationale": "All sources normalise to the same value ('parked').",
+   "relationship": "CORROBORATING",
+   "relationship_method": "deterministic",
+   "singleton": false,
+   "source_ids": [
+    "rec_anchor",
+    "doc_fnol"
+   ]
+  }
+ ],
+ "not_assessed": [
+  "materiality — not assessed by design (PRD §7.4, gated on D-014). The system surfaces differences; a human decides which matter.",
+  "credibility, fault, liability, coverage, and suspicion — out of scope for V1.",
+  "photographs and scene diagrams — presence noted, content not read.",
+  "reporting delay and report-date chronology — not computed: the claim record does not state a report date.",
+  "arrival date of doc_fnol — not recorded in the file, so it contributes no 'became known' timeline event."
+ ],
+ "sources": [
+  {
+   "name": "Structured crash record",
+   "passage_ids": [],
+   "processing": "read deterministically",
+   "source_id": "rec_anchor",
+   "type": "crash_record",
+   "verification_status": "verified",
+   "verified_assertion_count": 20
+  },
+  {
+   "name": "First Notice of Loss",
+   "passage_ids": [
+    "fnol.description_of_accident"
+   ],
+   "processing": "extracted, quote located in code, citation verified",
+   "source_id": "doc_fnol",
+   "type": "fnol",
+   "verification_status": "verified",
+   "verified_assertion_count": 11
+  },
+  {
+   "name": "Recorded statement",
+   "passage_ids": [
+    "statement.body"
+   ],
+   "processing": "extracted, quote located in code, citation verified",
+   "source_id": "doc_statement",
+   "type": "recorded_statement",
+   "verification_status": "verified",
+   "verified_assertion_count": 15
+  }
+ ],
+ "timeline": {
+  "became_known": [
+   {
+    "event_id": "ev_003",
+    "label": "The recorded statement was received into the file on 2026-08-13.",
+    "ordering_confidence": "exact",
+    "precision": "day",
+    "raw_expression": "2026-08-13",
+    "source_assertion_ids": [
+     "bk_001"
+    ],
+    "when": "2026-08-13"
+   }
+  ],
+  "occurred": [
+   {
+    "event_id": "ev_001",
+    "label": "The reported date of loss is 2026-08-11.",
+    "ordering_confidence": "exact",
+    "precision": "day",
+    "raw_expression": "2026-08-11",
+    "source_assertion_ids": [
+     "sf_001"
+    ],
+    "when": "2026-08-11"
+   },
+   {
+    "event_id": "ev_002",
+    "label": "The structured crash record codes CRASH_DATE as 2026-08-11T21:43:00.",
+    "ordering_confidence": "exact",
+    "precision": "day",
+    "raw_expression": "2026-08-11",
+    "source_assertion_ids": [
+     "an_001"
+    ],
+    "when": "2026-08-11"
+   },
+   {
+    "event_id": "ev_004",
+    "label": "The claimant's vehicle was traveling northbound.",
+    "ordering_confidence": "unorderable",
+    "precision": "vague",
+    "raw_expression": "at night",
+    "source_assertion_ids": [
+     "ex_001"
+    ],
+    "when": null
+   },
+   {
+    "event_id": "ev_005",
+    "label": "The claimant left because they were concerned about being stranded late at night.",
+    "ordering_confidence": "unorderable",
+    "precision": "vague",
+    "raw_expression": "late at night",
+    "source_assertion_ids": [
+     "ex_009"
+    ],
+    "when": null
+   },
+   {
+    "event_id": "ev_006",
+    "label": "The claimant states the collision occurred at approximately 9:40 PM.",
+    "ordering_confidence": "unorderable",
+    "precision": "vague",
+    "raw_expression": "approximately 9:40 PM",
+    "source_assertion_ids": [
+     "ex_014"
+    ],
+    "when": null
+   },
+   {
+    "event_id": "ev_007",
+    "label": "The claimant recalls that it had been raining earlier.",
+    "ordering_confidence": "unorderable",
+    "precision": "vague",
+    "raw_expression": "earlier",
+    "source_assertion_ids": [
+     "ex_015"
+    ],
+    "when": null
+   },
+   {
+    "event_id": "ev_008",
+    "label": "The claimant states they left because they were concerned about being stranded late at night.",
+    "ordering_confidence": "unorderable",
+    "precision": "vague",
+    "raw_expression": "late at night",
+    "source_assertion_ids": [
+     "ex_024"
+    ],
+    "when": null
+   }
+  ]
+ },
+ "ungrouped": [
+  {
+   "assertion_id": "sf_001",
+   "provenance": "deterministic",
+   "reason": "no entity and no predicate",
+   "text": "The reported date of loss is 2026-08-11."
+  },
+  {
+   "assertion_id": "sf_002",
+   "provenance": "deterministic",
+   "reason": "no entity and no predicate",
+   "text": "The loss location of record is 4655 S Karlov Ave, Chicago, IL."
+  },
+  {
+   "assertion_id": "sf_003",
+   "provenance": "deterministic",
+   "reason": "no entity and no predicate",
+   "text": "The policy incepted on 2026-01-01 and expires on 2027-01-01."
+  },
+  {
+   "assertion_id": "an_007",
+   "provenance": "deterministic",
+   "reason": "no entity and no predicate",
+   "text": "The structured crash record codes UNIT_1_VEHICLE as {'year': 2015, 'make': 'MERCEDES-BENZ', 'model': 'G-CLASS'}."
+  },
+  {
+   "assertion_id": "an_011",
+   "provenance": "deterministic",
+   "reason": "no entity and no predicate",
+   "text": "The structured crash record codes UNIT_2_VEHICLE as {'year': 2005, 'make': 'CHEVROLET', 'model': 'SUBURBAN'}."
+  },
+  {
+   "assertion_id": "an_015",
+   "provenance": "deterministic",
+   "reason": "no entity and no predicate",
+   "text": "The structured crash record codes MOST_SEVERE_INJURY as NO INDICATION OF INJURY."
+  },
+  {
+   "assertion_id": "df_001",
+   "provenance": "deterministic",
+   "reason": "no entity and no predicate",
+   "text": "The policy had been in force 222 days at the date of loss."
+  },
+  {
+   "assertion_id": "df_002",
+   "provenance": "deterministic",
+   "reason": "no entity and no predicate",
+   "text": "The policy was in force on the reported date of loss."
+  },
+  {
+   "assertion_id": "df_003",
+   "provenance": "deterministic",
+   "reason": "no entity and no predicate",
+   "text": "The file records 0 prior claim(s)."
+  },
+  {
+   "assertion_id": "df_004",
+   "provenance": "deterministic",
+   "reason": "no entity and no predicate",
+   "text": "The claim has been handled by 1 handler(s)."
+  },
+  {
+   "assertion_id": "bk_001",
+   "provenance": "deterministic",
+   "reason": "no entity and no predicate",
+   "text": "The recorded statement was received into the file on 2026-08-13."
+  }
+ ],
+ "view_version": "claim-view/1"
+}

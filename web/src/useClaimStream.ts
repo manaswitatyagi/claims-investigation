@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { STATIC_MODE } from "./api";
 import type { ProcessingEvent, RelationshipDelta } from "./types";
 
 export interface IngestionSession {
@@ -37,6 +38,11 @@ export function useClaimStream(claimId: string, onStateChanged: () => void) {
   changedRef.current = onStateChanged;
 
   useEffect(() => {
+    // No server, no stream. EventSource retries on failure by design, so
+    // opening one against a static host would reconnect forever and report
+    // "disconnected" about a backend that was never meant to be there.
+    if (STATIC_MODE) return;
+
     const es = new EventSource(`/api/claim/${claimId}/stream`);
     es.onopen = () => setConnected(true);
     es.onerror = () => setConnected(false);

@@ -43,17 +43,39 @@ OpenRouter adapter used for the live runs is stdlib `urllib` and adds nothing.
 ./.venv/bin/python tools/run_e2_ab.py   --client openrouter --runs 3
 ```
 
-## Run the demo
+## The demo
+
+**Hosted, read-only:** https://manaswitatyagi.github.io/claims-investigation/
+
+Same app, built with `VITE_STATIC=1` so it reads a baked snapshot of the
+`claim-view/1` DTO instead of calling the Python API — every panel is a
+projection of that one contract, so a file serves them as well as a process
+does. The `/api` path is dead-code-eliminated, and CI fails the build if it
+survives. Adding a document is disabled there: ingestion runs the real
+extraction and quote-location pipeline, and mocking it would mean showing
+assertions whose spans were never resolved.
+
+**Locally, with ingestion:**
 
 ```bash
 cd web && npm install && npm run build && cd ..     # emits src/presentation/static
 ./.venv/bin/python -m src.presentation.server        # http://127.0.0.1:8000
 ```
 
-Sources, an evidence map grouped by assertion neighbourhood, an inspector showing
-each assertion against its exact source span, and a two-axis timeline. Dropping a
+Sources, an evidence map grouped by assertion neighbourhood, a **graph view**
+(entity → property → source, deterministic layout), an inspector showing each
+assertion against its exact source span, and a two-axis timeline. Dropping a
 `.md` or `.txt` file in re-runs the affected neighbourhoods and streams the
 updated view over SSE.
+
+To refresh the hosted snapshot after an experiment re-run:
+
+```bash
+./.venv/bin/python tools/build_static_snapshot.py    # -> web/public/claim-view.json
+```
+
+It is committed rather than generated in CI, so the hosted numbers cannot move
+without a commit saying so.
 
 State lives in `data/runtime/` (gitignored). On first run it self-seeds from the
 committed E2 run at `data/generated/e2_ontology/run_1`, so a fresh clone works
